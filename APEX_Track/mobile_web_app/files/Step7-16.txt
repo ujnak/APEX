@@ -1,2 +1,0 @@
-This screenshot shows the Porperty Editor-Column section of the Page Designer.
-The mouse pointer is clicking the Save and Run Page icon.

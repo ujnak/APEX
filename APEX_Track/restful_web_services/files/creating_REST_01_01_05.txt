@@ -1,1 +1,0 @@
-This photograph shows the Add a Resource Handler section. Here, we are selecting GET for Method, Query for Source Type, CSV for Format,  and entering 'select * from employees' as a source query.

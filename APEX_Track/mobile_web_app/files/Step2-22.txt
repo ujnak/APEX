@@ -1,4 +1,0 @@
-This screenshot shows the Mobile App login page with the following fields:
-Username: obe is displayed
-Password: Display as bullets.
-And the Log In button is focused.

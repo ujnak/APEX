@@ -1,1 +1,0 @@
-This image shows the Shared Components page. Under Data Sources, select Web Source Modules.

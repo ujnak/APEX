@@ -1,1 +1,0 @@
-This photograph shows right clicking P3_JOB_ID, and selecting 'Create Dynamic Action', in the Rendering tab.

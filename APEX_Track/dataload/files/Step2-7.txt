@@ -1,1 +1,0 @@
-The image shows the Region tabbed page with the editable attributes for a region. The Identification section, has two fields, Title and Type. The Title field contains the value Dependents List and the Type field has the Interactive Report option selected.

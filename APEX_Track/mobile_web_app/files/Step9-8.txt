@@ -1,4 +1,0 @@
-This screenshot shows the Projects page of the Mobile App.
-It has a search bar and the list of Projects based on Department Id.
-
-The mouse pointer is clicking the Email Intregration project.

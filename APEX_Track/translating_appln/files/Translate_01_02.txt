@@ -1,8 +1,0 @@
-This image shows the Import dialog that enables you to import an application.
-The following descriptive text appears at the top of the dialog:
-"Select the file you wish to import to the export repository. Once imported you can install your file. If the imported file is a packaged application export, the installation wizard will allow you to run the packaged installation scripts after installing the application definition."
-
-The dialog has three fileds:
-1. Import file has a Browse button that you can click and browse to the file to be imported.
-2. File Type lists several file types. The default selection is Database Application, Page or Component Export.
-3. File Character Set with the default selection Unicode UTF-8.

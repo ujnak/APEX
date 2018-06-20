@@ -1,9 +1,0 @@
-This screenshot displays the third step "Confirm Switch" of the Switch Theme wizard.
-The page displays the following information:
-Application: 101 - Sample Database Application
-Currently Active Theme: 25. Blue Responsive
-Switch To Theme: 42. Universal Theme
-Back button
-Cancel button
-Switch Theme button (mouse pointer)
-All the fields are read only.

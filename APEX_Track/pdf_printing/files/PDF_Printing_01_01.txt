@@ -1,1 +1,0 @@
-This screenshot shows entering http://hostname:port/apex/apex_admin in a web browser and pressing the Enter key.

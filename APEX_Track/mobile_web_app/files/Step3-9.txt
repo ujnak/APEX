@@ -1,3 +1,0 @@
-This screenshot shows the EmpDept Chart page withing the Mobile App application.
-
-It has a pie chart showing the numbe rof employees per department.

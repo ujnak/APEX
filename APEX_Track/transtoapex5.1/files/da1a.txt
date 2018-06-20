@@ -1,8 +1,0 @@
-This screenshot shows a portion of the Page Designer view of Page 1: Sample Database Application.
-The Rendering tab is selected. Under the Rendering tab, there is a tree which displays the following values:
-Page 1: Sample Database Application (level 0)
-- Pre Rendering (level 1)
-- Regons (level 1)
--- Content Body (level 2)
--- Body 3 (level 2)
-Body 3 is being right-clicked and Collapse All Below is being selected.

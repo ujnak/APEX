@@ -1,1 +1,0 @@
-This is the image of the Create Page wizard. It shows the Source page in the wizard where you define the data source.  In this image, it shows the table SAMPLE$PROJECTS_TASKS selected as the data source.

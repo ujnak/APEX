@@ -1,4 +1,0 @@
-This screenshot shows a portion of the Packaged Apps Gallery.
-There are two Sample Application shown in the screenshot:
-Sample Database Application (mouse pointing to this button)
-Sample File Upload and Download

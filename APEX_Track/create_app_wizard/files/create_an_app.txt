@@ -1,1 +1,0 @@
-This is the image of the Create an Application wizard dialog. In this dialog, you have the option to create a new application, create an application from a spreadsheet, and create an application from Packaged app. 

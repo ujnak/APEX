@@ -1,1 +1,0 @@
-This is the image of the Sign in page of the app REST Enabled SQL. It shows the input fields username, password, and the sign in button. 

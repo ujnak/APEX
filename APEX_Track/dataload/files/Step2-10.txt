@@ -1,1 +1,0 @@
-This image shows the report region of the Home page in the Data Loading application. It does not display any data. The developer toolbar displays at the bottom with various options.The pointer is on the Application link in the developer toolbar.

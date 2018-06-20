@@ -1,1 +1,0 @@
-This photograph shows the confirm page with a list of attributes that we selected in the previous steps. We are clicking the Create Application button to create the Database application.

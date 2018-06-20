@@ -1,1 +1,0 @@
-This image shows the Language Mappings page. The page contains a search field. It also has a Cancel button and a Create button. The pointer is on the Create button.

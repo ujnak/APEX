@@ -1,1 +1,0 @@
-This is the image of the New/Select Database Connection dialog in Oracle SQL Developer. You can create new connections here by entering the connection name, username, password, and by setting the hostname, port, SID. You can also test connections before creating the connection to a schema in the database. 

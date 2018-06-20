@@ -1,5 +1,0 @@
-Job Title	Head Count	Vacancies
-Analyst	3	0
-Consultant	2	4
-DBA	3	2
-Technical Staff	4	2

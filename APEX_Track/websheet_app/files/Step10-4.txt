@@ -1,9 +1,0 @@
-This screenshot shows the Create Navigation Section page. It has the following:
-Navigation Type: Page Navigation
-Sequence: 50
-Title: Pages
-Starting Page: 
-Maximum Levels: 12
-Order Siblings By: Created Date
-
-The mouse pointer is clicking the Create Section button.

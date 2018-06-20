@@ -1,2 +1,0 @@
-This image shows the Data/Table Mapping page of the data loading wizard. The data from the file that you uploaded is displayed as a table with columns FIRST_NAME, LAST_NAME, BIRTHDATE, RELATION, GENDER, RELATIVE_ID.
-The pointer is on the Next column.

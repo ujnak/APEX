@@ -1,5 +1,0 @@
-This screeshot shows a portion of the Application Computations page.
-The focused regions shows a Interactive report with four headings - Sequence, Name, Point, Type and three rows.
-Row 1: 10, A01, On New Instance (new session), SQL Query (return single value)
-Row 2: 10, A02, On New Instance (new session), SQL Query (return single value)
-Row 3: 10, A03, On New Instance (new session), SQL Query (return single value)

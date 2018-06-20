@@ -1,1 +1,0 @@
-In this photograph, you select Edit Page 2 in the developer toolbar. In the Property Editor, scroll down to the Enable Users To section. Select Yes for Save Public report. In the Download section and uncheck HTML and Click Save and Run Page.

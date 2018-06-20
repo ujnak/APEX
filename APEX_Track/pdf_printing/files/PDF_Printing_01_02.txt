@@ -1,1 +1,0 @@
-This screenshot shows entering 'admin' for User Name, the Instance Administrator password you specified when you installed Oracle Application Express for Password, and clicking 'Sign In' to Administration.

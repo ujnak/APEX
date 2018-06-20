@@ -1,9 +1,0 @@
-This image shows the Create an Application dialog. The dialog includes the following fields:
-1. User Inferface containing the default value Desktop
-2. Schema containing the pre-populated value HR
-3. Name containing the value Data Loading, which you need to type
-4. Application containing the pre-populated value 101
-5. Theme containing the default value Universal Theme (42)
-6. Theme Style containing the default value Vita
-
-In addition, the dialog includes the Cancel, Create Application and Next buttons. The pointer is on the Create Application button.

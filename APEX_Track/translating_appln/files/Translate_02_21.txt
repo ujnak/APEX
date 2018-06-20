@@ -1,1 +1,0 @@
-This image displays the dialog for uploding the XLIFF file. There are a series of Browse buttons. The file f100_101_en_de.xlf has been selected for upload.

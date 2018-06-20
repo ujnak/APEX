@@ -1,9 +1,0 @@
-This screenshot shows the Install Packaged Application page.
-It displays the following information:
-Application Name: Sample Database Application
-Authentication: Application Express Accounts
-Workspace Name: HR
-Schema: HR
-Back button
-Cancel button
-Install Application button (mouse pointing to this button)

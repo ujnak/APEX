@@ -1,1 +1,0 @@
-This screenshot shows selecting 'Oracle REST Data Services' for Print Server.

@@ -1,1 +1,0 @@
-This photograph shows the Salary value not being highlighted with red color when the value is lesser than 25000.

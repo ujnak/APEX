@@ -1,1 +1,0 @@
-This image shows the Create an Application page. Enter the Name as "USGS Earthquake". 

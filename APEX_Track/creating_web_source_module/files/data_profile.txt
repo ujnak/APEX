@@ -1,5 +1,0 @@
-This image shows the Data Profile Column page. You enter the following details:
-- Name: Time_As_Data
-- Column Type: Derived
-- SQL Expression: DATE'1970-01-01'+TIME/86400000
-- Data Type: Date

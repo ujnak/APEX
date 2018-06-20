@@ -1,8 +1,0 @@
-This screenshot shows the Manage Users and Groups page.
-It displays a success message stating "User created."
-There are three tabs - Users, Groups, and Group Assignments. The Users tab is selected.
-The screenshot displays a report with two columns (User, Email). There are four rows with the following values.
-Row 1: BRAD.KNIGHT, brad.knight@oracle.com
-Row 2: JOHN.BELL, john.bell@oracle.com
-Row 3: OBE, obe@example.com
-Row 4: SUSIE.PARKER, susie.parker@oracle.com

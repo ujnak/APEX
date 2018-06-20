@@ -1,7 +1,0 @@
-This image shows how to edit the Region Attributes. Enter the following:
-    Under Identification:
-        - Title: Enter Report
-       -  Type: Select Interactive Report
-    Under Source:
-        - Location: Select Web Source
-        - Module: Select USGS_Earthquake_WS

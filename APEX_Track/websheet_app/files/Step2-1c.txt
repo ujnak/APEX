@@ -1,2 +1,0 @@
-This screenhsot shows the Files section.
-The resource.xls file is added.

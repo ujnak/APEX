@@ -1,1 +1,0 @@
-This photograph shows selecting GET for Method, Query One Row for Source Type, No for Requires Secure Access, required SQL Query for Source, and clicking  the Create button.

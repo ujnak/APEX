@@ -1,6 +1,0 @@
-This screenshot shows the Confirm step of the Create Theme wizard.
-The page displays the following information:
-Theme: Universal Theme (42)
-Back button
-Cancel button
-Create button (mouse pointer)

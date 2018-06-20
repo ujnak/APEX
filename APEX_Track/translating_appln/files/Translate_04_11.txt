@@ -1,3 +1,0 @@
-This image shows the Create/Edi Text Message dialog.
-The Text field has the text Guten Tag %10.
-The pointer is on the Create Text Message button.

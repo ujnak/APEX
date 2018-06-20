@@ -1,1 +1,0 @@
-This is the imageof the Test REST Enabled SQL Service dialog, where the message - REST Enabled SQL Service created is displayed. 

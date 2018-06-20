@@ -1,1 +1,0 @@
-In this image, you select the Sample Database Application from the list of packaged applications.

@@ -1,6 +1,0 @@
-This screenshot shows the Create an Application page. It has a text as follows "What type of application would you like to create?"
-It has Desktop, Mobile, Websheet, and Packaged Application icons in it. 
-Mobile is selected. 
-It has two more options to select:
-From a spreadsheet and Copy an existing application.
-Cncel and Next buttons are also there in the bottom of the page.

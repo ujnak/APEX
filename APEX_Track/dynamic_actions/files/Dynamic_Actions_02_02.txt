@@ -1,1 +1,0 @@
-This photograph shows selecting 'Select List' for Type, under Identification. It also shows selecting 'SQL Query' for Type, and clicking the Code Editor: SQL Query icon to enter the relevant SQL query.

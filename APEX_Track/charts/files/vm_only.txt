@@ -1,1 +1,0 @@
-In this iamge, you enter the credentials to log into the APEX environment.

@@ -1,1 +1,0 @@
-This image shows the application home page with the developer toolbar. The toolbar items are displayed in German. The pointer is on the "Anwendung<n>" icon in the developer toolbar. 

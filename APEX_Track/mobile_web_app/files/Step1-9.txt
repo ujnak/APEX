@@ -1,1 +1,0 @@
-This screenshot shows the SQL Scripts Results page. It is displaying the summary view of the OBE.sql script. It has a table with five columns and fifteen rows. The columns are: Number, Elaspsed, Statement, Feedback, and Rows.

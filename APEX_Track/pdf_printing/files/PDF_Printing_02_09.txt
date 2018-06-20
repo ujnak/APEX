@@ -1,1 +1,0 @@
-This screenshot shows selecting 'Application Express Accounts' for Authentication Scheme, and clicking 'Next >'.

@@ -1,5 +1,0 @@
-This image displays the Text Messages dialog box. The dialog box has the following breadcrumb displayed at the top:
-
-Application 100 \Shared Components \Translate \Text Messages
-
- It has a search field. It also has Reset, Grid Edit and Create Text Message buttons. The pointer is on the Create Text Message button.

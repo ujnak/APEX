@@ -1,1 +1,0 @@
-This photograph shows selecting 'Application Express Accounts' for Authentication Scheme, 'DD-MON-YYYY' for Date Format. and clicking 'Next >'.

@@ -1,2 +1,0 @@
-This screenshot shows the Property Editor - Region section of the Page Designer.  
-The mouse pointer is clicking the Save and Run Page button.

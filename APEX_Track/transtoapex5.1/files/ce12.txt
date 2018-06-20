@@ -1,7 +1,0 @@
-This screenshots shows the Navigation Bar User Interface Details page.
-The Apply Changes button is being clicked.
-The following fields appear in the screenshot:
-Implementation: List
-Navigation Bar List: Navigation Bar
-List Template: Navigation Bar
-Template Options: Use Template Defaults (checked)

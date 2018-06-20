@@ -1,1 +1,0 @@
-The image shows the structure of the Home page as a tree. In this tree, the Regions option is highlighted and a context menu for Regions is displayed. The pointer is on the Create Region option in the context menu.

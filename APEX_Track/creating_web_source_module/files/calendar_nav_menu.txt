@@ -1,3 +1,0 @@
-This image shows the Create Page, Navigation Menu page. You select: 
-- Navigation Preference: Create a New Navigation Menu Entry 
-Click Next

@@ -1,5 +1,0 @@
-This screenshot shows the Human Resource Management websheet application home page. It has two sections:
-Welcome to Websheets
-Overview
-
-The Overview section is highlighted with a red textbox.

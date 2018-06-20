@@ -1,4 +1,0 @@
-This screenshot shows the Pages section.
-It has two Navigation entries:
-Home
-Reports

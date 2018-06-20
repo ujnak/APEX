@@ -1,1 +1,0 @@
-This screenshot shows the Access Denied page. It reads "No privilege for attempted action. Access denied by Page security check".

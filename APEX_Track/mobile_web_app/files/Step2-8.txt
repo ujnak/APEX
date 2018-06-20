@@ -1,4 +1,0 @@
-The Screenshot shows the Create Application page with the List View and Form page type selected. 
-Home(1) for Parent Page, PROJECTS for Table Name, and PROJECT_NAME for Display Column is being selected.
-
-The mouse pointer is clicking the Add Page button.

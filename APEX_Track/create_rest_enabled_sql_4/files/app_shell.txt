@@ -1,1 +1,0 @@
-This is the home page of the application. It shows the application ID, application name, and the pages added in the application in the lower pane. In the upper pane, it has the options to Run Application, Supporting Objects, Shared Components, Utilities, and Export/Import. It also has the button to create page in this application. 

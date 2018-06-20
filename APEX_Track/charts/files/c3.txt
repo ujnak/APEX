@@ -1,1 +1,0 @@
-In this image, you select Vertical for orientation in the Appearance tab,  enter No data found In the Messages tab for the When No Data Found field, and click Save and Run Page.

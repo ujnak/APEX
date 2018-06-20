@@ -1,2 +1,0 @@
-In this screenshot, there are three menu items. App Builder, SQL Workshop, and Team Development. 
-SQL Workshop icon is clicked to view a drop down menu and then SQL Scripts menu option is focused.

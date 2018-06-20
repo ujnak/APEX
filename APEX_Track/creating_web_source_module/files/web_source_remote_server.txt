@@ -1,5 +1,0 @@
-This image shows the Create Web Source - Remote Server page. Specify the following attributes:
--  Remote Server: Select Create New
-- Base URL - Base URL of the chosen Remote Server object, for example: https://earthquake.usgs.gov/earthquakes/feed/
-- Service URL Path - Enter the service-specific URL Path for the Web Source Module. The HTTP Endpoint URL is built by appending this to the Base URL specified in the Remote Server object. For example: v1.0/summary/4.5_month.geojson
-Click Next. 

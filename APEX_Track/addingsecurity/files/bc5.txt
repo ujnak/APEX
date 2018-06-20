@@ -1,9 +1,0 @@
-This screenshot shows the expanded Orders node. The Orders node consists of the Columns node which is also expanded. The expanded Columns node displays the following columns:
-- ORDER_ID
-- CUSTOMER_NAME
-- ORDER_ITEMS
-- ORDER_TOTAL
-- SALES_REP
-- TAGS
-- ORDER_NUMBER
-- ORDER_DATE

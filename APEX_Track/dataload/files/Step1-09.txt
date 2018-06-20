@@ -1,1 +1,0 @@
-This image shows the status of the script you elected to run. The details include the name of the user who ran the script, start time, finish time and elapsed time, status whether completed, security group ID, number of statements that were run and byte size of the script. In addition, the status includes a view results icon. The pointer is on the view results icon.

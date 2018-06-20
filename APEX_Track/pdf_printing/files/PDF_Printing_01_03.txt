@@ -1,1 +1,0 @@
-This screenshot shows the mouse pointer clicking the down arrow next to Manage Instance, and selecting Instance Settings, from the Oracle Application Express Administration home page.

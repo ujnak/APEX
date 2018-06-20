@@ -1,5 +1,0 @@
-This image shows the Source section of the Region tabbed page. The SQL Query field is populated with the following SQL statement:
-select FIRST-NAME, LAST_NAME, BIRTHDATE, RELATION, GENDER, RELATIVE_ID 
-FROM DEPENDENTS;
-
-The pointer is on the Save and Run Page icon.

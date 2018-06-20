@@ -1,1 +1,0 @@
-In this photogrpah, you click the Run Application icon to run the Sample Database Application.

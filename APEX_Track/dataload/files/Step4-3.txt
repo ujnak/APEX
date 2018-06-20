@@ -1,5 +1,0 @@
-This image shows the first page, Data Load Source, of the data loading wizard you created. Following fields are displayed:
-1. Import From. This field has a bulleted list of two options. Option 1 is Upload file, comma separated (*.csv) or tab delimited, which is selected.  Option 2 is Copy and Paste.
-2. File Name. This option has an associated Browse button.
-3. Separator, with the value comma (,).
-4. Optionally Enclosed By with the value double quote (").

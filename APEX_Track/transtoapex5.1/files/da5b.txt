@@ -1,5 +1,0 @@
-This screenshot shows the Template Options window and the following items:
-General: Use Template Defaults (checked), Stretch Form Item (unchecked)
-Size: X Large
-Cancel button
-OK button (the mouse pointer is clicking this button)

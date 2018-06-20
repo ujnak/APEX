@@ -1,1 +1,0 @@
-This is the image of the Sample Dataset page. It lists the datasets, the option to install or update , the language, description, the schema in which the dataset is present and the installed date. 

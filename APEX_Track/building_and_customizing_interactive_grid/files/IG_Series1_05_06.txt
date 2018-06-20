@@ -1,1 +1,0 @@
-In this photgraph, you click on the row header of employee ID 102 and select Revert Changes.

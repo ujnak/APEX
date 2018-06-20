@@ -1,1 +1,0 @@
-In this image,  you select Create a new navigation menu entry for Navigation Preference, select Home for Parent Navigation Menu Entry, and click Next.

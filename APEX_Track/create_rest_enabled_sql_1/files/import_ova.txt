@@ -1,1 +1,0 @@
-This is the image of the Import Virtual Appliance dialog. The dialog displays the components and details of the VM. 

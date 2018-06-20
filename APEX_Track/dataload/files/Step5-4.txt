@@ -1,1 +1,0 @@
-This image shows the data load definitions for the Data Load Wizard. The definition shows all the selections you made when creating the Data Load Wizard.

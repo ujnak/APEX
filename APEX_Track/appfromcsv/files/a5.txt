@@ -1,7 +1,0 @@
-This screenshot shows the Data step of the Create Application From Spreadsheet wizard. The following values are set:
-Text File: tasks.txt
-Seperator: \t
-Optionally Enclosed By: (null)
-(checked) First row contains column names
-File Character Set: Unicode UTF-8
-The Next button is being clicked.

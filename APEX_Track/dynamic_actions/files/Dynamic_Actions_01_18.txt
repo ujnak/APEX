@@ -1,2 +1,0 @@
-This photograph shows clicking the Edit button to edit the details for employee with Employee_ID 100.
-

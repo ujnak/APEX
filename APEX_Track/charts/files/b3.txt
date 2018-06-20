@@ -1,1 +1,0 @@
-In this image, you right-click Chart in the Gallery to view a context menu. Select Add To, Content Body, Tasks per Project Chart and choose Column After.

@@ -1,2 +1,0 @@
-This screenshot shows the Create Websheet Database Objects page.
-It has a list of objects required to run a websheets. The mouse pointer is clicking the Next button.

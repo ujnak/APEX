@@ -1,5 +1,0 @@
-This image shows the Create Web Source page. You must specify the following attributes:
-- Web Source Type - Select Simple HTTP.
-- Name - Enter a descriptive name for this Web Source Module.
-- Endpoint URL - Enter the Endpoint URL (starting with http:// or https://) for this web source, for example: https://earthquake.usgs.gov/earthquakes/feed/
-Click Next.

@@ -1,1 +1,0 @@
-This is the image of the Create REST Enabled SQL Service dialog. In this dialog you enter the name and endpoint url of the REST Enabled SQL service.

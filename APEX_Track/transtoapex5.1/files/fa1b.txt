@@ -1,1 +1,0 @@
-This screenshot shows the Code Editor window with the SQL Query. The OK button is being clicked.

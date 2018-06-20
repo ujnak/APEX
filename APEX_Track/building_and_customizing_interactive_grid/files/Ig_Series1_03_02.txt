@@ -1,1 +1,0 @@
-In this photograph, the Interactive Grid is filtered by Job ID SA_REP. All records which has SA_REP as the JOB ID is displayed.

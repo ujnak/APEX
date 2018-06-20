@@ -1,4 +1,0 @@
-This screenshot shows the Property Editor - Region section of the Page Designer with the folowing details highlighted.
-Name: Maintain Departments
-Title: Maintain Departments
-The mouse pointer is clicking the Save button.

@@ -1,9 +1,0 @@
-This screenshot shows the Application 100-Mobile App apge within the Oracle Application Express. 
-It has the following icons:
-Run Application
-Supporting Objects
-Shared Components
-Utilties
-Export/Import.
-
-Mouse pointer is clicking the Create Page button.

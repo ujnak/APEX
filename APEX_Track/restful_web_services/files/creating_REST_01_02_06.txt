@@ -1,1 +1,0 @@
-This photograph shows entering 'id' for Name and Bind Variable Name, selecting IN for Access Method, HTTP Header for Source Type, String for Parameter Type, and clicking the Create button.

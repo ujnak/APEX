@@ -1,9 +1,0 @@
-This screenshot shows the Remove Packed Application page.
-The following information is shown in the page:
-Application Name: Sample Database Application
-Workspace Name: HR
-Schema: HR
-Installed: 2 months ago
-Cancel button
-Remove Application button 
-The mouse pointer is clicking the Remove Application button.

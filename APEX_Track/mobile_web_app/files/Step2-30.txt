@@ -1,2 +1,0 @@
-This screenshot shows the navigation list containing Departments and Projects.
-The mouse pointer is clicking Projects .

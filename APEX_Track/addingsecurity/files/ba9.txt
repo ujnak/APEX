@@ -1,7 +1,0 @@
-This screenshot shows the Application Administration region of the Access Control Administration page.
-There are four Application Mode options:
-- Full access to all, access control list not used.
-- Restricted access. Only users defined in the access control list are allowed.
-- Public read only. Edit and administrative privileges controlled by access control list.
-- Administrative access only.
-The Set Application Mode button is being clicked.

@@ -1,4 +1,0 @@
-This screenshot shows the Files section. 
-There are two files added:
-resources.xls
-hr-logo.jpeg

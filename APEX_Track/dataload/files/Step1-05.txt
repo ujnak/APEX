@@ -1,1 +1,0 @@
-This image shows a dialog to browse files in the local directory. It shows the Windows Explorer on the left pane in which the DataLoading\Files directory is selected. On the right pane, the files in that directory are displayed. The file dependents.sql is highlighted. In addition, the dialog includes Open and Cancel buttons. The pointer is on the Open button. 

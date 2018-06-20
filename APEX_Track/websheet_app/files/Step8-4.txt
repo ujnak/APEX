@@ -1,8 +1,0 @@
-This screenshot shows the Create Navigation Section page.
-It has the following information:
-
-Navigation Type: Section Navigation
-Sequence: 30
-Title: Sections
-
-The mouse pointer is clicking the Create Section button.

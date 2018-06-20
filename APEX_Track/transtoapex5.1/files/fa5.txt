@@ -1,3 +1,0 @@
-This screenshot shows a portion of the Page Designer view of Page 6.
-In the Grid Layout, the Product Details region is selected.
-In the Property Editor, the Template value is set to Blank with Attributes.

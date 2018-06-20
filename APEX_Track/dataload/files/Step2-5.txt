@@ -1,8 +1,0 @@
-This image shows the message Application created successfully.
-It also displays the details of the application, Data Loading, which you created. The options, displayed as icons, include the following:
-1. Run Application
-2. Supporting Objects
-3. Shared Components
-4. Utilities
-5. Export/Import
-In another section, the pages in the Data Loading application are listed as icons. The pages listed are Home and Login Page. The pointer is on the Home page icon.

@@ -1,1 +1,0 @@
-This image shows the SQL Workshop tab with the SQL Scripts list. The dependents.sql script, which you uploaded in the previous section, is listed. The pointer is on the Upload button. 

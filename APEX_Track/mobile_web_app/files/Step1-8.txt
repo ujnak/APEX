@@ -1,8 +1,0 @@
-This screenshot shows the Run Script page. There is a box with the following information:
-Script Name  :  OBE.sql
-Created          : on [date in mm/dd/yyyy timestamp] by OBE
-Updated         : on [date in mm/dd/yyyy timestamp] by OBE
-Number of Statements: 36
-Script Size in Bytes: 4433
-
-Run Now is focused.

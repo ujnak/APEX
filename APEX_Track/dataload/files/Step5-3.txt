@@ -1,1 +1,0 @@
-This image shows the Data Load Definitions page. The pointer is on the Load Dependents icon.

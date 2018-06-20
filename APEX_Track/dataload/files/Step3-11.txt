@@ -1,5 +1,0 @@
-This image shows the Confirm page of the Create Data Load Wizard. It has the following descriptive text at the top of the wizard dialog:
-"You have requested to create a wizard with the following attributes. Please confirm your selections."
-It displays all the attributes and values you selected.
-
-The pointer is on the Create button.

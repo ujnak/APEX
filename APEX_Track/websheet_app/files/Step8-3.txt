@@ -1,9 +1,0 @@
-This screenshot shows the Create Navigation Section page.
-
-Navigation Type: 
-Page Navigation
-Section Navigation
-
-Section Navigation is being selected.
-
-The mouse pointer is clicking the Next button.

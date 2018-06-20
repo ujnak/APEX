@@ -1,7 +1,0 @@
-This screenshot shows the Miantain Departments page of the Mobile App with the following details:
-
-Department Id: 20
-Department Name: Marketing
-Location:Toronto
-
-And there are two buttons: Delete and Save.

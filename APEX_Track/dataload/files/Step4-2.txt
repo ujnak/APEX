@@ -1,1 +1,0 @@
-This image shows the application login page with credentials already filled out. The pointer is on the Log In button.

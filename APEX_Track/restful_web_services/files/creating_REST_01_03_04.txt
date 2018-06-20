@@ -1,1 +1,0 @@
-This photograph shows selecting 'GET' for Method, 'Feed' for Source Type, 'No' for Requires Secure Access, entering the required SQL query under Source, and clicking the Create button.

@@ -1,1 +1,0 @@
-In this image, you make note of the image reference in the Reference field. The reference value will be used later in this section.

@@ -1,2 +1,0 @@
-This image shows the page designer. You select Attributes on the left and then select Settings. 
-Enter CSS Class: CSS_CLASS

@@ -1,8 +1,0 @@
-This screenshot displays a portion of the Rendering tab of the Page 1: Sample Database Application Page Designer view.
-The Rendering tab consists of a tree with following values:
-Page 1: Sample Database Application (level 0)
-- Pre-Rendering (level 1)
-- Regions (level 1)
--- Content Body (level 2)
--- Body 3 (level)
-The screenshot shows the Body 3 being expanded.

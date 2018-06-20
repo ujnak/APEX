@@ -1,9 +1,0 @@
-This screenshot shows the Create Websheet page.
-It has the following:
-Websheet number
-Name: Human Resource Management
-Workspace Name
-Schema
-There is a checkbox to include the Getting Started Guide. The checkbox is checked.
-
-The mouse pointer is clicking the Create Websheet button.

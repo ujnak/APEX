@@ -1,2 +1,0 @@
-This image shows a table that would list XLIFF files that are available. There are no files in the list.  The dialog has three buttons: Cancel, Publish and Upload Files. The pointer is on the Upload Files button.
-

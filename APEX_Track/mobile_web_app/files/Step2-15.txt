@@ -1,3 +1,0 @@
-This screenshot shows Create an Application page with all the pages that you created. 
-The table lists the 7 pages with the details like Page, Name, Type, Page Mode, Source Type, Source, and Parent Page. There is also an edit icon for each page. 
-Page 7 edit icon is selected.

@@ -1,1 +1,0 @@
-This image shows the Run Script dialog. It displays details of the script that you elected to run. The pointer is on the Run Now button.

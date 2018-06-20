@@ -1,1 +1,0 @@
-This photograph shows entering 'employees/{id}' for URI Template, and clicking Create.

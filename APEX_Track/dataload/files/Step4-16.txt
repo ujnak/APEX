@@ -1,1 +1,0 @@
-This image shows a part of the Data Validation page of the wizard. The uploaded data is displayed. The pointer is on the Load Data button.

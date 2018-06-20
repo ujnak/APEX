@@ -1,1 +1,0 @@
-This is the image of the Oracle Application Hands-on lab page. It has the link to download Oracle VM VirtualBox highlighted. It also shows the link to download the latest Database App Development VM. 

@@ -1,4 +1,0 @@
-This screenshot shows the Authorization tab of Application 101 (Sample Database Application). There are two button - Cancel and Apply Changes.
-In the Authorization region, there is button called Define Authorization Schems and two fields:
-- Authorization Scheme: access control - view
-- Run on Public Pages: Yes

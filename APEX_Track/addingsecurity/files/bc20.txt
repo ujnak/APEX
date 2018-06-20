@@ -1,9 +1,0 @@
-This screenshot shows the Orders page.
-The Page has a Calendar button followed by a Interactive Report.
-The screenshot displays the first four records of the report. The column name of the report are as follows:
-Customer Name, Order Data, Order Items, Order Total, Sales Rep, and Tags.
-The rows values are as follows:
-Row 1:  "Dulles, John", 11/20/2016, 1, $125.00, OBE, -
-Row 2: "Bradley, Eugene", 10/19/2016, 3, $870.00, DEMO, -
-Row 3: "Hartsfield, William", 10/16/2016, 3, $730.00, DEMO, -
-Row 4: "OHare, Frank", 10/10/2016, 4, $1,060.00, DEMO, -

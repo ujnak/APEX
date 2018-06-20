@@ -1,1 +1,0 @@
-In this photograph, you see that all customer records containing '6' in their postal code is displayed in the grid.

@@ -1,1 +1,0 @@
-This photograph shows clicking the 'Test' button to test the behavior of the RESTful Service Handler.

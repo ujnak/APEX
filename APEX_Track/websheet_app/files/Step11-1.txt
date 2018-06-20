@@ -1,9 +1,0 @@
-This screenshot shows the home page of the Human Resource Management websheet application.
-
-It has four sections:
-Overview
-Deadlines For This month
-Cost Per Project
-Pages
-
-The mouse pointer is clicking the View history link.

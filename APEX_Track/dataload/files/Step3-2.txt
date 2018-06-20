@@ -1,1 +1,0 @@
-This image shows the Create a Page dialog with options for various types of page that can be created. The options are listed as icons. Some of the options are Blank Page, Report, Form, Plug-ins, Chart, Wizard, Data Loading and Login Page. The Blank Page option is selected by default. The pointer is on the Data Loading option.

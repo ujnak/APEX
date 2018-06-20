@@ -1,9 +1,0 @@
-This screenshot shows the Navigation Menu section of the User Interface page. The mouse pointer is clicking the Apply Changes button. The following values are set for the fields:
-Navigation Menu List: Navigation Menu
-Position: Top
-List Template: Top Navigation Menu
-Template Options: Use Template Default (checked)
-Add Actions (unchecked)
-Behave Like Tabs (Default) (inactive)
-Enable Slide Animation (unchecked)
-Show Sub Menu Icons (unchecked)

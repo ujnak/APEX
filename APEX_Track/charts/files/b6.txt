@@ -1,1 +1,0 @@
-In this image, you enter Tasks for Name  In the Identification tab. In the Source tab, select SQL Query for Type and enter the following in the SQL Query field.

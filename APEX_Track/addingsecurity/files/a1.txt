@@ -1,8 +1,0 @@
-This screenshot shows the Administration menu. The menu displays the following links:
-- Administration
-- Manage Service
-- Manage Users and Groups
-- Monitor Activity
-- Dashboards
-- Change My Password
-Manage Users and Groups is being clicked.

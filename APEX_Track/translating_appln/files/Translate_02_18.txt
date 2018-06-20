@@ -1,7 +1,0 @@
-This image shows the XLIFF Export dialog. It has the following breadcrumb at the top:
-Application 100 \ Shared Components \ Translate \ XLIFF Export
-
-It also has the two buttons, Cancel and Export XLIFF File for Application.
-
-The pointer is on the Translate breadcrumb.
-

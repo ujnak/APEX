@@ -1,1 +1,0 @@
-This is the image of the conneciton right-clicj menu items in the Connections pane in SQL Developer. This image has the options - REST Services and Enable REST Services highlighted. 

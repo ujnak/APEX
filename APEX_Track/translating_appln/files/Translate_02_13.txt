@@ -1,1 +1,0 @@
-This image shows the list of translated applications.  The pointer is on the Translate breadcrumb.

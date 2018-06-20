@@ -1,1 +1,0 @@
-This screenshot shows the Rendering tab of Page 6 Page Designer view. The P6_TAGS context menu is open and Delete is being clicked.

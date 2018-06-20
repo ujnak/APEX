@@ -1,1 +1,0 @@
-This photograph shows selecting 'IT' for Department, and the Location and Total Employees values populated accordingly. It also shows clicking Edit Page 3 in the developer toolbar.

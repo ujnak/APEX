@@ -1,9 +1,0 @@
-This screenshot shows the Name and Type step of the Create/Edit List wizard.
-It displays the following:
-Name: Navigation Bar
-Type: Static
-Build Option: - No Build Option -
-Back button
-Cancel button
-Next button
-The mouse pointer is clicking the Next button

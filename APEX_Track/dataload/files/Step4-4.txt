@@ -1,1 +1,0 @@
-This image shows the Data Load Source page of the data loading wizard. The pointer is on the Browse button.

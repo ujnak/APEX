@@ -1,7 +1,0 @@
-This screenshot shows the Attributes section under the Property-Editor section.
-The following fields are highlighted:
-List Divider Column: PROJECT_DEPT
-Search Type: Server:Like & Ignore
-Search Box Placeholder: Search By Project Name
-
-The mouse pointer is clicking the Save button.

@@ -1,9 +1,0 @@
-This screenshot shows the Edit Sections page.
-It has four sections with their types:
-
-Sections
-Overview
-Deadlines
-Cost Per Project
-
-The mouse pointer is clicking the Apply Changes button.

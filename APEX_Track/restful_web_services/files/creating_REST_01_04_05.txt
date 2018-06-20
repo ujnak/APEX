@@ -1,1 +1,0 @@
-This photograph shows scrolling down further, and clicking Create Parameter to add an IN parameter to the handler that will receive the department_id.

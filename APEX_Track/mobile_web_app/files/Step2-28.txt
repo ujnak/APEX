@@ -1,4 +1,0 @@
-This screenshot shows the Administartion department page. 
-It displays the Department Name as Administration and Location ID as 1700.
-There are two buttons: Delete and Save.
-Panel button icon is focused.

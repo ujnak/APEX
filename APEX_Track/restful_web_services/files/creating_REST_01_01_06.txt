@@ -1,1 +1,0 @@
-This photograph shows the REStful Service Module properties window and clicking GET under the new RESTful Service - employees/.

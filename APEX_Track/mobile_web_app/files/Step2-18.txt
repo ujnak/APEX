@@ -1,3 +1,0 @@
-This screenshot shows Create an Application page. 
-Copy Shared Components from Another Application: No is selected.
-Next button is focused.

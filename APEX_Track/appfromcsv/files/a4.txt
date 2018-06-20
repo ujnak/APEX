@@ -1,2 +1,0 @@
-This screenshot shows the Load Method step of the Create Application From Spreadsheet wizard.
-Import From option is set to "Upload file, comma seperated (*.csv) or tab delimited". The Next button is being clicked.

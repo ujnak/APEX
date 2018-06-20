@@ -1,1 +1,0 @@
-In this image, you select SQL Query for Source Type, enter the following in the SQL Query field, and click Next in the Source tab.

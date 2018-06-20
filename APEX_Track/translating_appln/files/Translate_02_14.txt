@@ -1,4 +1,0 @@
-This image shows the steps for translating an application. The pointer is on the Download XLIFF translation step.
-
-
-

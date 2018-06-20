@@ -1,5 +1,0 @@
-This screenshot shows the Create Application Item page.
-The mouse pointer is clicking the Create Application Item button.
-Application: 101 Sample Database Application
-Name: A01
-Scope: Application

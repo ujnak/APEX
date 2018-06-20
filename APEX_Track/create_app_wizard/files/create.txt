@@ -1,1 +1,0 @@
-This is the Create icon present in the App Builder home page. Clicking this icon opens the Create An Application wizard. 

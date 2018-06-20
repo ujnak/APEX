@@ -1,1 +1,0 @@
-This image shows the Shared Components of the application. The pointer is on the Data Load Definitions component. Other components include Report Queries, Report Layouts, and Web Service References.

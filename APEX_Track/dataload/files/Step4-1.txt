@@ -1,1 +1,0 @@
-This image shows the home page of data loading wizard you created. The pointer is on the Save and Run Page.

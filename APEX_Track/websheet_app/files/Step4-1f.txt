@@ -1,5 +1,0 @@
-This screenshot shows Deadlines Data Grid page.
-Under Data, the Event is Complete New Hire Training
-Date: 20-Jun-16
-
-The mouse pointer is clicking the Save button.

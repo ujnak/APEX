@@ -1,1 +1,0 @@
-This image shows the Home page of the Order Management application displaying the greeting message translated in German.

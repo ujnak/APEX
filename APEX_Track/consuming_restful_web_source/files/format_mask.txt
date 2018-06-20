@@ -1,1 +1,0 @@
-This image shows that you selected Time_As_Date under Columns. Now, select Appearance and click Format Mask. Select 12-JAN-2004 14.30. 

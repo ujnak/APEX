@@ -1,1 +1,0 @@
-This image displays the data that was uploaded through a file upload as well the data that was copied and pasted from the source file. The pointer is on the Application 101 link at the bottom of the page.

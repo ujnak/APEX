@@ -1,9 +1,0 @@
-This screenshot shows the Create Section page. It has four options:
-Text
-Navigation
-Data
-Chart
-
-Navigation has been selected. 
-
-The mouse pointer is cliking the Next button.

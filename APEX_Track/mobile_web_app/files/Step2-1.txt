@@ -1,3 +1,0 @@
-This screenshot shows the Oracle APEX Homepage with the following menu options:
-App Builder, SQL Workshop, Team Development, and Packages Apps. 
-App Builder is expanded within which the Create option is selected. 

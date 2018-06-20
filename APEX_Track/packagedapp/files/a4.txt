@@ -1,1 +1,0 @@
-This screenshot shows the Install Packaged Application modal window. The Application Name is "Checklist Manager" and the Authentication field is set to Application Express Account. The Next button is being clicked.

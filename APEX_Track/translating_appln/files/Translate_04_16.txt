@@ -1,6 +1,0 @@
-This image shows a partial view of the Globalization dialog. Following fields are displayed:
-1. Application Primary Language with the value German (Germany) (de)
-2. Application Language Derived From with the value No NLS (Application not translated)
-3. Document Direction with the value Left-to-Right
-Rest of the fields have no values.
-The pointer is on the Apply Changes button.

@@ -1,1 +1,0 @@
-This photograph shows entering the SQL query in the code editor and clicking the validate option.

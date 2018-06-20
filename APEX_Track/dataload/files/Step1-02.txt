@@ -1,1 +1,0 @@
-This image shows the Oracle Application Express home page with the SQL Workshop menu displayed. In the SQL Workshop menu, the SQL Scripts option is highlighted.

@@ -1,1 +1,0 @@
-This is the image of the app REST Enabled SQL. It shows the pages Projects and Task Calendar that you created. 

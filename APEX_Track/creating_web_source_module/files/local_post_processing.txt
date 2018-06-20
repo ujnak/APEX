@@ -1,6 +1,0 @@
-This image shows the Page Designer. You select Latest_Earthquakes and then select Local Post Processing. You then enter the following details:
-- Type: SQL Query
-- SQL Query: Enter the following statement:
-case when mag > 5 then 'apex-cal-red'
-else 'apex-cal-orange'
-end css_class

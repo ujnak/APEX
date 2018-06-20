@@ -1,3 +1,0 @@
-This screenshot shows the Projects page of the Mobile App with the following list of projects  divided based on the Department Id:
-
-

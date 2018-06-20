@@ -1,1 +1,0 @@
-In this image, you select LABEL and VALUE for the Label and Value field respectively In the Column Mapping tab.

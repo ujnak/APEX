@@ -1,3 +1,0 @@
-This screenshot shows the Rendering section of the Page Designer of the Page 2: Departments.
-
-The mouse pointer is clicking the DEPARTMENTS  List View region.

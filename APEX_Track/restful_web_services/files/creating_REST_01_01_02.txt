@@ -1,1 +1,0 @@
-This photograph shows clicking 'Create a New RESTful Service' option in the RESTful Services page. The other option available in this page is 'Install a Sample RESTful Service'.

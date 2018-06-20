@@ -1,6 +1,0 @@
-This screenshot displays the Sample Database Application login page.
-It displays the following:
-Username - Textbox
-Password - Textbox
-Login button (mouse pointer)
-The username and password field contains the login credentials.

@@ -1,1 +1,0 @@
-This is an image of the application home page. The application home page displays the application ID, application name, the pages that you created, and a number of additional pages that are created to implement the features that you selected. 

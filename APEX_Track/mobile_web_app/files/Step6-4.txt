@@ -1,4 +1,0 @@
-This screenshot shows the Property Editor - Dynamic Action section of the Page Designer.
-Name, Selection Type, Items(s) field is highlighted.
-
-The mouse pointer is clicking the Show All icon.

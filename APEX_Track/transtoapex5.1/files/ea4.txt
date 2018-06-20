@@ -1,5 +1,0 @@
-This screenshot shows the Page 7 in Page Designer. The Property Editor displays the following fields and values:
-Appearance
-- User Interface: Desktop
-- Page Mode: Modal Dialog
-- Dialog Template: Theme Default

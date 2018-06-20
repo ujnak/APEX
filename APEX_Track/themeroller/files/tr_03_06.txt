@@ -1,1 +1,0 @@
-In this image, you update the foreground color of the Title Bar to white.

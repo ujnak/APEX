@@ -1,2 +1,0 @@
-This screenshot is showing the Rendering portion of the Page Designer section.
-The mouse pointer is pointing the P5_STATUS item.

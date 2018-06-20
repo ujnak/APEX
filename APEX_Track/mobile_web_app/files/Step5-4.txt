@@ -1,5 +1,0 @@
-This screenshot shows the Attributes section under the Property-Editor section.
-The following fields are highlighted under Settings:
-Advanced Formatting
-Show List Divider
-Text Formatting

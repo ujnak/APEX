@@ -1,3 +1,0 @@
-This image shows a table of text message with their attributes such as name, language, text, whether used in JavaScript, uploaded by and date. Two list shows two records each called GREETING_MESSAGE. 
-The dialog also has a search field. 
-It has three buttons Reset, Grid Edit and Create Text Message.  It also has some icons in the top right. The pointer is on the Run Page 1 icon.

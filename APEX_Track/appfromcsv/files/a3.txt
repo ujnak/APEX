@@ -1,1 +1,0 @@
-This screenshot shows the Create an Application modal window. The "From a spreadsheet" option is being clicked.

@@ -1,3 +1,0 @@
-This screenshot show a portion of the Grid Layout and the Property Editor. In the Grid Layout, the Search Region is selected. In the Property Editor, under Identification, the following fields and values are entered:
-Title: Search
-Type: Static Content

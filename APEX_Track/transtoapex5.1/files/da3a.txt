@@ -1,1 +1,0 @@
-This screenshot shows the Grid Layout of Page 1. The VIEW_MONTH_ORDERS, VIEW_CUSTOMERS, VIEW_PRODUCTS, and VIEW_ORDERS are selected.

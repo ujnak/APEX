@@ -1,1 +1,0 @@
-This image shows the SQL Workshop tab with the SQL Scripts section, which lists all the SQL scripts uploaded to the workspace. No scripts are displayed in the list as no script has been uploaded yet. The SQL Scripts section includes a search field and buttons for deleting a selected script, uploading a new script and creating a script. The pointer is on the Upload button.

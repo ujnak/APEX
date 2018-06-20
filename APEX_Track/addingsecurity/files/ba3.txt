@@ -1,6 +1,0 @@
-This screenshot shows the Create a Page wizard. The wizard shows the following fields and values:
-- Application: 101 - Sample Database Application
-- User Interface: Desktop
-- Select a Page Type - Blank Page, Report, Form, Plug-ins, Chart, Calendar, Tree, Wizard, Data Loading, Feedback Page, Access Control, and Legacy Page. The Access Control page is being clicked.
-- Show Unsupported: No
-- Three buttons - Cancel, Help, and Next >.

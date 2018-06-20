@@ -1,1 +1,0 @@
-This is the image of a terminal window that has the command sqlplus hr/oracle highlighted. It also shows the message that the system is connected to Oracle Database 12c Enterprise edition 12.2.

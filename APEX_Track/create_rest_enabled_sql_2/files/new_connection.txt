@@ -1,1 +1,0 @@
-This is an image of Oracle SQL Developer. It shows the Create New Connection option in the Connections pane.  

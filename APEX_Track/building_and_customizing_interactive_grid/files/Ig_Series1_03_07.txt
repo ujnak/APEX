@@ -1,1 +1,0 @@
-In this photograph, you scroll the page to your right, you see that the First Name column is excluded from the scrollable area.

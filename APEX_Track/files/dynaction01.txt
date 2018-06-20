@@ -1,8 +1,0 @@
-declare
- l_commission number;
-begin
-SELECT commission_pct INTO l_commission
-    FROM employees
-      WHERE employee_id = :P2_EMPLOYEE_ID; 
-   :P2_BONUS := :P2_SALES_AMOUNT*l_commission;
-end;

@@ -1,1 +1,0 @@
-In this photgraph, you see that the scroll bar resizes to fit the Customer Name column to its scrollable area.

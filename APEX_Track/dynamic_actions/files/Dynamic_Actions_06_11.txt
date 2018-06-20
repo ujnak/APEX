@@ -1,1 +1,0 @@
-This photograph shows entering 5 for Number of Stars, selecting No for Use Components Default, selecting fa-star for icon, and clicking Save and Run Page.

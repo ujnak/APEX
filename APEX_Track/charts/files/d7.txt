@@ -1,1 +1,0 @@
-In this image, you see a Line chart in place of the Bar chart in the application. Hover over a value to read the tooltip.

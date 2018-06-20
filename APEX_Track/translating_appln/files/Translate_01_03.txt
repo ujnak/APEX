@@ -1,1 +1,0 @@
-This image shows the Import dialog with the Order Management file selected in the Import file field.

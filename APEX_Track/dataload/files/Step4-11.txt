@@ -1,2 +1,0 @@
-This image shows the Data Load Source page of the data load wizard you created. In the Import From field, the Copy and Paste option is selected. 
-The page also includes a large text field named Copy and Paste Delimited Data.

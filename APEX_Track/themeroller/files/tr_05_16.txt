@@ -1,1 +1,0 @@
-In this image, you click Set as Current to set the new theme as the application's current theme.

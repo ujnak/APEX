@@ -1,5 +1,0 @@
-This screenshot shows a portion of the Conditions section of the List Entry page. 
-The Apply Changes button is being clicked.
-The page displays the following fields and values:
-Condition Type: PL/SQL Expression
-Expression 1: nvl(:ENABLE_FEEDBACK, 'NO') = 'YES'

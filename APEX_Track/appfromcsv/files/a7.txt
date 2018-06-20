@@ -1,4 +1,0 @@
-This screenshot shows the Application Options step of the Create Application From Spreadsheet wizard. The following values are set:
-Application Name: TASKS
-Report Type: Interactive Report
-The Create Application button is being clicked.

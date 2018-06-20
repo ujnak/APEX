@@ -1,6 +1,0 @@
-This screenshots shows a portion of the Lists page.
-It displays the following links:
-Footer Controls
-Mobile Options
-Navigation Menu (has the mouse pointer)
-Order Page

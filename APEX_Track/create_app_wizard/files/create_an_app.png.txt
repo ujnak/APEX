@@ -1,2 +1,0 @@
-This illustration shows the Create an Application wizard page. It has the options to create a new application, create an app from a spreadsheet, and create packaged apps. 
-

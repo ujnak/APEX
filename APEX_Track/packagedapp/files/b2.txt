@@ -1,1 +1,0 @@
-This screenshot shows a portion of the Checklist Manage manage page. There are three buttons - Change Authentication, Unlock, and Remove. The Unlock button is being clicked.

@@ -1,1 +1,0 @@
-This is the Navigation Menu window in the Create Interactive Report dialog. In this dialog, you define the navigation preference for the page. 

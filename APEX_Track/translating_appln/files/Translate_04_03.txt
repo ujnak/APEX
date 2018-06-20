@@ -1,1 +1,0 @@
-This image shows a partial view of the Globalization dialog with the option English (United Kingdom) (en-gb) selected for Application Primary Language. For the field Application Language Derived From, the option No NLS (Application not translated) is selected. The pointer is on the Apply Changes button. 

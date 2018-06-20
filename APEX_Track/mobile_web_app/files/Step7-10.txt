@@ -1,3 +1,0 @@
-This screenshot shows the Rendering section of the Page 6: Employees Column Toggle Report.
-
-The mouse pointer is clicking the LAST_NAME column.

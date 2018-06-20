@@ -1,4 +1,0 @@
-This screenshot shows a portion of the Shared Components page.
-It displays the Navigation heading and two links under it:
-Lists (has the mouse pointer)
-Navigation Menu

@@ -1,7 +1,0 @@
-This screenshot shows the Property Editor tab with the following fields and values:
-Appearance
-- Button Template: Text with Icon
-- Hot: No
-- Template Options: Use Template Defaults, Right
-- CSS Classes: (no value)
-- Icon CSS Classes: fa-gear

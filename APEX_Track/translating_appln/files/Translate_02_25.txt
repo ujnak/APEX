@@ -1,7 +1,0 @@
-This  image shows a table listing translated applications with their attributes such as language, published date, number of strings, number of distinct strings and whether the application requires synchronization. The table lists application number 101. This application has been selected as indicated by a selected checkbox. The dialog has the following buttons:
-1. Cancel
-2. Seed
-3. Download
-4. Publish
-The pointer is on the Publish button. 
-

@@ -1,1 +1,0 @@
-This image shows the home page of the Data Loading application you created. The pointer is on the Shared Components icon.

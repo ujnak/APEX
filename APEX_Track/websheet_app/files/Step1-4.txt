@@ -1,2 +1,0 @@
-This screenshot shows the Invalid Websheet Objects page.
-The mouse pointer is clicking the Manage Websheet Database Objects button.

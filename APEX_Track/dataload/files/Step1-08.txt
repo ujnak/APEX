@@ -1,1 +1,0 @@
-This image shows the Run Script dialog. It displays details of the script that you elected to run. The details include script name, dates when the script was created and updated, number of statements in the script and the size of the script in bytes. The dialog includes Run Now and Cancel buttons. The pointer is on the Run Now button.

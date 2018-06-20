@@ -1,2 +1,0 @@
-This screenshot shows the Rendering section of the Page 5: Maintain Projects.
-P5_PROJECT_DEPT items is expanded and Show is selected under True.

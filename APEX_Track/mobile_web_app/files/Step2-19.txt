@@ -1,2 +1,0 @@
-This screenshot shows Create an Application page. 
-There are 7 fields in the page with Back, Cancel, and Next button. Next button is focused.

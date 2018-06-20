@@ -1,7 +1,0 @@
-This screenshot shows a portion of the Entry section of the List Entry page.
-The Apply Changes button is being clicked.
-The page displays the following fields and values:
-List: Navigation Bar (read only)
-Parent List Entry: &APP_USER.
-Sequence: 50
-

@@ -1,6 +1,0 @@
-This screenshot shows the Create a Page page with the following details:
-Application: 100-Mobile App
-User Interface: Mobile
-Select a Page Type: The mouse pointer is clicking the Chart page type.
-Show Unsupported: No
-And two buttons: Cancel and Next.

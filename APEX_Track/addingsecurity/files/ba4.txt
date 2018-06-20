@@ -1,6 +1,0 @@
-This screenshot shows the Create Access Control wizard - Pages page. It displays the following fields and values:
-- Administration Page Number: 21
-- Page Mode: Normal
-- Page Group: - Select Page Group -
-- Three buttons -  Back, Cancel, and Next >.
-The Next > button is being clicked.

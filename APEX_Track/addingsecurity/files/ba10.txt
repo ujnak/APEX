@@ -1,4 +1,0 @@
-This screenshot shows the Access Control List region of the Access Control Administration page.
-The page has a text field with the label Find. The Go button is after this field.
-It displays a table with 5 columns - Select radio button, Username, Privilege, Last Changed By, and Date. The table has no data.
-It also contains three buttons - Add User, Delete, and Apply Changes. The Add User button is being clicked.

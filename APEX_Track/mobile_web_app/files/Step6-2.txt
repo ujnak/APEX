@@ -1,2 +1,0 @@
-This screenshot shows the Property-Editor section of the P5_LOCATION item with Name, Type, and Save Session State fields highlighted.
-The mouse pointer is clicking the Save button.

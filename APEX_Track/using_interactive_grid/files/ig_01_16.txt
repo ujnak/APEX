@@ -1,1 +1,0 @@
-In this photograph, you notice the filter is created on Address and returns two rows because there are two rows which contain 'drive' in its Address. 

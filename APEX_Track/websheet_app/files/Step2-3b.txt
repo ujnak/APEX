@@ -1,3 +1,0 @@
-This screenshot shows the Add Note page. 
-New resources file has been added is being entered in the Note textbox.
-The mouse pointer is clicking the Add Note button.

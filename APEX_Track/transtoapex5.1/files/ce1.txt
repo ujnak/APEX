@@ -1,2 +1,0 @@
-This screenshot shows the Navigation section of the Shared Components page.
-The mouse pointer is clicking Lists.

@@ -1,1 +1,0 @@
-In this photograph,i n the Sort dialog, you select City for Column, accept the default selections for Direction and Nulls, and click Save. 

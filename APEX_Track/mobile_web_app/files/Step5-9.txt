@@ -1,2 +1,0 @@
-This screenshot shows the Property-Editor section of the P5_PROJECT_DEPT item.
-The mouse pointer is clicking the Save button.

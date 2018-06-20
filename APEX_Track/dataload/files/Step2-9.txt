@@ -1,1 +1,0 @@
-This image shows the login page. The login page includes a Username field with the value hr and a Password field with the password keyed in. The pointer is on the Log In button.

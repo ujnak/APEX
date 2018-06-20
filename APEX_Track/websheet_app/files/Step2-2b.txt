@@ -1,4 +1,0 @@
-This screenshot shows the Add Tags page.
-Samples is being entered in the Tags textbox.
-
-The mouse pointer is clicking the Add Tags button.

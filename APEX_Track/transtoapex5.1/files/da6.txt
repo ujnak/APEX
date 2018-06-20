@@ -1,5 +1,0 @@
-This screenshot shows the Sample Database Application. The navigation menu appears towards the left. In the body region, there is a search button followed by 4 regions displaying the following information:
-Sales for this Month
-Top Customers
-Top Products
-Top Orders by Date

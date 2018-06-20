@@ -1,9 +1,0 @@
-This image shows the exported XLIFF File in a notepad and a Replace dialog that is displayed on pressing Ctrl+H. In the Replace dialog, there are two fields, Find what and Replace with. The Find what field contains the value <target> . Te replace with field contains the valu <target>Ordnung. 
-The dialog has the following buttons:
-1. Find Next
-2. Replace
-3. Replace All
-4. Cancel
-
-It also has a Match case check box that is not selected.
-The pointer is on the Replace All button.

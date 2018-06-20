@@ -1,3 +1,0 @@
-This image shows the Create Page page. You enter the following details for Page Attributes and click Next:
--  Page Name: Latest_Earthquakes
--  Breadcrumb: Breadcrumb

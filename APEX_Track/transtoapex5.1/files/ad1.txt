@@ -1,5 +1,0 @@
-This screenshot shows a portion of the Application Builder page for Application 101 - Sample Database Application.
-It displays the following links:
-Run Application
-Supporting Objects
-Shared Components (mouse pointer)

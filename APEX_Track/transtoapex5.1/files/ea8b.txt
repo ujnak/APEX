@@ -1,8 +1,0 @@
-This screenshot shows the Property Editor Tree with the following fields and values:
-Layout
-- Sequence: (no value)
-- Region: ..Customer
-- Button Position: Bottom of Region
-- Horizontal Alignment: Right
-Appearance
-- Button Template: Text

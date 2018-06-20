@@ -1,1 +1,0 @@
-This photograph shows the form with values automatically populated for Location and Total Employees fields.

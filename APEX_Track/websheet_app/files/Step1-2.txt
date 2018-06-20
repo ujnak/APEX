@@ -1,7 +1,0 @@
-This screenshot shows the Oracle Application Express home page with four icons:
-Create
-Import
-Dashboard
-Workspace Utilities
-
-The mouse pointer is clicking the Create icon.

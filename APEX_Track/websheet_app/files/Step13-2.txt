@@ -1,2 +1,0 @@
-This screenshot shows the Manage Users and Groups page.
-Users is highlighted. The mouse pointer is clicking the Create User button.

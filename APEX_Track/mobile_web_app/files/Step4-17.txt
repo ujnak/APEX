@@ -1,6 +1,0 @@
-This screenshot shows the Departments page of the Mobile App with the following departments and a counter column with the number of projects associated with each Department:
-* Aministration
-* Marketing
-* Purchasing
-* Human Resources
-The mouse pointer is clicking the Administration department.

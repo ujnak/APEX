@@ -1,1 +1,0 @@
-This photograph shows selecting 'SQL Statement' for Set Type, and clicking the Code Editor: SQL Statement icon.

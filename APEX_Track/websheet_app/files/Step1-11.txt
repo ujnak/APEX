@@ -1,2 +1,0 @@
-This screenshot shows the Human Resources Management websheet application.
-The Create drop-down menu is selected and the New Section is being clicked.

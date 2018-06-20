@@ -1,1 +1,0 @@
-This screenshot shows the Products page. A Product is being clicked to load the Product Details.

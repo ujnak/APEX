@@ -1,1 +1,0 @@
-This image shows the Data Validation page of the data loading wizard. The source data from the file is displayed after applying the transformation rules. The pointer is on the Load Data button.

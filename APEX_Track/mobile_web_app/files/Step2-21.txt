@@ -1,6 +1,0 @@
-This screenshot shows the Application 100-Mobile App Homepage within the Application Builder with the pages that you in the application. 
-It has the following options:
-Run Application icon. Run Application is focused.
-Supporting Objects icon
-Shared Components icon
-Uthilities icon and Export/Import icon

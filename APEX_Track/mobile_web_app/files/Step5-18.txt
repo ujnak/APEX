@@ -1,9 +1,0 @@
-This screenshot shows the Maintain Projects page of the Mobile App with the following projects details:
-
-Project name: maintain Support Systems
-Project Start Date: 2014-12-03
-Project End Date: 2014-01-06
-Project Dept:Marketing
-Status:Open
-
-The mouse pointer is selecting the Planned from the status drop-down list.

@@ -1,5 +1,0 @@
-This screenshot displays a portion of the Utilities page.
-It displays the breadcrumb to the utilities page - Application 101 \ Utilities.
-Under the Utilities heading, two links are displayed:
-Application Dashboard
-Upgrade Application (has the mouse pointer)

@@ -1,1 +1,0 @@
-In this image, you click the down arrow next to the SQL Workshop tab, right-click SQL Commands and select Open link in new tab.

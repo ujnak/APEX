@@ -1,1 +1,0 @@
-This photograph shows all details of the employee with employee_id = 103.

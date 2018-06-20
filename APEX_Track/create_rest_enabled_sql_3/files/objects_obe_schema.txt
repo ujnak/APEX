@@ -1,1 +1,0 @@
-This is the Object Browser page where the available tables are listed. In this image, the tables with OEHR prefix are highlighted.  
