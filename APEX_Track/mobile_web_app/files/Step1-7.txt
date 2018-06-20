@@ -1,0 +1,2 @@
+In this screenshot, the SQL Scripts page appears listing OBE.sql script. 
+Run icon is focused.

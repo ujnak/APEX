@@ -1,0 +1,1 @@
+This photograph shows selecting POST for Method and PL/SQL for Source Type. It also shows entering 'application/json' for MIME Types Allowed, selecting 'No' for Requires Secure Access, entering the required PL/SQL code for Source, and clicking 'Create'.

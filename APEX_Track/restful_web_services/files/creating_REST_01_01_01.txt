@@ -1,0 +1,1 @@
+This photograph shows selecting the SQL Workshop tab and then selecting RESTful Services option from the drop-down list in the Oracle Application Express Home page. Apart from SQL Workshop, this photograph shows other tabs such as App Builder, Team Development, and Packaged Apps.

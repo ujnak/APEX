@@ -1,0 +1,1 @@
+This is the image of the Create Page dialog where you define the display column , start date and end date of the Calendar page. 

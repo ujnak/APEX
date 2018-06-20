@@ -1,0 +1,1 @@
+This photograph shows entering employees for Name, and URI of your web service for URL. It also shows selecting GET for HTTP Method, 'No' for  Basic Authentication, and clicking Delete Header icon.

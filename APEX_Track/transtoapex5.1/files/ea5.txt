@@ -1,0 +1,10 @@
+This screenshots shows a portion of the Grid Layout of Page 7.
+The Customer region contains 8 rows of items. The items are arranged in the following order:
+Row 1: P7_CUST_FIRST_NAME, P7_CUST_LAST_NAME
+Row 2: P7_CUST_STREET_ADDRESS1, P7_CUST_STREET_ADDRESS2
+Row 3: P7_CUST_CITY, P7_CUST_STATE
+Row 4: P7_CUST_POSTAL_CODE
+Row 5: P7_CREDIT_LIMIT
+Row 6: P7_PHONE_NUMBER1, P7_PHONE_NUMBER2
+Row 7: P7_CUST_EMAIL, P7_URL
+Row 8: P7_TAGS

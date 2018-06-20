@@ -1,0 +1,7 @@
+This screenshot shows the Navigation Menu section of the User Interface Details page.
+The Apply Changes button is being clicked.
+The following fields appear in the screenshot:
+Navigation Menu List: Navigation Menu
+Position: Side
+List Template: Side Navigation Menu
+Template Options: Use Template Defaults (checked)

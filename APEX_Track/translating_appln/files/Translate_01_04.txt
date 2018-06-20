@@ -1,0 +1,3 @@
+This image shows the Import dialog at the File Import Confirmation page. The following descriptive text appears at the top of the dialog:
+
+"The export file has been imported successfully. If you wish to install now, click the Next button. You can also install this file at a later time by navigating to the Export Repository."

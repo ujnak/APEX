@@ -1,0 +1,4 @@
+This screenshot shows the Deadlines page.
+It has two events:
+Update Pyroll
+Complete New Hire Training

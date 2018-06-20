@@ -1,0 +1,1 @@
+This image shows the various options for creating a database application. The options are displayed as icons with the following names: Create, Import, Dashboard, and Workspace Utilities. In addition, the page includes Reset and Create buttons. The pointer is on the Create button.

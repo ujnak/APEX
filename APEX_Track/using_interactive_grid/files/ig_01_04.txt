@@ -1,0 +1,1 @@
+In this photogrpah, you ensure that Application Express Accounts is selected for Authentication and click Next>.

@@ -1,0 +1,2 @@
+This photograph shows selecting the Table/View Name as 'EMPLOYEES (table)', selecting all rows to be shown on the report, and clicking 'Next >'.
+

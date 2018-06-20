@@ -1,0 +1,155 @@
+
+-- The render function is responsible for the rendering of the actual HTML control
+-- of the new widget. APEX still takes care of the table cell for the layout,
+-- the label, pre- and post element text. Only the html code between the pre- and
+-- post element text is rendered by the plug-in. The render procedure has a
+-- defined interface which every plug-in has to implement. It's designed in a way
+-- that future enhancements to the interface will not break existing plug-ins.
+function render_mask (
+    p_item                in apex_plugin.t_page_item,
+    p_plugin              in apex_plugin.t_plugin,
+    p_value               in varchar2,
+    p_is_readonly         in boolean,
+    p_is_printer_friendly in boolean )
+    return apex_plugin.t_page_item_render_result
+is
+    -- It's better to have named variables instead of using the generic ones,
+    -- makes the code more readable
+    l_mask        apex_application_page_items.attribute_01%type := p_item.attribute_01;
+    l_placeholder apex_application_page_items.attribute_01%type := p_item.attribute_02;
+
+    l_name        varchar2(30);
+    l_result      apex_plugin.t_page_item_render_result;
+begin
+    -- During plug-in development it's very helpful to have some debug information
+    if apex_application.g_debug then
+        apex_plugin_util.debug_page_item (
+            p_plugin              => p_plugin,
+            p_page_item           => p_item,
+            p_value               => p_value,
+            p_is_readonly         => p_is_readonly,
+            p_is_printer_friendly => p_is_printer_friendly );
+    end if;
+    -- ***********************************
+    -- Here starts the actual plug-in code
+    -- ***********************************
+    -- Based on the flags we normally generate different HTML code, but that
+    -- depends on the plug-in.
+    if p_is_readonly or p_is_printer_friendly then
+        -- emit hidden field if necessary
+        apex_plugin_util.print_hidden_if_readonly (
+            p_item_name           => p_item.name,
+            p_value               => p_value,
+            p_is_readonly         => p_is_readonly,
+            p_is_printer_friendly => p_is_printer_friendly );
+        -- emit display span with the value
+        apex_plugin_util.print_display_only (
+            p_item_name        => p_item.name,
+            p_display_value    => p_value,
+            p_show_line_breaks => false,
+            p_escape           => true,
+            p_attributes       => p_item.element_attributes );
+    else
+        -- If a page item saves state, we have to call the get_input_name_for_page_item
+        -- to render the internal hidden p_arg_names field. It will also return the
+        -- HTML field name which we have to use when we render the HTML input field.
+        l_name := apex_plugin.get_input_name_for_page_item(false);
+        sys.htp.p('<input type="text" name="'||l_name||'" id="'||p_item.name||'" '||
+                  'value="'||sys.htf.escape_sc(p_value)||'" size="'||p_item.element_width||'" '||
+                  'maxlength="'||p_item.element_max_length||'" '||
+                  p_item.element_attributes||' />');
+        -- Register the javascript library the plug-in uses.
+        -- The add_library call will make sure that just one instance of the
+        -- library is loaded when the plug-in is used multiple times on the page.
+        -- If the developer stores the javascript file on the web-server, the
+        -- p_plugin.file_prefix will contain the web-server URL. If the variable
+        -- contains #PLUGIN_PREFIX#, the file will be read from the database.
+        apex_javascript.add_library (
+            p_name      => 'jquery.maskedinput-1.2.2.min',
+            p_directory => p_plugin.file_prefix,
+            p_version   => null );
+        -- Initialize the mask for the page item when the page has been rendered.
+        -- apex_javascript.add_value and add_attribute are used to make sure that
+        -- the values are properly escaped.   
+        apex_javascript.add_onload_code (
+            p_code => 'jQuery("#'||p_item.name||'").mask('||
+                      apex_javascript.add_value(l_mask)||
+                      '{'||apex_javascript.add_attribute('placeholder', l_placeholder, true, false)||'});' );
+        -- Tell APEX that this field is navigable
+        l_result.is_navigable := true;
+    end if;
+    return l_result;
+end render_mask;
+
+
+-- The validation function is called before the user defined validations are
+-- processed. If return.message contains a value after the call, the message
+-- will be displayed in the Error Display Location defined for the plug-in.
+-- To overwrite the default location, return.display_location can contain one
+-- of the constant values defined in apex_plugin.
+--
+-- Note: A plug-in should automatically perform all the validations it can do
+--       based on it's meta data. Like in our example if the submitted value
+--       really complies to the defined format mask.
+--
+-- Always remember: A user/hacker just has to disable javascript and he
+--                  is able to modify and submit any value. Also values which
+--                  would normally be checked by the javascript code.
+--                  That's why you should always perform the same checks on
+--                  the server - NEVER TRUST THE BROWSER!!!
+function validate_mask (
+    p_item   in     apex_plugin.t_page_item,
+    p_plugin in     apex_plugin.t_plugin,
+    p_value  in     varchar2 )
+    return apex_plugin.t_page_item_validation_result
+is
+    -- It's better to have a named variable instead of using the generic ones,
+    -- makes the code more readable
+    l_mask         apex_application_page_items.attribute_01%type := p_item.attribute_01;
+    
+    l_allowed_char varchar2(1);
+    l_current_char varchar2(1);
+    l_is_valid     boolean;
+    l_result       apex_plugin.t_page_item_validation_result;    
+begin
+    -- During plug-in development it's very helpful to have some debug information
+    if apex_application.g_debug then
+        apex_plugin_util.debug_page_item (
+            p_plugin              => p_plugin,
+            p_page_item           => p_item );
+    end if;
+    -- **********************************************
+    -- Here starts the actual plug-in validation code
+    -- **********************************************
+    if p_value is null then return null; end if;
+    
+    -- The first check is to make sure that the entered value is really as long
+    -- as the input mask
+    if length(p_value) = length(l_mask) then
+        -- Check for each char in the entered value that it complies with the
+        -- corresponding mask in the input mask
+        for i in 1 .. length(p_value)
+        loop
+            l_allowed_char := substr(l_mask, i, 1);
+            l_current_char := substr(p_value, i, 1);
+            l_is_valid     :=
+                case l_allowed_char
+                  when 'a' /* A-Z,a-z */     then (l_current_char between 'A' and 'Z' or l_current_char between 'a' and 'z')
+                  when '9' /* 0-9 */         then (l_current_char between '0' and '9')
+                  when '*' /* A-Z,a-z,0-9 */ then (l_current_char between 'A' and 'Z' or l_current_char between 'a' and 'z' or l_current_char between '0' and '9')
+                  else     /* filler */           (l_current_char = l_allowed_char)
+                end;
+            -- if there is an error we can terminate the loop immediately 
+            if not l_is_valid then exit; end if;
+        end loop;
+    else
+        l_is_valid := false;
+    end if;
+    -- Do we have to return an error message?
+    if not l_is_valid then
+        l_result.message := 'Value doesn''t comply with the input mask!';
+        -- We can leave l_result.display_location blank, in that case the default
+        -- setting of the plug-in will be used -> that should be the default case
+    end if;
+    return l_result;
+end validate_mask;

@@ -1,0 +1,1 @@
+This is the iamge that shows the APEX icon bookmarked in the browser in the VM. 

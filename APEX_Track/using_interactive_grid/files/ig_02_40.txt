@@ -1,0 +1,1 @@
+In this photograph, you click the Address column header, Click within the Filter... text area a, enter 'Drive' and press the Enter key to execute the filter.

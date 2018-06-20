@@ -1,0 +1,2 @@
+This screenshot shows the Upload Script dialog. 
+OBE.sql file is uploaded and Upload is focused.

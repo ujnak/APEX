@@ -1,0 +1,7 @@
+This image shows the How to Translate menu. The following steps are displayed:
+1.Define application language
+2. Seed translatable text
+3. Download XLIFF translation files
+4.  Translate text
+
+The pointer is on the step Define application languages.

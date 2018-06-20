@@ -1,0 +1,5 @@
+This image shows the Create Page - Settings page. You select the following from the drop-down list:
+- Display Column: TITLE
+- Start Date Column: Time_As_Date
+- Show Time: Yes
+Click Create

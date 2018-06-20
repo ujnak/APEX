@@ -1,0 +1,1 @@
+In this photograph, you choose Yes for Enabled and No for Add Row If Empty and Click Save and Run Page.

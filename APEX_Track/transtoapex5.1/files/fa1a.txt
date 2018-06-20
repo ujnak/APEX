@@ -1,0 +1,18 @@
+This screenshot shows a portion of the Rendering tree and the Property Editor for the Products page.
+The Rendering tree displays the following fields and values:
+Page 3: Products
+- Pre-Rendering 
+- Regions (expanded)
+-- Breadcrumb Bar
+-- Content Body
+-- Body 1 (expanded)
+--- Top 5 Products (expanded)
+---- Columns 
+---- Attributes
+-- Body 3 (expanded)
+--- Products (expanded and selected)
+---- Columns
+The Property Editor displays the following fields and values:
+Identification
+- Title: Products
+- Type: Classic Report

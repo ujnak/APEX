@@ -1,0 +1,1 @@
+This image shows the Authentication page. Select No (as we are using a public API), and click Discover. 

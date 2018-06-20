@@ -1,0 +1,14 @@
+This screenshot shows a portion of the Page Designer view of Page 6.
+In the Rendering tree, the following Region Buttons are selected:
+CANCEL
+DELETE
+SAVE
+CREATE
+The Property Editor displays the following fields and values:
+Layout
+- Sequence: (no value)
+- Region: Product Details
+- Button Position: Bottom of Region
+- Horizontal Alignment: Right
+Appearance
+- Button Template: Text

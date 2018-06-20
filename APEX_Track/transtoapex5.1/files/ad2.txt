@@ -1,0 +1,5 @@
+This screenshot displays a portion of the Themes page under Shared Components.
+There are three buttons in the screenshot:
+Reset
+Switch Theme
+Create (mouse pointer)

@@ -1,0 +1,4 @@
+The Screenshot shows the Create Application page with the List View and Form page type selected. 
+Home(1) for Parent Page, DEPARTMENTS for Table Name, and DEPARTMENT_NAME for Display Column is being selected.
+
+The mouse pointer is clicking the Add Page button.

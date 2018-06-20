@@ -1,0 +1,11 @@
+This screenshot shows the Create Chart page with the following details:
+Navigation Preference:
+* Do not associate this page with a navigation menu entry
+* Create a new navigation menu entry. This preference is selected.
+* Identify an existing navigation menu entry for this page
+
+New Navigation Menu Entry: EmpDept Chart is being displayed
+
+Parent Navigation Menu Entry: No parent selected
+
+The mouse pointer is clicking the Next button.

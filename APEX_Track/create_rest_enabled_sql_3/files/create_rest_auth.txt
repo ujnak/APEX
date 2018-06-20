@@ -1,0 +1,1 @@
+This is the image of the Create REST Enabled SQL Service - Authentication dialog. It shows the input fields for credentials, authentication type, client ID, client secret or password and confirmation field for client password.

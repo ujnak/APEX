@@ -1,0 +1,1 @@
+This screenshot shows the Sample Database Application login page. The Username is set to brad.knight and the password is entered. The Sign In button is being clicked.

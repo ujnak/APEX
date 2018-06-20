@@ -1,0 +1,1 @@
+This photograph shows the Output Parameters section where we are entering 'Employee ID' for Name, 1 for Path., selecting 'String' for Type, and clicking  the Add Parameter button.

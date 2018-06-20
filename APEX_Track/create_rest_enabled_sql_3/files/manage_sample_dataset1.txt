@@ -1,0 +1,1 @@
+This is the image of the Manage Sample Dataset dialog. It shows the dataset name that you have selected, the description, the last updated date, and the table prefix of the tables present in the dataset. You can select the schema and language here. 

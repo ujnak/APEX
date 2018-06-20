@@ -1,0 +1,9 @@
+select null link,
+       p.project_name label,
+       t.task_count value
+  from (select project_id,
+               count(*) task_count
+          from tasks
+         group by project_id) t,
+       projects p
+ where t.project_id = p.project_id

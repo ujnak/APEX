@@ -1,0 +1,11 @@
+This screenshot shows the Create Chart page with the following details:
+1. Source Type: 
+* Table
+* SQL Query
+SQL Query radio button is being selected. 
+2. SQL query is entered in the SQL Query text box. 
+3. Page Items to Submit
+4. Maximun Rows
+
+The mouse pointer is clicking the Next button.
+

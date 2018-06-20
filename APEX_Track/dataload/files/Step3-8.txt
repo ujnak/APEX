@@ -1,0 +1,14 @@
+This image shows the Pages Attributes page of the Create Data Load Wizard. 
+The following descriptive text appears at the top of the wizard page:
+"This page provides a short descriptive name for each page of the data load wizard to be created. Please provide the page name, number, and region names to use in the data load wizard."
+
+The following fields are available in this page of the wizard. Note that each of the Step fields has three elements associated with it: Page Name, Page Number and Region Name.
+
+1. Step 1 with the Page Name value Data Load Source, Page Number value 2 and Region Name value Data Load Source
+2. Step 2 with the Page Name value Data/Table Mapping, Page Number value 3, and Region Name value
+3. Step 3 with the Page Name value Data Validation, Page Number value 4, and Region Name value Data Validation
+4. Step 4 with the Page Name value Data Load Results, Page Number value 5, and Region Name value Data Load Results
+5. Page Mode with the value Normal selected
+6. Breadcrumb with no value selected
+
+The pointer is on the Next button.

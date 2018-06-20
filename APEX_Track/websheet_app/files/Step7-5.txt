@@ -1,0 +1,14 @@
+This screenshot shows the Create Chart Section Page.
+It has the following attributes:
+
+
+Chart Label: PROJECT
+Chart Value: COST
+Function
+Sort: Deafult
+Axis Title for Label: Projects
+Axis Title for Value: Costs
+
+Enable 3D checkbox is checked
+
+The mouse pointer is clicking the Next button.

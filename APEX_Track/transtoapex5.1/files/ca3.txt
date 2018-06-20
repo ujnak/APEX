@@ -1,0 +1,11 @@
+The screenshots shows a portion of the List Entry page.
+It contains the following:
+Back button (inactive)
+Next button (has the mouse pointer)
+Navigation Menu (Show All is selected)
+The following appear under the Entry heading:
+List: Navigation Menu (read only)
+Parent List Entry: - No Parent List Item - (selected)
+Sequence: 1
+Image/Class: fa-home
+Attributes: (field is blank)

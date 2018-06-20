@@ -1,0 +1,2 @@
+This screenshot shows the home page of the Universal Theme Migration Guide.
+It consists of two buttons: Browse Components and Migration Guide (mouse pointer).

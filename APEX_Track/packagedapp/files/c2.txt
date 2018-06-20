@@ -1,0 +1,1 @@
+This screenshot shows the search bar with value "sample", and the mouse clicking Sample Calendar in the search results.

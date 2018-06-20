@@ -1,0 +1,11 @@
+This screenshot shows the Create an Application page. 
+It has the following attributes:
+User Interface: Mobile
+Schema:OBE
+Name with the red asterik : Mobile App entered
+Application with the res asterik: 100
+Theme: Mobile(51)
+Theme Style: Blue
+
+There are four buttons:
+Back, Cancel, Create Application, and Next. Create Application is focused.

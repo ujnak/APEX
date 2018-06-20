@@ -1,0 +1,1 @@
+This image shows a dialog to browse files in the local directory. The file emp.sql is highlighted. The pointer is on the Open button. 

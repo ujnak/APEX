@@ -1,0 +1,5 @@
+This screenshot shows Deadlines Data Grid page.
+
+Under Data, the Event is Complete Update Payroll.
+
+The mouse pointer is clicking the Save and Add Another button.

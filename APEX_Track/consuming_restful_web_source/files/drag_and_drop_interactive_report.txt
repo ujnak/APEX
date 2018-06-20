@@ -1,0 +1,1 @@
+This image shows that you select Interactive Report from the Regions attributes and add it under the Content Body. The red tab shows that there are some error messages. You edit the regions in the next step to address all these error messages.

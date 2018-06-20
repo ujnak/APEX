@@ -1,0 +1,15 @@
+This screenshot shows the Create Application page. There is an option to select page type. The page types are:
+Blank, List View, Column Toggle Report, Reflow Report, List View and Form, Form, and Chart. Column Toggle Report page type icon is selected.
+
+Other options in the page are:
+Action: Add a column toggle report
+Parent Page:Deafault is selected
+Pge Source: Table
+Table Name: Employees is selected
+
+There are two buttons:
+Cancel
+Add Page. Add Page is focused.
+
+
+

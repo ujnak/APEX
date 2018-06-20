@@ -1,0 +1,11 @@
+This screenshot shows the Entry Details page.
+It has the following attributes:
+
+Username: ws_reader
+Privilege:
+
+Reader
+Contributor
+Adminitrator
+
+Reader is being selected. And the mouse pointer is clicking the Create and Create Another button.

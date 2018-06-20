@@ -1,0 +1,6 @@
+This screnshot displays the second step "Verify Compatibility" of the Switch Theme wizard.
+A pop up with heading Applied "Theme 25 - Blue Responsive" mappings is displayed over the Switch Theme wizard. This pop up displays the following information:
+Success 
+42 out of 42 template mapping(s) were recognized by this bookmarklet.
+Of these, 13 template mapping(s) were altered.
+Close button (mouse pointer)

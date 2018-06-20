@@ -1,0 +1,1 @@
+This screenshot shows the Property Editor tab along with the Save button. The Save button is being clicked and the Value Placeholder field in the Property Editor is set to "Search customers, orders, and product data"

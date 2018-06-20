@@ -1,0 +1,1 @@
+This photograph shows entering 'Employee List' for Report Page Name, entering 'Employee Details' for the Form Page Name, selecting 'Breadcrumb' for Breadcrumb, 'Home (Page 1)' for Parent Entry, and clicking 'Next >'.

@@ -1,0 +1,10 @@
+This screenshot shows the Page Designer view of Page 3: Products.
+In the Rendering tree, Attributes (under the Products region) is selected. 
+The Property Editor shows the following fields and values:
+Layout
+- Number of Rows Type: Static Value
+- Number of Rows: 15
+Appearance
+- Template Type: Theme
+- Template: Cards
+- Template Options: Use Template Defaults, Featured, 5 Columns

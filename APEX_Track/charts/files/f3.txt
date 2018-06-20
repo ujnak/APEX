@@ -1,0 +1,1 @@
+In this image, you click the Show All button in the Property Editor to see all attributes.

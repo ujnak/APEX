@@ -1,0 +1,2 @@
+This screenshot shows the Rendering section of the Page 6: Employees Column Toggle Report.
+The mosue pinter is clicking the FIRST_NAME under Columns.

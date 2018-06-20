@@ -1,0 +1,1 @@
+This photograph shows the Salary value highlighted with red color when the value is greater than 25000.

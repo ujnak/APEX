@@ -1,0 +1,53 @@
+/* CSS Document */
+@media print {
+ 
+.obetitle {
+position: relative;
+top: 0;
+z-index: 0;
+height: auto;
+border-bottom: none;
+width: 100%;
+left: 0;
+padding: 8px;
+margin: 8px;
+background: #fff;
+}	
+
+article {
+	margin:0;
+	padding:0;}
+	
+	article h1, article h2, article h3, article h4, article p, section > h3,
+	.ui-button-text,.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text{
+		margin:8px !important;
+		margin-left:0 !important;
+		padding:8px !important;
+		padding-left:0 !important;
+		
+		}
+	
+	
+	
+#tab1,#tab2,#tab3,#tab4,#tab5,#tab6,#tab7,	.slide-holder,.lang, .left-tab-holder,.ui-state-default .ui-icon{
+display: none !important;
+}
+
+#content, .content, .content-right {
+	margin:0 !important;
+	padding:0 !important;
+	}
+	
+	.left-panel{
+		display:none;
+		width:0;}
+		
+	.ui-state-default, .ui-widget-content, .ui-widget-header{
+			border:none !important;
+			border-bottom:1px solid #eee; !important;
+			background:none;}
+			
+			footer{
+				display:none;}
+
+}

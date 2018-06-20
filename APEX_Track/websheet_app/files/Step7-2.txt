@@ -1,0 +1,11 @@
+This screenshot shows the Create Section page.
+It has four type of page section icons:
+
+Text
+Navigation
+Data
+Chart
+
+Chart page section type is being selected.
+
+The mouse pointer is clicking the Next button.

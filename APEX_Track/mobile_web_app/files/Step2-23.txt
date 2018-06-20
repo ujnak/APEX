@@ -1,0 +1,4 @@
+This screenshot shows the Mobile App Home page.
+It has a Navigation List with the two pages that were created under the Home page.
+Departments and the Projects page.
+The Home page has a panel icon button on the top left corner of the page and the Logout button on the top right corner of the page.

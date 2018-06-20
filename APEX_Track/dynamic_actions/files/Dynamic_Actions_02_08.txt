@@ -1,0 +1,1 @@
+This photograph shows selecting P3_MANAGER_ID in the Rendering tab, and in the property editor, changing the Label to Manager, selecting SQL Query for Type under LIst of Values section and clicking the SQL Editor icon.

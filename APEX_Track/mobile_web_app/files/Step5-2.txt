@@ -1,0 +1,5 @@
+This screenshot shows the Page Finder modal window with the number of pages of the Mobile App.
+
+There are five pages listed with the Page Name, User Interface, and Group.
+
+The mouse pointer is clicking the Page Number 4.

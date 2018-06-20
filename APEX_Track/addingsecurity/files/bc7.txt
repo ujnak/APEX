@@ -1,0 +1,1 @@
+This screenshot shows the Security properties in the Column tab. There are two buttons - Save and Save and Run Page. The Authorization Scheme under Security properties is set to access control - edit.

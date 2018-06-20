@@ -1,0 +1,4 @@
+This screenshot show the Application Installed page.
+It states - "Your imported file is located in the Export Repository. Unless you plan to install it again, you should remove it." It also displays:
+Edit Application button
+Run Application button (mouse pointer)

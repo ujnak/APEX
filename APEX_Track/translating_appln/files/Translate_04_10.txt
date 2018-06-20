@@ -1,0 +1,11 @@
+This image shows the Create/Edit Text Message dialog. It has the following fields:
+1. Application with the value 100 Order Management - WSII
+2. Name with the value GREETING_MESSAGE
+3. Language with the value English (en)
+4. Used in JavaScript with the option No selected
+5. Text with the value Good Morning %10
+The dialog has three buttons:
+1. Cancel
+2. Create and Create Another
+3. Create Text Message
+The pointer is on the Create and Create Another button.

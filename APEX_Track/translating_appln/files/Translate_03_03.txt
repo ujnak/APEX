@@ -1,0 +1,1 @@
+This image displays the message "Application Processed" at the top of the Application 100 dashboard. The pointer is on Run Application.

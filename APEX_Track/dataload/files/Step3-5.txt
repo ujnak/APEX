@@ -1,0 +1,1 @@
+This image shows the Create Data Load Wizard with the transformation rule you just created. The pointer is on the Next button.

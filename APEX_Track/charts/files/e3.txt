@@ -1,0 +1,1 @@
+In this image, you right click Events and select Create Dynamic Actions.

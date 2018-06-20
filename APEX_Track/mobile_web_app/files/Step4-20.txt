@@ -1,0 +1,8 @@
+This screenshot shows the Maintain Departments page with the following details:
+Department Id: 10
+Department Name: Administration
+Location: Bombay
+
+And two buttons: Delete and Save.
+
+The mouse pointer is clicking the panel button icon.

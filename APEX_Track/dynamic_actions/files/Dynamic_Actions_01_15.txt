@@ -1,0 +1,7 @@
+This photograph shows performing the following actions:
+1. Selecting 'Select Primary Key Column(s)' as the Primary Key Type
+2. Selecting all columns to be included in the form
+3. Selecting 'EMPLOYEE_ID (Number) as the Primary Key Column1 value 
+4. Selecting Exisitng Sequence as the Source for Primary Key COlumn 1
+5. selecting 'EMPLOYEES_SEQ' as the Sequence from the drop-down list 
+6. Clicking the Create Button.

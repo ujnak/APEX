@@ -1,0 +1,9 @@
+This screenshot shows a portion of the List Entry page.
+The mouse pointer is clicking the Next button.
+List: Navigation Menu (read only)
+Parent List Entry: - No Parent List Item -
+Sequence: 2
+Image/Class: fa-users
+Attributes: (field is empty)
+Alt Attribute: (field is empty)
+List Entry Label: Customers [&A01.]

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- OBE Template 2015: Version 1.0 Last updated 04/03/2015 --><!-- Author: Jordan Douglas, Glenn Stokol, Marcie Young, Matthieu Heimer -->
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <!-- set the encoding of your site -->
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Data Load Wizard for Your Application with Oracle
+      Application Express 5.0</title>
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500"
+      rel="stylesheet" type="text/css">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css">
+    <link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+    <link type="text/css" rel="stylesheet" href="css/obe.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css">
+    <!-- codemirror css here -->
+    <link type="text/css" rel="stylesheet" href="css/codemirror/codemirror.css">
+    <!-- include jQuery library -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="dev-assets/js/bootstrap.js"></script>
+    <!-- include custom JavaScript -->
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="js/jquery.main.js"></script>
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <!--[if lt IE 9]>
+            <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+    <!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.visible.js"></script>
+    <script type="text/javascript" src="js/hooks.js"></script>
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+    <!--script type="text/javascript" src="js/REST.UI.js"></script-->
+    <!--end obe scripts -->
+    <script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script> <script src="js/jquery-ui-1.10.4.custom.js"></script>
+  </head>
+  <body> <noscript><div>Javascript must be enabled for the correct page display</div></noscript>
+    <!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- allow a user to go to the main content of the page --> <a class="accessibility skipto"
+        href="#content">Skip to Content</a>
+      <!-- header of the page -->
+      <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- page logo -->
+                <div class="logo pull-left" itemscope="" itemtype="http://schema.org/Organization">
+                  <span class="name-organization" itemprop="name">Oracle.net</span>
+                  <a href="#"> <span data-picture="" data-alt="Oracle.net"> <span
+                        data-src="images/logo.png" data-width="221" data-height="20"></span>
+                      <span data-src="images/logo-2x.png" data-width="221" data-height="20"
+                        data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)"></span>
+                      <!--[if (lt IE 9) & (!IEMobile)]>
+									<span data-src="images/logo.png"></span>								<![endif]-->
+                      <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                      <noscript><img src="images/logo.png" alt="image description"
+height="20" width="221"></noscript> </span> </a> </div>
+              </div>
+              <div class="navbar-right"> </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- contain main informative part of the site -->
+      <main role="main" id="main">
+        <div class="holder">
+          <div class="container-fluid">
+            <h1>Creating a Data Load Wizard for Your Application with Oracle
+              Application Express 5.0</h1>
+            <!-- contain the main content of the page -->
+            <div class="content-holder">
+              <div class="content">
+                <!-- tabs content holder -->
+                <div class="slide-holder left-tab-holder">
+                  <!-- tab element -->
+                  <div id="tab1">
+                    <div class="slide-frame">
+                      <div id="left-nav-container">
+                        <div class="left-nav-element">
+                          <div id="navToc" title="Topic List">
+                            <ul>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <br style="clear:both">
+                    </div>
+                  </div>
+                  <!-- tab element -->
+                  <div id="tab2">
+                    <div class="slide-frame">
+                      <div class="left-nav-element">
+                        <div id="toolbar">
+                          <h3>Options</h3>
+                          <button id="tglTopicBtn" class="btn btn-primary">Expand
+                            All Topics</button> <br>
+                          <br>
+                          <button id="tglImageBtn" class="btn btn-primary">Hide
+                            All Images</button> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- tabs content holder -->
+                <div class="slide-holder right right-tab-holder"> </div>
+                <div class="left-panel pull-left">
+                  <!-- tabs switcher -->
+                  <ul class="tabset-panel list-unstyled text-center">
+                    <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip"
+                        data-placement="right"> <span class="glyphicons glyphicons-list"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Table of Contents</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <!-- -->
+                    <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip"
+                        data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Options</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-right" id="content">
+                  <article>
+                    <div id="container">
+                      <!-- START Article -->
+                      <p style="color:red"><strong>Last updated:</strong>
+                        04/17/15 01:30 pm EDT</p>
+                      <section>
+                        <h2>Before You Begin</h2>
+                        <div>
+                          <h4>Purpose</h4>
+                          <p>This tutorial shows you how to create a Data
+                            Loading Wizard for your application so that end
+                            users can add data into a table.</p>
+                          <h4>Time to Complete</h4>
+                          <p>Approximately 15 minutes</p>
+                          <h4>Introduction</h4>
+                          <p>Applications with data loading capability allow end
+                            users to dynamically import data into a table within
+                            any schema to which the user has access. To do this,
+                            end users run a Data Load Wizard that uploads data
+                            from a file or copies and pastes data entered by the
+                            end user directly into the wizard.</p>
+                          <p>With Oracle Application Express 5.0, you can create
+                            a series of data load wizard pages in your
+                            application using the new Data Loading page wizard.
+                            The wizard allows you to add table lookups and
+                            transformation rules that are executed when the Data
+                            Load Wizard runs.</p>
+                          <p>In this tutorial, you create a <font face="Courier New">DEPENDENTS</font>
+                            table, create an application with a report, use the
+                            Data Loading page wizard to create the Data Load
+                            wizard pages in your application that the end user
+                            uses to load the data. The Data Loading definition
+                            contains a table lookup for the relative name and a
+                            data transformation rule to make sure that Gender is
+                            stored in uppercase. </p>
+                          <h4>Prerequisites</h4>
+                          <p>Before starting this tutorial, you should: <br>
+                          </p>
+                          <ul>
+                            <li>Have install Oracle Database 11<i>g</i> or
+                              later.</li>
+                            <li>Have install Oracle Application Express Release
+                              5.0.</li>
+                            <li>Download and unzip the <a href="files/files.zip">files.zip</a>
+                              file into a working directory to use during this
+                              tutorial.</li>
+                            <li>Create a workspace and user to perform this
+                              tutorial.<br>
+                              <br>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Create the DEPENDENTS table using a SQL Script</h2>
+                        <div>
+                          <p>In this section, you upload a SQL Script and run it
+                            to create the <font face="Courier New"><b>DEPENDENTS</b></font>
+                            table. Perform the following steps:</p>
+                          <ol>
+                            <li>
+                              <p>To log in to Oracle Application Express, enter
+                                the following details, and click <b>Sign I</b>n.<br>
+                                Workspace: <strong>&lt;your workspace name&gt;
+                                </strong><br>
+                                <your workspace="" name=""> Username: <your username=""></your></your><strong>&lt;your
+                                  username&gt;</strong><br>
+                                <your workspace="" name=""><your username="">
+                                    Password: <your password=""></your></your></your><strong>&lt;your
+                                  password&gt;</strong></p>
+                              <figure> <img src="images/Snap52.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Select <b>SQL Workshop &gt; SQL Scripts</b>.</p>
+                              <figure> <img src="images/Snap1.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Upload &gt;</b>.</p>
+                              <figure> <img src="images/Snap2.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Browse</b>.</p>
+                              <figure> <img src="images/Snap3.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Select <font face="Courier New"><b>dependents.sql</b></font>
+                                from the files you downloaded from the
+                                prerequisites section of this tutorial and click
+                                <b>Open</b>.</p>
+                              <figure> <img src="images/Snap4.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Upload</b>.</p>
+                              <figure> <img src="images/Snap5.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Your script was uploaded successfully. click
+                                the <b>Run</b> icon.</p>
+                              <figure> <img src="images/Snap6.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Run Now</b>.</p>
+                              <figure> <img src="images/Snap7.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Your script ran, click the <b>View Results</b>
+                                icon.</p>
+                              <figure> <img src="images/Snap8.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The script ran successfully. In the next
+                                section you create an instant application and a
+                                report region on the Home page.</p>
+                              <figure> <img src="images/Snap9.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Create an Application with a Report</h2>
+                        <div>
+                          <p>In this section, you create an instant database
+                            application and create an interactive report that
+                            shows all the data in the <font face="Courier New">DEPENDENTS</font>
+                            table. Perform the following steps:</p>
+                          <ol>
+                            <li>
+                              <p>Select <b>Application Builder &gt; Database
+                                  Applications</b>.</p>
+                              <figure> <img src="images/Snap10.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Create &gt;</b>.</p>
+                              <figure> <img src="images/Snap11.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Change the Name to <b>Data Loading</b> and
+                                click <b>Create Application</b>.</p>
+                              <figure> <img src="images/Snap13.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Create Application</b>.</p>
+                              <figure> <img src="images/Snap14.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Your application was created successfully. You
+                                want to create a report region on the Home page.
+                                Select the <b>Home page</b> icon.</p>
+                              <figure> <img src="images/Snap15.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Right-click <b>Regions</b> and select <b>Create
+                                  Region</b>.<br>
+                              </p>
+                              <figure> <img src="images/Snap16.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <b>Dependents List </b>for Title and
+                                select<b> Interactive Report</b> for Type.<br>
+                              </p>
+                              <figure> <img src="images/Snap17.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Enter the following SQL <font face="Courier New">SELECT</font>
+                                statement and click <b>Save and Run Page</b>.<br>
+                                <kbd>select FIRST_NAME,<br>
+                                  LAST_NAME,<br>
+                                  BIRTHDATE,<br>
+                                  RELATION,<br>
+                                  GENDER,<br>
+                                  RELATIVE_ID<br>
+                                  from DEPENDENTS</kbd></p>
+                              <figure> <img src="images/Snap18.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Login as a valid user and click <b>Login</b>.</p>
+                              <figure> <img src="images/Snap19.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The Home page displays the report. The reason
+                                you see the “No data found” message is because
+                                the table is currently empty. In the next
+                                section, you use the Data Loading Page wizard to
+                                create a Data Load wizard. You will then use the
+                                Data Load wizard to load data into the <font face="Courier New">DEPENDENTS</font>
+                                table. After the data is loaded into the table,
+                                this report will display the loaded data. Click
+                                the Application link in the developer toolbar. </p>
+                              <figure> <img src="images/Snap20.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Data Load Wizard Using the Data Loading
+                          Page Wizard</h2>
+                        <div>
+                          <p>In this section, you use the Data Loading page
+                            wizard to create four pages in your application that
+                            an end user will run to load data into the <font face="Courier New">DEPENDENTS</font>
+                            table. Perform the following steps:</p>
+                          <ol>
+                            <li>
+                              <p>Click <strong>Create Page &gt;</strong>.</p>
+                              <figure> <img src="images/Snap21.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>For Page type, click the <b>Data Loading </b>icon.
+                                <br> </p>
+                              <figure> <img src="images/Snap22.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>You need to specify the table you want to load
+                                data into and what columns uniquely identify the
+                                dependent in the table. In this case, the
+                                concatenation of <font face="Courier New">FIRST_NAME</font>
+                                and <font face="Courier New">LAST_NAME</font>
+                                uniquely identify a Dependent in the <font face="Courier New">DEPENDENTS</font>
+                                table. Specify and/or select the following and
+                                click <b>Next</b> <b>&gt;</b>.<br>
+                              </p>
+                              <table border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Data Load Definition Name</td>
+                                    <td><b>Load Dependents</b></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Table Names</td>
+                                    <td><b>DEPENDENTS</b></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Unique Column 1</td>
+                                    <td><b>FIRST_NAME (Varchar2)</b></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Unique Column 1</td>
+                                    <td><b>LAST_NAME (Varchar2)</b></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img src="images/Snap23.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>You want to create a transformation rule to
+                                make sure that when the data is stored, the data
+                                for the <font face="Courier New">GENDER</font>
+                                column is stored in Upper Case. Specify and/or
+                                select the following and click <b>Add</b>. <br>
+                              </p>
+                              <table border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Column Name</td>
+                                    <td><b>Gender</b></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Name</td>
+                                    <td><strong>Uppercase Gender</strong> </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Type<br>
+                                    </td>
+                                    <td><strong></strong><strong>To Upper Case</strong></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img src="images/Snap24.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The transformation was created. Click <b>Next
+                                  &gt;</b>.</p>
+                              <figure> <img src="images/Snap53.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>You want to add a lookup for this data load. In
+                                this case, the relative_id should correspond to
+                                the id of the<font face="Courier New"> EMP</font>
+                                table so that it is a valid employee of this
+                                dependent. Specify and/or select the following
+                                and click <strong>Add</strong>.<br>
+                              </p>
+                              <table border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Column Name</td>
+                                    <td><b>RELATIVE_ID</b></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Table Name</td>
+                                    <td><b>EMP</b><br>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>Column Name(of key value)<br>
+                                    </td>
+                                    <td><b>EMPNO</b></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Uploaded Column<br>
+                                    </td>
+                                    <td><b>ENAME</b></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img src="images/Snap25.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The lookup for <font face="Courier New">RELATIVE_ID</font>
+                                was created, click <b>Next &gt;</b>.</p>
+                              <figure> <img src="images/Snap26.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The four pages in the screenshot will be
+                                created as a result of this Data Load. Click <b>Next
+                                  &gt;</b>.</p>
+                              <figure> <img src="images/Snap27.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>For navigation preference, select <b>Identify
+                                  an existing navigation menu entrE for this
+                                  page</b> option. Select <b>Home</b>for <b>Existing
+                                  Navigation Menu Entry</b> Click <b>Next &gt;</b>.</p>
+                              <figure> <img src="images/Snap27a.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p> You want to branch to the Home page if the
+                                user selects the Cancel or Finish buttons. Enter
+                                <b>1</b> for both Branch to Page fields and
+                                click <b>Next &gt;</b>.</p>
+                              <figure> <img src="images/Snap28.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Create</b> to create the wizard pages
+                                for the data load. In the next section, you test
+                                the Data Load Wizard pages that were created.</p>
+                              <figure> <img src="images/Snap29.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Testing Your Data Load Wizard</h2>
+                        <div>
+                          <p>In this section, you test your data load wizard
+                            pages by loading some data. Perform the following
+                            steps:</p>
+                          <ol>
+                            <li>
+                              <p> Click <b>Save and Run Page</b>.</p>
+                              <figure> <img src="images/Snap30.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Enter your login information and click <b>Login</b>.</p>
+                              <figure> <img src="images/Snap19.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>You want to load the data using a tab delimited
+                                file. Click the <b>Upload file</b> option for
+                                Import From.</p>
+                              <figure> <img src="images/Snap31.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click <b>Browse</b>.</p>
+                              <figure> <img src="images/Snap32.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Select the <b>dependent_data1.txt </b>file
+                                and click <b>Open</b>.</p>
+                              <figure> <img src="images/Snap33.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click<b> Next &gt;</b>.</p>
+                              <figure> <img src="images/Snap34.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that there are some values for the
+                                GENDER column that are lower case and that the
+                                values for RELATIVE_ID are the employee name
+                                that the dependent is a relative of. When you
+                                click Next, the Lookup and Transformation Rules
+                                will be applied. Click <b>Next</b> <b>&gt;</b>.</p>
+                              <figure> <img src="images/Snap35.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Notice now that all the values for GENDER are
+                                uppercase and the EMPNO of the relative is
+                                applied for each ENAME that if found in the EMP
+                                table. Notice that there are two names it did
+                                not find so an error will be generated when the
+                                Load takes place. Click <b>Load Data</b>.</p>
+                              <figure> <img src="images/Snap36.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that 9 rows were inserted and the 2 rows
+                                for the lookup that were not found failed. Click
+                                <b>Finish</b>.</p>
+                              <figure> <img src="images/Snap37.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The Home page is now displayed and the report
+                                contains the data that you just loaded. <br>
+                              </p>
+                              <figure> <img src="images/Snap49.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>This time you want to use the Copy and Paste
+                                option instead of uploading a file. Click <b>Copy
+                                  and Paste</b>.</p>
+                              <figure> <img src="images/Snap50.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Open the <b>dependent_data2.txt</b> file and
+                                copy the entire contents of the file to your
+                                clipboard (ctrl+c).</p>
+                              <figure> <img src="images/Snap51.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Paste the contents into the Copy and Paste
+                                Delimited Data area, make sure the First Row has
+                                Column Names is still checked and click <b>Next
+                                  &gt;</b>. Note that the third column name is
+                                set to <font face="Courier New">BIRTHDAY</font>
+                                instead of the column name in the <font face="Courier New">DEPENDENTS</font>
+                                table which is <font face="Courier New">BIRTHDATE</font>.</p>
+                              <figure> <img src="images/Snap38.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p> Because the column name did not match, you
+                                need to select the column name from the list.
+                                Select <font face="Courier New">BIRTHDATE</font>
+                                from the list for the third column.</p>
+                              <figure> <img src="images/Snap39.jpg" class="ScreenShot"
+                                  alt="alt description here"></figure>
+                            </li>
+                            <li>
+                              <p> Click <b>Next </b>to apply the lookup and
+                                transformation rule.</p>
+                              <figure> <img src="images/Snap40.jpg" class="ScreenShot"
+                                  alt="alt description here"></figure>
+                            </li>
+                            <li>
+                              <p>Notice the values for <font face="Courier New">GENDER</font>
+                                are in uppercase and all the <font face="Courier New">EMPNO</font>
+                                values were found in the<font face="Courier New">
+                                  EMP</font> table. All the data will be
+                                inserted and one row will be updated because it
+                                had the same <font face="Courier New">FIRST_NAME</font>
+                                and <font face="Courier New">LAST_NAME</font>
+                                as the previous load. Click <b>Load Data</b>.</p>
+                              <figure> <img src="images/Snap41.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The data load results are displayed. Click<b>
+                                  Finish</b> to return to the Home page.</p>
+                              <figure> <img src="images/Snap42.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The report is updated with the additional and
+                                revised data. In the next section, you review
+                                the data load definition. Click the <b>Application
+                                  link</b> in the developer toolbar.</p>
+                              <figure> <img src="images/Snap43.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Review the Data Load Definition</h2>
+                        <div>
+                          <p>In this section, you review the Data Load
+                            definition so that if desired, you can make changes.
+                            Perform the following steps:</p>
+                          <ol>
+                            <li>
+                              <p> Notice that four Data Load pages were created
+                                in your application. To see the Data Load
+                                definition for these pages, Click <b>Shared
+                                  Components</b>.</p>
+                              <figure> <img src="images/Snap44.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Under Data References, click<b> Data Load
+                                  Definitions</b>.</p>
+                              <figure> <img src="images/Snap45.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <b>Load Dependents</b> definition.</p>
+                              <figure> <img src="images/Snap46.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                            <li>
+                              <p>The definition is displayed. Note that you can
+                                create or modify any existing Table Lookups or
+                                Transformation Rules from this page.</p>
+                              <figure> <img src="images/Snap47.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                              <figure> <img src="images/Snap48.jpg" class="ScreenShot"
+                                  alt="alt description here"> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Want to Learn More?</h2>
+                        <div>
+                          <p>In this tutorial, you learned to: </p>
+                          <ul>
+                            <li>Create a Data Loading wizard </li>
+                            <li> Test your Data Loading wizard by loading data
+                              into a table</li>
+                            <li> View the Data Loading definition</li>
+                          </ul>
+                          <h4>Resources</h4>
+                          <ul>
+                            <li>Oracle Application Express <a href="http://www.oracle.com/technetwork/developer-tools/apex/overview/index.html"
+                                target="_blank">homepage</a> on OTN.</li>
+                            <li><a href="http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getCourseDesc?dc=D79653GC10&amp;intcmp=WWOU11042424MPP032C002">Oracle
+                                Application Express: Workshop I</a></li>
+                            <li>To learn more about Application Express 5.0,
+                              refer to additional OBEs in the <a href="https://apexapps.oracle.com/pls/apex/f?p=44785:24:4447550706535::NO::P24_CONTENT_ID,P24_PREV_PAGE:11396,1">Oracle
+                                Learning Library</a></li>
+                            <li><a href="http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=3"
+                                target="_blank">Oracle University</a></li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Credits</h2>
+                        <div>
+                          <ul>
+                            <li>
+                              <p>Lead Curriculum Developer: <em>Dimpi Sarmah</em></p>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                      <!-- END Article --> </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- footer of the page -->
+      <footer id="footer">
+        <div class="f1">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="pull-left footer-left">
+                <ul class="footer-nav list-inline">
+                  <li><a href="http://www.oracle.com/corporate/index.html">About
+                      Oracle</a></li>
+                  <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact
+                      Us</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/index.html">Legal
+                      Notices</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms
+                      of Use</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your
+                      Privacy Rights</a></li>
+                </ul>
+                <span class="copyright">Copyright © 2015, Oracle and/or its
+                  affiliates. All rights reserved.</span> </div>
+              <!-- insert lan options --> </div>
+          </div>
+        </div>
+      </footer>
+      <!-- allow a user to go to the top of the page --> <a class="accessibility"
+        href="#wrapper">Back to top</a> </div>
+    <!-- begin codemirror here -->
+    <script type="text/javascript" src="js/runmode-standalone.js"></script>
+    <script type="text/javascript" src="js/mode/clike/clike.js"></script>
+    <script type="text/javascript" src="js/mode/sql/sql.js"></script>
+    <script type="text/javascript" src="js/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/mode/css/css.js"></script>
+    <script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript">
+    var config;
+
+    config = {
+        lineNumbers: true,
+        mode : "xml",
+    htmlMode: true,
+        indentWithTabs: false,
+        readOnly: true
+    };
+
+    </script>
+    <!-- end codemirror here -->
+  </body>
+</html>

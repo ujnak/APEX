@@ -1,0 +1,1 @@
+This is the image of the app REST Enabled SQL. It shows the page Projects that you created. 

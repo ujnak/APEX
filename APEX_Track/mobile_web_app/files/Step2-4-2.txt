@@ -1,0 +1,1 @@
+This screenshot shows the Rendering section of the Maintain Projects page. Items is right-clicked and Create Page Item is selected.

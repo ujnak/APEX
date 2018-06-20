@@ -1,0 +1,10 @@
+This screenshot shows the Tasks entry page. The following values are set:
+Project: Maintain Support Systems
+Task Name: HR software upgrades
+Start Date: 01-JAN-10
+End Date: 27-FEB-10
+Status: Closed
+Assigned To: Pam King
+Cost: 10000
+Bugdet: 7000
+The Apply Changes button is being clicked.

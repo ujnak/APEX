@@ -1,0 +1,3 @@
+This screenshot shows the Human Resources Management application home page.
+
+The Create menu option is expanded and the New Page as a Copy option is focused.

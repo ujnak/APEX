@@ -1,0 +1,1 @@
+This is an image of the RESTful Services Wizard - Step 2 of 2. It shows the summary of the RESTful service along with the status such as enable status, authorization, commit, Alias and so on. 

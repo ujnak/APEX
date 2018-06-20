@@ -1,0 +1,2 @@
+This screenshot shows the Create Chart page.
+The mouse pointer is clicking the Pie Chart Type.

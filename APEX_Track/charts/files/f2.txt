@@ -1,0 +1,1 @@
+In this image, you Switch back to the charts window to see that the Refresh dynamic action has updated the number of tasks for Employee Satisfaction Survey to 4 in the Tasks per Project Chart 2 chart.

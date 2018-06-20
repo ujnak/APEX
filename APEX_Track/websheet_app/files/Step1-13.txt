@@ -1,0 +1,13 @@
+This screenshot shows the Craete Text Section page of the websheet application.
+For the Method, Create single text section option is selected.
+
+Sequence is 20
+Title is Overview
+Content is " This application enables you to view the details of all employees across all departments. You can edit the pages to add or delete information and also create additional pages and page sections."
+
+There are three buttons:
+Cancel
+Previous 
+Create Section.
+
+The mouse pointer is clicking the Create Section button.

@@ -1,0 +1,1 @@
+In this image, you click Edit Page <n> in the developer toolbar.

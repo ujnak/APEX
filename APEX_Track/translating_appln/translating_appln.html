@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Last updated: 07/10/15 -->
+    <!-- set the encoding of your site -->
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translating an Application in Oracle Application Express 5.1</title>
+    <!-- Add short description of the OBE for displaying in  search results, etc.-->
+    <meta name="description" content="This tutorial shows how to translate an application developed in Application Builder using Oracle Application Express 5.1.">
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500"
+
+      rel="stylesheet" type="text/css">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css">
+    <link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+    <link type="text/css" rel="stylesheet" href="css/obe.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css">
+    <!-- Code Mirror stylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/codemirror/codemirror.css">
+    <!-- include jQuery library -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="dev-assets/js/bootstrap.js"></script>
+    <!-- include custom JavaScript -->
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="js/jquery.main.js"></script>
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <!--[if lt IE 9]>
+            <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+    <!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.visible.js"></script>
+    <script type="text/javascript" src="js/hooks.js"></script>
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+    <!--script type="text/javascript" src="js/REST.UI.js"></script-->
+    <!--end obe scripts -->
+    <script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script> <script src="js/jquery-ui-1.10.4.custom.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+    });
+</script> </head>
+  <body> <noscript>
+<div>Javascript must be enabled for the correct page display</div>
+</noscript><!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- allow a user to go to the main content of the page --> <a class="accessibility skipto"
+
+        href="#content">Skip to Content</a>
+      <!-- header of the page -->
+      <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- page logo -->
+                <div class="logo pull-left" itemscope="" itemtype="http://schema.org/Organization">
+                  <span class="name-organization" itemprop="name">Oracle</span>
+                  <a href="#"> <span data-picture="" data-alt="Oracle Logo"> <span
+
+                        data-src="images/logo.png" data-width="221" data-height="20"
+
+                        data-alt="Oracle Logo"></span> <span data-src="images/logo-2x.png"
+
+                        data-width="221" data-height="20" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)"></span>
+                      <!--[if (lt IE 9) & (!IEMobile)]>
+									<span data-src="images/logo.png"></span>								<![endif]-->
+                      <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                      <noscript>
+              <img src="images/logo.png" alt="Oracle Logo" height="20" width="221">
+              </noscript> </span> </a> </div>
+              </div>
+              <div class="navbar-right"> </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- contain main informative part of the site -->
+      <main role="main" id="main">
+        <div class="holder">
+          <div class="container-fluid">
+            <h1>Translating an Application in Oracle Application Express 5.1</h1>
+            <!-- contain the main content of the page -->
+            <div class="content-holder">
+              <div class="content">
+                <!-- tabs content holder -->
+                <div class="slide-holder left-tab-holder">
+                  <!-- tab element -->
+                  <div id="tab1">
+                    <div class="slide-frame">
+                      <div id="left-nav-container">
+                        <div class="left-nav-element">
+                          <div id="navToc" title="Topic List">
+                            <ul>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <br style="clear:both">
+                    </div>
+                  </div>
+                  <!-- tab element -->
+                  <div id="tab2">
+                    <div class="slide-frame">
+                      <div class="left-nav-element">
+                        <div id="toolbar">
+                          <h3>Options</h3>
+                          <button id="tglTopicBtn" class="btn btn-primary">Expand
+                            All Topics</button> <br>
+                          <br>
+                          <button id="tglImageBtn" class="btn btn-primary">Hide
+                            All Images</button> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- tabs content holder -->
+                <div class="slide-holder right right-tab-holder"> </div>
+                <div class="left-panel pull-left">
+                  <!-- tabs switcher -->
+                  <ul class="tabset-panel list-unstyled text-center">
+                    <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-list"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Table of Contents</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <!-- -->
+                    <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Options</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <li> <a href="#tab3" class="opener tooltip-link print" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-print"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Print</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-right" id="content">
+                  <article>
+                    <div id="container">
+                      <!-- START Article -->
+                      <section>
+                        <h2>Before You Begin</h2>
+                        <div>
+                          <h4>Purpose</h4>
+                          <p>This tutorial shows how to translate an application
+                            developed in Application Builder using Oracle
+                            Application Express 5.1.</p>
+                          <h4>Time to Complete</h4>
+                          <p> Approximately 40 minutes. </p>
+                          <h4>Overview</h4>
+                          <p>Oracle Application Express (Oracle APEX) is a rapid
+                            web application development tool for the Oracle
+                            database. Using only a web browser and limited
+                            programming experience, you can develop and deploy
+                            professional applications that are both fast and
+                            secure. Oracle Application Express is available with
+                            the Oracle Database, whether it's on-premises or in
+                            an Oracle Database Cloud Service.</p>
+                          <p>In this tutorial, you use Oracle Application
+                            Express Release 5.1 to translate an application
+                            developed in Application Builder. To translate an
+                            application developed in Application Builder, you
+                            must map the primary and target language, seed and
+                            export text to a translation file, translate the
+                            text, apply the translation file, and publish the
+                            translated application. In this tutorial, you will
+                            import an application that is developed in
+                            Application Builder using English as the Primary
+                            Language. You will then perform some steps to
+                            translate this application to German.</p>
+                          <div class="oll-only">
+                          <p>Please keep in mind the following while running
+                            this tutorial:</p>
+                          <ul>
+                            <li><strong>Logging into your Oracle Application
+                                Express workspace:</strong> Your Oracle
+                              Application Express workspace may reside in an
+                              on-premises Oracle Database or in Oracle Database
+                              Cloud Services. The login credentials differ
+                              depending on where your workspace is located:
+                              <ul>
+                                <li><strong>Logging into Oracle Application
+                                    Express in a Oracle Database Cloud
+                                    Service:&nbsp;</strong> Reference the Oracle Help Center for
+                                  your Oracle Database Cloud Service. To do
+                                  this, go to the Oracle Help Center for Cloud,
+                                  and select Platform or Infrastructure (depending on your service). From
+                                  here, select your Database Cloud Service and
+                                  the Get Started page will appear.</li>
+                                <li><strong>Logging in to Oracle Application
+                                    Express on-premises:</strong> From your
+                                  browser, go to the location of your
+                                  on-premises installation of your Oracle
+                                  Application Express workspace provided by your
+                                  Workspace Administrator.</li>
+                              </ul>
+                            </li>
+                            <li><strong>Application ID:</strong> Screenshots in
+                              this tutorial show a blurred Application ID. Your
+                              Application ID can be any value assigned
+                              automatically while creating the application.</li>
+                            <li><strong>Schema:</strong> If you are accessing an
+                              Oracle Application Express workspace in Database
+                              Schema Service,&nbsp; you have one schema assigned
+                              to you with a schema name that you cannot change.
+                              If you are accessing the workspace in an
+                              on-premises Oracle database, you may have more
+                              than one schema assigned to your workspace by the
+                              Oracle Application Express Instance Administrator.</li>
+                          </ul>
+                          </div>
+                          <h4>What Do You Need?</h4>
+                          <p class="oll-only">Before starting this tutorial, you should:</p>
+                          <ul class="oll-only">
+							<li>
+							Visit <a href="http://www.oracle.com/pls/topic/lookup?ctx=cloud"
+
+                                    target="_blank">Oracle Help Center for Cloud.</a>
+							</li>
+                            <li>Have access to an Oracle Database 11g or later
+                              release, either on-premises or in a Database Cloud
+                              Service.</li>
+                            <li>Install Oracle Application Express Release 5.1
+                              into your Oracle Database (for on-premises only).</li>
+                            <li>Download and unzip the <a href="files/files.zip">files.zip</a>
+                              into your working directory.</li>
+                            <li>Provision at least one Oracle Application
+                              Express user. See <a href="http://www.oracle.com/pls/topic/lookup?ctx=E50529&id=AEADM150" target="_blank">Creating
+                                New User Accounts</a> in Oracle Application
+                              Express Administration Guide.</li>
+                          </ul>
+                          <ul class="vm-only">
+                            <li>
+                                <p>All files for this hands-on activity are located in the <code>Home/Desktop/APEX_Track/files</code> folder.</p>
+                            </li>							
+                            <li>
+                                <p>The following files are used in this hands-on activity:</p>
+                                <ul>
+                                    <li><p><strong>Order Management.sql</strong></p></li>
+                                </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Importing the Order Management Application</h2>
+                        <div> In this topic, you will first import a pre-built
+                          Order Management application into Application Builder.
+                          This application is currently using English as its
+                          Primary Language. You will later translate this
+                          application into German.<br>
+                          <ol>
+						  <li class="vm-only">
+<p>In the Application Express login page, enter the following login credentials and click <strong>Sign In:</strong></p>
+	<ul>
+		<li><p><strong>Workspace:</strong> obe</p></li>
+        <li><p><strong>Username:</strong> obe</p></li>
+		<li><p><strong>Password:</strong> oracle</p></li>
+	</ul>
+    <figure> <img alt="Login page" src="images/vm_only.jpg" class="ScreenShot">
+	<figcaption><a href="files/vm_only.txt">Description of this image</a></figcaption></figure>
+</li>
+                            <li>
+                              <p>From the Oracle Application Express home
+                                page,&nbsp; click the <strong>down arrow</strong>
+                                next to the App Builder tab and select <span style="font-weight: bold;">Import</span>.
+                              </p>
+                              <figure> <img src="images/Translate_01_01.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p class="oll-only">Click the <strong>Browse</strong> button.
+                                Browse to your working directory (the folder
+                                where you downloaded and unzipped files.zip),
+                                locate <code>Order Management.sql</code>, and
+                                click <strong>Open</strong>.</p>
+                              <p class="vm-only">Click the <strong>Browse</strong> button.
+                                Browse to the files directory and locate <strong>Order Management.sql</strong>, and
+                                click <strong>Open</strong>.</p>
+                              <figure> <img src="images/Translate_01_02.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next</strong>.</p>
+                              <figure> <img src="images/Translate_01_03.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next</strong>.</p>
+                              <figure> <img src="images/Translate_01_04.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Install Application</strong>.</p>
+                              <figure> <img src="images/Translate_01_05.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Run Application</strong>.</p>
+                              <figure> <img src="images/Translate_01_06.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter your Oracle Application Express
+                                credentials, and click <strong>Login</strong>.</p>
+                              <figure> <img src="images/Translate_01_07.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Order Management application is launched
+                                displaying the Home page. Notice that this
+                                application uses English as its Primary
+                                Language.</p>
+                              <figure> <img src="images/Translate_01_08.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_01_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Translating the Order Management Application</h2>
+                        <div>To translate an application, you must:<br>
+                          <ul>
+                            <li>Map the primary and target language</li>
+                            <li>Seed and export text to a translation file</li>
+                            <li>Translate the text</li>
+                            <li>Apply the translation file</li>
+                            <li>Publish the translated application</li>
+                          </ul>
+                          To translate the Order Management application to
+                          German, perform the following steps:<br>
+                          <ol>
+                            <li>
+                              <p>Click <strong>Application&lt;n&gt;</strong> in
+                                the developer toolbar.</p>
+                              <figure> <img src="images/Translate_02_01.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Shared Components</strong>.</p>
+                              <figure> <img src="images/Translate_02_02.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Globalization, click <strong>Globalization
+                                  Attributes</strong>.</p>
+                              <figure><img src="images/Translate_02_03.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Application Primary Language</strong>
+                                for Application Language Derived From, and click
+                                <strong>Apply Changes</strong>.</p>
+                              <figure> <img src="images/Translate_02_04.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Shared Components</strong>.</p>
+                              <figure> <img src="images/Translate_02_05.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Globalization, click <strong>Translate
+                                  Application</strong>.</p>
+                              <figure> <img src="images/Translate_02_06.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Define application languages</strong>.</p>
+                              <figure> <img src="images/Translate_02_07.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create</strong>.</p>
+                              <figure> <img src="images/Translate_02_08.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter a unique Application ID for Translation
+                                Application, <strong>German (Germany) (de)</strong>
+                                for Language, and click <strong>Create</strong>.</p>
+                              <figure> <img src="images/Translate_02_09.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the<strong> Translate </strong>breadcrumb.<strong><br>
+                                </strong></p>
+                              <figure> <img src="images/Translate_02_10.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <span style="font-weight: bold;">Seed
+                                  translatable text</span>.<br>
+                                <br>
+                                Note: Seeding the translation copies
+                                translatable text into the translation text
+                                repository. Once the translatable text is
+                                seeded, you can translate the text strings.</p>
+                              <figure> <img src="images/Translate_02_11.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select the check-box for your Translated
+                                Application, and click <strong>Seed</strong>.</p>
+                              <figure> <img src="images/Translate_02_12.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the<strong> Translate </strong>breadcrumb.</p>
+                              <figure> <img src="images/Translate_02_13.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Download XLIFF translation files</strong>.</p>
+                              <figure> <img src="images/Translate_02_14.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>German (Germany) (de)</strong>
+                                for Language, and click <strong>Export XLIFF
+                                  File for Application</strong>. Save the
+                                exported file into your working directory.</p>
+                              <figure> <img src="images/Translate_02_15.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Open the exported XLIFF File in a text editor.
+                                Press <span style="font-weight: bold;">Ctrl+H</span>.
+                                For Find what, enter <span style="font-style: italic;">&lt;target&gt;</span>.
+                                For Replace with, enter <span style="font-style: italic;">&lt;target&gt;Ordnung</span>.
+                                Click <span style="font-weight: bold;">Replace
+                                  All</span>.<strong></strong></p>
+                              <figure> <img src="images/Translate_02_16.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_16.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Save the changes, and close the file.</p>
+                              <figure> <img src="images/Translate_02_17.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_17.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Oracle Application Express window, click
+                                the <strong>Translate </strong>breadcrumb.</p>
+                              <figure> <img src="images/Translate_02_18.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_18.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Once the XLIFF file is populated with the
+                                translations, the XLIFF file is uploaded back
+                                into the translation repository. To do this,
+                                click <strong>Apply XLIFF translation files</strong>.</p>
+                              <figure> <img src="images/Translate_02_19.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_19.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Upload Files</strong>.</p>
+                              <figure> <img src="images/Translate_02_20.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_20.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Browse</strong>, browse to your
+                                working directory, select the XLIFF File you
+                                modified in the previous step, and click <strong>Upload</strong>.</p>
+                              <figure> <img src="images/Translate_02_21.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_21.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select the check-box for the row with your
+                                XLIFF file name, select a translation mapping
+                                for Apply to Translation, and click <strong>Apply
+                                  Checked</strong>.</p>
+                              <figure> <img src="images/Translate_02_22.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_22.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Translate </strong>breadcrumb.</p>
+                              <figure> <img src="images/Translate_02_23.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_23.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The final step is to publish the translated
+                                application from the translation repository. To
+                                do this, click <strong>Publish translated
+                                  applications</strong>.</p>
+                              <figure> <img src="images/Translate_02_24.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_24.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select the check box for the Translated
+                                Application, and click <strong>Publish</strong>.</p>
+                              <figure> <img src="images/Translate_02_25.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_25.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The translated application is successfully
+                                published. Click the <strong>Shared Components</strong>
+                                breadcrumb.</p>
+                              <figure> <img src="images/Translate_02_26.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_02_26.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Specifying the Primary Language for the Translated
+                          Application</h2>
+                        <div>Globalization attributes specify how Oracle
+                          Application Express determines the primary language
+                          for an application. Perform the following steps to
+                          view your translated application by specifying the
+                          Primary Language.<br>
+                          <ol>
+                            <li>
+                              <p>Under Globalization, click <strong>Globalization
+                                  Attributes</strong>.</p>
+                              <figure> <img src="images/Translate_03_01.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_03_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>German (Germany) (de)</strong>
+                                for Application Primary Language, <strong>Application
+                                  Primary Language</strong> for Application
+                                Language Derived From, and click <strong>Apply
+                                  Changes</strong>.</p>
+                              <figure> <img src="images/Translate_03_02.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_03_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Run Application</strong>.</p>
+                              <figure> <img src="images/Translate_03_03.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_03_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter your Oracle Application Express
+                                credentials, and click <strong>OrdnungLogin</strong>.</p>
+                              <figure> <img src="images/Translate_03_04.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_03_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the application is translated to
+                                German based on the XLIFF file that was
+                                uploaded.</p>
+                              <figure> <img src="images/Translate_03_05.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_03_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the next section, you will see how to
+                                translate messages used in PL/SQL. Click <strong>Anwendung&lt;n&gt;</strong>
+                                in the developer toolbar.</p>
+                              <figure> <img src="images/Translate_03_06.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_03_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Translating Messages Used in PL/SQL</h2>
+                        <div>If your application includes PL/SQL regions or
+                          PL/SQL processes or calls PL/SQL packages,&nbsp;
+                          procedures, or functions, you may need to translate
+                          generated HTML as explained below:<br>
+                          <ul>
+                            <li>Define each message on the Translatable Messages
+                              page.</li>
+                            <li>Use the <code>APEX_LANG.MESSAGE API</code> to
+                              translate the messages from PL/SQL stored
+                              procedures, functions, triggers, or packaged
+                              procedures and functions. </li>
+                            <li>Create translatable messages on the Translate
+                              Messages page. </li>
+                          </ul>
+                          <br>
+                          To translate messages used in PL/SQL, perform the
+                          following steps:<br>
+                          <ol>
+                            <li>
+                              <p>Click <strong>Shared Components</strong>.</p>
+                              <figure> <img src="images/Translate_04_01.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Globalization, click <strong>Globalization
+                                  Attributes</strong>.</p>
+                              <figure> <img src="images/Translate_04_02.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>English (en)</strong> for
+                                Application Primary Language, <strong>No NLS
+                                  (Application not translated) </strong>for
+                                Application Language Derived From, and click <strong>Apply
+                                  Changes</strong>.</p>
+                              <figure> <img src="images/Translate_04_03.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to define a message called
+                                Greeting_Message in your application in English
+                                as "Good morning %0" and in German as "Guten Tag
+                                %0" and invoke this message from PL/SQL in the
+                                Home page by creating a region called
+                                Translation Region. Click <strong>1 - Home</strong>.</p>
+                              <figure> <img src="images/Translate_04_04.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, right-click <strong>Region
+                                  Position 01</strong>, and select <strong>Create
+                                  Region</strong>.<span style="font-weight: bold;"><br>
+                                </span></p>
+                              <figure> <img src="images/Translate_04_05.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                enter <span style="font-style: italic;">Translation
+                                  Region</span> for Title, select <span style="font-weight: bold;">PL/SQL
+                                  Dynamic Content</span> for Type. Under Source,
+                                enter the below given code for PL/SQL Code, and
+                                click <span style="font-weight: bold;">Save</span>.<br>
+                                <br>
+                                <code style="font-style: italic;">begin<br>
+                                  htp.p(apex_lang.message('GREETING_MESSAGE',
+                                  V('APP_USER')));<br>
+                                  end;</code></p>
+                              <figure> <img src="images/Translate_04_06.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Shared Components</strong>
+                                icon.</p>
+                              <figure> <img src="images/Translate_04_07.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Globalization, click <strong>Text
+                                  Messages</strong>.</p>
+                              <figure> <img src="images/Translate_04_08.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create Text Message</strong>.</p>
+                              <figure> <img src="images/Translate_04_09.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <span style="font-style: italic;">GREETING_MESSAGE
+                                  </span>for Name, select <span style="font-weight: bold;">English
+                                  (en)</span> for Language, enter <span style="font-style: italic;">Good
+                                  Morning %0 </span>for Text, and click <span
+
+                                  style="font-weight: bold;">Create And Create
+                                  Another</span>.</p>
+                              <figure> <img src="images/Translate_04_10.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <span style="font-style: italic;">GREETING_MESSAGE</span>
+                                for Name, select <strong>German (Germany) (de)</strong>
+                                for Language, enter <span style="font-style: italic;">Guten
+                                  Tag %0</span> for Text, and click <span style="font-weight: bold;">Create
+                                  Text Message</span>.</p>
+                              <figure> <img src="images/Translate_04_11.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <span style="font-weight: bold;">Run
+                                  Page 1</span> icon.</p>
+                              <figure> <img src="images/Translate_04_12.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Translation Region with the English
+                                greeting message is displayed. Click <strong>Application&lt;n&gt;</strong>
+                                in the developer toolbar.</p>
+                              <figure> <img src="images/Translate_04_13.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to display this greeting message in
+                                German.Click <strong>Shared Components</strong>.</p>
+                              <figure> <img src="images/Translate_04_14.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Globalization, click <span style="font-weight: bold;">Globalization
+                                  Attributes</span>.</p>
+                              <figure> <img src="images/Translate_04_15.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>German (Germany) (de)</strong>
+                                for Application Primary Language, <strong>No
+                                  NLS (Application not translated)</strong> for
+                                Application Language Derived From, and click <strong>Apply
+                                  Changes</strong>.</p>
+                              <figure> <img src="images/Translate_04_16.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_16.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Run Page 1</strong> icon.</p>
+                              <figure> <img src="images/Translate_04_17.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_17.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Home page is displayed with the Greeting
+                                message translated in German.</p>
+                              <figure> <img src="images/Translate_04_18.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/Translate_04_18.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Summary</h2>
+                        <div>
+                          <p>In this tutorial, you have learned how to:</p>
+                          <ul>
+                            <li>Import an application</li>
+                            <li>Translate the imported application</li>
+                            <li>Specify the primary language for the translated
+                              application</li>
+                            <li>Translate messages used in PL/SQL</li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Want to Learn More?</h2>
+                        <div>
+                          <ul>
+                            <li>
+                              <p><span style="font-weight: normal;"><a href="http://cloud.oracle.com" target="_blank">Oracle
+                                    Cloud Home Page</a></span></p>
+                              <span style="font-weight: normal;"> </span></li>
+                            <span style="font-weight: normal;"> </span>
+                            <li><span style="font-weight: normal;"></span><span
+
+                                style="font-weight: normal;">Other tutorials on
+                                <a href="http://www.oracle.com/pls/topic/lookup?ctx=cloud&id=dbcstutorials
+" target="_blank">Oracle
+                                  Database Cloud Service - Database Schema
+                                  Service</a> </span><span style="font-weight: normal;"></span>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                      <!--
+                      <section>
+                        <h2>Credits</h2>
+                        <div>
+                          <ul>
+                            <li>
+                              <p><span style="font-weight: normal;">Curriculum
+                                  Developer: <em>Suresh Rajan</em></span></p>
+                              <span style="font-weight: normal;"> </span></li>
+                            <span style="font-weight: normal;"> </span>
+                            <li><span style="font-weight: normal;"></span><span
+
+                                style="font-weight: normal;">Other Contributors: <em>Chaitanya
+                                  Koratamaddi</em></span><span style="font-weight: normal;"></span>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>-->
+                      <!-- END Article --> </div>
+                    <strong> </strong></article>
+                  <strong> </strong></div>
+                <strong> </strong></div>
+              <strong> </strong></div>
+            <strong> </strong></div>
+          <strong> </strong></div>
+        <strong> </strong></main>
+      <strong>
+        <!-- footer of the page -->
+        <footer id="footer">
+          <div class="f1">
+            <div class="holder">
+              <div class="container-fluid">
+                <div class="pull-left footer-left">
+                  <ul class="footer-nav list-inline">
+                    <li><a href="http://www.oracle.com/corporate/index.html">About
+                        Oracle</a></li>
+                    <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact
+                        Us</a></li>
+                    <li><a href="http://www.oracle.com/us/legal/index.html">Legal
+                        Notices</a></li>
+                    <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms
+                        of Use</a></li>
+                    <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your
+                        Privacy Rights</a></li>
+                  </ul>
+                  <span class="copyright">Copyright © 2015, Oracle and/or its
+                    affiliates. All rights reserved.</span> </div>
+                <!-- insert lan options --> </div>
+            </div>
+          </div>
+        </footer>
+        <!-- allow a user to go to the top of the page --> <a class="accessibility"
+
+          href="#wrapper">Back to top</a> </strong></div>
+    <strong>
+      <!-- begin codemirror here -->
+      <script type="text/javascript" src="js/runmode-standalone.js"></script>
+      <script type="text/javascript" src="js/mode/clike/clike.js"></script>
+      <script type="text/javascript" src="js/mode/sql/sql.js"></script>
+      <script type="text/javascript" src="js/mode/xml/xml.js"></script>
+      <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+      <script type="text/javascript" src="js/mode/css/css.js"></script>
+      <script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script>
+      <script type="text/javascript">
+    var config;
+
+    config = {
+        lineNumbers: true,
+        mode : "xml",
+    htmlMode: true,
+        indentWithTabs: false,
+        readOnly: true
+    };
+
+    </script>
+      <!-- end codemirror here --> </strong>
+    <script language="javascript">
+  var s_prefix="OBE";
+  if (typeof(document.title)!= "undefined") {var s_pageName=s_prefix + ":" + document.title};
+</script> <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+    
+  </body>
+</html>

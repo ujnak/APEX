@@ -1,0 +1,1 @@
+In this image, you see a pop-up window stating that the selected theme is the application;s current theme. You click OK.

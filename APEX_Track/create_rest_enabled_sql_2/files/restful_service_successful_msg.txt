@@ -1,0 +1,1 @@
+This is the image of the message that displays after a RESTful service is created. 

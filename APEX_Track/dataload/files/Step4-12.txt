@@ -1,0 +1,1 @@
+This image shows the contents of dependent_data2.txt file. All the data are highlighted.

@@ -1,0 +1,3 @@
+This screenshot shows the Create an Application page with a table dispalying the page details.
+
+The mouse pointer is clicking the Add Page button.

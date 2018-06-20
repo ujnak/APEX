@@ -1,0 +1,7 @@
+This screenshot shows the New Page as a Copy page.
+It has the following attributes:
+
+Copy Page From: Home
+New Page Name: Reports
+
+The mouse pointer is clicking the Copy Page button.

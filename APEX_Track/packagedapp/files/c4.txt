@@ -1,0 +1,1 @@
+This screenshot shows the Install Packaged Application modal window. The Authentication value is set to Application Express Accounts and the Next button is being clicked.

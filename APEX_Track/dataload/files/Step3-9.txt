@@ -1,0 +1,6 @@
+This image shows the Navigation Menu page of the Create Data Load Wizard. It has two fields. The field Navigation Preference has an associated bulleted list from which to select the preference. The list includes the following options:
+1. Do not associate this page with a navigation menu entry
+2. Create a new navigation menu entry
+3. Identify an existing navigation menu entry for this page. This option is selected.
+
+The field Existing Navigation Menu Entry with the value Home selected. The pointer is on the Next button.

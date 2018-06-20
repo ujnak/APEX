@@ -1,0 +1,12 @@
+This image shows the XLIFF Export dialog. It has two sections, Download XLIFF file for complete Application and Download XLIFF file for Application Page.
+The section Download XlIFF file for complete Application has the following fields:
+1. Language with the value German (Germany) (de)
+2. Include XLIFF Target Elements check box, which is selected
+3. Export with the option "All translatable elements" selected. The other option in this field is "Only those applications requiring translation"
+The section Download XLIFF file for application page contains the following fields:
+1. Language with no value selected
+2. Page with no value selected
+3. Include XLIFF Target Elements check box, which is selected
+4. Export with the option "All translatable elements" selected. The other option in this field is "Only those applications requiring translation"
+
+The dialog also has two buttons, Cancel and Export XLIFF File for Application. The pointer is on Export XLIFF File for Application.

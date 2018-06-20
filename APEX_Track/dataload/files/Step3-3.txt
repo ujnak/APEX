@@ -1,0 +1,14 @@
+This image shows Create Data Load Wizard. A series of connected dots at the top of the Wizard dialog signify the steps in the process of creating a data loading application. The first step, Data Load Table, appears as a label in this diagram. The descriptive text appears just below the series diagram:
+
+"Data loading pages reference a data load definition. To create a new data load definition, specify a name and select a schema owner, target table, and up to three columns that uniquely identify a row."
+
+This page of the wizard displays a number of fields that you need to fill out. The mandatory fields include the following:
+1.Definition Name with the value Load Dependents
+2. Owner with the value HR
+3. Table Name with the value Dependents (table)
+4. Unique Column 1 with the value FIRST_NAME (Varchar2)
+5. Case Sensitive with the default value No
+6. Unique Column 2 with the value LAST_NAME (Varchar2)
+7. Case Sensitive with the default value No
+8.  Unique Column 3 with no value selected
+9. Case Sensitrive with the default value No

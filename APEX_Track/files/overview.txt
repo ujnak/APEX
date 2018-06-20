@@ -1,0 +1,1 @@
+This application enables you to view the details of all employees across all departments. You can edit the pages to add or delete information and also create additional pages and page sections.

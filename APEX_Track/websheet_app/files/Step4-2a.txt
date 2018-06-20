@@ -1,0 +1,1 @@
+This screensot shows the home page of the Hman Resource Management application.  The Create drop-down menu is expanded and the New Data Grid option is focused.

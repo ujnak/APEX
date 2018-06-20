@@ -1,0 +1,1 @@
+This screenshot shows the Product Details of the product that was clicked in the previous step.

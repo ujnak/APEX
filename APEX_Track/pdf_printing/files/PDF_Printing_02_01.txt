@@ -1,0 +1,1 @@
+This screenshot shows clicking the down arrow next to 'Application Builder', and selecting 'Database Applications', from the Oracle Application Express home page.

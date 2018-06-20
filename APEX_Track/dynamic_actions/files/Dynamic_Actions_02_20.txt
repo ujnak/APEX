@@ -1,0 +1,1 @@
+This photograph shows selecting 'No' for Display Extra Values, 'Yes' for Display Null Values', entering '--Select Department-- for Null Display Value, and clicking 'Save and Run Page'.

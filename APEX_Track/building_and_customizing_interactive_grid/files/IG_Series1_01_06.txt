@@ -1,0 +1,1 @@
+In this photograph, you select Report for page type, provide EMPLOYEES for Table Name, choose the report type to be an Interactive Grid and click Add Page.

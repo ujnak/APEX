@@ -1,0 +1,1 @@
+This photograph shows the results displayed in JSON format. It contains information regarding all employees in JSON format.

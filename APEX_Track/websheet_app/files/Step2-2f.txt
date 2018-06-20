@@ -1,0 +1,2 @@
+This screenshot shows the Human Resources Maagement home page. It is displaying the Sample tag in a table. 
+The mouse pointer is clicking the Home tab.

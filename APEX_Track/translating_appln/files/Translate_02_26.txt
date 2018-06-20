@@ -1,0 +1,8 @@
+This image shows the message "Successfully published applications" which is displayed above a table listing translated applications.  The dialog also has the following buttons:
+1. Cancel
+2. Seed
+3. Download
+4. Publish
+
+The dialog has a breadcrumb displayed at the top as follows:
+Application 100\ Shared Components\ Translate\ Seed and Publish. The pointer is on the Shared Components breadcrumb.

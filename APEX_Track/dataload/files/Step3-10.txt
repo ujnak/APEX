@@ -1,0 +1,10 @@
+This image shows the Butons and Branching page of the Create Data Load Wizard.
+The following fields are available in this page of the wizard:
+1. Next Button Label with the value Next
+2. Previous Button Label with the value Previous
+3. Cancel Button Label wih the value Cancel
+4. Cancel Button Branch to Page with the value 1
+5. Finish Button Label wih the value Finish
+6. Finish Button Branch to Page with the value 1
+
+The pointer is on the Next button.

@@ -1,0 +1,1 @@
+In this photograph, select rows with Employee ID 100,101,102,103, and 104. Click Selection Actions. Enter the description here.

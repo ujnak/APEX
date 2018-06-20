@@ -1,0 +1,91 @@
+// custom variables
+
+$color-01: #fff;
+$color-02: #0572ce;
+$color-03: #f00;
+$color-04: #000;
+$color-05: #2a7f3f;
+$color-06: #f5f5f5;
+$color-07: #ffc;
+$color-08: #d6dfe6;
+
+$body-bg: $color-01;
+
+$text-color: $color-04;
+$link-color: $color-02;
+
+$line-height-base:        1.1428;
+$font-family-base: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
+
+$headings-font-weight:    700;
+$headings-color: $color-04;
+$headings-line-height: 1;
+
+$brand-success:         $color-05;
+$brand-warning:         #954924;
+$brand-danger:          #962626;
+$brand-primary:         darken($color-06, 40%);
+
+$navbar-height:                    54px;
+$navbar-default-bg:                $color-06;
+$navbar-default-link-color:        $color-02;
+$navbar-default-link-active-color: $color-02;
+$navbar-default-link-hover-color:  $color-02;
+$navbar-inverse-link-active-bg:    transparent;
+$navbar-default-link-active-bg:    transparent;
+$navbar-padding-vertical:          0;
+$navbar-border-radius:             0;
+$navbar-default-border:            $color-01;
+
+$dropdown-border:                darken($color-06, 30%);
+$dropdown-link-color:            $color-02;
+
+$icon-font-path: "../fonts/";
+
+$breadcrumb-bg:                 transparent;
+$breadcrumb-color:              $color-02;
+$breadcrumb-active-color:       $color-02;
+
+$btn-default-bg:                 $color-02;
+$btn-default-border:             $color-02;
+$btn-default-color:              $color-01;
+
+$btn-success-border:             #2a7f3f;
+$btn-danger-border:              #962626;
+$btn-warning-border:             #954924;
+
+$nav-link-hover-bg:                         $color-01;
+$nav-tabs-border-color:                     $color-08;
+$nav-tabs-link-hover-border-color:          $color-08;
+$nav-tabs-active-link-hover-bg:             $color-01;
+$nav-tabs-active-link-hover-color:          $color-04;
+$nav-tabs-active-link-hover-border-color:   $color-08;
+
+$table-border-color:            $color-08;
+
+$input-color:                   darken($color-06, 20%);
+$input-border:                  darken($color-08, 5%);
+$input-border-radius:           2px;
+$input-height-base:             36px;
+$input-color-placeholder:       darken($color-06, 20%);
+
+$tooltip-arrow-width:         7px;
+$tooltip-bg:                  lighten($color-04, 10%);
+$tooltip-opacity:             1;
+
+$pre-bg:                      $color-01;
+$pre-color:                   $text-color;
+$pre-border-color:            transparent;
+
+$text-muted:                  $color-04;
+
+$pagination-color:                     darken($color-06, 20%);
+$pagination-border:                    darken($color-06, 20%);
+$pagination-hover-color:               darken($color-06, 55%);
+$pagination-hover-border:              darken($color-06, 55%);
+$pagination-hover-bg:                  $color-01;
+$pagination-active-color:              darken($color-06, 55%);
+$pagination-active-bg:                 $color-01;
+$pagination-active-border:             darken($color-06, 55%);
+
+

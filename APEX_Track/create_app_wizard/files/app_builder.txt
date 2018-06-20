@@ -1,0 +1,1 @@
+This is the App Builder icon in the Oracle Application Express home page. By clicking this icon, you can go the App Builder page. 

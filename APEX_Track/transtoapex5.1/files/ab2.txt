@@ -1,0 +1,7 @@
+This screenshot shows the Import page.
+It displays the following information:
+Import file: Sample DB App 4.2.sql
+File Type: Database Application, Page or Component Export (selected)
+File Character Set: Unicode UTF-8 (selected)
+Cancel button
+Next button (mouse pointer)

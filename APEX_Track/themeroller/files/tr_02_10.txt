@@ -1,0 +1,1 @@
+In this image, you update the Logo text field and click the Apply Changes button.

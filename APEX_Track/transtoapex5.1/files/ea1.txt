@@ -1,0 +1,7 @@
+This screenshot shows the Property Editor tab with the following fields and values:
+Layout
+- Sequence: (no value entered)
+- Region: Breadcrumb [Global Page]
+- Button Position: Edit
+Appearance
+- Button Template: Text with Icon

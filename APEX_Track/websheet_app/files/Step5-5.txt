@@ -1,0 +1,9 @@
+This screenshot shows the Edit Section page.
+
+
+Page: Reports
+Sequence : 20
+Title: Overview
+
+The mouse pointer is clicking the Apply Changes button.
+

@@ -1,0 +1,1 @@
+In this image, you navigate to the the Column Mapping tab, select VALUE for Value, select LINK for Custom Tooltip, and VALUE for Custom Column.

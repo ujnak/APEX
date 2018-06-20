@@ -1,0 +1,2 @@
+This screenshot shows the Create Access Control wizard - Confirmation page.
+It displays the summary of the values with three buttons - Back, Cancel, and Create. The Create button is being clicked.

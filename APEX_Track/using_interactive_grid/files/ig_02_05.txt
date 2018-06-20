@@ -1,0 +1,1 @@
+In this photograph, in the Filters dialog, you select Postal Code as the Column, select contains as the Operator, enter 6 as the value, and click Save.

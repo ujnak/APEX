@@ -1,0 +1,8 @@
+This screenshot shows a portion of the Page Finder window. 
+It shows that the Current User Interface tab is selected. There is Search text box.
+The page lists 4 pages -
+- Column: Page Number, Page Name
+- Row 1: 11, Identify Customer
+- Row 2: 12, Order Items
+- Row 3: 13, Customer Map
+- Row 4: 14, Order Summary

@@ -1,0 +1,1 @@
+In this image, you select Yes for Show in the Label tab, and click Save and Run Page.

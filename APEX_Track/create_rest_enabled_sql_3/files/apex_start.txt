@@ -1,0 +1,1 @@
+This is the image of the desktop of the pre-built VM Database App Development VM . It shows the Start icon. On clicking this, you will be directed to the browser. It also shows the shortcuts to SQL Developer. 

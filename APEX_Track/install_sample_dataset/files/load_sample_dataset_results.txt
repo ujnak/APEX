@@ -1,0 +1,1 @@
+This is the image of the Load Sample Dataset - Results dialog. This dialog displays that list of objects that are installed successfully. You have the option to create an application here as well. 

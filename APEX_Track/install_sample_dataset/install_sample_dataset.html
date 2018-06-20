@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: Ennnnn-01 -->
+    <!-- Published date: Month Year -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Using the Create Application Wizard in Application Express 18.1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Put the description of the tutorial here.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript">
+   $(document).ready(function(){
+       window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+   });
+</script> </head>
+  <body>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle"></h1>
+      <h1>Installing Sample Dataset in Oracle Application Express 18.1</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32">Before You Begin</h2>
+              <p>This 5 minute tutorial shows you how to install a sample
+                dataset in Oracle Application Express 18.1. This is the first
+                tutorial in the series <i>Using the Create Application Wizard
+                  in Oracle Application Express 18.1.</i>&nbsp; Read the
+                tutorials in sequence:</p>
+              <ul>
+                <li>Installing Sample Dataset in Oracle Application Express 18.1</li>
+                <li class="vm-only"><a href="../create_app_wizard/create_app_wizard.html"
+                    target="_blank">Creating an Application by Using the Create
+                    Application Wizard 18.1</a></li>
+              </ul>
+              <h3>Background</h3>
+              <p>Oracle Application Express includes four sample datasets.&nbsp;
+                Each dataset includes sufficient data to enable you to build
+                applications with pages containing different types of
+                components.<br>
+                With a few clicks of the mouse you can install, refresh,
+                replace, or remove sample datasets within one of the schemas
+                associated with your workspace. In this tutorial, you install
+                the sample dataset, <em>Project Data.</em></p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Access to Oracle Application Express 18.1</li>
+                <li>Access Your Development Environment<br>
+                  How you sign in and access Oracle Application Express depends
+                  upon where Oracle Application Express resides. Oracle
+                  Application Express may reside in a local on-premises Oracle
+                  Database or in a hosted environment, such as the Oracle Cloud.
+                  The sign in credentials you use to sign in differ depending
+                  upon the installation type.</li>
+                <ul>
+                  <li>&nbsp;<strong>Free Workspace:</strong> Give Oracle
+                    Application Express a test run by signing up for a free
+                    workspace. To request an evaluation workspace, go to <a href="https://apex.oracle.com/en/"
+                      target="_blank">apex.oracle.com</a> and click <strong>Get
+                      Started.</strong></li>
+                  <li><strong>Oracle Cloud:</strong> Develop and deploy
+                    applications without worrying about infrastructure, repair,
+                    and downtime.&nbsp; Oracle Application Express is available
+                    in Exadata Express Cloud Service and Database Cloud Service.
+                    However, you need to manually customize your databases to
+                    install and enable Oracle Application Express. To learn
+                    more, see <a href="https://cloud.oracle.com/database" target="_blank">https://cloud.oracle.com/database</a>
+                  </li>
+                  <li><strong>Oracle Application Express On-premises:</strong>
+                    Install Oracle Application Express directly within any
+                    Oracle Database and then sign in to your workspace using
+                    your sign in credentials. For details on your sign in
+                    credentials, contact your administrator or see <a href="https://docs.oracle.com/database/apex-18.1/HTMIG/overview.htm#HTMIG363"
+                      target="_blank">Oracle Application Express Installation
+                      Overview</a> </li>
+                  <li class="vm-only"><strong>Oracle Application Express
+                      Pre-Built VM:</strong> Install Oracle VM VirtualManager
+                    and import the pre-built VM in it. For details, see <a href="../../REST%20Enabled%20SQL%20Reference/create_rest_enabled_sql_1/install_import_vm.html"
+                      target="_blank">Oracle Application Express Pre-Built VM</a>&nbsp;
+                    </li>
+                </ul>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Install
+                Sample Dataset</h2>
+              <p>To install the sample dataset:</p>
+              <ol>
+                <li>In the Oracle&nbsp; Application Express Workspace home page,
+                  click <b>SQL Workshop.</b>&nbsp;&nbsp;&nbsp; </li>
+                <li>Select <b>Utilities </b>and click <b>Sample Datasets.</b></li>
+                <li>On the Sample Datasets page, find the dataset <em>Project
+                    Data</em> and click<b> Install.</b> If the sample dataset is
+                  already installed, then click <b>Update. <br>
+                  </b><br>
+                  <figure><img src="./img/project_data.png" alt="project_data" class="ScreenShot">
+                    <figcaption><a href="./files/project_data.txt">Description
+                        of the illustration project_data.png</a></figcaption> </figure>
+                </li>
+                <li>In the Manage Sample Datasets page, select options for:</li>
+                <ul>
+                  <li><b>Language:</b> Select <b>English</b></li>
+                  <li><b>Schema:</b> Select <b>obe</b></li>
+                  <li>Click<b> Next. </b>The Load Sample Dataset page opens
+                    displaying the database object that will be installed.<b><br>
+                    </b>
+                    <figure><img src="./img/load_sample_dataset.png" alt="load sample dataset"
+                        class="ScreenShot"> <figcaption><a href="./files/load_sample_dataset.txt">Description
+                          of the illustration load_sample_dataset.png</a></figcaption>
+                    </figure>
+                  </li>
+                </ul>
+                <li>Click <b>Install Dataset.</b> The Load Sample Dataset -
+                  Results page appears. At this point, you can create an
+                  application or exit. Click <b>Exit.</b> The Sample Dataset
+                  page displays again. <br>
+                  <figure><img src="./img/project_data_update.png" alt="load sample dataset"
+                      class="ScreenShot"> <figcaption><a href="./files/project_data_update.txt">Description
+                        of the illustration project_data_update.png</a></figcaption>
+                  </figure>
+                  <b>Note: </b>The Action column now displays Update instead of
+                  Install. <br>
+                  Tip: You can click Update to refresh a sample dataset or
+                  remove it.<br>
+                  This completes the task of loading Project Data sample
+                  dataset.</li>
+              </ol>
+            </section>
+            <hr>&nbsp;<!-- Do not include this section if you are planning on using the tutorials in a learning path -->
+            <section>
+              <h2 id="next" role="button" style="text-align: left;"><img src="./img/32_next.png"
+                  alt="next step" class="num_circ" height="32" width="32">Next
+                Tutorial</h2>
+              <a href="../create_app_wizard/create_app_wizard.html" target="_blank">&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                Creating an Application by Using the Create Application Wizard
+                18.1</a> <span style="color: #006699;">&nbsp;&nbsp; &nbsp;</span>
+            </section>
+            <hr>
+            <section>
+              <!-- Include the More Information section only in a single or the final lab or tutorial in a series -->
+              <h2 id="more_info" role="button" style="text-align: left;"><img src="./img/32_more.png"
+                  alt="more information" class="num_circ" height="32" width="32">Want
+                to Learn More?</h2>
+              <ul>
+                <li><a href="https://docs.oracle.com/database/apex-18.1/AEUTL/using-sample-datasets.htm#AEUTL-GUID-FCBF7637-0FF9-4135-98FB-EC7155334EB4"
+                    target="_blank">Using Sample Datasets<br>
+                  </a></li>
+              </ul>
+            </section>
+            <hr> </article>
+        </div>
+        <br class="clearfloat">
+      </div>
+    </div>
+    <!--close main-->
+    <!--end content-->
+    <div class="footer-container ">
+      <div style="max-width: 994px; padding:10px 0 0 17px;">
+        <footer class="footer-list">
+          <ul>
+            <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                Oracle</a> </li>
+            <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                target="_blank">Contact Us</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                Notices</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                of Use</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/privacy/index.html" target="_blank">Your
+                Privacy Rights</a> </li>
+            <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                © 2017, Oracle and/or its affiliates. All rights reserved.</a></li>
+          </ul>
+        </footer>
+      </div>
+      <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+    </div>
+  </body>
+</html>

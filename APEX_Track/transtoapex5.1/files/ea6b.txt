@@ -1,0 +1,10 @@
+This screenshot shows the Property Editor Tree with the following fields and values:
+Identification
+- Title: Carousel
+- Type: Static Content
+Source
+Layout
+Appearance
+- Template: Carousel Container
+- Template Options: Use Template Defaults, Remove Body Padding, Spin, Hidden, Hide
+- CSS Classes: (no value)

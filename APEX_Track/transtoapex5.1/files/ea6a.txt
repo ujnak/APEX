@@ -1,0 +1,1 @@
+This screenshot shows the Static Content region being dragged from the Regions Gallery and dropped inside the Grid Layout right before the Customer region.

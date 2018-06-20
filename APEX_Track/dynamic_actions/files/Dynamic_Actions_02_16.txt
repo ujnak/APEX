@@ -1,0 +1,1 @@
+This photograph shows the Manager and Department field changed into a select list in the form and clicking Edit Page 3 button in the developer toolbar.

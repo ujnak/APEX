@@ -1,0 +1,7 @@
+This image shows the Data Load Results page of the wizard. It displays the following fields:
+1. Inserted Rows with the value 4
+2. Updated Rows with the value 1
+3. Failed Rows with the value 0
+4. To be Reviewed Rows with the value 0
+
+The pointer is on the Finish button.

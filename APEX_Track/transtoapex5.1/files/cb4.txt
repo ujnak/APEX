@@ -1,0 +1,2 @@
+This screenshot shows the Application Items page.
+It shows three Application Items in the interactive report, with names: A01, A02, A03

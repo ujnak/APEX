@@ -1,0 +1,2 @@
+This screenshot shows the Oracle APEX Login page. Sign In is focused. 
+

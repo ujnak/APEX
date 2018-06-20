@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Last updated: 10/18/16 -->
+    <!-- set the encoding of your site -->
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Dynamic Actions in Oracle Application Express 5.1</title>
+    <!-- Add short description of the OBE for displaying in  search results, etc.-->
+    <meta name="description" content="This tutorial shows you how to create different types of Dynamic Actions on a page in your application using Oracle Application Express 5.1.">
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500"
+      rel="stylesheet" type="text/css">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css">
+    <link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+    <link type="text/css" rel="stylesheet" href="css/obe.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css">
+    <!-- Code Mirror stylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/codemirror/codemirror.css">
+    <!-- include jQuery library -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="dev-assets/js/bootstrap.js"></script>
+    <!-- include custom JavaScript -->
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="js/jquery.main.js"></script>
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+    <!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.visible.js"></script>
+    <script type="text/javascript" src="js/hooks.js"></script>
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+    <!--script type="text/javascript" src="js/REST.UI.js"></script-->
+    <!--end obe scripts -->
+    <script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script> <script src="js/jquery-ui-1.10.4.custom.js"></script>
+  </head>
+  <body> <noscript>
+<div>JavaScript must be enabled for the correct page display</div>
+</noscript><!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- allow a user to go to the main content of the page --> <a class="accessibility skipto"
+        href="#content">Skip to Content</a>
+      <!-- header of the page -->
+      <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- page logo -->
+                <div class="logo pull-left" itemscope="" itemtype="http://schema.org/Organization">
+                  <span class="name-organization" itemprop="name">Oracle</span>
+                  <a href="#"> <span data-picture="" data-alt="Oracle Logo"> <span
+                        data-src="images/logo.png" data-width="221" data-height="20"
+                        data-alt="Oracle Logo"></span> <span data-src="images/logo-2x.png"
+                        data-width="221" data-height="20" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)"></span>
+                      <!--[if (lt IE 9) & (!IEMobile)]>
+                      <span data-src="images/logo.png"></span>                  <![endif]-->
+                      <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                      <noscript>
+              <img src="images/logo.png" alt="Oracle Logo" height="20" width="221">
+              </noscript> </span> </a> </div>
+              </div>
+              <div class="navbar-right"> </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- contain main informative part of the site -->
+      <main role="main" id="main">
+        <div class="holder">
+          <div class="container-fluid">
+            <h1>Building Dynamic Actions in Oracle Application Express 5.1</h1>
+            <!-- contain the main content of the page -->
+            <div class="content-holder">
+              <div class="content">
+                <!-- tabs content holder -->
+                <div class="slide-holder left-tab-holder">
+                  <!-- tab element -->
+                  <div id="tab1">
+                    <div class="slide-frame">
+                      <div id="left-nav-container">
+                        <div class="left-nav-element">
+                          <div id="navToc" title="Topic List">
+                            <ul>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <br style="clear:both">
+                    </div>
+                  </div>
+                  <!-- tab element -->
+                  <div id="tab2">
+                    <div class="slide-frame">
+                      <div class="left-nav-element">
+                        <div id="toolbar">
+                          <h3>Options</h3>
+                          <button id="tglTopicBtn" class="btn btn-primary">Expand
+                            All Topics</button> <br>
+                          <br>
+                          <button id="tglImageBtn" class="btn btn-primary">Hide
+                            All Images</button> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- tabs content holder -->
+                <div class="slide-holder right right-tab-holder"> </div>
+                <div class="left-panel pull-left">
+                  <!-- tabs switcher -->
+                  <ul class="tabset-panel list-unstyled text-center">
+                    <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip"
+                        data-placement="right"> <span class="glyphicons glyphicons-list"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Table of Contents</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <!-- -->
+                    <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip"
+                        data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Options</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <li> <a href="#tab3" class="opener tooltip-link print" data-toggle="tooltip"
+                        data-placement="right"> <span class="glyphicons glyphicons-print"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Print</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-right" id="content">
+                  <article>
+                    <div id="container">
+                      <!-- START Article -->
+                      <section>
+                        <h2>Before You Begin</h2>
+                        <div>
+                          <h4>Purpose</h4>
+                          <p>This tutorial shows you how to create different
+                            types of Dynamic Actions on a page in your
+                            application using Oracle Application Express 5.1.</p>
+                          <h4>Time to Complete</h4>
+                          <p> Approximately 60 minutes. </p>
+                          <h4>Overview</h4>
+                          <p>Oracle Application Express (Oracle APEX) is a rapid
+                            web application development tool for the Oracle
+                            database. Using only a web browser and limited
+                            programming experience, you can develop and deploy
+                            professional applications that are both fast and
+                            secure. Oracle Application Express is available with
+                            the Oracle Database, whether it's on-premises or in
+                            an Oracle Database Cloud Service.</p>
+                          Oracle Application Express 5.1 allows developers to
+                          create Dynamic Actions to define client-side behavior
+                          declaratively without the need to know JavaScript.
+                          Developers can create Dynamic Actions on an Item,
+                          Button, or Region of a page, just by defining the
+                          Event, Condition, Affected Elements, Action, and other
+                          properties of the Dynamic Action in the Property
+                          Editor on the Page Designer. Previously, this involved
+                          hand crafting JavaScript and AJAX but now many Dynamic
+                          Actions require almost zero coding using the Page
+                          Designer in Oracle Application Express 5.1. <br>
+                          <br>
+                          In this tutorial, you create and test different types
+                          of Dynamic Actions on a Form created in your
+                          application. For more information on Dynamic Actions,
+                          reference the <a href="http://docs.oracle.com/cloud/latest/db121/HTMDB/advnc_dynamic_actions.htm#HTMDB27020">Managing
+                            Dynamic Actions</a> in the Oracle Application
+                          Express Application Builder User's Guide.
+                          <p>Please keep in mind the following while running
+                            this tutorial:</p>
+                          <ul>
+                            <li><strong>Logging into your Oracle Application
+                                Express workspace:</strong> Your Oracle
+                              Application Express workspace may reside in an
+                              on-premises Oracle Database or in Oracle Database
+                              Cloud Services. The login credentials differ
+                              depending on where your workspace is located:
+                              <ul>
+                                <li><strong>Logging into Oracle Application
+                                    Express in a Oracle Database Cloud
+                                    Service:&nbsp;</strong> Reference the <a href="https://docs.oracle.com/en/">Oracle
+                                    Help Center</a> for your Oracle Database
+                                  Cloud Service. To do this, go to the Oracle
+                                  Help Center for Cloud, and select Platform and
+                                  Infrastructure. From here, select your
+                                  Database Cloud Service and the Get Started
+                                  page will appear. </li>
+                                <li><strong>Logging in to Oracle Application
+                                    Express on-premises:</strong> From your
+                                  browser, go to the location of your
+                                  on-premises installation of your Oracle
+                                  Application Express workspace provided by your
+                                  Workspace Administrator.</li>
+                              </ul>
+                            </li>
+                            <li><strong>Application ID:</strong> Screenshots in
+                              this tutorial show a blurred Application ID. Your
+                              Application ID can be any value assigned
+                              automatically while creating the application.</li>
+                            <li><strong>Schema:</strong> If you are accessing an
+                              Oracle Application Express workspace in Database
+                              Schema Service,&nbsp; you have one schema assigned
+                              to you with a schema name that you cannot change.
+                              If you are accessing the workspace in an
+                              on-premises Oracle database, you may have more
+                              than one schema assigned to your workspace by the
+                              Oracle Application Express Instance Administrator.</li>
+                          </ul>
+                          <h4>What Do You Need?</h4>
+                          <p> Before starting this tutorial, you should:</p>
+                          <ul>
+                            <li>Have access to an Oracle Database 11g or later
+                              release, either on-premises or in a Database Cloud
+                              Service.</li>
+                            <li>Install Oracle Application Express Release 5.1
+                              into your Oracle Database (for on-premises only).</li>
+                            <li>Download and unzip the <a href="files/files.zip">files.zip</a>
+                              into your working directory.</li>
+                            <li>Execute <code>Create_Tables.sql</code> from the
+                              extracted files, to create the required database
+                              objects.</li>
+                            <ul>
+                              <ul>
+                              </ul>
+                            </ul>
+                            <li>Provision at least one Oracle Application
+                              Express user. See <a href="https://docs.oracle.com/cd/E37097_01/doc.42/e35129/aadm_users.htm#AEADM150">Creating
+                                New User Accounts</a> in Oracle Application
+                              Express Administration Guide.</li>
+                            <ul>
+                              <ul>
+                              </ul>
+                            </ul>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Database Application</h2>
+                        <div> In this section, you create a Database Application
+                          with few initial pages, which will be used for
+                          creating different Dynamic Actions in the further
+                          sections. Perform the following steps:<br>
+                          <ol>
+                            <li>
+                              <p>From the Oracle Application Express home page,
+                                click the <strong>down arrow</strong> next to
+                                App Builder, and select <strong>Database
+                                  Applications</strong>. </p>
+                              <figure> <img src="images/Dynamic_Actions_01_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <span style="font-style: italic;">Human
+                                  Resources Application</span> for Name, and
+                                click <strong>Next &gt;</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_01_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Application Express Accounts</strong>
+                                for Authentication Scheme, <strong>DD-MON-YYYY</strong>
+                                for Date Format, and click <strong>Next &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_07.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create Application</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Human Resources Application is created with
+                                two default pages. You want to create a Form and
+                                a Report page on the<span style="font-family: &quot;menlo&quot;,&quot;monaco&quot;,&quot;Courier New&quot;,Courier,mono,serif;">
+                                  employees</span> table. Click <strong>Create
+                                  Page &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Form </strong>icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Report with Form on Table</strong>
+                                icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <em>Employee List</em> for Report Page
+                                Name and <em>Employee Details</em> for Form
+                                Page Name. Select <strong>Breadcrumb </strong>for
+                                Breadcrumb, <strong>Home (Page 1)</strong> for
+                                Parent Entry, and click <strong>Next &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_12.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Identify an existing navigation
+                                  menu entry for this page</strong> for
+                                Navigation Preference, <strong>Home </strong>for
+                                Existing Navigation Menu Entry, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_13.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select<span style="font-weight: bold;"> </span><span
+                                  style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-size: 14.021px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;"><span
+                                    class="Apple-converted-space"></span></span><strong
+                                  style="box-sizing: border-box; font-size: 14.0224px; font-weight: bold; color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">EMPLOYEES
+                                  (table)</strong><span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-size: 14.021px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;"><span
+                                    class="Apple-converted-space">&nbsp;</span>for
+                                  Table/View Name, </span><span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-size: 14.021px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">ensure
+                                  all the columns are selected,and click<span class="Apple-converted-space">&nbsp;</span></span><strong
+                                  style="box-sizing: border-box; font-size: 14.0224px; font-weight: bold; color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">Next
+                                  &gt;</strong><span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-size: 14.021px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">.</span></p>
+                              <figure> <img src="images/Dynamic_Actions_01_14.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Perform the following actions:</p>
+                              <ul>
+                                <li>Choose <em>Select Primary Key Column(s)</em>
+                                  for Primary Key Type</li>
+                                <li>Select all columns to be included in the
+                                  form</li>
+                                <li>Select <em>EMPLOYEE_ID (Number)</em> for
+                                  Primary Key Column 1</li>
+                                <li>Choose <em>Existing Sequence</em> for
+                                  Source for Primary Key Column1 and select <em>EMPLOYEES_SEQ</em>
+                                  for Sequence</li>
+                                <li>C<span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-size: 14.021px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">lick<span
+                                      class="Apple-converted-space"> </span></span><span
+                                    style="font-weight: bold;">Create</span><span
+                                    style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Open Sans&quot;, arial, sans-serif; font-size: 14.021px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">.</span></li>
+                              </ul>
+                              <figure> <img src="images/Dynamic_Actions_01_15.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_23.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_23.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>If the Log In screen appears, enter your Oracle
+                                Application Express credentials, and click <strong>Log
+                                  In</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_24.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_24.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Edit </strong>icon before
+                                the first row.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_18.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_25.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the next section, you want to make few
+                                changes to the items on this form. Click <strong>Edit
+                                  Page 3</strong> in the developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_01_19.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_01_26.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Making Changes to the Items on Your Form Page</h2>
+                        <div> In this section, you make few changes to the items
+                          on your Form page so that they appear meaningful and
+                          user-friendly when the Form loads. Perform the
+                          following steps:<br>
+                          <ol>
+                            <li>
+                              <p>In the Rendering tab, under Items, click<strong>
+                                  P3_JOB_ID</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Select List</strong> for Type.
+                                Under List of Values, select <strong>SQL Query</strong>
+                                for Type, and click the <strong>Code Editor:
+                                  SQL Query icon</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter the following SQL query in the Code
+                                Editor - SQL Query, and click the <strong>Validate
+                                  </strong>icon.<br>
+                                <br>
+                                <em><code>select distinct job_id d, job_id r<br>
+                                    from employees<br>
+                                    order by 1</code></em></p>
+                              <figure> <img src="images/Dynamic_Actions_02_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>OK</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_02_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under List of Values, select <strong>No </strong>for
+                                Display Extra Values, and click <strong>Save
+                                  and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the Job changed to a select list on
+                                the form. To make changes to other items on the
+                                page, click <strong>Edit Page 3</strong> in the
+                                developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, under Items, select <strong>P3_COMMISSION_PCT</strong>.
+                                In its property editor, under Label, change the
+                                label to <strong>Commission.</strong></p>
+                              <figure> <img src="images/Dynamic_Actions_02_07.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, under Items, select <strong>P3_MANAGER_ID</strong>.
+                                In its property editor, under Identification,
+                                select<strong> Select List&nbsp;</strong>for
+                                Type. Under List of Values, select <strong>SQL
+                                  Query</strong> for Type, and click the <strong>Code
+                                  Editor: SQL Query</strong> icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter the following SQL query in the Code
+                                Editor - SQL Query, and click the <strong>Validate
+                                  </strong>icon.<br>
+                                <br>
+                                <em><code>select first_name d, employee_id r<br>
+                                    from employees<br>
+                                    where job_id in ('MANAGER','PRESIDENT')<br>
+                                  </code></em></p>
+                              <figure> <img src="images/Dynamic_Actions_02_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>OK</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under List of Values, select <strong>No </strong>for
+                                Display Extra Values, <strong>Yes </strong>for
+                                Display Null Values, enter <span style="font-style: italic;">--Select
+                                  Manager--</span> for Null Display Value, and
+                                click <strong>Save</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, under Items, select <strong>P3_DEPARTMENT_ID</strong>.
+                                In its property editor, under Identification,
+                                select<strong> Select List&nbsp;</strong>for
+                                Type. Under List of Values, select <strong>SQL
+                                  Query</strong> for Type, and click the <strong>Code
+                                  Editor: SQL Query</strong> icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_12.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter the following SQL query in the Code
+                                Editor - SQL Query, and click the <strong>Validate
+                                  </strong>icon.<br>
+                                <br>
+                                <em><code>select department_name d,
+                                    department_id r<br>
+                                    from departments<br>
+                                  </code></em></p>
+                              <figure> <img src="images/Dynamic_Actions_02_13.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>OK</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_14.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under List of Values, select <strong>No </strong>for
+                                Display Extra Values, <strong>Yes </strong>for
+                                Display Null Values, enter <span style="font-style: italic;">--Select
+                                  Department--</span> for Null Display Value,
+                                and click <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_15.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the Commission_pct field is
+                                labelled as Commission, and the Manager and
+                                Department fields are changed to Select Lists.
+                                In the next section, you want to create a
+                                Dynamic Action on this page, click <strong>Edit
+                                  Page 3</strong> in the developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_02_16.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_02_16.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating an Enable/Disable Declarative Dynamic
+                          Action</h2>
+                        <div> In this section, you create a Dynamic Action that
+                          enables the Commission field on the form, only when
+                          the Job value equals SALESMAN. For all the other
+                          values of Job, the Commission field is disabled.
+                          Perform the following steps:<br>
+                          <ol>
+                            <li>
+                              <p>In the Rendering tab, right-click <strong>P3_JOB_ID</strong>,
+                                and select <strong>Create Dynamic Action</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_03_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor of the new Dynamic
+                                Action, set the following properties as defined
+                                in the table below:</p>
+                              <table style="width: 569px; height: 80px;" border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Property Group</td>
+                                    <td>Property Name</td>
+                                    <td>Property Value</td>
+                                    <td>Comments</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Identification</td>
+                                    <td>Name</td>
+                                    <td><span style="font-style: italic;">JOB
+                                        EQUALS SALESMAN</span></td>
+                                    <td>-</td>
+                                  </tr>
+                                  <tr>
+                                    <td>When</td>
+                                    <td>Event</td>
+                                    <td><strong>Change</strong></td>
+                                    <td>Whenever P3_JOB value changes, this
+                                      Dynamic Action executes.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>When</td>
+                                    <td>Selection Type</td>
+                                    <td><strong>Item(s)</strong></td>
+                                    <td>Value is set by default, because the
+                                      Dynamic Action is created from P3_JOB_ID
+                                      under Items.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>When</td>
+                                    <td>Item(s)</td>
+                                    <td><strong>P3_JOB_ID</strong></td>
+                                    <td>Value is set by default, because the
+                                      Dynamic Action is created from P3_JOB_ID
+                                      under Items.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>When</td>
+                                    <td>Client-side Condition</td>
+                                    <td><strong>Item = Value<br>
+                                      </strong></td>
+                                    <td>To ensure that this Dynamic Action
+                                      executes only when the value of P3_JOB
+                                      changes to SALESMAN.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>When</td>
+                                    <td>Value</td>
+                                    <td><strong><span style="font-style: italic;">SA_MAN</span></strong></td>
+                                    <td>To ensure that this Dynamic Action
+                                      executes only when the value of P3_JOB_ID
+                                      changes to SA_MAN (salesman)</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure><img src="images/Dynamic_Actions_03_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>After setting the properties of the Dynamic
+                                Action, you want to define the action to be
+                                executed when the Event (Change) takes place and
+                                the Client-side Condition (Equals to SALESMAN)
+                                is True. Under JOB EQUALS SALESMAN, under True,
+                                click <strong>Show</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Enable </strong>for Action. <br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_03_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Affected Elements, ensure that Selection
+                                Type is set to <strong>Item(s)</strong>,<strong>
+                                </strong>and click the <strong>List of Values:
+                                  Item(s)</strong> icon for Item(s).</p>
+                              <figure> <img src="images/Dynamic_Actions_03_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to enable the Commission field on the
+                                form, when P3_JOB_ID equals to SALESMAN.
+                                Therefore, click <strong>P3_COMMISSION_PCT</strong>
+                                in the Pick Item(s) dialog.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You also want to disable the Commission field
+                                on the form when P3_JOB is not equal to
+                                SALESMAN. To create the False Action,
+                                right-click <span style="font-weight: bold;">FALSE</span>,
+                                and select <span style="font-weight: bold;">Create
+                                  FALSE Action</span>.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_07.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Disable</strong> for Action. </p>
+                              <figure> <img src="images/Dynamic_Actions_03_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Affected Elements, ensure that Selection
+                                Type is set to <strong>Item(s)</strong>,<strong>
+                                </strong>and click the <strong>List of Values:
+                                  Item(s)</strong> icon for Item(s). </p>
+                              <figure> <img src="images/Dynamic_Actions_03_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>P3_COMMISSION_PCT</strong> in
+                                the Pick Item(s) dialog.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the properties under Execution
+                                Options are set by default. Ensure that Fire on
+                                Initialization is set to <strong>Yes</strong>,
+                                and click <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>HR_REP </strong>for Job Id.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_03_12.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the Commission field is
+                                automatically disabled.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_13.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Now, select <strong>SA_MAN </strong>for Job
+                                Id.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_14.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the Commission field is
+                                automatically enabled now. To create another
+                                Dynamic Action on the page, click <strong>Edit
+                                  Page 3</strong> in the developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_03_15.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_03_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Set Value Dynamic Action with a SQL
+                          Statement</h2>
+                        <div> In this section, you create a Dynamic Action that
+                          sets the value of Location and Number of Employees
+                          fields in the form automatically, based on the value
+                          selected for Department field. Perform the following
+                          steps.<br>
+                          <ol>
+                            <li>
+                              <p>Firstly, you want to create two new items to
+                                display Location and Number of Employees values
+                                in the form. In the Rendering tab, right-click <strong>Items</strong>,
+                                and click <strong>Create Page Item</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_04_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, set the properties of
+                                the new item as per the following table, and
+                                click <strong>Save</strong>.</p>
+                              <table style="width: 522px; height: 90px;" border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Property Group</td>
+                                    <td>Property Name</td>
+                                    <td>Property Value</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Identification</td>
+                                    <td>Name</td>
+                                    <td><span style="font-style: italic;">P3_LOCATION</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Identification</td>
+                                    <td>Type</td>
+                                    <td><strong>Display Only</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Label</td>
+                                    <td>Label</td>
+                                    <td><span style="font-style: italic;">Location</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Settings</td>
+                                    <td>Save Session State</td>
+                                    <td><strong>No</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Settings</td>
+                                    <td>Show Line Breaks</td>
+                                    <td><strong>No</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Source</td>
+                                    <td>Type</td>
+                                    <td><strong>Item</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Source</td>
+                                    <td>Item</td>
+                                    <td><strong>P3_LOCATION</strong></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img src="images/Dynamic_Actions_04_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <figure> <img src="images/Dynamic_Actions_04_02_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_02_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To create another Display Only item,
+                                right-click <strong>Items</strong>, and click <strong>Create
+                                  Page Item</strong>, in the Rendering tab.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, set the properties of
+                                the new item as per the following table, and
+                                click <strong>Save</strong>.</p>
+                              <table style="width: 522px; height: 90px;" border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Property Group</td>
+                                    <td>Property Name</td>
+                                    <td>Property Value</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Identification</td>
+                                    <td>Name</td>
+                                    <td><span style="font-style: italic;">P3_NUM_EMPLOYEES</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Identification</td>
+                                    <td>Type</td>
+                                    <td><strong>Display Only</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Label</td>
+                                    <td>Label</td>
+                                    <td><span style="font-style: italic;">Total
+                                        Employees<br>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Settings</td>
+                                    <td>Save Session State</td>
+                                    <td><strong>No</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Settings</td>
+                                    <td>Show Line Breaks</td>
+                                    <td><strong>No</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Source</td>
+                                    <td>Type</td>
+                                    <td><strong>Item</strong></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Source</td>
+                                    <td>Item</td>
+                                    <td><strong>P3_NUM_EMPLOYEES</strong></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img src="images/Dynamic_Actions_04_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <figure> <img src="images/Dynamic_Actions_04_04_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_04_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You can also create a Dynamic Action from the
+                                Dynamic Actions tab. Click the <strong>Dynamic
+                                  Actions</strong> tab.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_04_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Right-click <strong>Events</strong>, and
+                                select <strong>Create Dynamic Action</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor of the new Dynamic
+                                Action, set the following properties as defined
+                                in the table below, and click the <strong>List
+                                  of Values: Item(s)</strong> icon for Item(s).</p>
+                              <table style="box-sizing: border-box; font-size: 14.021px; border-collapse: collapse; border-spacing: 0px; margin-bottom: 15px; max-width: 100%; color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; width: 569px; height: 80px; background-color: rgb(255, 255, 255);"
+                                border="1">
+                                <tbody style="box-sizing: border-box; font-size: 14.0224px;">
+                                  <tr style="box-sizing: border-box; font-size: 14.0238px; vertical-align: top; padding: 8px 6px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(63, 63, 63);">
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Property
+                                      Group</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Property
+                                      Name</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Property
+                                      Value</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Comments</td>
+                                  </tr>
+                                  <tr style="box-sizing: border-box; font-size: 14.0238px; vertical-align: top; padding: 8px 6px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(63, 63, 63);">
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Identification</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Name</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;"><span
+                                        style="box-sizing: border-box; font-size: 14.0266px; font-style: italic;">Get
+                                        Department Details<br>
+                                      </span></td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">-</td>
+                                  </tr>
+                                  <tr style="box-sizing: border-box; font-size: 14.0238px; vertical-align: top; padding: 8px 6px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(63, 63, 63);">
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">When</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Event</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;"><strong
+                                        style="box-sizing: border-box; font-size: 14.0266px; font-weight: bold;">Change</strong></td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">To
+                                      ensure that the Dynamic Action executes on
+                                      a Change Event.</td>
+                                  </tr>
+                                  <tr style="box-sizing: border-box; font-size: 14.0238px; vertical-align: top; padding: 8px 6px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(63, 63, 63);">
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">When</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">Selection
+                                      Type</td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;"><strong
+                                        style="box-sizing: border-box; font-size: 14.0266px; font-weight: bold;">Item(s)</strong></td>
+                                    <td style="box-sizing: border-box; font-size: 14.0252px; padding: 5px 6px; text-align: left; word-wrap: break-word;">&nbsp;To
+                                      ensure that the Dynamic Action executes
+                                      when Change Event occurs on a Item.</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img src="images/Dynamic_Actions_04_07.png"
+                                  class="ScreenShot" style="border:1px solid gray"><br>
+                                <figcaption><a href="files/Dynamic_Actions_04_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want this Dynamic Action to be executed
+                                when the value of the Department field changes.
+                                Therefore, select <strong>P3_DEPARTMENT_ID</strong>
+                                in the Pick Item(s) dialog.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>After setting the properties of the Dynamic
+                                Action, you want to define the action to be
+                                executed when the Event (Change) takes place.
+                                Under Get Department Details, under True, click
+                                <strong>Show</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Set Value</strong> for Action. </p>
+                              <figure> <img src="images/Dynamic_Actions_04_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Settings, select <strong>SQL Statement</strong>
+                                for Set Type, and click the <strong>Code
+                                  Editor: SQL Statement</strong> icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter the following SQL query in the Code
+                                Editor - SQL Statement, and click the <strong>Validate
+                                  </strong>icon.<br>
+                                <br>
+                                <code style="font-style: italic;">select
+                                  d.location_id location,count(e.employee_id)
+                                  num_employees<br>
+                                  from departments d, employees e<br>
+                                  where d.department_id = e.department_id(+)<br>
+                                  and d.department_id = :P3_DEPARTMENT_ID<br>
+                                  group by d.location_id</code></p>
+                              <figure> <img src="images/Dynamic_Actions_04_12.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>OK</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_13.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To ensure that the SQL statement entered above
+                                executes successfully, you have to submit
+                                P3_DEPARTMENT_ID item used as a host variable in
+                                the above query. Click the <strong>Items to
+                                  Submit</strong> icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_14.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>P3_DEPARTMENT_ID</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_15.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to set the value of Location field in
+                                the form, when this Dynamic Action executes.
+                                Under Affected Elements, ensure that Selection
+                                Type is set to <strong>Item(s)</strong>, and
+                                click the <strong>Item(s)</strong> icon for
+                                Item(s).</p>
+                              <figure> <img src="images/Dynamic_Actions_04_16.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_16.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>P3_LOCATION</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_17.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_17.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You also want to set the value of Total
+                                Employees field in the form, when this Dynamic
+                                Action executes. Click the <strong>Item(s)</strong>
+                                icon for Item(s), again.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_18.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_18.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>P3_NUM_EMPLOYEES</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_19.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_19.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_20.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_20.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Cancel</strong>, to open the
+                                Employee List.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_21.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_21.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Edit </strong>icon beside
+                                the first row in the Employee List.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_22.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_22.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Employee Details form opens for editing.
+                                Notice that the value of Location and Total
+                                Employees is automatically set based on the
+                                value of Department field on the form.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_23.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_23.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>IT </strong>for Department_id,
+                                and notice the values of Location and Total
+                                Employees changes automatically. In the next
+                                section, you want to create a similar Dynamic
+                                Action using PL/SQL. Click <strong>Edit Page 3</strong>
+                                in the developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_04_24.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_04_24.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Set Value Dynamic Action with PL/SQL</h2>
+                        <div><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0154px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6216px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">In
+                            this section, you create a Dynamic Action that
+                            calculates and sets the value of Bonus field in the
+                            form automatically, every time the page loads.
+                            Perform the following steps.</span>
+                          <ol>
+                            <li>
+                              <p>Firstly, you want to create a new item to
+                                display Bonus in the form. In the Rendering tab,
+                                right-click <strong>Items</strong>, and click <strong>Create
+                                  Page Item</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_05_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                enter <strong>P3_BONUS</strong> for Name, and
+                                select <strong>Number Field</strong> for Type.
+                                Under Appearance, click the <strong>Format Mask</strong>
+                                icon for Format Mask.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>$5,234.10</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Save</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_05_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Source, select <strong>Item </strong>for
+                                Type, <strong>P3_BONUS</strong> for Item, and <strong>Only
+                                  when current value in session state is null </strong>for
+                                Used.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To create the Dynamic Action, click the <strong>Dynamic
+                                  Actions</strong> tab.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to create a Dynamic Action that
+                                executes every time the page loads. Therefore,
+                                right-click <strong>Page Load</strong> and
+                                select <strong>Create Dynamic Action</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_07.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                enter <span style="font-style: italic;">Calculate
+                                  Bonus</span> for Name. Notice that the Event
+                                is already selected as Page Load.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>After setting the properties of the Dynamic
+                                Action, you want to define the action to be
+                                executed when the Event (Page Load) takes place.
+                                Under Calculate Bonus, under True, click <strong>Show</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_05_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Set Value</strong> for Action.
+                                Under Settings, select <strong>PL/SQL Function
+                                  Body</strong> for Set Type, and click the <strong>Code
+                                  Editor: PL/SQL Function Body</strong> icon.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter the following SQL query in the Code
+                                Editor - PL/SQL Function Body, and click the <strong>Validate
+                                  </strong>icon.<br>
+                                <br>
+                                <code style="font-style: italic;">declare<br>
+                                  l_multiplier number;<br>
+                                  begin<br>
+                                  -- determine multiplier based on job<br>
+                                  case :P3_JOB_ID<br>
+                                  When 'PU_CLERK' then l_multiplier := .1;<br>
+                                  When 'MK_REP' then l_multiplier := .2;<br>
+                                  When 'SA_REP' then l_multiplier := .3;<br>
+                                  When 'AC_MGR' then l_multiplier := .4;<br>
+                                  When 'AD_PRES' then l_multiplier := .5;<br>
+                                  else l_multiplier := 0;<br>
+                                  end case;<br>
+                                  -- return bonus which is calculated by
+                                  multiplying salary by multiplier<br>
+                                  return :P3_SALARY * l_multiplier;<br>
+                                  END;</code><code style="font-style: italic;"><br>
+                                  <br>
+                                </code></p>
+                              <figure> <img src="images/Dynamic_Actions_05_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click<strong> OK</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_05_12.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To ensure that the PL/SQL code entered above
+                                executes successfully, you have to submit
+                                P3_SALARY and P3_JOB_ID items used as a host
+                                variables in the above code. Click the <strong>Page
+                                  Items</strong> to Submit icon, and select <strong>P3_SALARY</strong>.
+                                Click the <strong>Items to Submit</strong> icon
+                                again, and select <strong>P3_JOB_ID</strong>
+                                also.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_13.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to set the value of Bonus field in the
+                                form, when this Dynamic Action executes. Under
+                                Affected Elements, ensure that Selection Type is
+                                set to <strong>Item(s)</strong>, click the <strong>List
+                                  of Values: Item(s)</strong> icon for Item(s),
+                                and select <strong>P3_BONUS</strong>.&nbsp;
+                                Under Execution Options, select <strong>No </strong>for
+                                Fire on Initialization, and click <strong>Save
+                                  and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_14.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that the value of Bonus is calculated
+                                and displayed in the Bonus Field as soon as the
+                                page loads. In the next section, you want to
+                                create a Dynamic Action which uses Plug-in,
+                                click <strong>Edit Page 3</strong> in the
+                                developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_05_15.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_05_15.txt">Description
+                                    of this image</a></figcaption></figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Using a Plug-in in a Dynamic Action</h2>
+                        <div> In this section, you use a Plug-in to create a
+                          Dynamic Action that sets the Style of a field based on
+                          its value. Perform the following steps:<br>
+                          <ol>
+                            <li>
+                              <p>To install the Plug-in as a shared component,
+                                click the <strong>Shared Components</strong>
+                                icon.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_06_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Other Components, click <strong>Plug-ins</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Plug-in import file is provided with <a href="files/files.zip">files.zip</a>
+                                mentioned in the prerequisites section of this
+                                tutorial. Click <strong>Import</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Choose File</strong>. Ensure
+                                that the File Type is <strong>Plug-in</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_06_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Browse to your working directory where
+                                files.zip is downloaded, and select <strong>item_type_plugin_com_oracle_apex_starrating_modern.sql</strong>
+                                file. Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Install Plug-in</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_07.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Slider Plug-in is installed. In the
+                                Component Settings window, click <strong>Apply
+                                  Changes</strong>.&nbsp;</p>
+                              <figure> <img src="images/Dynamic_Actions_06_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>Click the <strong>Edit Page 3</strong> icon.
+                              <figure> <img src="images/Dynamic_Actions_06_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, under Items, select <strong>P3_RATING</strong>.
+                                In its property editor, under Identification,
+                                select <strong>Modern Star Rating [Plug-In]</strong>
+                                for Type.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Settings, enter<strong> </strong><span style="font-style: italic;"><strong>5
+                                  </strong> </span>for Number of Stars, select
+                                <strong>No</strong> for Use Components Default,
+                                select <strong>fa-star</strong> for icon, and
+                                click <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the page navigation, click <strong>Employee
+                                  List</strong> to view the report.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_06_12.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>click the Edit icon next to Employee Id 100.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_13.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You see that the employee rating is displayed
+                                using the Modern Star Rating plug-in instead of
+                                a number. Update the employee rating to 4.</p>
+                              <figure> <img src="images/Dynamic_Actions_06_14.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_06_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Dynamic Action on a Button</h2>
+                        <div> In this section, you create a Dynamic Action on
+                          the Save button such that when the Save button is
+                          clicked, the page is submitted and the Save button is
+                          disabled until the page refreshes. Perform the
+                          following steps:<br>
+                          <ol>
+                            <li>
+                              <p>Before creating the Dynamic Action, you want to
+                                see the current functionality of the form when
+                                the Apply Changes button is clicked. Click <strong>Apply
+                                  Changes</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_07_01.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The changes are saved to the database and you
+                                are returned to the Employee List. Notice that
+                                the salary of the edited row is updated with the
+                                new value. You can also notice that the few
+                                seconds before you are redirected to the
+                                Employee List, the Apply Changes button is
+                                remains enabled. Because of this, it is possible
+                                that the user can click the same button multiple
+                                times. <br>
+                                <br>
+                                To avoid this situation, you want to create a
+                                dynamic action on the Apply Changes button.
+                                Click the <strong>edit </strong>icon of the
+                                employee you just edited.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_02.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Edit Page 3</strong> in the
+                                developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_03.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, under Region Buttons,
+                                right-click <strong>Save</strong>, and select <strong>Create
+                                  Dynamic Action</strong>.<br>
+                              </p>
+                              <figure> <img src="images/Dynamic_Actions_07_04.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                enter <span style="font-style: italic;">Submit
+                                  Page</span> for Name. Notice that values of
+                                Event, Selection Type and Button are already
+                                populated, under Execution Options.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_05.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>After setting the properties of the Dynamic
+                                Action, you want to define the action to be
+                                executed when the Save button is clicked. Under
+                                Submit Page, under True, click <strong>Show</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_06.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Submit Page</strong> for Action.
+                                Under Settings, enter <span style="font-style: italic;">SAVE
+                                  </span>for Request/Button Name. Under
+                                Execution Options, select <strong>No </strong>for
+                                Fire on Initialization, and click <strong>Save</strong>.<br>
+                                <br>
+                                <strong>Note:</strong> The value entered in the
+                                Request/Button Name should be exactly same as
+                                the name of the button on which you are creating
+                                the Dynamic Action.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_07.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Along with page submission, you want to disable
+                                the Apply Changes button, once it is clicked. To
+                                achieve this, you have to create another True
+                                Action for the same event. Under Submit Page,
+                                right-click <strong>True</strong>, and select <strong>Create
+                                  TRUE Action</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_08.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Identification,
+                                select <strong>Disable </strong>for Action.
+                                Under Affected Elements, select <strong>Button
+                                </strong>for Selection Type, and <strong>SAVE </strong>for
+                                Button. Under Execution Options, select <strong>No
+                                  </strong>for Fire on Initialization, and click
+                                <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_09.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Employee Details form loads. Click <strong>Apply
+                                  Changes</strong>.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_10_a.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Notice that page gets submitted and in the mean
+                                time, the Apply Changes appears disabled.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_10.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>After the page is submitted, you are redirected
+                                to the Employee List report. Click <strong>Application&lt;n&gt;</strong>
+                                in the developer toolbar.</p>
+                              <figure> <img src="images/Dynamic_Actions_07_11.png"
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/Dynamic_Actions_07_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Summary</h2>
+                        <div>
+                          <p>In this tutorial, you have learned how to:</p>
+                          <ul>
+                            <li>Create a database application with a form and a
+                              report page</li>
+                            <li>Edit the properties of items on a form page</li>
+                            <li>Create a Enable/Disable Dynamic Action on a page
+                              item</li>
+                            <li>Create a Set Value Dynamic Action using a SQL
+                              statement</li>
+                            <li>Create a Set Value Dynamic Action using PL/SQL</li>
+                            <li>Create a Dynamic Action using a Plug-in</li>
+                            <li>Create a Dynamic Action on a button</li>
+                          </ul>
+                          <ul>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Want to Learn More?</h2>
+                        <div>
+                          <ul>
+                            <li><a href="http://docs.oracle.com/cloud/latest/db121/HTMDB/advnc_dynamic_actions.htm#HTMDB27020">Managing
+                                Dynamic Actions</a></li>
+                            <li>
+                              <p><span style="font-weight: normal;"><a href="http://cloud.oracle.com">Oracle
+                                    Cloud Home Page</a></span></p>
+                              <span style="font-weight: normal;"> </span></li>
+                            <span style="font-weight: normal;"> </span>
+                            <li><span style="font-weight: normal;"></span><span
+                                style="font-weight: normal;">Other tutorials on
+                                <a href="http://docs.oracle.com/cloud/latest/dbcs_schema/dbcs_schema_tutorials.htm">Oracle
+                                  Database Cloud Service - Database Schema
+                                  Service</a>&nbsp;</span></li>
+                          </ul>
+                        </div>
+                      </section>
+                      <!-- END Article --> </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- footer of the page -->
+      <footer id="footer">
+        <div class="f1">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="pull-left footer-left">
+                <ul class="footer-nav list-inline">
+                  <li><a href="http://www.oracle.com/corporate/index.html">About
+                      Oracle</a></li>
+                  <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact
+                      Us</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/index.html">Legal
+                      Notices</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms
+                      of Use</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your
+                      Privacy Rights</a></li>
+                </ul>
+                <span class="copyright">Copyright © 2016, Oracle and/or its
+                  affiliates. All rights reserved.</span> </div>
+              <!-- insert lan options --> </div>
+          </div>
+        </div>
+      </footer>
+      <!-- allow a user to go to the top of the page --> <a class="accessibility"
+        href="#wrapper">Back to top</a> </div>
+    <!-- begin codemirror here -->
+    <script type="text/javascript" src="js/runmode-standalone.js"></script>
+    <script type="text/javascript" src="js/mode/clike/clike.js"></script>
+    <script type="text/javascript" src="js/mode/sql/sql.js"></script>
+    <script type="text/javascript" src="js/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/mode/css/css.js"></script>
+    <script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript">
+    var config;
+
+    config = {
+        lineNumbers: true,
+        mode : "xml",
+    htmlMode: true,
+        indentWithTabs: false,
+        readOnly: true
+    };
+
+</script> <!-- end codemirror here -->
+    <script language="javascript">
+  var s_prefix="OBE";
+  if (typeof(document.title)!= "undefined") {var s_pageName=s_prefix + ":" + document.title};
+</script> <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+  </body>
+</html>

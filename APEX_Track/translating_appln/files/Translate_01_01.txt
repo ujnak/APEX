@@ -1,0 +1,1 @@
+This image shows the Oracle Application Express home page. The App Builder menu is displayed with the Import option selected.

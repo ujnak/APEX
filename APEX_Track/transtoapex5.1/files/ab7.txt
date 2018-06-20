@@ -1,0 +1,4 @@
+This screenshot shows the Sample Database Application home page.
+In the Top section of the home page, there is a toolbar which displays the name of the application and the username of the user logged in, Mobile link, Administration link, Help link and Logout link. Under the toolbar, there is a navigation menu which displays the various links - Home (selected), Customers, Products, Orders, Reports.
+In the center section of the home page, there is a search button followed by four regions for Sales for this Month, Top Customers, Top Products, and Top Orders by Date.
+In the bottom section of the page is the Developer toolbar which displays the following links to: Home, Application 101 (mouse pointer), Edit Page 1, Session, View Debug, Debug, Show Grid, Quick Edit, and Settings.

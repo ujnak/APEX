@@ -1,0 +1,9 @@
+This screenshot shows the Application Builder drop down menu.
+The following entries appear in the drop down menu:
+Database Applications
+Websheet Applications
+Create
+Import (mouse pointer)
+Export
+Workspace Utilities
+Migrations

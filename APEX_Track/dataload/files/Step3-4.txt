@@ -1,0 +1,10 @@
+This image displays the Transformation Rules page of the Create Data Load Wizard. The following descriptive text appears at the top of the wizard dialog:
+"Transformation Rules allow you to change the data being uploaded before it is inserted into the base table. You select the column to transform and then the desired rule to apply to it."
+
+The following fields are available in this page of the wizard:
+1. Select Column(s) to create a transformation rule. This field is in the form of a list of columns. You can select a column name from this list and move it to an adjacent box. In the image, the GENDER (Varchar2) column is selected from the list and moved to the adjacent box.
+2.Rule Name with the value Uppercase Gender
+3. Sequence with the value 10
+4. Type with the value To Upper Case
+
+The pointer is on the Add Transformation button.

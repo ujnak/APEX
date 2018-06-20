@@ -1,0 +1,6 @@
+This screenshot shows the Create Data Grid page.
+There are two options to create Data Grid:
+From Scratch
+Copy and Paste
+
+From Scratch option is being selected. The mouse pointer is clicking the Next button.

@@ -1,0 +1,2 @@
+This screenshot shows a portion of the Shared Components page.
+Under the heading "Application Logic", the mouse pointer is clicking the "Application Items" entry.

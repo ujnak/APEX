@@ -1,0 +1,1 @@
+This image shows the calendar entries for all the days of the Month/Week when the earthquakes occurred.

@@ -1,0 +1,1 @@
+This photograph shows the edit properties window for ther GET handler. We are selecting 'No' for Requires Secure Access, and clicking 'Apply Changes'.

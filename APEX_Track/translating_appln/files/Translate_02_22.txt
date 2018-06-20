@@ -1,0 +1,11 @@
+This image shows a table listing XLIFF files and their attributes such as document size, created on and created by. It also provides a drop-down list called Apply to Translation to select the translation for each XLIFF file. The table shows one XLIFF file, f100_101_en_de.xlf and its attributes. This file is selected which is indicated by a selected checkbox.
+
+The dialog has the following buttons
+1. Cancel
+2. Delete Checked
+3. Apply Checked
+4. Publish
+5. Upload Files
+
+The pointer is on the Apply Checked button.
+
