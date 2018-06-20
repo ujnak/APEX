@@ -1,0 +1,51 @@
+Id,STATE_NAME,STATE_CODE,POPULATION
+1,California,CA,36756666
+2,Texas,TX,24326974
+3,New York,NY,19490297
+4,Florida,FL,18328340
+5,Illinois,IL,12091563
+6,Pennsylvania,PA,12448279
+7,Ohio,OH,11485910
+8,Michigan,MI,10003442
+9,Georgia,GA,9685744
+10,North Carolina,NC,9222414
+11,New Jersey,NJ,8682661
+12,Virginia,VA,7769089
+13,Washington,WA,6549224
+14,Arizona,AZ,6500180
+15,Massachusetts,MA,6497967
+16,Indiana,IN,6376792
+17,Tennessee,TN,6214888
+18,Missouri,MO,5911605
+19,Maryland,MD,5633597
+20,Wisconsin,WI,5627967
+21,Minnesota,MN,5220393
+22,Colorado,CO,4939456
+23,Alabama,AL,4661900
+24,South Carolina,SC,4479800
+25,Louisiana,LA,4410796
+26,Kentucky,KY,4269245
+27,Oregon,OR,3790060
+28,Oklahoma,OK,3642361
+29,Connecticut,CT,3501252
+30,Iowa,IA,3002555
+31,Mississippi,MS,2938618
+32,Arkansas,AR,2855390
+33,Kansas,KS,2802134
+34,Utah,UT,2736424
+35,Nevada,NV,2600167
+36,New Mexico,NM,1984356
+37,West Virginia,WV,1814468
+38,Nebraska,NE,1783432
+39,Idaho,ID,1523816
+40,Maine,ME,1316456
+41,New Hampshire,NH,1315809
+42,Hawaii,HI,1288198
+43,Rhode Island,RI,1050788
+44,Montana,MT,967440
+45,Delaware,DE,873092
+46,South Dakota,SD,804194
+47,Alaska,AK,686293
+48,North Dakota,ND,641481
+49,Vermont,VT,621270
+50,District of Columbia,DC,591833

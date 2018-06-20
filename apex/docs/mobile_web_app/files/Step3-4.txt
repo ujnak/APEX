@@ -1,0 +1,6 @@
+This screenshot shows the Create Chart page with the following details:
+Page Number:8
+Page Name: EmpDept Chart is being entered
+Page Mode:Normal.
+
+The mouse pointer is clicking the Next button.

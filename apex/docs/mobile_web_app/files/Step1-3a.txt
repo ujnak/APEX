@@ -1,0 +1,13 @@
+This screenshot shows the SQL Scripts page.
+ 
+There is a menu bar which has the following icons:
+
+Search icon and a text box. 
+Go button
+View Icons icon.
+View Report icon
+Actions menu with the drop-down arrow.
+Delete Checked Button.
+Upload button. Upload is foused.
+Create Button.
+

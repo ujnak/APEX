@@ -1,0 +1,2 @@
+This screenshot shows the Rendering section of the Page Designer.
+Under Items, P3_LOCATION_ID is being clicked.

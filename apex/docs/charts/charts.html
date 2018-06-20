@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Last updated: 10/18/16 -->
+    <!-- set the encoding of your site -->
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Charts to your Existing Database Application in Oracle
+      Application Express 5.1</title>
+    <!-- Add short description of the OBE for displaying in  search results, etc.-->
+    <meta name="description" content="In this tutorial, you learn how to add charts to your existing database application using Oracle Application Express 5.1.">
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500"
+
+      rel="stylesheet" type="text/css">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css">
+    <link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+    <link type="text/css" rel="stylesheet" href="css/obe.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css">
+    <!-- Code Mirror stylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/codemirror/codemirror.css">
+    <!-- include jQuery library -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="dev-assets/js/bootstrap.js"></script>
+    <!-- include custom JavaScript -->
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="js/jquery.main.js"></script>
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+    <!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.visible.js"></script>
+    <script type="text/javascript" src="js/hooks.js"></script>
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+    <!--script type="text/javascript" src="js/REST.UI.js"></script-->
+    <!--end obe scripts -->
+    <script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script> <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+    });
+</script> </head>
+  <body> <noscript>
+<div>JavaScript must be enabled for the correct page display</div>
+</noscript><!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- allow a user to go to the main content of the page --> <a class="accessibility skipto"
+
+        href="#content">Skip to Content</a>
+      <!-- header of the page -->
+      <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- page logo -->
+                <div class="logo pull-left" itemscope="" itemtype="http://schema.org/Organization">
+                  <span class="name-organization" itemprop="name">Oracle</span>
+                  <a href="#"> <span data-picture="" data-alt="Oracle Logo"> <span
+
+                        data-src="images/logo.png" data-width="221" data-height="20"
+
+                        data-alt="Oracle Logo"></span> <span data-src="images/logo-2x.png"
+
+                        data-width="221" data-height="20" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)"></span>
+                      <!--[if (lt IE 9) & (!IEMobile)]>
+                      <span data-src="images/logo.png"></span>                  <![endif]-->
+                      <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                      <noscript>
+              <img src="images/logo.png" alt="Oracle Logo" height="20" width="221">
+              </noscript> </span> </a> </div>
+              </div>
+              <div class="navbar-right"> </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- contain main informative part of the site -->
+      <main role="main" id="main">
+        <div class="holder">
+          <div class="container-fluid">
+            <h1>Adding Charts to your Existing Database Application in Oracle
+              Application Express 5.1</h1>
+            <!-- contain the main content of the page -->
+            <div class="content-holder">
+              <div class="content">
+                <!-- tabs content holder -->
+                <div class="slide-holder left-tab-holder">
+                  <!-- tab element -->
+                  <div id="tab1">
+                    <div class="slide-frame">
+                      <div id="left-nav-container">
+                        <div class="left-nav-element">
+                          <div id="navToc" title="Topic List">
+                            <ul>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <br style="clear:both">
+                    </div>
+                  </div>
+                  <!-- tab element -->
+                  <div id="tab2">
+                    <div class="slide-frame">
+                      <div class="left-nav-element">
+                        <div id="toolbar">
+                          <h3>Options</h3>
+                          <button id="tglTopicBtn" class="btn btn-primary">Expand
+                            All Topics</button> <br>
+                          <br>
+                          <button id="tglImageBtn" class="btn btn-primary">Hide
+                            All Images</button> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- tabs content holder -->
+                <div class="slide-holder right right-tab-holder"> </div>
+                <div class="left-panel pull-left">
+                  <!-- tabs switcher -->
+                  <ul class="tabset-panel list-unstyled text-center">
+                    <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-list"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Table of Contents</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <!-- -->
+                    <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Options</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <li> <a href="#tab3" class="opener tooltip-link print" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-print"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Print</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-right" id="content">
+                  <article>
+                    <div id="container">
+                      <!-- START Article -->
+                      <section>
+                        <h2>Before You Begin</h2>
+                        <div>
+                          <h4>Purpose</h4>
+                          <p>In this tutorial, you learn how to add charts to
+                            your existing database application using Oracle
+                            Application Express 5.1.</p>
+                          <h4>Time to Complete</h4>
+                          <p>Approximately 20 minutes</p>
+                          <h4>Background</h4>
+                          <p>Oracle Application Express is a rapid web
+                            application development tool for the Oracle
+                            Database. Using only a web browser and limited
+                            programming experience, you can develop and deploy
+                            professional applications that are both fast and
+                            secure. Oracle Application Express is available with
+                            the Oracle Database, whether it's on-premises or in
+                            the Oracle Cloud.</p>
+                          <p>In this tutorial, you use Oracle Application
+                            Express Release 5.1 to create and run a database
+                            application. In release 5.1, charts in Oracle
+                            Application Express are powered by the Oracle JET
+                            charting library. Oracle JET charts are a component
+                            of the Oracle JavaScript Extension Toolkit (JET), an
+                            open source toolkit based on modern JavaScript, CSS3
+                            and HTML5 design and development principles. Oracle
+                            JET charts are fast, highly customizable and
+                            versatile. Charts are fully HTML5 capable and work
+                            on any modern browser, regardless of platform,
+                            screen size, or features.</p>
+                          <h4>What Do You Need?</h4>
+                          <ul>
+                            <li class="oll-only">Have access to an Oracle Database 11g or later
+                              release, either on-premises or in a Database Cloud
+                              Service.</li>
+                            <li class="oll-only">Install Oracle Application Express Release 5.1
+                              into your Oracle Database (for on-premises only).
+                              If you are using Oracle Database Cloud Service,
+                              the application is already installed for you.</li>
+                            <li class="oll-only">Provision at least one Oracle Application
+                              Express user. See <a href="http://www.oracle.com/pls/topic/lookup?ctx=E59726-01&amp;id=AEADM150" target="_blank">Creating
+                                New User Accounts</a> in Oracle Application
+                              Express Administration Guide.<br>
+                            </li>
+                            <li class="oll-only">Have
+                              access to the HR tables. If necessary, download
+                              and install HR Sample Objects available from <a
+
+                                href="https://github.com/oracle/db-sample-schemas" target="_blank">github.com</a>.</li>
+                            <li class="oll-only">
+                              <p>Have the <a href="files/files.zip">files.zip</a>
+                                file downloaded and extracted into your working
+                                directory.</p>
+                            </li>
+                            <li class="vm-only">
+                                <p>All files for this hands-on activity are located in the <code>Home/Desktop/APEX_Track/files</code> folder.</p>
+                            </li>							
+                            <li class="vm-only">
+                                <p>The following files are used in this hands-on activity:</p>
+                                <ul>
+                                    <li><p><strong>f100.sql</strong></p></li>
+                                </ul>
+                            </li>
+
+                            <li class="oll-only">
+                              <p>Have the <strong>f100.sql</strong> application
+                                imported to your workspace along with the
+                                supporting objects.</p>
+                            </li>
+                            <li class="vm-only">
+                                <p>The <strong>f100.sql</strong> application must be imported to your workspace along with the supporting objects.</p>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Adding a Chart to a New Page</h2>
+                        <div>
+                          <p>In this section, you create a Pie chart in a new
+                            page.</p>
+                          <ol>
+                            <li class="vm-only">
+                              <p>In the Application Express login page, enter
+                                the following login credentials and click <strong>Sign
+                                  In:</strong></p>
+                              <ul>
+                                <li>
+                                  <p><strong>Workspace:</strong> obe</p>
+                                </li>
+                                <li>
+                                  <p><strong>Username:</strong> obe</p>
+                                </li>
+                                <li>
+                                  <p><strong>Password:</strong> oracle</p>
+                                </li>
+                              </ul>
+                              <figure> <img alt="Login page" src="images/vm_only.jpg"
+
+                                  style="border:1px solid gray" class="ScreenShot">
+                                <figcaption><a href="files/vm_only.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>From the Oracle Application Express home page,
+                                click the <strong>down arrow</strong> next to
+                                the App Builder tab and choose <strong>Database
+                                  Applications.</strong></p>
+                              <figure> <img src="images/a1.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="App Builder drop down">
+                                <figcaption><a href="files/a1.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Projects Tasks Application. </strong>This
+                                is the application you imported from the Files
+                                folder in the <strong>What Do You Need?</strong>
+                                section.<strong><br>
+                                </strong></p>
+                              <p>The application ID for the Project Tasks
+                                Application used in this tutorial is 100. You
+                                may see a different application ID when you
+                                perform this tutorial.</p>
+                              <figure> <img src="images/a2.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Project Tasks Application icon">
+                                <figcaption><a href="files/a2.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create Page.</strong></p>
+                              <figure> <img src="images/a3.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create Page button">
+                                <figcaption><a href="files/a3.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Create a Page modal window, click <strong>Chart.</strong></p>
+                              <figure> <img src="images/a4.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create a Page modal window">
+                                <figcaption><a href="files/a4.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Pie</strong> for Chart Type.</p>
+                              <figure> <img src="images/a5.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create Chart: Chart Type">
+                                <figcaption><a href="files/a5.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <strong>Tasks per Project Chart</strong>
+                                for Page Name and click <strong>Next.</strong></p>
+                              <figure> <img src="images/a6.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create Chart: Page and Region Attributes">
+                                <figcaption><a href="files/a6.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Create a new navigation menu
+                                  entry</strong> for Navigation Preference,
+                                select <strong>Home</strong> for Parent
+                                Navigation Menu Entry, and click <strong>Next.</strong>
+                              </p>
+                              <figure> <img src="images/a7.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create Chart: Navigation Menu">
+                                <figcaption><a href="files/a7.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Source Tab, select <strong>SQL Query</strong>
+                                for Source Type, enter the following in the SQL
+                                Query field, and click <strong>Next.</strong></p>
+                              <pre class="collapsible" data-view-label="View Code"><code>select null link,
+       p.project label,
+       t.task_count value
+from (select project_id,
+      count(*) task_count from obe_tasks group by project_id) t,
+     obe_projects p
+where t.project_id = p.project_id</code></pre>
+                              <figure> <img src="images/a8.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create Chart: Source">
+                                <figcaption><a href="files/a8.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>LABEL</strong> for Label
+                                Column, <strong>VALUE</strong> for Value
+                                Column, and click <strong>Create.</strong></p>
+                              <figure> <img src="images/a9.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Create Chart: Column Mapping">
+                                <figcaption><a href="files/a9.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The new chart page is created. Click <strong>Save
+                                  and Run Page.</strong></p>
+                              <figure> <img src="images/a10.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Save and Run Page icon">
+                                <figcaption><a href="files/a10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You may receive a Log In screen, where you must
+                                enter your Oracle Application Express
+                                credentials, and click <strong>Log In.</strong></p>
+                            </li>
+                            <li>
+                              <p>Observe the animation as the chart loads. The
+                                pie chart shows the numbers of tasks per
+                                project. Keep your mouse over the pie to display
+                                tool tip for the chart data. Also notice that
+                                the corresponding entry in the Legend getting
+                                highlighted while other entries fade out.</p>
+                              <figure> <img src="images/a11.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart">
+                                <figcaption><a href="files/a11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Edit Page &lt;n&gt;</strong> in
+                                the developer toolbar.</p>
+                              <figure> <img src="images/a12.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Developer toolbar: Edit Page 4">
+                                <figcaption><a href="files/a12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Adding a Chart in Page Designer</h2>
+                        <div>
+                          <p>In this section, you add a Bar chart to the an
+                            existing page by using Page Designer. You add the
+                            chart to the same page where you created the Pie
+                            chart (in the previous section).</p>
+                          <ol>
+                            <li>
+                              <p>View the page in Page Designer. In this
+                                tutorial, the page 4 (Tasks per Project Chart)
+                                is opened in Page Designer.</p>
+                            </li>
+                            <li>
+                              <p>In the Gallery at the bottom of the central
+                                pane, click <strong>Regions</strong> and locate
+                                Chart.</p>
+                              <figure> <img src="images/b2.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Gallery"> <figcaption><a
+
+                                    href="files/b2.txt">Description of this
+                                    image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Right-click <strong>Chart</strong> in the
+                                Gallery to view a context menu. Select <strong>Add
+                                  To, Content Body, Tasks per Project Chart</strong>
+                                and choose <strong>Column After.</strong></p>
+                              <figure> <img src="images/b3.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Chart context menu">
+                                <figcaption><a href="files/b3.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <p>Page Designer indicates what actions are
+                                required next.</p>
+                            </li>
+                            <li>
+                              <p>In the Region tab, enter <strong>Tasks per
+                                  Project Chart 2</strong> for Title and select
+                                the <strong>Attributes</strong> node in the
+                                Rendering tab.</p>
+                              <figure> <img src="images/b4a.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Region Properties of Tasks per Project Chart 2">
+                                <figcaption><a href="files/b4a.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <figure> <img src="images/b4b.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Rendering tab of Tasks per Project Chart page">
+                                <figcaption><a href="files/b4b.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Attributes tab, select <strong>Bar</strong>
+                                for Type, <strong>Horizontal</strong> for
+                                Orientation and select the <strong>New</strong>
+                                node in the Rendering tab.</p>
+                              <figure> <img src="images/b5a.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Attributes of Tasks per Project Chart 2">
+                                <figcaption><a href="files/b5a.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <figure> <img src="images/b5b.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Rendering tab of Tasks per Project Chart page">
+                                <figcaption><a href="files/b5b.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Identification tab, enter <strong>Tasks</strong>
+                                for Name. In the Source tab, select <strong>SQL
+                                  Query</strong> for Type and enter the
+                                following in the SQL Query field.</p>
+                              <pre class="collapsible" data-view-label="View Code"><code>select null link,
+       p.project label,
+       t.task_count value
+from (select project_id,
+      count(*) task_count from obe_tasks group by project_id) t,
+     obe_projects p
+where t.project_id = p.project_id</code></pre>
+                              <figure> <img src="images/b6.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart 2 Source">
+                                <figcaption><a href="files/b6.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Column Mapping tab, select <strong>LABEL</strong>
+                                and <strong>VALUE</strong> for the Label and
+                                Value field respectively.</p>
+                              <figure> <img src="images/b7.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart 2 Column Mapping">
+                                <figcaption><a href="files/b7.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Save and Run Page.</strong></p>
+                              <figure> <img src="images/b8.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Save and Run page icon">
+                                <figcaption><a href="files/b8.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You see the new chart added to the application.<strong></strong></p>
+                              <figure> <img src="images/b9.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Save and Run page icon">
+                                <figcaption><a href="files/b9.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Editing Chart Attributes in Page Designer</h2>
+                        <div>
+                          <p>In this section, you&nbsp; edit the attributes of a
+                            Bar chart using Page Designer. </p>
+                          <ol>
+                            <li>
+                              <p>View the page containing the Bar chart in the
+                                Page Designer. In this tutorial, the page 4
+                                (Tasks per Project Chart) is opened in Page
+                                Designer.</p>
+                              <figure> <img src="images/a12.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Developer toolbar: Edit Page 4">
+                                <figcaption><a href="files/a12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the left pane, locate <strong>Tasks per
+                                  Project Chart 2</strong> in the Rendering tab
+                                and click the<strong> Attributes </strong>node
+                                under the chart.</p>
+                              <figure> <img src="images/c2.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Gallery"> <figcaption><a
+
+                                    href="files/c2.txt">Description of this
+                                    image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Appearance tab, select <strong>Vertical</strong>
+                                for orientation. In the Messages tab, enter <em
+
+                                  style="font-weight: bold;">No data found.</em>
+                                for the When No Data Found field, and click <strong>Save
+                                  and Run Page</strong>.</p>
+                              <figure> <img src="images/c3.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Chart context menu">
+                                <figcaption><a href="files/c3.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p> You see that the edits made to the bar chart
+                                reflects in the application.</p>
+                              <figure> <img src="images/c4.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Chart context menu">
+                                <figcaption><a href="files/c4.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Switching a Chart Type in Page Designer</h2>
+                        <div>
+                          <p>In this section, you switch a Bar chart to a Line
+                            chart by editing the chart attributes in Page
+                            Designer. </p>
+                          <ol>
+                            <li>
+                              <p>View the page in Page Designer. In this
+                                tutorial, the page 4 (Tasks per Project Chart)
+                                is opened in Page Designer.</p>
+                              <figure> <img src="images/a12.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Developer toolbar: Edit Page 4">
+                                <figcaption><a href="files/a12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the left pane, locate <strong>Tasks per
+                                  Project Chart 2</strong> in the Rendering tab
+                                and click the<strong> Attributes node</strong>
+                                under the chart. In this tutorial, chart
+                                attributes are already open in the Property
+                                Editor.</p>
+                            </li>
+                            <li>
+                              <p>Expand the Chart section and select<strong>
+                                  Line</strong> for Type.<strong></strong></p>
+                              <figure> <img src="images/d3.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Chart context menu">
+                                <figcaption><a href="files/d3.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <p>Page Designer indicates what actions need to be
+                                performed to define required Column Mappings.</p>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, select <strong>Tasks</strong>
+                                under the Series node.&nbsp;</p>
+                              <figure> <img src="images/d4.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Region Properties of Tasks per Project Chart 2">
+                                <figcaption><a href="files/d4.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Property Editor, navigate to the the
+                                Column Mapping tab. Select <strong>VALUE</strong>
+                                for Value, select <strong>LINK</strong> for
+                                Custom Tooltip, and <strong>VALUE</strong> for
+                                Custom Column.</p>
+                              <figure> <img src="images/d5.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Attributes of Tasks per Project Chart 2">
+                                <figcaption><a href="files/d5.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Label tab, select<strong> Yes</strong>
+                                for Show and click <strong>Save and Run Page</strong>.</p>
+                              <figure> <img src="images/d6.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart 2 Source">
+                                <figcaption><a href="files/d6.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You see a Line chart in place of the Bar chart
+                                in the application. Hover over a value to read
+                                the corresponding tooltip.</p>
+                              <figure> <img src="images/d7.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart 2 Column Mapping">
+                                <figcaption><a href="files/d7.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Dynamic Action to Refresh the Chart</h2>
+                        <div>
+                          <p>Using Dynamic Actions, you specify an action that
+                            is performed when a defined set of conditions occur.
+                            You also specify which elements are affected by the
+                            action, and when and how they are affected. In this
+                            section, you create a dynamic action to refresh the
+                            chart when it's value changes.</p>
+                          <ol>
+                            <li>
+                              <p>View the page in Page Designer. In this
+                                tutorial, the page 4 (Tasks per Project Chart)
+                                is opened in Page Designer.</p>
+                              <figure> <img src="images/a12.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Developer toolbar: Edit Page 4">
+                                <figcaption><a href="files/a12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the left pane, Click the <strong>Dynamic
+                                  Actions </strong>tab.</p>
+                              <figure> <img src="images/e2.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Gallery"> <figcaption><a
+
+                                    href="files/e2.txt">Description of this
+                                    image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Right-click Events and select <span style="font-weight: bold;">Create
+                                  Dynamic Action</span>.<strong></strong></p>
+                              <figure> <img src="images/e3.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Chart context menu">
+                                <figcaption><a href="files/e3.txt">Description
+                                    of this image</a></figcaption> </figure>
+                              <p>Attributes for the dynamic action are displayed
+                                in the Property Editor.</p>
+                            </li>
+                            <li>
+                              <p>Edit the following Dynamic Action attributes in
+                                the Property Editor:</p>
+                              <ul>
+                                <li>In the Identification tab, enter <strong>Refresh
+                                    </strong>as the name of the dynamic action.</li>
+                                <li>In the When tab, select <strong>Change</strong>
+                                  for Event, select <strong>Region</strong> for
+                                  Selection Type, and <strong>Tasks per Project
+                                    Chart 2</strong> for Region. </li>
+                              </ul>
+                              <figure> <img src="images/e5.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Region Properties of Tasks per Project Chart 2">
+                                <figcaption><a href="files/e5.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tab, select <strong>Show </strong>under
+                                True. </p>
+                              <figure> <img src="images/e6.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Attributes of Tasks per Project Chart 2">
+                                <figcaption><a href="files/e6.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Property Editor, change the Action to <strong>Refresh</strong>.
+                                In the Affected Elements tab, select <strong>Region</strong>
+                                for Selection Type and <strong>Tasks per
+                                  Project Chart 2</strong> for Region. In the
+                                Execution Options tab, select<strong> Yes</strong>
+                                for Fire on Initialization and click<strong>
+                                  Save</strong>.</p>
+                              <figure> <img src="images/e7.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart 2 Source">
+                                <figcaption><a href="files/e7.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p><span>In the main navigation, click the down
+                                  arrow next to the <strong>SQL Workshop</strong>
+                                  tab, right-click <span style="font-weight: bold;">SQL
+                                    Commands </span>and select<span style="font-weight: bold;">
+                                    Open link in new tab</span>.<br>
+                                </span></p>
+                              <figure> <img src="images/e8.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Tasks per Project Chart 2 Column Mapping">
+                                <figcaption><a href="files/e8.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p> Enter the following code in the code box and
+                                click <strong>Run</strong>. </p>
+                              <pre class="collapsible" data-view-label="View Code"><code>Insert into OBE_TASKS VALUES 
+        ( 17
+        , 'Employee Satisfaction Survey'
+        , 'Complete analysis'
+        , TO_DATE('30-JAN-2005', 'dd-MON-yyyy')
+        , TO_DATE('03-FEB-2005', 'dd-MON-yyyy')
+	, 'open'
+        , 4
+        , 2
+	);</code></pre>
+                              <figure> <img src="images/e9.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Save and Run page icon">
+                                <figcaption><a href="files/e9.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Switch back to the charts window. You will see
+                                the <strong>Refresh</strong> dynamic action
+                                that we created in the previous steps has
+                                updated the number of tasks for Employee
+                                Satisfaction Survey to<strong> 4</strong> in the
+                                Tasks per Project Chart 2 chart.<strong></strong></p>
+                              <figure> <img src="images/e10.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Save and Run page icon">
+                                <figcaption><a href="files/e10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Using a Custom JavaScript in the Chart</h2>
+                        <div>
+                          <p>In this section, you add a JavaScript to change the
+                            appearance of an existing chart.</p>
+                          <ol>
+                            <li>
+                              <p>View the page in Page Designer. In this
+                                tutorial, the page 4 (Tasks per Project Chart)
+                                is opened in Page Designer.</p>
+                              <figure> <img src="images/a12.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Developer toolbar: Edit Page 4">
+                                <figcaption><a href="files/a12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the Rendering tree, select the <strong>Attributes
+                                  </strong>node.</p>
+                              <figure> <img src="images/f2.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Clicking the Attributes node in the Rendering tab">
+                                <figcaption><a href="files/e2.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To view all attributes in the Property Editor,
+                                click <strong>Show All</strong> to see all
+                                attributes for the chart.<strong></strong></p>
+                              <figure> <img src="images/f3.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Clicking Show All to see all attributes for the chart.">
+                                <figcaption><a href="files/e3.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the <strong>Advanced</strong> tab, enter
+                                the following code in the JavaScript code box. </p>
+                              <pre class="collapsible" data-view-label="View Code"><code>function( options ) {
+    console.log( "chart initialization options", options );
+
+// Setup a callback function which gets called when data is retrieved, to manipulate the series data
+    options.dataFilter = function( data ) {
+        data.series[ 0 ].color = "#ED6647";
+        data.series[ 0 ].borderColor = "#0F3248";
+        data.series[ 0 ].markerDisplayed = "on";
+        data.series[ 0 ].markerShape = "plus";
+        data.series[ 0 ].markerColor = "red";
+        data.series[ 0 ].markerSize = 8;
+        data.series[ 0 ].pattern = "smallChecker";
+        return data;
+    };
+    return options;
+}
+</code></pre>
+                              <figure> <img src="images/f4.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Entering the JavaScript code">
+                                <figcaption><a href="files/e5.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Save and Run Page</strong>. </p>
+                              <figure> <img src="images/f5.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="Clicking Save and Run Pgae.">
+                                <figcaption><a href="files/e6.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You see the JavaScript code has customized the
+                                appearance of the chart while rendering.</p>
+                              <figure> <img src="images/f6.jpg" class="ScreenShot"
+
+                                  style="border:1px solid gray" alt="The updated appearance of the chart">
+                                <figcaption><a href="files/e6.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Want to Learn More?</h2>
+                        <div>
+                          <ul>
+                            <li><a href="http://www.oracle.com/pls/topic/lookup?ctx=E71588-01&amp;id=HTMDB-GUID-50985225-4C89-489B-B019-E2D91E61428A" target="_blank">Creating
+                                Charts</a></li>
+                          </ul>
+                        </div>
+                      </section>
+                      <!-- END Article --> </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- footer of the page -->
+      <footer id="footer">
+        <div class="f1">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="pull-left footer-left">
+                <ul class="footer-nav list-inline">
+                  <li><a href="http://www.oracle.com/corporate/index.html">About
+                      Oracle</a></li>
+                  <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact
+                      Us</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/index.html">Legal
+                      Notices</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms
+                      of Use</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your
+                      Privacy Rights</a></li>
+                </ul>
+                <span class="copyright">Copyright © 2016, Oracle and/or its
+                  affiliates. All rights reserved.</span> </div>
+              <!-- insert lan options --> </div>
+          </div>
+        </div>
+      </footer>
+      <!-- allow a user to go to the top of the page --> <a class="accessibility"
+
+        href="#wrapper">Back to top</a> </div>
+    <!-- begin codemirror here -->
+    <script type="text/javascript" src="js/runmode-standalone.js"></script>
+    <script type="text/javascript" src="js/mode/clike/clike.js"></script>
+    <script type="text/javascript" src="js/mode/sql/sql.js"></script>
+    <script type="text/javascript" src="js/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/mode/css/css.js"></script>
+    <script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript">
+	var config;
+	
+	config = {
+		lineNumbers: true,
+		mode : "xml",
+	htmlMode: true,
+		indentWithTabs: false,
+		readOnly: true
+	};
+
+</script> <!-- end codemirror here -->
+    <script language="javascript">
+  var s_prefix="OBE";
+  if (typeof(document.title)!= "undefined") {var s_pageName=s_prefix + ":" + document.title};
+</script> <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+  </body>
+</html>

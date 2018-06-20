@@ -1,0 +1,1 @@
+This image shows a part of the Oracle Application Express home page. The Application Builder menu is displayed and the pointer is on the Database Applications option.

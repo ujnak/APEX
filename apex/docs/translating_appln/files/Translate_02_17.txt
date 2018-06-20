@@ -1,0 +1,1 @@
+This image shows the f100_101_en_de.xlf file opened in a Notepad. It has been updated with the changes required for translation to German. The pointer is on the close button.

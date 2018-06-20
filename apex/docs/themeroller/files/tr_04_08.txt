@@ -1,0 +1,1 @@
+In this image, you type apex.utr.config();  in the console and click Enter.

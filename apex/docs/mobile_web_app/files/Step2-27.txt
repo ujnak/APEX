@@ -1,0 +1,5 @@
+This screenshot shows Departments page. 
+It has a serach bar and the following departments in the menu list:
+Administration, Marketing,Purchasing, and Human Resources.
+Administration menu is focused. 
+There is a Create button in the page.

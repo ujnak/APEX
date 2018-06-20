@@ -1,0 +1,2 @@
+This screenshot shows the Create Websheet Object Success page.
+The mouse pointer is clicking the Create Websheet button.

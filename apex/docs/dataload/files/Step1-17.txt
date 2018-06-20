@@ -1,0 +1,1 @@
+This image shows the results of the script execution. It has options for viewing the detailed report or a summary report of the results. By default, the summary view is selected. The summary view lists each statement of the script, its elapsed time and feedback.

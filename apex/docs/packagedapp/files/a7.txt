@@ -1,0 +1,1 @@
+The screenshot shows the Checklist Manager application login page. The login credentials are entered and the Sign In button is being clicked.

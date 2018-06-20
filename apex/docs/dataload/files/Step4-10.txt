@@ -1,0 +1,1 @@
+This image shows the home page of the application. It displays the data you uploaded as 9 records in a table with the column names First name, Last name, Birthdate, Relation, Gender and Relative id.

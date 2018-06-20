@@ -1,0 +1,8 @@
+This screenshot shows the Supporting Objects steps of the Install Application wizard. 
+It displays the following information:
+Application: 101 - Sample Database Application
+Parsing Schema: HR
+Upgrade Supporting Objects: No (selected)
+Tasks (collapsed)
+Cancel button
+Next button (mouse pointer)

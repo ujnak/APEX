@@ -1,0 +1,10 @@
+This screenshot shows the Employees Reflow Report with the employees detail:
+
+Emplyee Id
+First Name
+Last Name
+Email: sue.littlefield
+Hire Date
+Department
+
+There are total 9 rows.

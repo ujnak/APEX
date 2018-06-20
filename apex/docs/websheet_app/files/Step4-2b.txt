@@ -1,0 +1,10 @@
+This screenshot shows the Create Data Grid page.
+
+It has two Creation Method options:
+
+From Scratch
+Copy and Paste
+
+Copy and paste is being selected.
+
+The mouse pointer is clicking the Next button.

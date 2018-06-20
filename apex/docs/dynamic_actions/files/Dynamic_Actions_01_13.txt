@@ -1,0 +1,2 @@
+This photograph shows selecting 'Identify an existing navigation menu entry for this page' for Navigation Preference, selecting 'Home' for Existing Navigation Menu Entry, and clicking 'Next >'.
+

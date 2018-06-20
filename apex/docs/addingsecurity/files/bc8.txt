@@ -1,0 +1,1 @@
+This screenshot shows the Region Buttons node. Under Region buttons, there are two buttons - Calendar and ENTER_NEW_ORDER. The latter is selected.

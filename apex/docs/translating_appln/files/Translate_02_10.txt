@@ -1,0 +1,12 @@
+This image shows a list of language mappings.  At the top of the image, it displays a breadcrumb as follows:
+Application 100 \ Shared Components \ Translate \ Language Mappings
+
+The pointer is on the Translate breadcrumb.
+
+The list of translated applications includes Application 101.
+
+The page also includes a search field. It also includes a Cancel and Create button.
+
+
+
+

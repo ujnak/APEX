@@ -1,0 +1,2 @@
+This screenshot shows the Sample Database Application Customers page. The Customers page contains a report with details like Customer Name, Address, City, ZIP Code, and Tags. 
+The name of the first customer is being clicked.

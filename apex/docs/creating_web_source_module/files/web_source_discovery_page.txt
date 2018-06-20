@@ -1,0 +1,1 @@
+This image shows the Web Source Discovery page. You can see that different columns get populated, for example, Place, Magnitude, and Time of the Earthquake. Click Create Web Source. 

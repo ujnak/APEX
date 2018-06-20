@@ -1,0 +1,31 @@
+PROJECT	TASK_NAME	START_DATE	END_DATE	STATUS	ASSIGNED_TO	COST	BUDGET
+Maintain Support Systems	HR software upgrades	1-Jan-10	27-Feb-10	Closed	Pam King	8000	7000
+Maintain Support Systems	Apply Billing System updates	1-Jan-10	28-Feb-10	closed	Russ Sanders	5000	7000
+Maintain Support Systems	Investigate new Virus Protection software	15-Feb-10	23-Mar-10	Open	Pam King	1700	1500
+Maintain Support Systems	Arrange for holiday coverage	10-Jan-10	12-Jan-10	Closed	Al Bines	300	500
+Email Integration	Complete plan	8-Feb-10	14-Feb-10	Closed	Mark Nile	500	750
+Email Integration	Check software licenses	12-Feb-10	13-Feb-10	Closed	Mark Nile	200	200
+Email Integration	Get RFPs for new server	19-Feb-10	3-May-10	Open	Mark Nile	4000	1000
+Email Integration	Purchase backup server	12-May-10	7-Jul-10	Pending	Al Bines	3200	3000
+Train Developers in APEX	Create training workspace	1-Mar-09	1-Mar-09	Closed	James Cassidy	100	100
+Train Developers in APEX	Publish links to self-study courses	1-Mar-09	1-Mar-09	Closed	John Watson	100	100
+Train Developers in APEX	Publish development standards	1-Mar-09	1-May-09	On-Hold	John Watson	1000	2000
+Convert Excel Spreadsheet	Collect mission-critical spreadsheets	15-Mar-09	15-Nov-09	Open	Pam King	2500	4000
+Convert Excel Spreadsheet	Create APEX applications from spreadsheets	20-Mar-09	30-Nov-09	Open	James Cassidy	6000	10000
+Convert Excel Spreadsheet	Send links to previous spreadsheet owners	25-Mar-09	5-Dec-09	Open	Mark Nile	1000	1500
+Convert Excel Spreadsheet	Lock spreadsheets	25-Mar-09	5-Dec-09	Open	Pam King	1000	1500
+Employee Satisfaction Survey	Complete questionaire	18-May-09	1-Jun-09	On-Hold	Irene Jones	1200	800
+Employee Satisfaction Survey	Review with legal	2-Jun-09	3-Jun-09	On-Hold	Irene Jones	200	400
+Employee Satisfaction Survey	Plan rollout schedule	6-Jun-09	8-Jun-09	On-Hold	Irene Jones	200	200
+Discussion Forum	Identify owners	19-Jun-09	22-Jun-09	Closed	Hank Davis	200	300
+Discussion Forum	Install APEX application on internet server	23-Jun-09	23-Jun-09	Closed	Hank Davis	100	100
+Discussion Forum	Monitor participation	1-Jul-09	31-Oct-09	Closed	Hank Davis	3000	1500
+Softwatre Projects Tracking	Customize Software Projects software	15-Jul-09	20-Jul-09	Closed	Tom Suess	600	1000
+Softwatre Projects Tracking	"Enter base data (Projects, Milestones, etc.)"	23-Jul-09	24-Jul-09	Closed	Tom Suess	200	200
+Softwatre Projects Tracking	Load current tasks and enhancements	25-Jul-09	2-Aug-09	Closed	Tom Suess	400	500
+Softwatre Projects Tracking	Conduct project kickoff meeting	5-Aug-09	5-Aug-09	Closed	Pam King	100	100
+Public Website	Determine host server	6-Aug-09	7-Aug-09	Closed	Tiger Scott	200	200
+Public Website	Check software licenses	7-Aug-09	7-Aug-09	Closed	Tom Suess	100	100
+Public Website	"Purchase additional software licenses, if needed"	10-Aug-09	1-Sep-09	On-Hold	Al Bines	300	1000
+Public Website	Develop web pages	10-Aug-09	15-Sep-09	On-Hold	Tiger Scott	800	2000
+Public Website	Plan rollout schedule	17-Sep-09	17-Sep-09	On-Hold	Tom Suess	0	100

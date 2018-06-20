@@ -1,0 +1,1 @@
+This photograph shows right-clicking FALSE, and selecting Create FALSE Action for the new Dynamic Action.

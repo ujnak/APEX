@@ -1,0 +1,15 @@
+This screenshot shows the Employees Reflow Report with the following employees detail:
+
+Emplyee Id: 1
+First Name: Sue
+Last Name:Littlefield
+Email: sue.littlefield
+Hire Date:06-FEB-01
+Department:10
+
+Emplyee Id: 2
+First Name: Mark
+Last Name:Ferris
+Email: mark.ferris
+Hire Date:05-APR-03
+Department:20

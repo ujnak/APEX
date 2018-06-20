@@ -1,0 +1,15 @@
+This screenshot shows the Install Database Application page.
+It displays the following information:
+Current Workspace: HR
+Export File Workspace ID: 20
+Export File Application ID: 8950
+Export File Version: 2012.01.01
+Export File Parsing Schema: APPSTORE
+Application Origin: This application was exported from another workspace
+Parsing Schema: HR (selected)
+Build Status: Run and Build Application (selected)
+Install As Application: Auto Assign New Application ID (selected)
+Tasks (collapsed)
+Back button
+Cancel button
+Install Application (mouse pointer)

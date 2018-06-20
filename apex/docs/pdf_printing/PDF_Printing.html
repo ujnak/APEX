@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Last updated: 07/10/15 -->
+    <!-- set the encoding of your site -->
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating PDF Reports with Oracle Application Express 5.1 and Oracle REST Data Services</title>
+    <!-- Add short description of the OBE for displaying in  search results, etc.-->
+    <meta name="description" content="This tutorial shows how to create PDF reports using
+                            the Oracle REST Data Services and Oracle Application
+                            Express 5.1.">
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500"
+
+      rel="stylesheet" type="text/css">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css">
+    <link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+    <link type="text/css" rel="stylesheet" href="css/obe.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css">
+    <!-- Code Mirror stylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/codemirror/codemirror.css">
+    <!-- include jQuery library -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="dev-assets/js/bootstrap.js"></script>
+    <!-- include custom JavaScript -->
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="js/jquery.main.js"></script>
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <!--[if lt IE 9]>
+            <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+    <!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.visible.js"></script>
+    <script type="text/javascript" src="js/hooks.js"></script>
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+    <!--script type="text/javascript" src="js/REST.UI.js"></script-->
+    <!--end obe scripts -->
+    <script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script> <script src="js/jquery-ui-1.10.4.custom.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+    });
+</script> </head>
+  <body> <noscript>
+<div>Javascript must be enabled for the correct page display</div>
+</noscript><!-- main container of all the page elements -->
+    <div id="wrapper">
+      <!-- allow a user to go to the main content of the page --> <a class="accessibility skipto"
+
+        href="#content">Skip to Content</a>
+      <!-- header of the page -->
+      <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- page logo -->
+                <div class="logo pull-left" itemscope="" itemtype="http://schema.org/Organization">
+                  <span class="name-organization" itemprop="name">Oracle</span>
+                  <a href="#"> <span data-picture="" data-alt="Oracle Logo"> <span
+
+                        data-src="images/logo.png" data-width="221" data-height="20"
+
+                        data-alt="Oracle Logo"></span> <span data-src="images/logo-2x.png"
+
+                        data-width="221" data-height="20" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)"></span>
+                      <!--[if (lt IE 9) & (!IEMobile)]>
+									<span data-src="images/logo.png"></span>								<![endif]-->
+                      <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                      <noscript>
+              <img src="images/logo.png" alt="Oracle Logo" height="20" width="221">
+              </noscript> </span> </a> </div>
+              </div>
+              <div class="navbar-right"> </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- contain main informative part of the site -->
+      <main role="main" id="main">
+        <div class="holder">
+          <div class="container-fluid">
+            <h1>Creating PDF Reports with Oracle Application Express 5.1 and
+              Oracle REST Data Services</h1>
+            <!-- contain the main content of the page -->
+            <div class="content-holder">
+              <div class="content">
+                <!-- tabs content holder -->
+                <div class="slide-holder left-tab-holder">
+                  <!-- tab element -->
+                  <div id="tab1">
+                    <div class="slide-frame">
+                      <div id="left-nav-container">
+                        <div class="left-nav-element">
+                          <div id="navToc" title="Topic List">
+                            <ul>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <br style="clear:both">
+                    </div>
+                  </div>
+                  <!-- tab element -->
+                  <div id="tab2">
+                    <div class="slide-frame">
+                      <div class="left-nav-element">
+                        <div id="toolbar">
+                          <h3>Options</h3>
+                          <button id="tglTopicBtn" class="btn btn-primary">Expand
+                            All Topics</button> <br>
+                          <br>
+                          <button id="tglImageBtn" class="btn btn-primary">Hide
+                            All Images</button> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- tabs content holder -->
+                <div class="slide-holder right right-tab-holder"> </div>
+                <div class="left-panel pull-left">
+                  <!-- tabs switcher -->
+                  <ul class="tabset-panel list-unstyled text-center">
+                    <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-list"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Table of Contents</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <!-- -->
+                    <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Options</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <li> <a href="#tab3" class="opener tooltip-link print" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-print"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Print</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-right" id="content">
+                  <article>
+                    <div id="container">
+                      <!-- START Article -->
+                      <section>
+                        <h2>Before You Begin</h2>
+                        <div>
+                          <h4>Purpose</h4>
+                          <p>This tutorial shows how to create PDF reports using
+                            the Oracle REST Data Services and Oracle Application
+                            Express 5.1.</p>
+                          <h4>Time to Complete</h4>
+                          <p> Approximately 20 minutes. </p>
+                          <h4>Overview</h4>
+                          <p>Oracle Application Express (Oracle APEX) is a rapid
+                            web application development tool for the Oracle
+                            database. Using only a web browser and limited
+                            programming experience, you can develop and deploy
+                            professional applications that are both fast and
+                            secure. Oracle Application Express is available with
+                            the Oracle Database, whether it's on-premises or in
+                            an Oracle Database Cloud Service.</p>
+                          You can configure a classic report region to print by
+                          exporting it to several different formats such as
+                          Adobe Portable Document Format (PDF), Microsoft Word
+                          Rich Text Format (RTF), or Microsoft Excel Format
+                          (XLS), or Extensible Markup Language (XML). Oracle
+                          Application Express provides three report printing
+                          configuration options. They are:<br>
+                          <ul>
+                            <li><strong>Oracle REST Data Services</strong>: This
+                              option can be selected if you are using Oracle
+                              REST Data Services 2.0 or newer. This option
+                              enables you to use the basic printing
+                              functionality, which includes creating report
+                              queries and printing report regions using the
+                              default templates provided in Application Express
+                              and using your own customized XSL-FO templates.</li>
+                            <li><span style="font-weight: bold;">External
+                                (Apache FOP)</span>: This option can be selected
+                              if you are using Apache FOP on an external J2EE
+                              server. This option also enables you to use the
+                              basic printing functionality, which includes
+                              creating report queries and printing report
+                              regions using the default templates provided in
+                              Application Express and using your own customized
+                              XSL-FO templates.</li>
+                            <li><strong>Oracle BI Publisher</strong>: This
+                              option can be selected if you are using a licensed
+                              version of Oracle BI Publisher. This option
+                              enables you to take report query results and
+                              convert them from XML to RTF format using Oracle
+                              BI Publisher. This option is useful when you want
+                              to upload your own customized RTF or XSL-FO
+                              templates for printing reports within Application
+                              Express.</li>
+                          </ul>
+                          In this tutorial, you use the Oracle Rest Data
+                          Services (ORDS) for PDF printing of a classic report.
+                          ORDS has the FOP libraries actually built into the
+                          listener, thereby making the configuration setup
+                          easy.
+                          <div class="oll-only">
+                          <p>Please keep in mind the following while running
+                            this tutorial:</p>
+                          <ul>
+                            <li><strong>Logging into your Oracle Application
+                                Express workspace:</strong> Your Oracle
+                              Application Express workspace may reside in an
+                              on-premises Oracle Database or in Oracle Database
+                              Cloud Services. The login credentials differ
+                              depending on where your workspace is located:
+                              <ul>
+                                <li><strong>Logging into Oracle Application
+                                    Express in a Oracle Database Cloud
+                                    Service:&nbsp;</strong> Reference the Oracle Help Center for
+                                  your Oracle Database Cloud Service. To do
+                                  this, go to the Oracle Help Center for Cloud,
+                                  and select Platform or Infrastructure (depending on your service). From
+                                  here, select your Database Cloud Service and
+                                  the Get Started page will appear.</li>
+                                <li><strong>Logging in to Oracle Application
+                                    Express on-premises:</strong> From your
+                                  browser, go to the location of your
+                                  on-premises installation of your Oracle
+                                  Application Express workspace provided by your
+                                  Workspace Administrator.</li>
+                              </ul>
+                            </li>
+                            <li><strong>Application ID:</strong> Screenshots in
+                              this tutorial show a blurred Application ID. Your
+                              Application ID can be any value assigned
+                              automatically while creating the application.</li>
+                            <li><strong>Schema:</strong> If you are accessing an
+                              Oracle Application Express workspace in Database
+                              Schema Service,&nbsp; you have one schema assigned
+                              to you with a schema name that you cannot change.
+                              If you are accessing the workspace in an
+                              on-premises Oracle database, you may have more
+                              than one schema assigned to your workspace by the
+                              Oracle Application Express Instance Administrator.</li>                            
+                          </ul>                          
+                          <h4>What Do You Need?</h4>                         
+                          <p> Before starting this tutorial, you should:</p>
+                          <ul>
+						  <li>Visit 
+						  <a href="http://www.oracle.com/pls/topic/lookup?ctx=cloud"
+
+                                    target="_blank">Oracle Help Center for Cloud.</a>
+						  </li>
+                            <li>Have access to an Oracle Database 11g or later
+                              release, either on-premises or in a Database Cloud
+                              Service.</li>
+                            <li>Install Oracle Application Express Release 5.1
+                              into your Oracle Database (for on-premises only).</li> 
+                            <li>Provision at least one Oracle Application
+                              Express user. See <a href="http://www.oracle.com/pls/topic/lookup?ctx=E50529&amp;id=AEADM150"  target="_blank">Creating
+                                New User Accounts</a> in Oracle Application
+                              Express Administration Guide.</li>                            
+                          </ul>
+                        </div>
+                          </div>
+                      </section>
+                      <section>
+                        <h2>Setting up the Print Server From Oracle Application
+                          Express Instance Administration</h2>
+                        <div>
+                          <p>Note: This section only applies to Oracle
+                            Application Express on-premises installations or
+                            Database Cloud Services that do not already have the
+                            Print Server setup to Oracle Rest Data Services.</p>
+                          In this section, you log into Oracle Application
+                          Express as an Instance Administrator and select Oracle
+                          REST Data Services (ORDS) as Print Server. Perform the
+                          following steps:<br>
+                          <ol>
+                            <li>
+                              <p>Open the Oracle Application Express
+                                Administration Services by entering <em>http://hostname:port/apex/apex_admin</em>
+                                in a web browser and press the <strong>Enter </strong>key.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_01_01.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <em>admin</em> for User Name, the
+                                Instance Administrator password you specified
+                                when you installed Oracle Application Express
+                                for Password, and click <strong>Sign In to
+                                  Administration</strong>.<br>
+                                <br>
+                                Note: Alternatively, you can enter <em>http://hostname:port/apex/
+                                  </em>in a web browser, and click the Enter
+                                key. Once the Log In screen appears, enter <em>INTERNAL</em>
+                                for Workspace, <em>ADMIN</em> for User Name,
+                                the Instance Administrator password you
+                                specified when you installed Oracle Application
+                                Express for Password, and click <strong>Sign
+                                  In.</strong></p>
+                              <figure> <img src="images/PDF_Printing_01_02.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>From the Oracle Application Express
+                                Administration home page, click the <strong>down
+                                  arrow</strong> next to Manage Instance, and
+                                select <strong>Instance Settings</strong>. </p>
+                              <figure> <img src="images/PDF_Printing_01_03.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Report Printing</strong>
+                                tab.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_01_04.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Oracle REST Data Services </strong>for
+                                Print Server.</p>
+                              <figure> <img src="images/PDF_Printing_01_05.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Apply Changes</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_01_06.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Report Printing settings are saved. Click <span
+
+                                  style="font-weight: bold;">Sign Out</span>.</p>
+                              <figure> <img src="images/PDF_Printing_01_07.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_01_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a Database Application with a Classic
+                          Report</h2>
+                        <div> In this section, you create a database application
+                          with a classic report on EMP table. This classic
+                          report will be used in the next step to enable PDF
+                          printing.<br>
+                          <ol>
+						  <li class="vm-only">
+<p>In the Application Express login page, enter the following login credentials and click <strong>Sign In:</strong></p>
+	<ul>
+		<li><p><strong>Workspace:</strong> obe</p></li>
+        <li><p><strong>Username:</strong> obe</p></li>
+		<li><p><strong>Password:</strong> oracle</p></li>
+	</ul>
+    <figure> <img alt="Login page" src="images/vm_only.jpg" class="ScreenShot">
+	<figcaption><a href="files/vm_only.txt">Description of this image</a></figcaption></figure>
+</li>
+                            <li>
+                              <p>From the Oracle Application Express home page,
+                                click the <strong>down arrow</strong> next to
+                                Application Builder, and select <strong>Database
+                                  Applications</strong>. </p>
+                              <figure> <img src="images/PDF_Printing_02_01.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_02.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default, and click <strong>Next
+                                  &gt;</strong>.<em><br>
+                                </em></p>
+                              <figure> <img src="images/PDF_Printing_02_03.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <span style="font-style: italic;">PDF
+                                  Report Printing</span> for Name, and click <strong>Next
+                                  &gt;</strong>.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_02_04.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>You want to add a Classic Report to this
+                                application. Click <strong>Add Page</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_05.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select the <strong>Report </strong>icon.
+                                Select <strong>Home(1)</strong> for Parent
+                                Page, <strong>Table </strong>for Page Source,
+                                <strong>EMP </strong>for Table Name, <strong>Classic
+                                  </strong>for Report Type, and click <strong>Add
+                                  Page</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_06.png"
+
+                                  class="ScreenShot" style="border: 1px solid gray; width: 643px; height: 480px;">
+                                <figcaption><a href="files/PDF_Printing_02_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_07.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_08.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Application Express Accounts</strong>
+                                for Authentication Scheme, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_09.png"
+
+                                  class="ScreenShot" style="border: 1px solid gray; width: 595px; height: 389px;">
+                                <figcaption><a href="files/PDF_Printing_02_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create Application</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_10.png"
+
+                                  class="ScreenShot" style="border: 1px solid gray; width: 583px; height: 496px;">
+                                <figcaption><a href="files/PDF_Printing_02_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Run Application</strong>
+                                icon.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_02_11.png"
+
+                                  class="ScreenShot" style="border: 1px solid gray; width: 575px; height: 477px;">
+                                <figcaption><a href="files/PDF_Printing_02_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter your Oracle Application Express
+                                credentials, and click <strong>Log In</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_02_12.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The PDF Report Printing application's home page
+                                loads. Click <strong>Emp </strong>in the
+                                navigation menu.</p>
+                              <figure> <img src="images/PDF_Printing_02_13.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_02_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Scroll down to the end of the report, and
+                                notice that it does not have a Print option. In
+                                the next section, you will enable PDF Printing
+                                for this report. Click <strong>Edit Page 2</strong>
+                                in the developer toolbar.<br>
+                              </p>
+                              <figure><img src="images/PDF_Printing_02_14.png" class="ScreenShot"
+
+                                  style="border: 1px solid gray; width: 610px; height: 453px;">
+                                <figcaption><a href="files/PDF_Printing_02_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Enabling PDF Printing for the Classic Report</h2>
+                        <div> In this section, you enable PDF printing for the
+                          classic report you have created in the previous
+                          section. Perform the following steps:<br>
+                          <ol>
+                            <li>
+                              <p>In the Rendering tab, under EMP, click <strong>Attributes</strong>.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_03_01.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_03_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the property editor, under Printing, select
+                                <strong>Yes </strong>for Enabled.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_03_02.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_03_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Save and Run Page</strong>.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_03_03.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_03_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Scroll down to the end of the report. Notice
+                                that Print option is now included in this
+                                report. Click <strong>Print</strong>.<br>
+                              </p>
+                              <figure> <img src="images/PDF_Printing_03_04.png"
+
+                                  class="ScreenShot" style="border: 1px solid gray; width: 644px; height: 440px;">
+                                <figcaption><a href="files/PDF_Printing_03_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>A dialog to save the report as a PDF file,
+                                opens. Click <strong>Save</strong>.</p>
+                              <figure> <img src="images/PDF_Printing_03_05.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/PDF_Printing_03_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Open the saved PDF file to see the report
+                                details. It also has option to print this report
+                                to a printer.</p>
+                              <figure> <img src="images/PDF_Printing_03_06.png"
+
+                                  class="ScreenShot" style="border: 1px solid gray; width: 669px; height: 596px;">
+                                <figcaption><a href="files/PDF_Printing_03_06.txt">Description
+                                    of this image</a></figcaption></figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Want to Learn More?</h2>
+                        <div>
+                          <ul>
+                            <li><a href="http://www.oracle.com/pls/topic/lookup?ctx=cloud&id=HTMDB05033"  target="_blank">Printing
+                                Report Regions</a></li>
+                            <li>
+                              <p><span style="font-weight: normal;"><a href="http://cloud.oracle.com"  target="_blank">Oracle
+                                    Cloud Home Page</a></span></p>
+                              <span style="font-weight: normal;"> </span></li>
+                            <li><span style="font-weight: normal;"></span><span
+
+                                style="font-weight: normal;">Other tutorials on
+                                <a href="http://www.oracle.com/pls/topic/lookup?ctx=cloud&id=dbcstutorials"  target="_blank">Oracle
+                                  Database Cloud Service - Database Schema
+                                  Service</a> <br>
+                              </span></li>
+                            <li>
+                              <p><span style="font-weight: normal;"><a href="https://apexapps.oracle.com/pls/apex/f?p=44785:141:0::NO:141:P141_PAGE_ID,P141_SECTION_ID:64,491"  target="_blank">Oracle
+                                    Application Express Learning Library</a></span></p>
+                            </li>
+                            <li><span style=" font-weight: normal;"><a href="http://www.oracle.com/technetwork/developer-tools/apex/overview/index.html"  target="_blank">Oracle
+                                  Technology Network Application Express Home
+                                  Page<br>
+                                </a></span></li>                            
+                          </ul>
+                          </div>
+                        </section>                      
+                        <!-- END Article -->
+                    </div>
+                </article>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>      
+          <!-- footer of the page -->
+        <footer id="footer">
+          <div class="f1">
+            <div class="holder">
+              <div class="container-fluid">
+                <div class="pull-left footer-left">
+                  <ul class="footer-nav list-inline">                    
+                    <li><a href="http://www.oracle.com/corporate/index.html">About
+                        Oracle</a></li>
+                    <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact
+                        Us</a></li>
+                    <li><a href="http://www.oracle.com/us/legal/index.html">Legal
+                        Notices</a></li>
+                    <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms
+                        of Use</a></li>
+                    <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your
+                        Privacy Rights</a></li>
+                  </ul>
+                  <span class="copyright">Copyright © 2015, Oracle and/or its
+                    affiliates. All rights reserved.</span> </div>
+                <!-- insert lan options --> </div>
+            </div>
+          </div>
+        </footer>
+        <!-- allow a user to go to the top of the page --> <a class="accessibility"
+
+          href="#wrapper">Back to top</a></div>    
+      <!-- begin codemirror here -->
+      <script type="text/javascript" src="js/runmode-standalone.js"></script>
+      <script type="text/javascript" src="js/mode/clike/clike.js"></script>
+      <script type="text/javascript" src="js/mode/sql/sql.js"></script>
+      <script type="text/javascript" src="js/mode/xml/xml.js"></script>
+      <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+      <script type="text/javascript" src="js/mode/css/css.js"></script>
+      <script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script>
+      <script type="text/javascript">
+    var config;
+
+    config = {
+        lineNumbers: true,
+        mode : "xml",
+    htmlMode: true,
+        indentWithTabs: false,
+        readOnly: true
+    };
+
+    </script>
+        <script language="javascript">
+  var s_prefix="OBE";
+  if (typeof(document.title)!= "undefined") {var s_pageName=s_prefix + ":" + document.title};
+</script> <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+      <!-- end codemirror here -->
+  </body>
+</html>

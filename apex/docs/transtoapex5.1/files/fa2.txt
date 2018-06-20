@@ -1,0 +1,12 @@
+This screenshot shows a portion of the Rendering tree and the Property Editor for the Products page.
+The Rendering tree displays the following fields and values:
+--- CARD_TITLE
+--- CARD_TEXT (selected)
+--- CARD_SUBTEXT
+--- CARD_LINK
+-- Attributes
+-- Region Buttons
+The Property Editor displays the following fields and values:
+Security
+- Authorization Scheme: Select
+- Espace special characters: No

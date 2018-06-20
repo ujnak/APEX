@@ -1,0 +1,2 @@
+This image shows the message "Files applied" above the list of XLIFF files. The dialog has the following breadcrumb at the top:
+Application 100\ Shared Components\ Template\ XLIFF Translation Files. The pointer is on the Translate breadcrumb.

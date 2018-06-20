@@ -1,0 +1,1 @@
+In this image, you locate Tasks per Project Chart 2 in the Rendering tab and click the Attributes node under the chart.

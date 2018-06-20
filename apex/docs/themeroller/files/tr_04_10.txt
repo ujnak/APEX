@@ -1,0 +1,1 @@
+In this image, you click the Home button in the runtime toolbar to navigate to the Application's Home page.

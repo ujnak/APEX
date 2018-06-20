@@ -1,0 +1,1 @@
+This photograph shows the Create Web Service Reference page. It shows selecting 'REST' for What type of Web reference would you like to create, and clicking the Next > button.

@@ -1,0 +1,10 @@
+This screenshot shows the Miantain Departments page of the Mobile App with the following departments:
+
+Administration
+Marketing
+Purchasing
+Human Resources
+IT
+And a Create button.
+
+The mouse pointer is clicking the Marketing department.

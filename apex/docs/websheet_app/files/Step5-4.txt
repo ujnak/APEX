@@ -1,0 +1,3 @@
+This screenshot shows the home page of the Human Resources Management websheet application.
+
+The mouse pointer is clikcing the Edit icon in the Overview section.

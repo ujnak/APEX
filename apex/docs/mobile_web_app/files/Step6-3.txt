@@ -1,0 +1,2 @@
+This screenshot shows the Rendering section of the Page 5: Maintain Projects.
+P5_PROJECT_DEPT item is right-clicked and Create Dynamic Action is selected.

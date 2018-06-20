@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: Ennnnn-01 -->
+    <!-- Published date: Month Year -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Creating an Application by Using the Create Application Wizard 18.1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Put the description of the tutorial here.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+    <script type="text/javascript">
+   $(document).ready(function(){
+       window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+   });
+</script> </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png"
+
+            alt="Oracle Documentation" style="max-width: none;" height="22" width="236"></a>
+      </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Creating
+        an Application by Using the Create Application Wizard </h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+
+                  height="32" width="32">Before You Begin</h2>
+              <p>This 10 minute tutorial shows you how to create an application
+                by using the Create Application Wizard in Oracle Application
+                Express 18.1. This is the second tutorial in the series <i>Using
+                  the Create Application Wizard in Oracle Application Express
+                  18.1.</i> Read the tutorials in sequence:</p>
+              <ul>
+                <li class="vm-only">&nbsp;<a href="../install_sample_dataset/install_sample_dataset.html"
+
+                    target="_blank">Installing Sample Dataset in Oracle
+                    Application Express 18.1</a></li>
+                <li>&nbsp;Creating an Application by Using the Create
+                  Application Wizard 18.1</li>
+              </ul>
+              <h3>Background</h3>
+              <p>The Create Application Wizard allows you to create applications
+                in Oracle Application Express 18.1. To create an&nbsp;
+                application, you must add pages, define navigation, define theme
+                and style, add features and configure settings of the
+                application in the Create Application Wizard.&nbsp; </p>
+              <p>In this OBE, you will learn how to create the application <i>Create
+                  App Wizard </i>by using the Create Application Wizard in
+                Oracle Application Express 18.1.</p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Access to Oracle Application Express 18.1.</li>
+                <li>Install the sample dataset,<i> Project Data</i> in your
+                  workspace.</li>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+
+                  alt="section 1" class="num_circ" height="32" width="32">Create
+                an Application</h2>
+              <p>To create an application:</p>
+              <ol>
+                <li> Sign in to Oracle Application Express 18.1 by entering the
+                  credentials: </li>
+                <ul>
+                  <li class="oll-only">&nbsp;Workspace: Enter </li>
+                  <li class="oll-only">&nbsp;Username: Enter </li>
+                  <li class="oll-only">&nbsp;Password: Enter </li>
+                  <li class="vm-only">&nbsp;Workspace: Enter hr</li>
+                  <li class="vm-only">&nbsp;Username: Enter hr</li>
+                  <li class="vm-only">&nbsp;Password: Enter oracle</li>
+                </ul>
+                <li>On the Workspace home page, click&nbsp; <b>App Builder.<br>
+                    <figure><img src="./img/app_builder.png" alt="app_builder" class="ScreenShot">
+                    </figure>
+                  </b></li>
+                <li>Click <b>Create.<br>
+                    <figure><img src="./img/create.png" alt="create" class="ScreenShot"></figure>
+                    <br>
+                  </b></li>
+                <li>In the Create an Application dialog, select <b>New
+                    Application.<br>
+                  </b>
+                  <figure><img src="./img/create_an_app.png" alt="create_an_app"
+
+                      class="ScreenShot"> <figcaption><a href="./files/create_an_app.txt">Description
+                        of the illustration create_an_app.png</a></figcaption> </figure>
+                </li>
+                <li>Click <b>Next. </b>The Create an Application dialog opens.</li>
+                <li>In the <b>Name </b>field, enter the name <code>Create App
+                    Wizard.</code></li>
+                <li>Click Set Appearence <img src="./img/edit_appearence.png" alt="edit_app"
+
+                    class="ScreenShot"> to change the appearance of the
+                  application.</li>
+                <li>In the Appearance dialog, set the following:</li>
+                <ul>
+                  <li><b>Theme Style: </b>Select&nbsp;<b> Vita Red</b></li>
+                  <li><b>Navigation: </b>Select <b>Side Menu</b></li>
+                  <li><strong>Application Icon:</strong> Select <b>New Icon</b></li>
+                  <ul>
+                    <li>In the Choose Application Icon dialog, click <img src="./img/app_theme.png"
+
+                        alt="app_theme" class="ScreenShot"> and select the icon
+                      <img src="./img/app_icon.png" alt="app_icon" class="ScreenShot">.</li>
+                    <li>Click <strong>Set Application Icon.</strong></li>
+                  </ul>
+                </ul>
+                <li>Click <strong>Save Changes.&nbsp;</strong></li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+
+                  alt="section 2" class="num_circ" height="32" width="32">Add
+                Pages</h2>
+              <ol>
+              </ol>
+              <p>Oracle Application Express offers you different types of pages
+                that you can add in your application. You must define at least
+                one page before you can create your application. You can add
+                more pages in your application by using the Create Page Wizard.</p>
+              <p>In this section, you will learn how to add the following pages
+                in the application <code>Create App Wizard.</code></p>
+              <ul>
+                <li><em>&nbsp;</em>Calendar</li>
+                <li>&nbsp;Editable Interactive Grid</li>
+                <li>&nbsp;Chart </li>
+                <li>&nbsp;Interactive Report and Form</li>
+                <li>&nbsp;Dashboard </li>
+                <li>&nbsp;Report (Administrative page)<br>
+                  <figure><img src="./img/add_pages.png" alt="add_pages" class="ScreenShot">
+                    <figcaption><a href="./files/add_pages.txt">Description of
+                        the illustration add_pages.png</a></figcaption> </figure>
+                </li>
+              </ul>
+              <h3>2.1 Add a Calendar</h3>
+              <p>The <strong>Calendar</strong> page displays a calendar in your
+                application with the attributes that you define here. To add a
+                calendar in the application:</p>
+              <ol>
+                <li><strong></strong>On the Create an Application page, click <b>Add
+                    Page. </b></li>
+                <li>Click <b>Calendar. </b></li>
+                <li>On the Add Calendar page, define the following attributes: </li>
+                <ul>
+                  <li>&nbsp;<strong>Page Name:</strong> Enter <code>Tasks
+                      Calendar.</code></li>
+                  <li><strong>&nbsp;Set Icon:</strong> Select the icon <img src="./img/calendar_icon.png"
+
+                      alt="calendar_icon" class="ScreenShot"> to be displayed in
+                    the navigation menu for this page.</li>
+                  <li>&nbsp;<b>Table or View:</b> Select <b>SAMPLE$PROJECT_TASKS.</b></li>
+                  <li>&nbsp;<strong>Display Column:</strong> Select <b>NAME.</b></li>
+                  <li><strong>&nbsp;Start Date Column:</strong> Select <b>START_DATE.</b></li>
+                  <li>&nbsp;<strong>End Date Column:</strong> Select <b>END_DATE.
+                      </b></li>
+                  <li>&nbsp;<strong>Show Time:</strong> Select <b>NO</b> to
+                    show the time portion for events and also enable the Weekly
+                    and Daily calendar views. Select No to only show the dates
+                    for events.</li>
+                </ul>
+                <li>Click <strong>Add Page.</strong> The calendar <code>Tasks
+                    Calendar</code> appears under Pages in the Create
+                  Application wizard.</li>
+              </ol>
+              <h3>2.2 Add an Editable Interactive Grid </h3>
+              <p>The <strong>Interactive Grid</strong> page allows you to
+                update data directly. It is similar to a spreadsheet. An
+                interactive grid presents you a set of data in a searchable,
+                customizable report. To add an interactive grid:</p>
+              <ol>
+                <li>In the Create Application wizard, click <strong>Add Page.</strong></li>
+                <li>Select <strong>Interactive Grid.</strong></li>
+                <li>On the Add Interactive Grid page, define the following
+                  attributes:</li>
+                <ul>
+                  <li>&nbsp;<strong>Page Name:</strong> Enter the name <code>Milestones.</code></li>
+                  <li><strong>&nbsp;Set Icon:</strong> Select the icon <img src="./img/milestone_icon.png"
+
+                      alt="milestone_icon" class="ScreenShot"> to be displayed
+                    in the navigation menu for this page.</li>
+                </ul>
+                <li>Select <strong>Table or View </strong>to set it as the
+                  data source for the interactive grid. When you select Table or
+                  View, the <b>Table or View </b>field appears to select the
+                  data source table.<strong><br>
+                  </strong></li>
+                <li>In the <b>Table or View</b> field, select <b>SAMPLE$PROJECTS_MILESTONES.</b></li>
+                <li>Select <strong>Allow Editing</strong> to render the
+                  interactive grid as editable.<strong> </strong><br>
+                </li>
+                <li>Click <b>Add Page. </b>This page <code>Milestones</code><em>
+                  </em>appears under Pages in the Create Application wizard.</li>
+              </ol>
+              <h3>2.3 Add an Interactive Report with Form</h3>
+              <p>In this section, you will create an Interactive Report with
+                Form on the table SAMPLE$PROJECT_TASKS. You choose the table on
+                which to build a report, or provide a custom SQL SELECT
+                statement or a PL/SQL function returning a SQL SELECT statement.
+                You then choose the report type (that is, Interactive Report or
+                Classic Report).</p>
+              <p>To add an interactive report with form:</p>
+              <ol>
+                <li>In the Create Application wizard, click <strong>Add Page.</strong></li>
+                <li>Select <strong>Report.</strong></li>
+                <li>On the Add Report page, define the following attributes:</li>
+                <ul>
+                  <li>&nbsp;<strong>Page Name: </strong>Enter <code>Tasks</code></li>
+                  <li>&nbsp;<strong>Set Icon:</strong> Select the icon <img src="./img/maintain_projects_icon.png"
+
+                      alt="maintain_projects_icon" class="ScreenShot"> to be
+                    displayed in the navigation menu for this page.</li>
+                </ul>
+                <li>Click <strong>Table or View</strong> to set the data
+                  source.</li>
+                <li>Click <strong>Interactive Report</strong> to render this
+                  report as an interactive report in the application <i>Create
+                    App Wizard.</i></li>
+                <li>In the <b>Table or View</b> drop-down list, select <b>SAMPLE$PROJECT_TASKS.&nbsp;</b><code>&nbsp;</code>&nbsp;
+                  </li>
+                <li>Select <strong>Include Form</strong> to include a linked
+                  form page to enable users to maintain the table values.</li>
+                <li>Expand <strong>Lookup Columns</strong> to define the lookup
+                  columns and the corresponding display columns. In this OBE, we
+                  will define two lookup columns as follows:&nbsp;</li>
+                <ul>
+                  <li><strong>Lookup Key 1:</strong> Defines the column to
+                    change to output the display column. Select <b>PROJECT_ID.</b></li>
+                  <li><strong>Display Column:</strong> Defines the the column
+                    from the lookup table to be displayed. Select <b>SAMPLE$PROJECTS.NAME</b></li>
+                  <li><strong>Lookup Key 2:</strong> Select<b> MILESTONES_ID</b></li>
+                  <li><strong>Display Column 2:</strong>&nbsp; Select <b>SAMPLE$PROJECTS_MILESTONES.NAME</b></li>
+                  <ul>
+                  </ul>
+                </ul>
+                <li>Click <strong>Add Page. </strong>The page <code>Tasks </code>appears
+                  under Pages in the Create Application
+                  wizard.&nbsp;&nbsp;&nbsp; </li>
+              </ol>
+              <h3>2.4 Add a Chart</h3>
+              <p>Adding charts creates a page which displays an area, bar, line,
+                or pie chart. To add a chart:</p>
+              <ol>
+                <li>In the Create Application wizard, click <strong>Add Page.</strong></li>
+                <li>Enter the following attributes:</li>
+                <ul>
+                  <li>&nbsp;<strong>Page Name:</strong> Enter <code>Project
+                      Costs</code></li>
+                  <li>&nbsp;<strong>Set Icon:</strong> Select the icon <img src="./img/charts_icon.png"
+
+                      alt="charts_icon" class="ScreenShot"> to display in the
+                    navigation menu for this page.</li>
+                  <li>&nbsp;<strong>Chart Type:</strong> You can select the type
+                    of chart to display such as Area, Bar, Line, Pie. For this
+                    tutorial, select <b>Bar.</b></li>
+                  <li>&nbsp;<strong>Table or View:</strong> Select<b>
+                      SAMPLE$PROJECTS_TASKS</b></li>
+                  <li>&nbsp;<strong>Label Column:</strong> Select <b>PROJECT_ID</b>
+                  </li>
+                  <li>&nbsp;Select <b>Sum.</b></li>
+                  <li>&nbsp;<strong>Value Column:</strong> Select a numeric
+                    column from the table or view which is used to calculate the
+                    chart values displayed. Select <b>COST. </b>This will
+                    provide you the sum of the cost based on the
+                    SAMPLE$PROJECTS_TASKS table.<b><br>
+                    </b></li>
+                </ul>
+                <li>Click <strong>Add Page.</strong> The page <code>Project
+                    Costs</code><i> </i>appears under Pages in the Create
+                  Application wizard.</li>
+              </ol>
+              <h3>2.5 Add a Dashboard</h3>
+              <p>To add a Dashboard page containing multiple charts:</p>
+              <ol>
+                <li>In the Create Application wizard, click <strong>Add Page</strong>
+                  and select <strong>Dashboard.</strong></li>
+                <li>In the<b> Page Name</b> field, enter the name <code>Dashboard.</code></li>
+                <li><strong>Set icon:</strong> Select&nbsp; <img src="./img/dashboard_icon.png"
+
+                    alt="dashboard_icon" class="ScreenShot">. </li>
+                <li><strong></strong>Click <strong>Chart 1</strong> to create
+                  the first chart and enter the following details:<br>
+                  <ul>
+                    <li> &nbsp; <b>Chart Type:</b> Click<b> Bar</b></li>
+                    <li> &nbsp; <b>Chart Name: </b> Enter <code>Project
+                        Budgets</code></li>
+                    <li> &nbsp; <b>Table or View: </b>Select<b>
+                        SAMPLE$PROJECTS</b></li>
+                    <li> &nbsp; <b>Label Column:</b> Select<b> Name </b></li>
+                    <li> &nbsp; Select <b>Column Value</b></li>
+                    <li> &nbsp; <b>Value Column: </b>Select<b> Budget</b> </li>
+                  </ul>
+                </li>
+                <li>Click <b>Chart 2</b> to create the second chart and enter
+                  the following details:<br>
+                  <ul>
+                    <li>&nbsp; <b>Chart Type:</b> Click <b>Pie</b></li>
+                    <li><b>&nbsp; </b><b>Chart Name:</b> Enter&nbsp; <code>Project
+                        Status</code></li>
+                    <li>&nbsp; <b>Table or View:</b> Select&nbsp; <b>SAMPLE$PROJECTS</b></li>
+                    <li>&nbsp; <b>Label Column: </b>Select <b>Status_ID</b></li>
+                    <li>&nbsp; Select <b>Count </b></li>
+                    <li>&nbsp; <b>Value Column: </b>Select<b> All Columns</b></li>
+                  </ul>
+                </li>
+                <li>Click <b>Add Page.</b> The page <code>Dashboard</code>
+                  appears under Pages in the Create Application wizard. &nbsp; </li>
+              </ol>
+              <h3>2.6 Add a Report</h3>
+              <p>In this section, you will create a report with form on status,
+                and make it an administrative page. This means that this report
+                will be accessible only to the administrator. To create the
+                report:</p>
+              <ol>
+                <li>In the Create Application wizard, click <strong>Add Page</strong>
+                  and select <strong>Report.</strong></li>
+                <li>In the<b> Page Name</b> field, enter the name <code>Statuses.</code></li>
+                <li>Select <b>Table or View</b> and <strong>Interactive
+                    Report.</strong></li>
+                <li>In the <strong>Table or View</strong> field, select <strong>SAMPLE$PROJECTS_STATUS.</strong></li>
+                <li>Select <strong>Include Form.</strong></li>
+                <li>Now, to set this page as an administrative page, click <strong>Advanced</strong>
+                  and select <strong>Set as Administrative Page.</strong> This
+                  renders the page as an administrative page that can be
+                  accessed by the user with administration role.&nbsp; </li>
+                <li>Click <strong>Add Page.</strong> The page <code>Statuses</code>
+                  appears under Pages in the Create Application wizard. </li>
+              </ol>
+              <ol>
+              </ol>
+              <ol>
+              </ol>
+              <ol>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+
+                  alt="section 3" class="num_circ" height="32" width="32">Edit
+                Pages</h2>
+              <ol>
+              </ol>
+              <p>The Create Application Wizard allows you to organize and delete
+                pages that you have added in an application. You can also add
+                additional pages to the application. In the <strong>Create an
+                  Application</strong> page of the wizard, you can:</p>
+              <ul>
+                <li>Arrange the pages in the order that you want them to appear
+                  in your application</li>
+                <li>Remove pages</li>
+              </ul>
+              <p>To reorder pages:</p>
+              <ol>
+                <li>In the Page section of the Create an Application wizard,
+                  click and drag the hamburger page icon at the end of each page
+                  listing.</li>
+                <li>Drop that page in the order that you prefer in the list. </li>
+              </ol>
+              <p><b>Note: </b>The home page is always displayed first and
+                cannot be reordered.</p>
+              <p>Administrative pages are always displayed at the bottom of the
+                list and the order dictates how they appear in the Application
+                Administration list on the Administration page.</p>
+              <ol>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_4" role="button" style="text-align: left;"><img src="./img/32_4.png"
+
+                  alt="section 4" class="num_circ" height="32" width="32">Add
+                Features</h2>
+              <p>Oracle Application Express offers the following features that
+                you can add to your application. You can any one or all of the
+                features. In this tutorial, you will apply all of these
+                features. In the Features section of the Create Application
+                Wizard:</p>
+              <ol>
+                <li>Select<strong> Check All</strong> to apply all the features
+                  in your application. The available features are:</li>
+                <ul>
+                  <li>&nbsp;<strong>About Page: </strong>To include a
+                    description about the application page<strong>.<br>
+                    </strong></li>
+                  <li>&nbsp;<strong>Access Control:</strong> To incorporate role
+                    based user authentication within your application. <strong><br>
+                    </strong></li>
+                  <li>&nbsp;<strong>Activity Reporting:</strong> To include
+                    numerous reports on end user activity for your application.</li>
+                  <li>&nbsp;<strong>Configuration Options: </strong>To allow
+                    application administrators to enable or disable specific
+                    functionality within the application. <strong><br>
+                    </strong></li>
+                  <li>&nbsp;<strong>Feedback: </strong>To provide a mechanism
+                    for end users to post general comments back to the
+                    application administrators and developers.</li>
+                  <li><strong>Theme Style Selection: </strong>To allow
+                    administrators to customize color scheme (theme style) for
+                    the application. You can define the default theme style, and
+                    select various theme styles. </li>
+                </ul>
+              </ol>
+              <ul>
+                <ul>
+                </ul>
+                <ul>
+                  <ul>
+                  </ul>
+                </ul>
+              </ul>
+              <p></p>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_5" role="button" style="text-align: left;"><img src="./img/32_5.png"
+
+                  alt="section 5" class="num_circ" height="32" width="32">Configure
+                Settings</h2>
+              <p>In the Settings section, specify the settings used in the
+                generation of the application. You can configure the following
+                settings under the Settings section:</p>
+              <ul>
+                <li><strong>Application ID:</strong> This field contains an
+                  automatically generated identifier by default. You may enter a
+                  unique, numeric identifier for your application.</li>
+                <li><strong>Schema: </strong>Select <b>obe, </b>the database
+                  schema that stores database objects, for this application <i>Create
+                    App Wizard</i>.</li>
+                <li><strong>Language: </strong>Select <b>English (en)</b> as
+                  the primary language for this application.</li>
+                <li><strong>Authentication:</strong> Select an option on how you
+                  want users to authenticate into your application. For this
+                  tutorial, select <strong>A</strong><b>pplication Express
+                    Accounts.</b></li>
+                <li><strong>Advanced Settings:</strong> Set additional
+                  definition, security and globalization settings. You can apply
+                  these settings when creating the application, and edit them
+                  after creating the application. Click <b>Advanced Settings</b>,
+                  and enter the following in the Advanced Settings window:<br>
+                  <ul>
+                    <li>&nbsp; <strong>Short Description:</strong> <code>Maintain
+                        Project Details</code></li>
+                    <li>&nbsp; <strong>Description:</strong> <code>Allows
+                        users to insert, update, and delete all of the details
+                        related to project management including projects,
+                        milestones, and tasks. </code></li>
+                    <li>&nbsp; Click <strong>Save Changes.</strong> </li>
+                  </ul>
+                </li>
+                <li><strong>User Interface Defaults:</strong> Set defaults for
+                  user interface settings, such as rows per page, and add list
+                  of values definitions. These settings are used when generating
+                  components within the application.</li>
+              </ul>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_6" role="button" style="text-align: left;"><img src="./img/32_6.png"
+
+                  alt="section 6" class="num_circ" height="32" width="32">Create
+                and Run the Application</h2>
+              <p>To complete the application creation process, run the
+                application. To run the application: </p>
+              <ol>
+                <li>After you have completed adding the pages, and features,
+                  click <strong>Create Application.</strong> <br>
+                  The application creation process begins. The progress bar
+                  indicates the progress. <br>
+                  Once the application creation is complete, the application is
+                  displayed in the App Builder home page, as shown in the
+                  screenshot. You can see that the home page displays the
+                  application ID, application name, the pages that you created,
+                  and a number of additional pages that are created to implement
+                  the features that you selected. Run the application to
+                  implement it.
+                  <figure><img src="./img/create_aap_wizard_homepage.png" alt="app homepage"
+
+                      class="ScreenShot"> <figcaption><a href="./files/create_aap_wizard_homepage.txt">Description
+                        of the illustration create_aap_wizard_homepage.png</a></figcaption> </figure>
+                </li>
+                <li>In the App Builder home page, click <strong>Run
+                    Application. </strong>You are redirected to the sign in
+                  page of the application <i>Create App Wizard</i>.</li>
+                <li>Sign in to the application using your credentials. The <i>Create
+                    App Wizard</i> application opens as shown in the screenshot.
+                  <br>
+                  <figure><img style="width: 677px; height: 299px;" src="./img/the_app.png"
+
+                      alt="the create app wizard" class="ScreenShot"> <figcaption><a
+
+                        href="./files/the_app.txt">Description of the
+                        illustration the_app.png</a></figcaption> </figure>
+                  This completes the task of creating an application by using
+                  the Create an Application wizard.<strong><br>
+                  </strong></li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <!-- Include the More Information section only in a single or the final lab or tutorial in a series -->
+              <h2 id="more_info" role="button" style="text-align: left;"><img src="./img/32_more.png"
+
+                  alt="more information" class="num_circ" height="32" width="32">Want
+                to Learn More?</h2>
+              <ul>
+                <li><a href="https://docs-uat.us.oracle.com/database/apex-18.1/HTMDB/creating-database-applications.htm">
+                    Creating Database Applications</a></li>
+              </ul>
+            </section>
+            <hr> </article>
+        </div>
+        <br class="clearfloat">
+      </div>
+    </div>
+    <!--close main-->
+    <!--end content-->
+    <div class="footer-container ">
+      <div style="max-width: 994px; padding:10px 0 0 17px;">
+        <footer class="footer-list">
+          <ul>
+            <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                Oracle</a> </li>
+            <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+
+                target="_blank">Contact Us</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                Notices</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                of Use</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/privacy/index.html" target="_blank">Your
+                Privacy Rights</a> </li>
+            <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                © 2017, Oracle and/or its affiliates. All rights reserved.</a></li>
+          </ul>
+        </footer>
+      </div>
+      <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+    </div>
+  </body>
+</html>

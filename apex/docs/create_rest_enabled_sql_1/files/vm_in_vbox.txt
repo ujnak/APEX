@@ -1,0 +1,1 @@
+This is the image of the Oracle VM VirtualBox Manager. It shows the VM listed, and has the Start icon highlighted. 

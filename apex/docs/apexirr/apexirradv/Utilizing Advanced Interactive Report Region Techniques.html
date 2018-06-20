@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+  <!-- OBE Template 2012: Version 3.0 Last updated 3/13/2012--><!-- Author: Glenn Stokol and Marcie Young-->
+  <head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <title>Utilizing Advanced Interactive Report Region Techniques</title>
+    <link rel="stylesheet" href="css/jquery-ui-1.8.16.custom.css">
+    <link rel="stylesheet" href="css/base.css">
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <script type="text/javascript" src="js/viewport.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <!--[if lt IE 9]>
+<script src="js/html5.js"></script><![endif]-->
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Utilizing Advanced Interactive Report Region Techniques</h1>
+        <nav> <span id="toolbar" class="ui-corner-all"> <button id="topicBtn">Topic
+              List</button> <button id="tglTopicBtn">Expand All Topics</button>
+            <button id="tglImageBtn">Hide All Images</button> <button id="printBtn">Print</button>
+          </span> </nav>
+      </header>
+      <div id="container">
+        <section>
+          <h2 id="overview">Overview</h2>
+          <div>
+            <ol>
+              <h4>Purpose</h4>
+              <p> This tutorial shows you how to use some advanced techniques
+                with Interactive Report Regions in Oracle Application Express
+                4.2. </p>
+              <h4>Time to Complete</h4>
+              <p>Approximately 50 minutes</p>
+              <h4>Introduction</h4>
+              <p>In this tutorial, you explore some of the more advanced tasks
+                related to Interactive Report Regions in Oracle Application
+                Express such as resetting your interactive report manually,
+                created a declarative filter and a derived column.</p>
+              <h4>Prerequisites</h4>
+              <p>Before starting this tutorial, you should: <br>
+              </p>
+              <ul>
+                <li><span class="bodycopy">Perform the <a href="../Building%20and%20Customizing%20an%20Interactive%20Report%20in%20Oracle%20Application%20Express%204.2/Building%20and%20Customizing%20an%20Interactive%20Report%20in%20Oracle%20Application%20Express%204.2.html"
+                      target="_blank">Building and Customizing an Interactive
+                      Report in Oracle Application Express 4.2</a> tutorial.</span>&nbsp;</li>
+              </ul>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2 id="t1">Linking a Saved Report from Another Page in Your
+            Application</h2>
+          <div>
+            <ol>
+              <p><span class="style10">In the <a href="../Building%20and%20Customizing%20an%20Interactive%20Report%20in%20Oracle%20Application%20Express%204.2/Building%20and%20Customizing%20an%20Interactive%20Report%20in%20Oracle%20Application%20Express%204.2.html">Building
+                    and Customizing an Interactive Report</a> tutorial, you
+                  created an application with an Interactive Report. </span> In
+                this section of this tutorial, you add a link to a saved report
+                on your Home page. <br>
+              </p>
+              <p>Perform the following steps:</p>
+              <figure> <figcaption>
+                  <p class="bodycopy">Enter the following URL to log in to
+                    Oracle Application Express.</p>
+                  <p class="bodycopy"><b>http://localhost:8080/apex</b></p>
+                </figcaption> </figure>
+              <figure> <figcaption>
+                  <p>To log in to Oracle Application Express, enter the
+                    following details, and click<b> Login to Application Express</b>.<br>
+                    <br>
+                    Workspace: <b>OBE <br>
+                    </b>Username: <b>OBE</b><br>
+                    Password: <b>oracle</b></p>
+                </figcaption> <img src="images/nt113.jpg" class="ScreenShot" id="t10102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Select the drop down next to <strong>Application Builder</strong>
+                    and select<strong> Database Applications.</strong></p>
+                </figcaption> <img src="images/n2.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>If you performed the prerequisite tutorial, the list of
+                    application is in View Report mode. Click the<b> Run </b>icon
+                    for the <b>Interactive Reports OBE</b>.</p>
+                </figcaption> <img src="images/nt1.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Enter <b>obe</b> for Username and <b>oracle</b> for
+                    Password and click <b>Login</b>.</p>
+                </figcaption> <img src="images/nt2.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Select the <b>Demo Product Info</b> link from the Home
+                    Page to view the report.</p>
+                </figcaption> <img src="images/nt3.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>The last saved report you viewed is displayed. You want to
+                    manage the saved reports you created. Select the <b>Edit
+                      Page</b> in your developer toolbar.</p>
+                </figcaption> <img src="images/nt4.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Right-click <b>DEMO_PRODUCT_INFO</b> and select <b>Edit
+                      Saved Reports</b>.</p>
+                </figcaption> <img src="images/nt5.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>The list of saved reports are displayed. You can change the
+                    Report Alias to be more meaningful. Enter <b>PROD_CATEGORY</b>
+                    for the Report Alias for the Public report and click <b>Apply
+                      Changes</b>.</p>
+                </figcaption> <img src="images/nt6.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Notice that the alias in the Link Example changed. You can
+                    add this link to your Navigation region on the Home Page.
+                    Select the <b>Link Example</b> and press <b>ctrl+c </b>to
+                    copy it to the clipboard. Then select the <b>Application</b>
+                    breadcrumb.</p>
+                </figcaption> <img src="images/nt11.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>You want to add the link to the Home page. Select the <b>Home
+                      page </b>icon.</p>
+                </figcaption> <img src="images/nt8.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Right click the <b>Navigation Region</b> and select<b>
+                      Edit List</b>.</p>
+                </figcaption> <img src="images/nt9.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click <b>Create List Entry &gt;</b>.</p>
+                </figcaption> <img src="images/nt10.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Enter <b>Product Report by Category</b> for List Entry
+                    Label, select <b>URL</b> Target for Target type and enter
+                    the URL you copied from the Saved Reports page to the URL
+                    field and click <b>Create List Entr</b>y.</p>
+                </figcaption> <img src="images/nt14.jpg" class="ScreenShot" id="t10103"><br>
+                <span><img alt="" src="images/nt13.jpg"></span><br>
+              </figure>
+              <figure> <figcaption>
+                  <p>Your entry was created successfully. Click the <b>Run Page</b>
+                    icon.</p>
+                </figcaption> <img src="images/nt60.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Select the <b>Product Report by Category</b> link.</p>
+                </figcaption> <img src="images/nt16.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>The Saved Report is displayed. In the next section you will
+                    create a reset button to reset the report manually. Select
+                    the <b>Edit Page</b> link in the developer toolbar.</p>
+                </figcaption> <img src="images/nt17.jpg" class="ScreenShot" id="t10103">
+              </figure>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2 id="t2">Resetting your Interactive Report Manually</h2>
+          <div>
+            <ol>
+              <p>As a developer, you have the ability to include or exclude the
+                Reset function, Actions Menu, or Search Bar all together.
+                Without the Reset function on the Actions Menu, your end-users
+                will not have the ability to reset their report after they have
+                customized it using the Column Heading menu. To allow for
+                resetting, you can programmatically Interactive Report, then
+                exclude the Search bar, and lastly, create a reset button.
+                Perform the following steps:</p>
+              <figure> <figcaption>
+                  <p>You want to create a button to perform the reset function.
+                    Right-click Region Buttons for the<b> DEMO_PRODUCT_INFO</b>
+                    region and select <b>Create</b>.</p>
+                </figcaption> <img src="images/nt18.jpg" name="crserv08" class="ScreenShot"
+                  id="t20101"> </figure>
+              <figure> <figcaption>
+                  <p>Enter <b>Reset</b> for the button name and select <b>Template
+                      Based Button</b> for Button Attributes. Click <b>Next
+                      &gt;</b>.</p>
+                </figcaption> <img src="images/nt19.jpg" name="crserv09" class="ScreenShot"
+                  id="t20101"><br>
+                <br>
+                <img alt="" src="images/nt20.jpg"><br>
+                <br>
+              </figure>
+              <figure> <figcaption>
+                  <p>Select <b>Right of Interactive Report Search Bar</b> for
+                    Position and click <b>Next</b> <b>&gt;</b>.</p>
+                </figcaption> <img src="images/nt21.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>To reset an Interactive Report, you send a clear cache
+                    request of 'RIR'. This resets the Interactive Report on
+                    whichever page is called. Select <b>Redirect to Page in
+                      this Application</b> for Action. Enter the current page
+                    for Page. For Clear Cache, and enter <b>2,RIR</b> and click
+                    <b>Create Button</b>. <br>
+                    Note: The RIR string is equivalent to the end user choosing
+                    the Reset option from the interactive report actions menu on
+                    the target page and causes the report to be returned to the
+                    default report settings specified by the developer.</p>
+                </figcaption> <img src="images/nt22.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>You also need to remove the Reset option from the Actions
+                    menu. Right-click the <b>DEMO_PRODUCT_INFO</b> region and
+                    select <b>Edit Report Attributes</b>.</p>
+                </figcaption> <img src="images/nt23.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click the <b>Search Bar</b> subtab.</p>
+                </figcaption> <img src="images/nt24.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Deselect the<b> Reset</b> check box and click <b>Apply
+                      Changes</b>.</p>
+                </figcaption> <img src="images/nt25.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Your button was created successfully. Click the <b>Run
+                      page</b> icon.</p>
+                </figcaption> <img src="images/nt59.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click the <b>Reset</b> button.</p>
+                </figcaption> <img src="images/nt27.jpg" class="ScreenShot" id="t10103">
+              </figure>
+              <figure> <figcaption>
+                  <p>The report is reset back to the Primary Report (rather than
+                    the Product Report by Category public report). In the next
+                    section you create a declarative filter which passes filter
+                    values using a URL item value. Select the <b>Application&lt;n&gt;</b>
+                    link in the developer toolbar.</p>
+                </figcaption> <img src="images/nt28.jpg" class="ScreenShot" id="t10103">
+              </figure>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2 id="t3">Creating a Declarative Filter</h2>
+          <div>
+            <ol>
+              <p>You can define declarative filters on Interactive Reports by
+                passing filter criteria using the URL item values. This allows
+                you to define complex query criteria that can be translated into
+                filters or drill downs from a report to an interactive report.
+                To create a drill down from one interactive report to another,
+                perform the following steps:</p>
+              <figure> <figcaption>
+                  <p>Navigate to the Application page. Click <b>Create Page
+                      &gt;</b>.</p>
+                </figcaption> <img src="images/nt29.jpg" class="ScreenShot" id="t30101">
+              </figure>
+              <figure> <figcaption>
+                  <p>Select the <b>Report </b>radio button and click<b> Next</b>
+                    <b> &gt;</b>.</p>
+                </figcaption> <img src="images/nt30.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Select <b>Interactive Report</b> and click<b> Next </b><b>
+                      &gt;</b>.</p>
+                </figcaption> <img src="images/nt31.jpg" class="ScreenShot" id="t30103">
+              </figure>
+              <figure> <figcaption>
+                  <p>Enter <b>Products by Category</b> for the Page Name and
+                    Region Name. Select <b>Breadcrumb</b> for Breadcrumb. Enter
+                    <b>Products by Category </b>for Entry Name. Select the <b>Home</b>
+                    link for the Parent Entry and click <b>Next</b> <b> &gt;</b>.</p>
+                </figcaption> <img src="images/nt32.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Accept the default and click <b>Next</b> <b> &gt;</b>.</p>
+                </figcaption> <img src="images/nt33.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Enter the following SQL, select <b>No</b> for Link to
+                    Single Row View and click <b>Next &gt;</b>. <br>
+                  </p>
+                  <p><b><font face="Courier New">select distinct p.category,</font></b></p>
+                  <p><b><font face="Courier New">(select count(product_id) from
+                        demo_product_info where category=p.category) Products <br>
+                      </font></b> </p>
+                  <p><b><font face="Courier New">from demo_product_info p;</font></b></p>
+                </figcaption> <img src="images/nt34.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click <b>Create</b>.</p>
+                </figcaption> <img src="images/nt35.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Your interactive report page was created successfully.
+                    Before you run the page, you need to make some changes.
+                    Click <b>Edit Page</b>.</p>
+                </figcaption> <img src="images/nt58.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Under Regions, right click <b>Products by Category</b> and
+                    select <b>Edit Report Attributes</b>.</p>
+                </figcaption> <img src="images/nt37.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>You want to create a link to the interactive report on page
+                    2 from Products. Select the <b>Edit </b>icon in front of
+                    the<b> PRODUCTS</b> column.</p>
+                </figcaption> <img src="images/nt38.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click the<b> Column Link</b> tab.</p>
+                </figcaption> <img src="images/nt39.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>You need to define a link that will display the list of
+                    products for a category on Page 2, clear the cache on Page 2
+                    and reset the interactive report region on Page 2 to remove
+                    any previously set filters that might interfere with the
+                    filter being passed. In addition, you need to pass in a
+                    value for the hidden CATEGORY. To reference a column within
+                    an interactive report, you preface the column alias with
+                    'IR_'. <br>
+                  </p>
+                  <p>Select<b> [PRODUCTS]</b> for Link Text, enter <b>2 </b>for
+                    Page (which is the page you just created) and enter <b>2,RIR</b>
+                    in the Clear Cache field. Enter <b>IR_CATEGORY</b> in the
+                    Item 1 Name field and select<b> #CATEGORY#</b> for Value.
+                    Then click<b> Apply Changes</b>. <br>
+                  </p>
+                  <p><b>Note:</b> By prefixing the item name with IR_, in this
+                    example IR_CATEGORY, the URL item will be associated with an
+                    interactive report column rather than an item on a page.</p>
+                </figcaption> <img src="images/nt40.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click the <b>Run Page</b> icon.</p>
+                </figcaption> <img src="images/nt41.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>The Products value now has a link. Click one of the
+                    numbers.</p>
+                </figcaption> <img src="images/nt42.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>The Demo Product Info Interactive report is now shown and
+                    there is a filter created on Category. In the next section,
+                    you create a derived column and then create a highlight
+                    based on the filter. Click <b>Edit Page</b> in the
+                    developer toolbar</p>
+                </figcaption> <img src="images/nt43.jpg" class="ScreenShot" id="t30102">
+              </figure>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2 id="t4">Creating Derived Columns</h2>
+          <div>
+            <ol>
+              <p>In this section, you add a derived column to your query.
+                Specifically, you use a case statement to determine whether a
+                product has been undersold based on how many customers have
+                ordered a product. You then use the value of this derived column
+                to create a highlight rule to highlight all undersold products.
+                Perform the following steps:</p>
+              <figure> <figcaption>
+                  <p>Right click the region <b>DEMO_PRODUCT_INFO </b>and
+                    select <b>Edit</b>.</p>
+                </figcaption> <img src="images/nt44.jpg" class="ScreenShot" id="t40101a"></figure>
+              <figure> <figcaption>
+                  <p>Select the <b>Source </b>tab.</p>
+                </figcaption> <img src="images/nt45.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Change the source to the following query and click the <b>
+                      Report Attributes</b> tab.</p>
+                  <p> Note that the CASE statement in this SQL statement checks
+                    to see if the employee's salary is less than the minimum
+                    salary for their job. If so, the value of the derived
+                    column, UnderPaid_Yes_No, is set to Yes, otherwise, it is
+                    set to No. The derived column is not displayed initially but
+                    it is available for use with many actions on the Actions
+                    menu such as a Filter and Highlight.</p>
+                  <font face="Courier New">&nbsp;<b> select p.product_id,<br>
+                      &nbsp; p.product_name, <br>
+                      &nbsp; p.product_description,<br>
+                      &nbsp; p.category, p.product_avail,<br>
+                      &nbsp; p.list_price, <br>
+                      &nbsp;(select sum(quantity) <br>
+                      &nbsp;from demo_order_items <br>
+                      &nbsp;where product_id = p.product_id) units, <br>
+                      &nbsp;(select max(o.order_timestamp) od from demo_orders
+                      o, demo_order_items i <br>
+                      &nbsp;where o.order_id = i.order_id <br>
+                      &nbsp;and i.product_id = p.product_id) last_date_sold,
+                      p.PRODUCT_ID image,<br>
+                      &nbsp;(case when (select count(o.customer_id) from
+                      demo_orders o, demo_order_items t<br>
+                      &nbsp;where o.order_id = t.order_id <br>
+                      &nbsp;and t.product_id = p.product_id <br>
+                      &nbsp;group by p.product_id) &lt; 5 then 'Yes' <br>
+                      &nbsp;else 'No' end) UnderSold_Yes_No<br>
+                      &nbsp;from demo_product_info p;</b></font>
+                  <p></p>
+                </figcaption> <img src="images/nt46.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>The additional column will be added to your report. Click <b>Apply
+                      Changes</b>.</p>
+                </figcaption> <img src="images/nt47.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Right click the region<b> DEMO_PRODUCT_INFO</b> and select
+                    <b>Edit</b>.</p>
+                </figcaption> <img alt="" src="images/nt44.jpg" class="ScreenShot"
+                  id="t30102"></figure>
+              <figure> <figcaption>
+                  <p>Click<b> Report Attributes</b>.</p>
+                </figcaption> <img src="images/nt49.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Notice that your derived column is in the list of Column
+                    Attributes. You need to turn Highlight back on in your
+                    Search Bar. Click the <b>Search Bar</b> subtab.</p>
+                </figcaption> <img src="images/nt50.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Select the<b> check box</b> next to Highlight and click <b>Apply
+                      Changes</b>.</p>
+                </figcaption> <img src="images/nt51.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Click <b>Run</b>.</p>
+                </figcaption> <img src="images/nt52.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Your report is displayed. To show the products that are
+                    undersold, select the <b>Actions</b> menu and select <b>Format
+                      &gt; Highlight</b>.</p>
+                </figcaption> <img src="images/nt53.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Enter <b>Undersold Products</b> as Name and select <b>[yellow]
+                      f</b>or Background Color. Select <b>Undersold Yes No</b>
+                    for Column and enter <b>Yes</b> for Expression and click<b>
+                      Apply</b>.</p>
+                </figcaption> <img src="images/nt54.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>Notice that the products that are undersold are now
+                    highlighted in yellow. Deselect the <b>check box</b> to
+                    disable the Category filter.</p>
+                </figcaption> <img src="images/nt55.jpg" class="ScreenShot" id="t30102">
+              </figure>
+              <figure> <figcaption>
+                  <p>The filter is disabled so that all the products that are
+                    undersold are now highlighted in yellow.</p>
+                </figcaption> <img src="images/nt56.jpg" class="ScreenShot" id="t30102">
+              </figure>
+            </ol>
+          </div>
+        </section>
+        <section>
+          <h2 id="summary">Summary</h2>
+          <div>
+            <ol>
+              <p>In this tutorial, you have learned how to: </p>
+              <ul>
+                <li>Link your saved report from another page</li>
+                <li>Reset your Interactive Report Manually</li>
+                <li>Create a declarative filter</li>
+                <li>Create a derived columns</li>
+              </ul>
+              <h4>Resources</h4>
+              <ul>
+                <li>Oracle Application Express <a target="_blank" href="http://www.oracle.com/technetwork/developer-tools/apex/overview/index.html">homepage</a>
+                  on OTN.</li>
+                <li><a href="http://www.oracle.com/goto/oll">Oracle Learning
+                    Library</a></li>
+                <li><a target="_blank" href="http://education.oracle.com/pls/web_prod-plq-dad/db_pages.getpage?page_id=3">Oracle
+                    University</a></li>
+              </ul>
+              <h4>Credits</h4>
+              <ul>
+                <li>Lead Curriculum Developer: Dimpi Sarmah</li>
+                <li>Other Contributors: David Peake, Chaitanya Koratamaddi<br>
+                </li>
+              </ul>
+            </ol>
+          </div>
+        </section>
+        <!-- container -->
+        <div id="dialog-help" title="Help">
+          <p>To navigate this Oracle by Example tutorial, note the following: </p>
+          <dl>
+            <dt>Hide Header Buttons:</dt>
+            <dd>Click the title to hide the buttons in the header. To show the
+              buttons again, click the title again.</dd>
+            <dt>Topic List:</dt>
+            <dd>Click a topic to navigate to that section.</dd>
+            <dt>Expand All Topics:</dt>
+            <dd>Click the button to show or hide the details for the sections.
+              By default, all topics are collapsed.</dd>
+            <dt>Hide All Images:</dt>
+            <dd>Click the button to show or hide the screenshots. By default,
+              all images are displayed.</dd>
+            <dt>Print:</dt>
+            <dd>Click the button to print the content. The content that is
+              currently displayed or hidden is printed.</dd>
+          </dl>
+          <p></p>
+        </div>
+        <div id="dialog" title="Topic List">
+          <p>To navigate to a particular section in this tutorial, select the
+            topic from the list.</p>
+          <ul>
+          </ul>
+        </div>
+        <footer>
+          <nav> <a class="help" href="#"> Help</a><a href="http://www.oracle.com/goto/oll">
+              OLL</a><a href="http://www.oracle.com/us/corporate/index.html" onclick="navTrack('otn','en','footer','about oracle');"
+              class="footerLinks"> About Oracle</a><a href="http://apex.oracle.com/pls/apex/f?p=44785:34:0"
+              onclick="navTrack('otn','en','footer','contact us');" class="footerLinks">
+              Contact Us</a><a href="http://www.oracle.com/us/legal/terms/index.html"
+              onclick="navTrack('otn','en','footer','terms of use');" class="footerLinks">
+              Terms of Use</a></nav>
+        </footer>
+      </div>
+    </article>
+  </body>
+</html>

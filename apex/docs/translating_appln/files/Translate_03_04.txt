@@ -1,0 +1,1 @@
+This image displays the login screen of the application 100. The pointer is on the OrdnungLogin button. 

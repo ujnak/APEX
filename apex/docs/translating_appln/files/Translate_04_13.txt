@@ -1,0 +1,2 @@
+This image shows the Translation Region of the Order Management application. The Translation Region shows the greeting Good Morning HR.
+The pointer is on the Application<n> icon in the developer toolbar.

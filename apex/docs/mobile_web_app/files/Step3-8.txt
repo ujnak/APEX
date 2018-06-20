@@ -1,0 +1,6 @@
+This screenshot shows the Craete Chart Page with the following details:
+Chart Type: Pie
+Lable Column: LABEL
+Value Column: VALUE
+
+The mouse pointe is clicking the Create button.

@@ -1,0 +1,8 @@
+This image shows the Data Load Source page of the wizard.
+The contents of the dependents_data2.txt file are displayed in the Copy and Paste Delimited Data field.
+The following fields are also included in the page:
+1. Separator with the value /t
+2. Optionally Enclosed By with the value double quote (')
+3. First Row has Column Names with the check box Yes selected
+
+The pointer is on the Next button.

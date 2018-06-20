@@ -1,0 +1,4 @@
+This screenshot shows a portion of the Property Editor. It shows the following fields and values:
+Appearance
+- User Interface: Desktop
+- Page Mode: Modal Dialog

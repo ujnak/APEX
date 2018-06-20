@@ -1,0 +1,14 @@
+This screenshot shows the Query or Static Values step of the Create List wizard:
+It shows a tabular form with two columns and five rows.
+The column heading are:
+List Entry Label
+Target Page ID or custom URL
+The row values are:
+Row 1: Mobile, 200
+Row 2: Help, 15
+Row 3: Feedback, 102
+Row 4: &APP_USER., #
+Row 5: Sign Out, &LOGOUT_URL.
+Back button
+Cancel button
+Next button (This button is being clicked)

@@ -1,0 +1,1 @@
+This photograph shows adding additional Output Parameters such as Name, Hire Date and Job Id, and then clicking the Create button.

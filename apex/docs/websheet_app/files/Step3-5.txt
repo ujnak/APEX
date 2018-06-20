@@ -1,0 +1,11 @@
+This screenshot shows the Edit Section of the Overview section.
+It has the following attributes:
+
+Page: Home
+Sequence: 20
+Title: Overview
+Content:
+
+This application enables you to view the details of all employees across all departments. You can edit the pages to add or delete information and also create additional pages and page sections.
+
+The mouse pointer is clicking the Apply Changes button.

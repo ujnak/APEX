@@ -1,0 +1,11 @@
+This screenshot shows a portion of the Rendering tab of the Page 1: Sample Database Application Page Designer view.
+The tree displays the following entries out of which four are selected:
+Regions
+- Content Body
+- Body 3
+-- Search
+-- Sales for this Month (selected)
+-- Top Customers (selected)
+-- Top Products (selected)
+-- Top Orders by Date (selected)
+-- Tags

@@ -1,0 +1,1 @@
+In this image, you click the down arrow next to the App Builder tab and choose Database Applications.

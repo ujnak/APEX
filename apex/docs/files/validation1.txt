@@ -1,0 +1,5 @@
+if :P2_MANAGER_ID != :P2_EMPLOYEE_ID then 
+   return true;
+else
+   return false;
+end if;

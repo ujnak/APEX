@@ -1,0 +1,1 @@
+In this image, you update the attributes of the new region in the Property editor.

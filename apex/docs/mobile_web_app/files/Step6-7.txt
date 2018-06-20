@@ -1,0 +1,12 @@
+This screenshot shows the Maintain Projects page of the Mobile App with the following fields:
+
+Project Name
+Project Start Date
+Project End Date
+Project Dept
+Status
+Location
+
+And the Create button.
+
+The mouse pointer is clicking the Panel button icon.

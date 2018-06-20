@@ -1,0 +1,4 @@
+This image shows the Create Page, Source page. You select the following from the drop-down list:
+- DataSource: Web Source
+- Web Source Module: USGS_Earthquake_WS
+Click Next. 

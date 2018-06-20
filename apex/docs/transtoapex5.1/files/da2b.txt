@@ -1,0 +1,6 @@
+This screenshot displays a portion of the Property Editor tab of Page 1: Sample Database Application Page Designer view.
+The mouse pointer is clicking the Save button.
+The property for the regions are displayed in the property editor. The properties are as follows:
+Appearance
+- Template: Standard
+- CSS Classes: i-h240

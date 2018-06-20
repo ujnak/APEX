@@ -1,0 +1,1 @@
+This image shows the Upload Script dialog again. This time, the name of the script you selected, dependents.sql, is dispalyed in the dialog.  In addition, the pointer is on the Upload button.

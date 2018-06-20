@@ -1,0 +1,1 @@
+This image shows the Create an Application window. You are asked what type of application you would like to create - a new application,  from a spreadsheet, or packaged app. For this tutorial, we choose New Application.

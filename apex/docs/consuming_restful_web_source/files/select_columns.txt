@@ -1,0 +1,1 @@
+This image shows the columns you would like to display in your report.

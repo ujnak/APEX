@@ -1,0 +1,5 @@
+This image shows the structure of the Home page. In the Home page structure, the Regions folder is open. Under this, the Region Position 01 folder is selected. The shortcut menu related to Region Position 01 is displayed. This menu as three options:
+1. Create Region
+2. Expand All Below
+3. Collapse All Below
+The pointer is on the Create Region option.

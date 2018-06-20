@@ -1,0 +1,1 @@
+This photograph shows selecting P3_DEPARTMENT_ID in the Rendering tab, and in  its property editor, entering 'Department' for Label, selecting the Type as Sql Query under List of Values and clicking the SQL editor icon.

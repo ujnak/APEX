@@ -1,0 +1,4 @@
+This screenshot shows the Table Properties step of the Create Application From Spreadsheet wizard. The following values are set:
+Schema: HR
+Table Name: TASKS
+The Next button is being clicked.

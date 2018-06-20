@@ -1,0 +1,1 @@
+This photograph shows scrolling down the page, and clicking 'Create Parameter' to add an OUT parameter to the handler that will return the newly created employee’s ID.

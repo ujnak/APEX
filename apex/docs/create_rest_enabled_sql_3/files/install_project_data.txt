@@ -1,0 +1,1 @@
+This is the image of the Sample Dataset page, where the sample datasets are listed along with the name, language, corresponding schema, date of installation and so on. In also shows the option to install the schema. In this image, it has the install option for Project Data highlighted.  

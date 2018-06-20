@@ -1,0 +1,5 @@
+This screenshot shows a portion of the Page Finder window. The Current User Interface tab is selected. There is Search text box.
+It displays the Page Number and Name of three pages:
+Row 1: 21, Access Control Administration Page
+Row 2: 25, Manage Sample Data
+Row 3: 26, Reports

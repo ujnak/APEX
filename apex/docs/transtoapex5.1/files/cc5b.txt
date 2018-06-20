@@ -1,0 +1,1 @@
+This screenshot shows the left navigation menu in the Sample Database Application. The menu has six entries namely Home, Customers [7], Products [10], Orders [10], Reports, and Administration.

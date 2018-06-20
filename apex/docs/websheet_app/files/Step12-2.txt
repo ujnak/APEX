@@ -1,0 +1,10 @@
+This screenshot shows the Human Resouces Management websheet application.
+
+It has five menu options:
+View
+Create
+Edit
+Data Grid
+Administartion
+
+It has shows the Projects page.

@@ -1,0 +1,1 @@
+This image shows the sign in screen of the Order Management application. It has Username and Password fields. In addition, it has a Login button. The pointer is on the Login button.

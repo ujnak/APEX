@@ -1,0 +1,1 @@
+In this image, you  select Bar for Type, Horizontal for Orientation In the Attributes tab.

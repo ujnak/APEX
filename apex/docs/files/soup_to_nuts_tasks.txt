@@ -1,0 +1,17 @@
+TASK_ID,TASK_NAME,TASK_COST,TASK_BUDGET,PROJECT_ID,ASSIGNED_TO
+1,"HR software needs upgrade",3000,3500,"Maintain Support Systems",Mavris
+2,"Apply Billing System updates",500,500,"Maintain Support Systems",Mavris
+3,"Investigate new Virus Protection software",150,200,"Maintain Support Systems",Austin
+4,"Arrange for holiday coverage",50,0,"Maintain Support Systems",Mavris
+5,"Complete plan",200,200,"Email Integration",Hunold
+6,"Check software licenses",100,100,"Email Integration",Greenberg
+7,"Get RFPs for new server",50,100,"Email Integration",Greenberg
+8,"Purchase backup server",2000,2400,"Email Integration",Greenberg
+9,"Complete questionaire",350,400,"Employee Satisfaction Survey",Chen
+10,"Review with legal",220,230,"Employee Satisfaction Survey",Greenberg
+11,"Plan rollout schedule",100,110,"Employee Satisfaction Survey",Chen
+12,"Determine host server",75,100,"Public Website",Kochhar
+13,"Check software licenses",120,120,"Public Website",Pataballa
+14,"Purchase additional software licenses",0,1200,"Public Website",Pataballa
+15,"Develop web pages",750,1000,"Public Website",Ernst
+16,"Plan rollout schedule",120,120,"Public Website",Pataballa

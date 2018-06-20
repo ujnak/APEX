@@ -1,0 +1,1 @@
+This photograph shows selecting 'Set Value' for Action, under Identification.It also shows selecting 'PL/SQL Function Body' for Set Type, and clicking the Code Editor: PL/SQL Function Body icon.

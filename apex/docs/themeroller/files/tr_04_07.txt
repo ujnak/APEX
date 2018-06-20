@@ -1,0 +1,1 @@
+In this image, you click Console in the Browser's developer tools window.

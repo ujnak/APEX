@@ -1,0 +1,1 @@
+This screenshot shows selecting the Report icon. It also shows selecting 'Home(1)' for Parent Page, 'Table' for Page Source, 'EMP' for Table Name, 'Classic' for Report Type, and clicking 'Add Page'.

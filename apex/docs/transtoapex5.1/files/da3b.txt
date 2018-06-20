@@ -1,0 +1,10 @@
+This screenshot shows the Property Editor tab for the selected buttons. 
+The Save button is being clicked.
+The Property Editor shows the following fields and values:
+Button Position: Edit
+Appearance
+Button Template: Icon
+Hot: No
+CSS Classes: rightarrow insetButton
+Icon CSS Classes: fa-chevron-right
+

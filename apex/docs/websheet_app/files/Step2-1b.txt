@@ -1,0 +1,8 @@
+This screenshot shows the Add File page. 
+It has the following attributes:
+
+File: Browse button(resource.xls is uploaded)
+Alias
+Desciption
+
+The mouse pointer is clicking the Add File button.

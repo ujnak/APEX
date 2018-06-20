@@ -1,0 +1,2 @@
+This screenshot shows the home page of the TASKS application.
+The application contains an interactive report.

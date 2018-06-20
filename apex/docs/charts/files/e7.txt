@@ -1,0 +1,1 @@
+In this image, you change the Action to Refresh in the Property Editor. In the Affected Elements tab, you select Region for Selection Type and Tasks per Project Chart 2 for Region. In the Execution Options tab, you select Yes for Fire on Initialization and click Save.

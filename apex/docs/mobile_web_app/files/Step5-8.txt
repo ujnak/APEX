@@ -1,0 +1,3 @@
+This screenshot shows the Rendering section of the Maintain Projects in the Page Designer. 
+
+The mouse pointer is clicking the P5_PROJECT_DEPT page item under Items.

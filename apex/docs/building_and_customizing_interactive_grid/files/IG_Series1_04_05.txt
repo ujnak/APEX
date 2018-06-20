@@ -1,0 +1,1 @@
+In this photograph, you scroll down to the Pagination section, select Page for Type and select Yes for Show Total Row Count and click Save and Run Page.

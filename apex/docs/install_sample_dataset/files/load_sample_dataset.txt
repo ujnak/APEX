@@ -1,0 +1,1 @@
+This is the image of the Load Sample Dataset dialog. It displays the list of objects that will be installed when you click Install Dataset. 

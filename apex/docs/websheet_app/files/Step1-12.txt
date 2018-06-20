@@ -1,0 +1,8 @@
+This screenshot shows the Create Section page.
+The text is: What type of page section would you like to craete?
+
+There are two options:
+Text
+Navigation
+
+The Text radio button is selected and the mouse pointer is clicking the Next button.

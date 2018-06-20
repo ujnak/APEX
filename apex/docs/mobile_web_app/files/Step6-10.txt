@@ -1,0 +1,19 @@
+This screenshot shows the Projects page of the Mobile App with the following projects starting with the Maintain keyword based on Department ID:
+
+10
+Email integration
+Start Date: 22-JUN-13
+End Date:01-FEB-14
+
+
+Upgrade Systems
+Start date: 01-JAN-13
+End Date: 01-MAY-13
+
+20
+
+Maintain Support Systems
+Start Date: 03-DEC-14
+End Date: 06-JN-14
+
+The mouse pointer is clicking the Maintain Support Systems project.

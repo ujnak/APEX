@@ -1,0 +1,1 @@
+In this photograph, In the Columns dialog, you uncheck Tags, select the City column, click the Move up button, update the Minimum Column Width (Pixel) value to 200, and click Save.

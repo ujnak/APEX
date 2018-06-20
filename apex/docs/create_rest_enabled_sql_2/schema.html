@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: Ennnnn-01 -->
+    <!-- Published date: Month Year -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Oracle Application Express 18.1: Using REST Enabled SQL Service
+      Reference (2 of 4)</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="Put the description of the tutorial here.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+    <script type="text/javascript">
+   $(document).ready(function(){
+       window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+   });
+</script> </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle"></h1>
+      <h1>Oracle Application Express 18.1: Using REST Enabled SQL Service
+        Reference (2 of 4) </h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32">Before You Begin</h2>
+              <p>This 10 minute tutorial shows you how to create a connection to
+                the hr schema in Oracle SQL Developer. This is the second
+                tutorial in the series<i> Oracle Application Express 18.1: Using
+                  REST Enabled SQL Service Reference.</i> Read the tutorials in
+                sequence:</p>
+              <ul>
+                <li class="vm-only">&nbsp;<a href="../create_rest_enabled_sql_1/install_import_vm.html"
+                    target="_blank">Oracle Application Express 18.1: Using REST
+                    Enabled SQL Service Reference (1 of 4)</a></li>
+                <li>&nbsp;Oracle Application Express 18.1: Using REST Enabled
+                  SQL Service Reference (2 of 4)</li>
+                <li class="vm-only">&nbsp;<a href="../create_rest_enabled_sql_3/create_rest_enabled_sql.html"
+                    target="_blank">Oracle Application Express 18.1: Using REST
+                    Enabled SQL Service Reference (3 of 4)</a></li>
+                <li class="vm-only">&nbsp;<a href="../create_rest_enabled_sql_4/create_app_rest_enabled.html"
+                    target="_blank">Oracle Application Express 18.1: Using REST
+                    Enabled SQL Service Reference (4 of 4)</a></li>
+              </ul>
+              <h3>Background</h3>
+              <p>In this OBE, you will learn how to create a connection to the
+                hr schema, and REST enable the hr schema.<b><br>
+                </b></p>
+              <p><b>Note:</b> You can REST enable the hr schema in two ways -
+                using the SQL Developer GUI and using the command line
+                interface. </p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Install the latest version of Oracle VM VirtualBox</li>
+                <li>Download and import the Database App Development VM in to
+                  the Oracle VM VirtualBox</li>
+                <li>Oracle SQL Developer 4.2&nbsp; </li>
+                <li>Oracle Database 12c</li>
+                <li>Oracle Application Express 18.1<br>
+                  <b>Note:</b> SQL Developer 4.2, Oracle Database 12c, and
+                  Oracle Application Express 18.1 are installed in the Database
+                  App Development VM</li>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Create
+                a Connection to the hr Schema in SQL Developer </h2>
+              <p>To create a connection to the hr schema:</p>
+              <ol>
+                <li>Right click the SQL Developer icon and click <strong>Open.</strong>
+                </li>
+                <li>In Oracle SQL Developer, click the plus icon and click <strong>New
+                    Connection</strong> to create a new connection to hr schema.
+                  <figure><img src="./img/new_connection.png" alt="new connection"
+                      class="ScreenShot"> <figcaption><a href="./files/new_connection.txt">Description
+                        of the illustration new_connection.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>In the New/Select Database Connection dialog, select <b>system</b>
+                  on the left pane and specify the following details:</li>
+                <ul>
+                  <li><strong>Connection Name:</strong> Enter <code>hr</code></li>
+                  <li><strong>Username:</strong> Enter <code>hr</code></li>
+                  <li><strong>Password:</strong> Enter <code>oracle</code></li>
+                  <li><b>Hostname: </b>Enter <code>localhost</code></li>
+                  <li><b>Port: </b>Enter <code>1521</code></li>
+                  <li><b>Service Name:</b> Enter <code>orcl</code></li>
+                </ul>
+                <li>Click <strong>Test</strong> to test the connection. Once
+                  the connection is tested successfully, the status of the test
+                  is displayed as&nbsp; <i>Success</i>, as shown in the
+                  screenshot.<br>
+                  <figure><img src="./img/connection_success.png" alt="new select database connection"
+                      class="ScreenShot"> <figcaption><a href="./files/connection_success.txt">Description
+                        of the illustration connection_success.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>Click <strong>Save</strong> and then click <strong>Connect</strong>
+                  to create the connection to the hr schema. The connection hr
+                  is now displayed under the Connections pane in Oracle SQL
+                  Developer. This completes the task of creating a connection to
+                  the hr schema.<br>
+                  <figure><img src="./img/hr_connection.png" alt="hr connection in SQL Developer"
+                      class="ScreenShot"> <figcaption><a href="./files/hr_connection.txt">Description
+                        of the illustration hr_connection.png</a></figcaption> </figure>
+                </li>
+                <ul>
+                </ul>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Enable
+                RESTful Services for hr Schema in SQL Developer GUI</h2>
+              <p>To enable RESTful service for the hr schema using GUI:&nbsp;</p>
+              <ol>
+                <li>In Oracle SQL Developer, right click <strong>hr</strong>
+                  under Connections in the Connections pane. </li>
+                <li>Select <strong>REST Services</strong> and click <strong>Enable
+                    Rest Services. </strong>The <strong>RESTful Services
+                    Wizard </strong>opens. <strong><br>
+                  </strong>
+                  <figure><img src="./img/enable_rest_services_option.png" alt="right click option under hr"
+                      class="ScreenShot"> <figcaption><a href="./files/enable_rest_services_option.txt">Description
+                        of the illustration enable_rest_services_option.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>In the RESTful Services Wizard - Step 1 of 2 dialog, select
+                  <strong>Enable Schema</strong> and click <strong>Next.</strong><br>
+                  <figure><img src="./img/restful_services_wizard_1.png" alt="right click option under hr"
+                      class="ScreenShot"> <figcaption><a href="./files/restful_services_wizard_1.txt">Description
+                        of the illustration restful_services_wizard_1.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>In the RESTful Services Wizard - Step 2 of 2 dialog, the
+                  Summary tab displays the summary of the RESTful service, such
+                  as the alias, status, authorization and so on. Click <strong>SQL</strong>
+                  tab.
+                  <figure><img src="./img/restful_services_wizard_2.png" alt="right click option under hr"
+                      class="ScreenShot"> <figcaption><a href="./files/restful_services_wizard_2.txt">Description
+                        of the illustration restful_services_wizard_2.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>The <b>SQL</b> tab in the RESTful Services Wizard - Step 2
+                  of 2 dialog, displays the SQL query to enable the RESTful
+                  service. Click <strong>Finish.</strong><br>
+                  <figure><img src="./img/restful_services_wizard_2sql.png" alt="right click option under hr"
+                      class="ScreenShot"> <figcaption><a href="./files/restful_services_wizard_2sql.txt">Description
+                        of the illustration restful_services_wizard_2sql.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>Once the RESTful service for the hr schema is enabled
+                  successfully, the message "Successfully processed SQL
+                  command"&nbsp; displays.
+                  <figure><img src="./img/restful_service_successful_msg.png" alt="message"
+                      class="ScreenShot"> <figcaption><a href="./files/restful_service_successful_msg.txt">Description
+                        of the illustration restful_service_successful_msg.png</a></figcaption>
+                  </figure>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_3" role="button" style="text-align: left;"><img src="./img/32_3.png"
+                  alt="section 3" class="num_circ" height="32" width="32">Enable
+                RESTful Services Schema by Using the Command Line Interface</h2>
+              <p>Using the command line is an alternative to using SQL Developer
+                for those who prefer command line tools to graphical user
+                interfaces. In the previous section, you enabled the <code>hr</code>
+                schema using SQL Developer GUI. If you prefer command line tools
+                to a graphical user interface, then you can enable the RESTful
+                schema using a command line interface. </p>
+              <p>In this section you will use a command line interface to first
+                disable the previously enabled RESTful schema and then enable it
+                again. Step 3 shows you how to disable the RESTful schema. </p>
+              <p> </p>
+              <p>To enable RESTful schema using the command line interface:</p>
+              <ol>
+                <li>Right click on your VM desktop and click <strong>Open
+                    Terminal.</strong></li>
+                <li>In the terminal window, type <code>sqlplus hr/oracle</code>
+                  and press Enter.<code> </code>This is the username and
+                  password to connect to Oracle Database.&nbsp; <br>
+                  <figure><img src="./img/terminal_1.png" alt="command to connect to hr"
+                      class="ScreenShot"> <figcaption><a href="./files/terminal_1.txt">Description
+                        of the illustration terminal_1.png</a></figcaption> </figure>
+                </li>
+                <li>Since you already REST enabled the hr schema, you first need
+                  to disable it and then enable it again. To disable the RESTful
+                  schema, type <code>exec ords.enable_schema(p_enabled =&gt;
+                    FALSE);</code> and press Enter.
+                  <figure><img src="./img/cli_disable_schema.png" alt="command to disable schema"
+                      class="ScreenShot"> <figcaption><a href="./files/cli_disable_schema.txt">Description
+                        of the illustration cli_disable_schema.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>To enable the RESTful schema, type <code>exec
+                    ords.enable_schema;</code>&nbsp; and press Enter.
+                  <figure><img src="./img/terminal_2.png" alt="command to connect to hr"
+                      class="ScreenShot"> <figcaption><a href="./files/terminal_2.txt">Description
+                        of the illustration terminal_2.png</a></figcaption> </figure>
+                </li>
+                <li>Type <code>commit;</code> This completes the task of
+                  enabling RESTful services for hr schema.
+                  <figure><img src="./img/terminal_3.png" alt="command to connect to hr"
+                      class="ScreenShot"> <figcaption><a href="./files/terminal_3.txt">Description
+                        of the illustration terminal_3.png</a></figcaption> </figure>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <!-- Include the Next section only in a lab series or tutorial series -->
+              <!-- Do not include this section if you are planning on using the tutorials in a learning path -->
+              <h2 id="next" role="button" style="text-align: left;"><img src="./img/32_next.png"
+                  alt="next step" class="num_circ" height="32" width="32">Next
+                Tutorial</h2>
+              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp; <a href="../create_rest_enabled_sql_3/create_rest_enabled_sql.html"
+                target="_blank">Oracle Application Express 18.1: Using REST
+                Enabled SQL Service Reference (3 of 4)</a> </section>
+            <hr>
+            <section>
+              <!-- Include the More Information section only in a single or the final lab or tutorial in a series -->
+              <h2 id="more_info" role="button" style="text-align: left;"><img src="./img/32_more.png"
+                  alt="more information" class="num_circ" height="32" width="32">Want
+                to Learn More?</h2>
+              <ul>
+                <li><a href="https://docs.oracle.com/database/apex-18.1/HTMDB/accessing-data-remotely-using-rest-enabled-sql.htm#HTMDB-GUID-94515117-40F3-42FC-BBB2-EE77315DF434"
+                    target="_blank">Managing REST Enabled SQL References</a></li>
+              </ul>
+            </section>
+            <hr> </article>
+        </div>
+        <br class="clearfloat">
+      </div>
+    </div>
+    <!--close main-->
+    <!--end content-->
+    <div class="footer-container ">
+      <div style="max-width: 994px; padding:10px 0 0 17px;">
+        <footer class="footer-list">
+          <ul>
+            <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                Oracle</a> </li>
+            <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                target="_blank">Contact Us</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                Notices</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/terms/index.html" target="_blank">Terms
+                of Use</a> </li>
+            <li> <a href="https://www.oracle.com/us/legal/privacy/index.html" target="_blank">Your
+                Privacy Rights</a> </li>
+            <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                © 2017, Oracle and/or its affiliates. All rights reserved.</a></li>
+          </ul>
+        </footer>
+      </div>
+      <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+    </div>
+  </body>
+</html>

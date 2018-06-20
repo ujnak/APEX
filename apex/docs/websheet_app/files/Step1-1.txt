@@ -1,0 +1,7 @@
+This screenshot shows the Oracle Application Home Page with the four menu options:
+App Builder
+SQL Workshop
+Team Development
+Packaged Apps
+
+The mouse pointer is pointing the Websheet Applications in the App Builder drop-down menu.

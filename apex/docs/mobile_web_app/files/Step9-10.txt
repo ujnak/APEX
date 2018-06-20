@@ -1,0 +1,12 @@
+This screenshot shows the Maintain Projects page of the Mobile App with the following details:
+
+Project Name: Email Integration
+Project Start Date: 2013-06-22
+Project End Date: 2016-02-01
+Project Dept: Administration
+Status: Closed
+Location: Bombay
+
+And there are two buttons: Delete and Save.
+
+The mouse pointer is clicking the Save button.

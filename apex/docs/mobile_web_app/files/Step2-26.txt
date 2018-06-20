@@ -1,0 +1,8 @@
+This screenshot shows the Projects page with the following fields:
+Project Name: Maintain Support Systems
+Project Start Date: 2014-12-03
+Project End Date: 2014-01-06
+Project Dept:20
+Status:Open
+
+There are two buttons: Delete and Save

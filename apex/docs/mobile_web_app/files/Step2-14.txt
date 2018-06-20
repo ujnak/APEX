@@ -1,0 +1,11 @@
+This screenshot shows the New Page Definition page. 
+It has the following items:
+Page: 6
+Page Name: Employee Column Toggle Report is entered
+Sequence: 60
+Page Type:
+Page Mode: Normal
+Page Source: Table
+Source Table: EMPLOYEES
+Parent Page: No Parent 
+Apply Changes button is focused.

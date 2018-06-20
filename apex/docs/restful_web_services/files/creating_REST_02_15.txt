@@ -1,0 +1,1 @@
+This photograph shows clicking the Delete Parameter icon for Input Parameters in the Create REST Web Reference page.

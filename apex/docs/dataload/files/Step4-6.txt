@@ -1,0 +1,1 @@
+This image shows the Data Load Source page of the data loading wizard. The file name dependent_data1.txt is displayed under the File Name field. The pointer is on the Next button.

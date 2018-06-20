@@ -1,0 +1,1 @@
+This image shows the icon next to Time as Date column. You can view the report in any order you want to.

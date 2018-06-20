@@ -1,0 +1,1 @@
+This is the image of the application after you run it. The navigation pane on the left displayes the pages that you created, and the right pane displays the tile view of the pages. You can click on any tile or any link on the navigation pane to view the pages in detail.  

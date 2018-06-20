@@ -1,0 +1,12 @@
+This screenshot shows the Create Data Section page.
+It has the following attributes:
+
+Dispaly Sequence: 30
+Section Title: Deadlines For This Month
+Data Source: Dealines(Data Grid)
+Report Settings to Use: Primary Report(Primary Default)
+Maximum Row Count
+Include: Search Field
+Style: Style 1
+
+The mouse pointer is clicking the Create Section button.

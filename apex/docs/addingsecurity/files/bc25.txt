@@ -1,0 +1,3 @@
+This screenshot shows the Access Control Administration page. It shows two regions:
+1. Application Administration: This region shows the Application Mode which is set to "Restricted access. Only users defined in the access control lists are allowed."
+2. Access Control List: This region shows that 3 users - brad.knight, john.bell, and susie.parker and included in the Access Control List with the Edit, View, and Administrator privilege respectively.

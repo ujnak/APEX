@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Part number: Ennnnn-01 -->
+    <!-- Published date: May 2018 -->
+    <!-- See this link for directions on getting a part number: https://confluence.oraclecorp.com/confluence/display/DLPP/Archive+an+OBE -->
+    <!-- Template date: 10/18/17 -->
+    <title>Oracle Application Express 18.1: Creating a Web Source Module (2 of
+      2)</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="description" content="You are consuming the RESTful Web Source Using Oracle Application Express 18.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/obe-lite.css">
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="js/jquery.tocify.jd.js"></script>
+    <script src="js/leftnav.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="w1024" style="min-height:55px; display:block;"> <a href="https://docs.oracle.com"
+          class="oracle-logo"> <img src="./img/oracle_doc_logo.png" alt="Oracle Documentation"
+            style="max-width: none;" height="22" width="236"></a> </div>
+    </header>
+    <!--end header-->
+    <div id="content">
+      <h1><img src="./img/obe_tag.png" alt="Oracle by Example branding" align="middle">Oracle
+        Application Express 18.1: Creating a Web Source Module (2 of 2)</h1>
+      <div class="w1024" style="clear:both; position:relative; margin-top:40px;">
+        <div class="navbackwide border-right"><!-- --></div>
+        <div id="shownav" title="Show Navigation" tabindex="0"><span class="fa fa-list"></span></div>
+        <div id="sidebar"><!-- -->
+          <div class="left-nav-tut"><!-- -->
+            <div id="hidenavw" title="Hide Navigation" tabindex="0"><span class="fa fa-close"></span></div>
+            <div id="navbar" class="left-nav-w"><!-- -->
+              <div id="toc" class="tocify"><!-- --></div>
+            </div>
+          </div>
+        </div>
+        <div id="bookContainer">
+          <article>
+            <section>
+              <h2><img src="./img/32_begin.png" alt="section 0" class="num_circ"
+                  height="32" width="32">Before You Begin</h2>
+              <p>This 10-minute tutorial shows you how to consume the RESTful
+                Web Source by creating an interactive report that uses a remote
+                database reference. Here you use the Web Source Module&nbsp;<code>USGS_Earthquake_WS</code>&nbsp;that
+                you created in your previous tutorial <a href="../creating_web_source_module/creating_web_source_module.html"
+                  target="_blank">Oracle Application Express 18.1: Creating a
+                  Web Source Module (1 of 2)</a>, to produce a report that
+                displays the place, magnitude, and time of the
+                earthquakes.&nbsp; <br>
+                This is the last tutorial in the <span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Roboto, sans-serif-regular, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><em><span
+                      style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Roboto, sans-serif-regular, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><em>Oracle
+                        Application Express 18.1: Creating a Web Source Module
+                        Series</em>. </span></em></span> Read the tutorials in
+                sequence: </p>
+              <ul>
+                <li><a href="../creating_web_source_module/creating_web_source_module.html"
+                    target="_blank">Oracle Application Express 18.1: Creating a
+                    Web Source Module (1 of 2)</a></li>
+                <li>Oracle Application Express 18.1: Creating a Web Source
+                  Module (2 of 2)</li>
+              </ul>
+              <h3>Background</h3>
+              <p><span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Roboto, sans-serif-regular, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Web
+                  Source Modules enable developers to access Representational
+                  State Transfer (REST) services or generic JSON data feeds in
+                  applications and use the data in Application Express
+                  components such as reports, interactive reports, etc. </span>After
+                creating the Web Source Modules, you can build a report by
+                running a wizard and selecting the Web Source. </p>
+              <p>In Oracle Application Express, a report is the formatted result
+                of a SQL query. You can generate the SQL query by selecting a
+                table or view in a wizard, or by defining the SQL query
+                manually.</p>
+              <p></p>
+              <h3>What Do You Need?</h3>
+              <ul>
+                <li>Access to an Oracle Database </li>
+                <li>Access to Oracle Application Express 18.1 </li>
+              </ul>
+            </section>
+            <!-- ========================================================================================================================= -->
+            <section>
+              <hr>
+              <h2 id="section_1" role="button" style="text-align: left;"><img src="./img/32_1.png"
+                  alt="section 1" class="num_circ" height="32" width="32">Add an
+                Interactive Report</h2>
+              <p>An interactive report is the formatted result of a SQL query
+                that is only supported on Desktop pages. End users can customize
+                the report layout and data displayed by selecting options on the
+                Actions menu. </p>
+              <p>This section describes how to create a report by running the <strong>Create
+                  Page</strong> wizard from the Application home page. You can
+                also run this wizard in Page Designer by clicking the <strong>Create</strong>
+                menu and selecting <strong>Page</strong>.</p>
+              <p> </p>
+              <p>To add an interactive report:</p>
+              <ol>
+                <li>Select the application, <code>USGS Earthquake</code>. </li>
+                <li>On the application home page, select the Calendar Page <code>Latest_Earthquakes</code>.&nbsp;
+                  <strong>Page Designer</strong> opens.</li>
+                <li>In the Rendering tab under Content Body, select the region,
+                  <code>Latest_Earthquakes</code>. </li>
+                <li>In the Gallery (directly below the Grid Layout), click <b>Regions</b>,
+                  and select <strong>Interactive Report</strong>.
+                  <figure><img src="./img/select_interactive_report.png" alt="select_interactive_report"
+                      class="ScreenShot"> <figcaption><a href="./files/select_interactive_report.txt">Description
+                        of the illustration select_interactive_report.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>Right-click <strong>Interactive Report</strong> and select
+                  <strong>Add To</strong>, and then <strong>Content Body</strong>.
+                  It should appear under the existing report <code>Latest_Earthquakes</code>.
+                  <figure><img src="./img/drag_and_drop_interactive_report.png"
+                      alt="drag_and_drop_interactive_report" class="ScreenShot">
+                    <figcaption><a href="./files/drag_and_drop_interactive_report.txt">Description
+                        of the illustration drag_and_drop_interactive_report.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>To change the Region Attributes:&nbsp;&nbsp;
+                  <ul>
+                    <li>In the Property Editor, update the following: </li>
+                    <ul>
+                      <li><strong>Identification</strong>: <strong>Title</strong>
+                        - Enter <code>Report</code></li>
+                      <li><strong>Identification</strong>: <strong>Type</strong>
+                        - Select <strong>Interactive Report</strong></li>
+                      <li><strong>Source</strong>: <strong>Location</strong> -
+                        Select <strong>Web Source</strong></li>
+                      <li><strong>Source</strong>: <strong>Module</strong> -
+                        Select <code>USGS_Earthquake_WS</code></li>
+                    </ul>
+                    <figure><img src="./img/add_interactive_report.png" alt="add_interactive_report"
+                        class="ScreenShot"> <figcaption><a href="./files/add_interactive_report.txt">Description
+                          of the illustration add_interactive_report.png</a></figcaption>
+                    </figure>
+                    <li>Click <strong>Save and Run page</strong>. The page
+                      appears.</li>
+                    <li>Scroll down and view the new interactive report below
+                      the calendar.
+                      <figure><img src="./img/interactive_report.png" alt="interactive_report"
+                          class="ScreenShot"> <figcaption><a href="./files/interactive_report.txt">Description
+                            of the illustration interactive_report.png</a></figcaption>
+                      </figure>
+                    </li>
+                  </ul>
+                </li>
+                <li>You can arrange the columns as per your preference. Click <strong>Actions</strong>
+                  and select <strong>Columns</strong>.</li>
+                <li>Choose the columns you would like to display in your report.
+                  Select the columns: Time As Date, Mag, Place, and Url.<br>
+                  <figure><img src="./img/select_columns.png" alt="select_columns"
+                      class="ScreenShot"> <figcaption><a href="./files/select_columns.txt">Description
+                        of the illustration select_columns.png</a></figcaption></figure>
+                </li>
+                <li> Click <strong>Apply</strong>. The new columns that you
+                  chose in the step above are displayed.
+                  <figure><img src="./img/new_columns.png" alt="new_columns" class="ScreenShot">
+                    <figcaption><a href="./files/new_columns.txt">Description of
+                        the illustration new_columns.png</a></figcaption> </figure>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <section>
+              <h2 id="section_2" role="button" style="text-align: left;"><img src="./img/32_2.png"
+                  alt="section 2" class="num_circ" height="32" width="32">Edit
+                and Save Report</h2>
+              <p>This section describes how you can edit the report by adding a
+                date and time format, and then save the report. </p>
+              <ol>
+                <li>Return to the&nbsp;<strong>Page Designer</strong>.</li>
+                <li>To display time component in the report: <br>
+                  <ul>
+                    <li>In the Rendering tab, expand <strong>Columns</strong>,
+                      select <b>Time_As_Date</b>. </li>
+                    <li>In the Property Editor, update the following:&nbsp;</li>
+                    <ul>
+                      <li><strong>Appearance</strong>: <strong>Format Mask</strong>
+                        - Select <span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Roboto, sans-serif-regular, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">the
+                          date and time format</span>: <strong>DD-MON-YYYY
+                          HH24:MI</strong>. </li>
+                      <figure><img src="./img/format_mask.png" alt="format_mask"
+                          class="ScreenShot"> <figcaption><a href="./files/format_mask.txt">Description
+                            of the illustration format_mask.png</a></figcaption>
+                      </figure>
+                    </ul>
+                    <li>Click <strong>Save and Run page</strong>. </li>
+                    <li>Scroll down and view the interactive report again. Note
+                      the <strong>Time as Date</strong> column displays in the
+                      new format <strong>DD-MON-YYYY HH24:MI</strong>.</li>
+                  </ul>
+                  <figure><img src="./img/time_as_date-time.png" alt="time_as_date-time"
+                      class="ScreenShot"> <figcaption><a href="./files/time_as_date-time.txt">Description
+                        of the illustration time_as_date-time.png</a></figcaption>
+                  </figure>
+                </li>
+                <li>Click the <strong>Time As Date</strong> heading. The
+                  following dialog appears.<br>
+                  <figure><img src="./img/filter.png" alt="filter" class="ScreenShot">
+                    <figcaption><a href="./files/filter.txt">Description of the
+                        illustration filter.png</a></figcaption> </figure>
+                  Note that you can view the report in any order you want to. </li>
+                <li>Save the report:<br>
+                  <ul>
+                    <li>Select the <strong>Actions</strong> menu. </li>
+                    <li>Select <strong> Report</strong> and then<strong> Save
+                        Report</strong>.</li>
+                  </ul>
+                </li>
+                <li>Make the report the default report for the page: <br>
+                  <ul>
+                    <li>In the<strong> Save Report</strong> dialog, select <strong>As
+                        Default Report Settings</strong>. </li>
+                    <li>Select <strong>Apply</strong>. </li>
+                    <li>In <strong>Save Default Report</strong> dialog, select
+                      <strong>Primary</strong>. </li>
+                    <li>Click <strong>Apply</strong>.</li>
+                  </ul>
+                  <figure><img src="./img/primary_report.png" alt="primary_report"
+                      class="ScreenShot"> <figcaption><a href="./files/primary_report.txt">Description
+                        of the illustration primary_report.png</a></figcaption>
+                  </figure>
+                </li>
+              </ol>
+            </section>
+            <hr>
+            <hr>
+            <section>
+              <!-- Include the Next section only in a lab series or tutorial series -->
+              <!-- Do not include this section if you are planning on using the tutorials in a learning path -->
+              <h2 id="next" role="button" style="text-align: left;"><img src="./img/32_next.png"
+                  alt="next step" class="num_circ" height="32" width="32">Next
+                Tutorial</h2>
+              <p>...</p>
+            </section>
+            <hr>
+            <section>
+              <!-- Include the More Information section only in a single or the final lab or tutorial in a series -->
+              <h2 id="more_info" role="button" style="text-align: left;"><img src="./img/32_more.png"
+                  alt="more information" class="num_circ" height="32" width="32">Want
+                to Learn More?</h2>
+              <ul>
+                <li><a href="https://docs.oracle.com/database/apex-18.1/HTMDB/creating-report-create-page-wizard.htm#HTMDB-GUID-98976897-71A7-4642-97CD-A28CD5D67267"
+                    target="_blank">Creating a Classic or Interactive Report on
+                    New Page Using Remote Database References</a></li>
+              </ul>
+            </section>
+            <hr> </article>
+          <b><b> </b></b></div>
+        <b><b> <br class="clearfloat">
+          </b></b></div>
+      <b><b> </b></b></div>
+    <b><b>
+        <!--close main-->
+        <!--end content-->
+        <div class="footer-container ">
+          <div style="max-width: 994px; padding:10px 0 0 17px;">
+            <footer class="footer-list">
+              <ul>
+                <li> <a href="https://www.oracle.com/corporate/index.html" target="_blank">About
+                    Oracle</a> </li>
+                <li> <a href="https://www.oracle.com/us/corporate/contact/index.html"
+                    target="_blank">Contact Us</a> </li>
+                <li> <a href="https://www.oracle.com/us/legal/index.html" target="_blank">Legal
+                    Notices</a> </li>
+                <li> <a href="https://www.oracle.com/us/legal/terms/index.html"
+                    target="_blank">Terms of Use</a> </li>
+                <li> <a href="https://www.oracle.com/us/legal/privacy/index.html"
+                    target="_blank">Your Privacy Rights</a> </li>
+                <li><a href="https://www.oracle.com/pls/topic/lookup?ctx=cpyr&amp;id=en">Copyright
+                    © 2018, Oracle and/or its affiliates. All rights reserved.</a></li>
+              </ul>
+            </footer>
+          </div>
+          <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+        </div>
+      </b></b>
+  </body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Last updated: 10/18/16 -->
+
+<!-- set the encoding of your site -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- set the viewport width and initial-scale on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creating an Application Express Database Application from a Spreadsheet</title>
+<!-- Add short description of the OBE for displaying in  search results, etc.-->
+<meta name="description" content="In this tutorial, you learn how to create a Database Application in Application Express from a spreadsheet." />
+<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500" rel="stylesheet" type="text/css">
+<!-- include the site stylesheet -->
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+<link type="text/css" rel="stylesheet" href="css/all.css">
+<link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+<link type="text/css" rel="stylesheet" href="css/obe.css">
+<link type="text/css" rel="stylesheet" href="css/print.css">
+
+<!-- Code Mirror stylesheet -->
+<link type="text/css" rel="stylesheet"  href="css/codemirror/codemirror.css">
+
+<!-- include jQuery library -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+<script src="dev-assets/js/bootstrap.js"></script>
+
+<!-- include custom JavaScript -->
+<script type="text/javascript" src="js/ZeroClipboard.js"></script>
+<script type="text/javascript" src="js/jquery.main.js"></script>
+
+<!-- Load jQuery, SimpleModal and Basic JS files -->
+<!--[if lt IE 9]>
+          <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+<!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+<script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.visible.js"></script>
+<script type="text/javascript" src="js/hooks.js"></script>
+<script type="text/javascript" src="js/purl.js"></script>
+<script type="text/javascript" src="js/basic.js"></script>
+<script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+<!--script type="text/javascript" src="js/REST.UI.js"></script-->
+
+<!--end obe scripts -->
+<script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script>
+<script src="js/jquery-ui-1.10.4.custom.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+    });
+</script> </head>
+<body>
+<noscript>
+<div>JavaScript must be enabled for the correct page display</div>
+</noscript>
+<!-- main container of all the page elements -->
+<div id="wrapper"> 
+  <!-- allow a user to go to the main content of the page --> 
+  <a class="accessibility skipto" href="#content">Skip to Content</a> 
+  <!-- header of the page -->
+  <header id="header">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="holder">
+        <div class="container-fluid">
+          <div class="navbar-header"> 
+            <!-- page logo -->
+            <div class="logo pull-left" itemscope itemtype="http://schema.org/Organization"> <span class="name-organization"  itemprop="name">Oracle</span> <a href="#"> <span data-picture data-alt="Oracle Logo"> <span data-src="images/logo.png" data-width="221" data-height="20"  data-alt="Oracle Logo"></span> <span data-src="images/logo-2x.png" data-width="221" data-height="20" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)" ></span> 
+              <!--[if (lt IE 9) & (!IEMobile)]>
+                      <span data-src="images/logo.png"></span>
+                  <![endif]--> 
+              <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+              <noscript>
+              <img src="images/logo.png" alt="Oracle Logo" width="221" height="20" >
+              </noscript>
+              </span> </a> </div>
+          </div>
+          <div class="navbar-right"> </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- contain main informative part of the site -->
+  <main role="main" id="main">
+    <div class="holder">
+      <div class="container-fluid">
+        <h1>Creating an Application Express Database Application from a Spreadsheet</h1>
+        <!-- contain the main content of the page -->
+        <div class="content-holder">
+          <div class="content"> 
+            <!-- tabs content holder -->
+            <div class="slide-holder left-tab-holder"> 
+              
+              <!-- tab element -->
+              <div id="tab1">
+                <div class="slide-frame">
+                  <div id="left-nav-container" >
+                    <div class="left-nav-element">
+                      <div id="navToc" title="Topic List">
+                        <ul>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <br style="clear:both" />
+                </div>
+              </div>
+              
+              <!-- tab element -->
+              <div id="tab2">
+                <div class="slide-frame">
+                  <div class="left-nav-element">
+                    <div id="toolbar">
+                      <h3>Options</h3>
+                      <button id="tglTopicBtn" class="btn btn-primary">Expand All Topics</button>
+                      <br />
+                      <br />
+                      <button id="tglImageBtn" class="btn btn-primary">Hide All Images</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- tabs content holder -->
+            <div class="slide-holder right right-tab-holder"> </div>
+            <div class="left-panel pull-left"> 
+              <!-- tabs switcher -->
+              <ul class="tabset-panel list-unstyled text-center">
+                <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip" data-placement="right" > <span class="glyphicons glyphicons-list"></span>
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Table of Contents</div>
+                  </div>
+                  </a> </li>
+                <!-- -->
+                <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip" data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Options</div>
+                  </div>
+                  </a> </li>
+                <li> <a href="#tab3" class="opener tooltip-link print" data-toggle="tooltip" data-placement="right"> <span class="glyphicons glyphicons-print"></span>
+                  <div class="tooltip right" role="tooltip">
+                    <div class="tooltip-arrow"></div>
+                    <div class="tooltip-inner">Print</div>
+                  </div>
+                  </a> </li>
+              </ul>
+            </div>
+            <div class="content-right" id="content">
+              <article>
+                <div id="container"> 
+                  <!-- START Article -->
+                  <section>
+                      <h2>Before You Begin</h2>
+                      <div>
+                          <h4>Purpose</h4>
+                          <p>In this tutorial, you learn how to create a Database Application in Application Express from a spreadsheet.</p>
+                          <h4>Time to Complete</h4>
+                          <p>Approximately 15 minutes</p>
+                          <h4>Background</h4>
+                          <p>Oracle Application Express provides a functionality to create a desktop application based on a spreadsheet data. This can be done by selecting <strong>From a spreadsheet</strong> in the Create Application Wizard.</p>
+                          <h4>What Do You Need?</h4>
+                          <ul>
+                              <li class="oll-only"><p>Oracle Application Express workspace</p></li>
+                              <li class="oll-only"><p>Spreadsheet to create the database application - The <a href="files/tasks.txt">tasks.txt</a> spreadsheet is used in this tutorial.</p></li>                              
+                              <li class="vm-only">
+                                <p>All files for this hands-on activity are located in the <code>Home/Desktop/APEX_Track/files</code> folder.</p>
+                            </li>							
+                            <li class="vm-only">
+                                <p>The following files are used in this hands-on activity:</p>
+                                <ul>
+                                    <li><p><strong>tasks.txt</strong></p></li>
+                                </ul>
+                            </li>
+                          </ul>
+                      </div>                      
+                  </section>
+                  <section>
+                      <h2>Creating an Application from Spreadsheet Data</h2>
+                      <div>
+                          <ol>
+						  <li class="vm-only">
+<p>In the Application Express login page, enter the following login credentials and click <strong>Sign In:</strong></p>
+	<ul>
+		<li><p><strong>Workspace:</strong> obe</p></li>
+        <li><p><strong>Username:</strong> obe</p></li>
+		<li><p><strong>Password:</strong> oracle</p></li>
+	</ul>
+    <figure> <img alt="Login page" src="images/vm_only.jpg" class="ScreenShot">
+	<figcaption><a href="files/vm_only.txt">Description of this image</a></figcaption></figure>
+</li>
+                              <li><p>On the Workspace home page, click the <strong>App Builder</strong> icon.</p>
+                                  <figure>
+                                      <img src="images/a1.jpg" class="ScreenShot" alt="App Builder icon in Application Express 5.1">
+                                      <figcaption><a href="files/a1.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>Click the <strong>Create</strong> button.</p>
+                                  <figure>
+                                      <img src="images/a2.jpg" class="ScreenShot" alt="Create button in Application Express 5.1">
+                                      <figcaption><a href="files/a2.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>In the Create an Application modal window, select <strong>From a spreadsheet.</strong></p>
+                                  <figure>
+                                      <img src="images/a3.jpg" class="ScreenShot" alt="Create an Application modal window">
+                                      <figcaption><a href="files/a3.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>For Load Method, select <strong>Upload file, comma separated (*.csv) or tab delimited</strong> and click <strong>Next.</strong></p>
+                                  <figure>
+                                      <img src="images/a4.jpg" class="ScreenShot" alt="Create an Application From Spreadsheet: Load Method">
+                                      <figcaption><a href="files/a4.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>For Data, click <strong>Choose File,</strong> navigate to the spreadsheet (or CSV) file, and click <strong>Open.</strong> Enter <strong>\t</strong> for Separator, ensure that "First row contains column names." checkbox is enabled, and click <strong>Next.</strong></p>
+                                  <figure>
+                                      <img src="images/a5.jpg" class="ScreenShot" alt="Create an Application From Spreadsheet: Data">
+                                      <figcaption><a href="files/a5.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>For Table Properties, select <strong>HR</strong> for Schema and enter <strong>TASKS</strong> for Table Name. Review the table properties and click <strong>Next.</strong></p>
+                                  <figure>
+                                      <img src="images/a6.jpg" class="ScreenShot" alt="Create an Application From Spreadsheet: Table Properties">
+                                      <figcaption><a href="files/a6.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>For Application Options, accept the default for Application Name and Report Type and click <strong>Create Application.</strong></p>
+                                  <figure>
+                                      <img src="images/a7.jpg" class="ScreenShot" alt="Create an Application From Spreadsheet: Application Options">
+                                      <figcaption><a href="files/a7.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>The application is created successfully.</p></li>
+                          </ol>
+                      </div>                      
+                  </section>
+                  <section>
+                      <h2>Executing and Reviewing the Application</h2>
+                      <div>
+                          <ol>
+                              <li><p>On the Application home page, click the <strong>Run Application</strong> icon.</p>
+                                  <figure>
+                                      <img src="images/b1.jpg" class="ScreenShot" alt="Run Application icon">
+                                      <figcaption><a href="files/b1.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>Enter your login credentials and click <strong>Log In.</strong></p>
+                                  <figure>
+                                      <img src="images/b2.jpg" class="ScreenShot" alt="Tasks Application: Log In page">
+                                      <figcaption><a href="files/b2.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>The home page of the TASKS application, containing the interactive report, is displayed. Click the <strong>Edit</strong> icon in the first row.</p>
+                                  <figure>
+                                      <img src="images/b3.jpg" class="ScreenShot" alt="Tasks Application home page">
+                                      <figcaption><a href="files/b3.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>The modal window to edit the Tasks entry appears. Change the value for Cost and click <strong>Apply Changes.</strong></p>
+                                  <figure>
+                                      <img src="images/b4.jpg" class="ScreenShot" alt="Edit Tasks modal window">
+                                      <figcaption><a href="files/b4.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>The Cost has been updated. Now you create a new Task. Click <strong>Create.</strong></p>
+                                <figure>
+                                    <img src="images/b5.jpg" class="ScreenShot" alt="Tasks Application home page: Create Task">
+                                    <figcaption><a href="files/b5.txt">Description of this image</a></figcaption>
+                                </figure>
+                              </li>
+                              <li><p>Enter details for the new task and click <strong>Create.</strong></p>
+                                  <figure>
+                                      <img src="images/b6.jpg" class="ScreenShot" alt="Create Task modal window">
+                                      <figcaption><a href="files/b6.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                              <li><p>The new task is successfully created. You will be able to see the new task in the Interactive Report.</p>
+                                  <figure>
+                                      <img src="images/b7.jpg" class="ScreenShot" alt="The new task in the Interactive Report">
+                                      <figcaption><a href="files/b7.txt">Description of this image</a></figcaption>
+                                  </figure>
+                              </li>
+                          </ol>
+
+                      </div>                      
+                  </section>
+                  <section>
+                      <h2>Want to Learn More?</h2>
+                      <div>
+                         <ul>
+                            <li>
+                              <p><a href="http://www.oracle.com/technetwork/developer-tools/apex/documentation/doc-093691.html" target="_blank">Oracle Application Express Documentation</a></p>
+                            </li>
+                            <li>
+                              <p><a href="http://www.oracle.com/technetwork/developer-tools/apex/overview/index.html" target="_blank">Oracle Application Express on Oracle Technology Network</a></p>
+                            </li>
+                            <li>
+                              <p><a href="http://www.oracle.com/oll" target="_blank">Oracle Learning Library</a></p>
+                            </li>
+                        </ul>
+                      </div>                      
+                  </section>
+                  <!-- END Article --> 
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- footer of the page -->
+  <footer id="footer">
+    <div class="f1">
+      <div class="holder">
+        <div class="container-fluid">
+          <div class="pull-left footer-left">
+            <ul class="footer-nav list-inline">
+              <li><a href="http://www.oracle.com/corporate/index.html">About Oracle</a></li>
+              <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact Us</a></li>
+              <li><a href="http://www.oracle.com/us/legal/index.html">Legal Notices</a></li>
+              <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms of Use</a></li>
+              <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your Privacy Rights</a></li>
+            </ul>
+            <span class="copyright">Copyright &copy; 2016, Oracle and/or its affiliates. All rights reserved.</span> </div>
+          <!-- insert lan options --> 
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- allow a user to go to the top of the page --> 
+  <a class="accessibility" href="#wrapper">Back to top</a> </div>
+
+<!-- begin codemirror here --> 
+<script type="text/javascript" src="js/runmode-standalone.js"></script> 
+<script type="text/javascript" src="js/mode/clike/clike.js"></script> 
+<script type="text/javascript" src="js/mode/sql/sql.js"></script> 
+<script type="text/javascript" src="js/mode/xml/xml.js"></script> 
+<script type="text/javascript" src="js/mode/javascript/javascript.js"></script> 
+<script type="text/javascript" src="js/mode/css/css.js"></script> 
+<script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script> 
+<script type="text/javascript">
+	var config;
+	
+	config = {
+		lineNumbers: true,
+		mode : "xml",
+	htmlMode: true,
+		indentWithTabs: false,
+		readOnly: true
+	};
+
+</script> 
+
+<!-- end codemirror here -->
+
+<script language="javascript">
+  var s_prefix="OBE";
+  if (typeof(document.title)!= "undefined") {var s_pageName=s_prefix + ":" + document.title};
+</script>
+
+<script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+
+</body>
+</html>

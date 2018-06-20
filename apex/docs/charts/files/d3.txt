@@ -1,0 +1,1 @@
+In this image, you expand the Chart section and select Line for Type in the Property window.

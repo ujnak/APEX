@@ -1,0 +1,9 @@
+This screenshot shows a portion of the List Entry page.
+The mouse pointer is clicking the Next button.
+List: Navigation Menu (read only)
+Parent List Entry: - No Parent List Item -
+Sequence: 4
+Image/Class: fa-list-alt
+Attributes: (field is empty)
+Alt Attribute: (field is empty)
+List Entry Label: Orders [&A03.]

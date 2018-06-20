@@ -1,0 +1,5 @@
+This screenshot shows the Websheet Properties page.
+Authorization tab is focused.
+For Access Control List Type, Custom is being selected.
+
+The mouse pointer is clicking the Run button.

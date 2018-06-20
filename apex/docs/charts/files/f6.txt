@@ -1,0 +1,1 @@
+In this image, you see that the JavaScript code has customized the appearance of the chart.

@@ -1,0 +1,1 @@
+In this image, you enter the lines of code that you copied from the previous packaged application, and click Enter.

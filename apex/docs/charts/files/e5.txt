@@ -1,0 +1,1 @@
+In this image, you enter Refresh as the name of the dynamic action in the Identification tab and in the When tab, you select Change for Event, select Region for Selection Type, and Tasks per Project Chart 2 for Region.

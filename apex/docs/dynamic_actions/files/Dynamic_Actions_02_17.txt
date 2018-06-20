@@ -1,0 +1,1 @@
+This photograph shows selecting P3_DEPTNO in the Rendering tab, and selecting 'Select List' for Type, under Identification, in its property editor. It also shows selecting 'SQL Query' for Type and clicking the 'Code Editor: SQL Query' under List of Values.

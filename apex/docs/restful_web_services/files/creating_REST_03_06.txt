@@ -1,0 +1,1 @@
+The photograph shows that the command is executed successfully, and the new employee_id is returned on the command prompt.

@@ -1,0 +1,5 @@
+This screenshot shows the Navigation Type page. There are two Navigation types:
+Page Navigation
+Section Navigation
+
+The Page navigation type has been selected. The mouse pointer is clicking the Next button.

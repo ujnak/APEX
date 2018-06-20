@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <!-- Last updated: 10/18/16 -->
+    <!-- set the encoding of your site -->
+    <!-- set the viewport width and initial-scale on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating and Using a RESTful Web Service in Application Express 5.1</title>
+    <!-- Add short description of the OBE for displaying in  search results, etc.-->
+    <meta name="description" content="This tutorial covers creating a RESTful Web Service and accessing the Web Service through an application in Application Express 5.1. It also covers consuming the Web Service using a Java client..">
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500"
+
+      rel="stylesheet" type="text/css">
+    <!-- include the site stylesheet -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/glyphicons.css">
+    <link type="text/css" rel="stylesheet" href="css/all.css">
+    <link type="text/css" rel="stylesheet" href="css/fusiondoc-obe.css">
+    <link type="text/css" rel="stylesheet" href="css/obe.css">
+    <link type="text/css" rel="stylesheet" href="css/print.css">
+    <!-- Code Mirror stylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/codemirror/codemirror.css">
+    <!-- include jQuery library -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="dev-assets/js/bootstrap.js"></script>
+    <!-- include custom JavaScript -->
+    <script type="text/javascript" src="js/ZeroClipboard.js"></script>
+    <script type="text/javascript" src="js/jquery.main.js"></script>
+    <!-- Load jQuery, SimpleModal and Basic JS files -->
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="js/modernizr.custom.80798.js"></script>        <![endif]-->
+    <!--  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery.XDomainRequest.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery-queryParser.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.visible.js"></script>
+    <script type="text/javascript" src="js/hooks.js"></script>
+    <script type="text/javascript" src="js/purl.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/obe-scrollfixed.js"></script>
+    <!--script type="text/javascript" src="js/REST.UI.js"></script-->
+    <!--end obe scripts -->
+    <script type="text/javascript">
+		if (navigator.userAgent.match(/IEMobile\/10\.0/) || navigator.userAgent.match(/MSIE 10.*Touch/)) {
+			var msViewportStyle = document.createElement('style')
+			msViewportStyle.appendChild(
+				document.createTextNode(
+					'@-ms-viewport{width:auto !important}'
+				)
+			)
+			document.querySelector('head').appendChild(msViewportStyle)
+		}
+</script> <script src="js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        window.location.origin.indexOf('https://') >= 0 || window.location.origin.indexOf('http://') >= 0 ? $('.vm-only').hide() : $('.oll-only').hide();
+    });
+</script> </head>
+  <body><strong></strong> <noscript>
+<div>JavaScript must be enabled for the correct page display</div>
+</noscript><!-- main container of all the page elements -->
+    <div id="wrapper"><strong> </strong><!-- allow a user to go to the main content of the page --><strong>
+      </strong><a class="accessibility skipto" href="#content">Skip to Content</a><strong>
+      </strong><!-- header of the page -->
+      <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <!-- page logo -->
+                <div class="logo pull-left" itemscope="" itemtype="http://schema.org/Organization">
+                  <span class="name-organization" itemprop="name">Oracle</span>
+                  <a href="#"> <span data-picture="" data-alt="Oracle Logo"> <span
+
+                        data-src="images/logo.png" data-width="221" data-height="20"
+
+                        data-alt="Oracle Logo"></span> <span data-src="images/logo-2x.png"
+
+                        data-width="221" data-height="20" data-media="(-webkit-min-device-pixel-ratio:1.5), (min-resolution:144dpi)"></span>
+                      <!--[if (lt IE 9) & (!IEMobile)]>
+                      <span data-src="images/logo.png"></span>                  <![endif]-->
+                      <!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. -->
+                      <noscript>
+              <img src="images/logo.png" alt="Oracle Logo" height="20" width="221">
+              </noscript> </span> </a> </div>
+              </div>
+              <div class="navbar-right"> </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- contain main informative part of the site -->
+      <main role="main" id="main">
+        <div class="holder">
+          <div class="container-fluid">
+            <h1>Creating and Using a RESTful Web Service in Application Express
+              5.1</h1>
+            <!-- contain the main content of the page -->
+            <div class="content-holder">
+              <div class="content">
+                <!-- tabs content holder -->
+                <div class="slide-holder left-tab-holder">
+                  <!-- tab element -->
+                  <div id="tab1">
+                    <div class="slide-frame">
+                      <div id="left-nav-container">
+                        <div class="left-nav-element">
+                          <div id="navToc" title="Topic List">
+                            <ul>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <br style="clear:both">
+                    </div>
+                  </div>
+                  <!-- tab element -->
+                  <div id="tab2">
+                    <div class="slide-frame">
+                      <div class="left-nav-element">
+                        <div id="toolbar">
+                          <h3>Options</h3>
+                          <button id="tglTopicBtn" class="btn btn-primary">Expand
+                            All Topics</button> <br>
+                          <br>
+                          <button id="tglImageBtn" class="btn btn-primary">Hide
+                            All Images</button> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- tabs content holder -->
+                <div class="slide-holder right right-tab-holder"> </div>
+                <div class="left-panel pull-left">
+                  <!-- tabs switcher -->
+                  <ul class="tabset-panel list-unstyled text-center">
+                    <li> <a href="#tab1" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-list"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Table of Contents</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <!-- -->
+                    <li> <a href="#tab2" class="opener tooltip-link" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-cogwheels"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Options</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                    <li> <a href="#tab3" class="opener tooltip-link print" data-toggle="tooltip"
+
+                        data-placement="right"> <span class="glyphicons glyphicons-print"></span>
+                        <div class="tooltip right" role="tooltip">
+                          <div class="tooltip-inner">Print</div>
+                        </div>
+                      </a> <br>
+                    </li>
+                  </ul>
+                </div>
+                <div class="content-right" id="content">
+                  <article>
+                    <div id="container">
+                      <!-- START Article -->
+                      <section>
+                        <h2>Before You Begin</h2>
+                        <div>
+                          <h4>Purpose</h4>
+                          <p>This tutorial covers creating a RESTful Web Service
+                            and accessing the Web Service through an application
+                            in Application Express 5.1. It also covers consuming
+                            the Web Service using a REST client.</p>
+                          <h4>Time to Complete</h4>
+                          <p> Approximately 40 minutes. </p>
+                          <h4>Overview</h4>
+                          Web Services enable applications to interact with one
+                          another over the web in a platform-neutral, language
+                          independent environment. In a typical Web Services
+                          scenario, a business application sends a request to a
+                          service at a given URL by using the protocol over
+                          HTTP. The service receives the request, processes it,
+                          and returns a response. Web Services are typically
+                          based on Simple Object Access Protocol (SOAP) or
+                          Representational State Transfer (REST) architectures.
+                          RESTful Web Services are result oriented. The scope of
+                          the Web Service is found in the URI and the method of
+                          the service is described by the HTTP method that is
+                          used such as GET, POST, PUT, and DELETE.
+                          <p>The RESTful Web Service Wizard is a set of pages in
+                            the SQL Workshop area of Oracle Application Express
+                            that help you to create a RESTful Web Service
+                            declaratively. Once you have defined a RESTful Web
+                            Service, you can call it with a unique Uniform
+                            Resource Identifier (URI). RESTful Web Services are
+                            organized within Oracle APEX through a hierarchy of
+                            a module, a resource template and handlers within a
+                            template. The resource template includes a prefix
+                            for the URI, which is completed with a final portion
+                            of the URI defined by the handler. <br>
+                            <br>
+                            This tutorial covers creating a RESTful Web Service
+                            declaratively using Oracle Application Express's SQL
+                            Workshop tool, and then consuming the same service
+                            by creating an application and adding a Web Service
+                            Reference to the RESTful Web Service. The RESTful
+                            Web Service is also consumed using a REST client.</p>
+                          <div class="oll-only">
+                          <p>Please keep in mind the following while running
+                            this tutorial:</p>
+                          <ul>
+                            <li><strong>Logging into your Oracle Application
+                                Express workspace:</strong> Your Oracle
+                              Application Express workspace may reside in an
+                              on-premises Oracle Database or in Oracle Database
+                              Cloud Services. The login credentials differ
+                              depending on where your workspace is located:
+                              <ul>
+                                <li>Logging into Oracle Application Express in a
+                                  Oracle Database Cloud Service: Go to the
+                                  Oracle Help Center for Cloud, and select
+                                  Platform and Infrastructure. From here, select
+                                  your Database Cloud Service and the Get
+                                  Started page will appear. </li>
+                                <li>Logging in to Oracle Application Express
+                                  on-premises: From your browser, go to the
+                                  location of your on-premises installation of
+                                  your Oracle Application Express workspace
+                                  provided by your Workspace Administrator.</li>
+                              </ul>
+                            </li>
+                            <li><strong>Application ID:</strong> Screenshots in
+                              this tutorial show a blurred Application ID. Your
+                              Application ID can be any value assigned
+                              automatically while creating the application.</li>
+                            <li><strong>Schema:</strong> If you are accessing an
+                              Oracle Application Express workspace in Database
+                              Schema Service,&nbsp; you have one schema assigned
+                              to you with a schema name that you cannot change.
+                              If you are accessing the workspace in an
+                              on-premises Oracle database, you may have more
+                              than one schema assigned to your workspace by the
+                              Oracle Application Express Instance Administrator.</li>
+                          </ul>
+                          </div>
+                          <h4>What Do You Need?</h4>
+                          <p class="oll-only"> Before starting this tutorial, you should:</p>
+                          <ul>
+                            <li class="oll-only">Have access to an Oracle Database 11.2.x.x or
+                              later release, <span style="color: rgb(34, 34, 34); font-family: &quot;Helvetica Neue&quot;, &quot;Neue Helvetica&quot;, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">including
+                                Enterprise Edition and Express Edition (Oracle
+                                Database XE), </span>either on-premises or in a
+                              Database Cloud Service.</li>
+                            <li class="oll-only">Install Oracle Application Express Release 5.1
+                              into your Oracle Database with RESTful Services
+                              configured in Oracle Application Express (for
+                              on-premises only).</li>
+                            <li class="oll-only">Download and unzip the <a href="files/files.zip">files.zip</a>
+                              into your working directory.</li>
+                            <li class="oll-only">Execute <strong>Create_Employees.sql</strong> from
+                              the extracted files, to create required database
+                              objects.</li>
+                            <li class="vm-only">
+                                <p>All files for this hands-on activity are located in the <code>Home/Desktop/APEX_Track/files</code> folder.</p>
+                            </li>
+                            <li class="vm-only"><p>The following files are used in this hands-on activity:</p>
+                                <ul>
+                                    <li><p><strong>APEX_ACL.sql</strong></p></li>
+                                    <li><p><strong>Create_Employees.sql</strong></p></li>                                    
+                                </ul>
+                            </li>
+                            <li class="vm-only"><p>Execute <strong>Create_Employees.sql</strong> from
+                              the files folder, to create required database
+                              objects.</p></li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a RESTful Web Service</h2>
+                        <div>
+                          <p>In this topic, you create a RESTful Web Service
+                            using RESTful Services tool in SQL Workshop. The
+                            RESTful Web Service Wizard is a set of pages in SQL
+                            Workshop that help you to create a new RESTful Web
+                            Service declaratively. The RESTful Web Service calls
+                            a specific SQL statement in your database.</p>
+                          <section>
+                            <h3>Creating a RESTful Web Service with GET and PUT
+                              Resource Handlers</h3>
+                            <div>
+                              <p>To create a RESTful Web Service on the
+                                Employees table with sample GET and PUT service
+                                handlers, perform the below steps:</p>
+                              <ol>
+                                <li class="vm-only">
+                                  <p>In the Application Express login page,
+                                    enter the following login credentials and
+                                    click <strong>Sign In:</strong></p>
+                                  <ul>
+                                    <li>
+                                      <p><strong>Workspace:</strong> obe</p>
+                                    </li>
+                                    <li>
+                                      <p><strong>Username:</strong> obe</p>
+                                    </li>
+                                    <li>
+                                      <p><strong>Password:</strong> oracle</p>
+                                    </li>
+                                  </ul>
+                                  <figure> <img alt="Login page" src="images/vm_only.jpg"
+
+                                      style="border:1px solid gray" class="ScreenShot">
+                                    <figcaption><a href="files/vm_only.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>&nbsp;From the Oracle Application Express
+                                    Home page, select the <strong>SQL Workshop</strong>
+                                    tab and select <strong>RESTful Services</strong>.</p>
+                                  <figure> <img alt="Oracle Application Express Home page"
+
+                                      src="images/creating_REST_01_01_01.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_01.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>From the RESTful Services page, select
+                                    the&nbsp;<strong>Create a New RESTful
+                                      Service </strong>option.</p>
+                                  <figure> <img alt="Creating a new RESTful service"
+
+                                      src="images/creating_REST_01_01_02.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_02.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>A page loads with entries grouped under
+                                    three different categories named RESTful
+                                    Services Module, Resource Template, and
+                                    Resource Handler. Under RESTful Services
+                                    Module, enter <span style="font-style: italic;">employees
+                                      </span>for Name, and scroll down further.</p>
+                                  <figure> <img alt="RESTful services module section"
+
+                                      src="images/creating_REST_01_01_03.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_03.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Under Resource Template, enter <span style="font-style: italic;">employees/</span>
+                                    for URI Template to identify your Uniform
+                                    Resource Identifier (URI), and scroll down
+                                    further.</p>
+                                  <figure> <img alt="Resource Template section"
+
+                                      src="images/creating_REST_01_01_04.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_04.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Under Resource Handler, select <strong>GET
+                                    </strong>for Method, <strong>Query </strong>for
+                                    Source Type, <strong>CSV</strong> for
+                                    Format. This identifies the HTTP method to
+                                    be used for the Resource Handler.<br>
+                                    Enter the following SQL query for Source,
+                                    and click <strong>Create Module</strong>.<br>
+                                    <br>
+                                    <code style="font-style: italic;"> select *
+                                      from employees</code></p>
+                                  <figure> <img alt="Resource Handler section"
+
+                                      src="images/creating_REST_01_01_05.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_05.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>The GET Handler is created under
+                                    employees/. To edit its properties, click <strong>GET</strong>
+                                    under employees/.</p>
+                                  <figure> <img alt="The GET Handler created under employees/"
+
+                                      src="images/creating_REST_01_01_06.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_06.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select <strong>No</strong> for Requires
+                                    Secure Access, and click <strong>Apply
+                                      Changes</strong>.</p>
+                                  <figure> <img alt="Selecting No for Requires Secure Access"
+
+                                      src="images/creating_REST_01_01_07.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_07.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>To test the behavior of the RESTful Service
+                                    Handler, click <strong>Test</strong>.<br>
+                                    <br>
+                                    <strong>Note:</strong> If your screen does
+                                    not show a Test button, please ensure that
+                                    RESTful Services are configured in your
+                                    Oracle Application Express installation
+                                    properly. </p>
+                                  <figure> <img alt="Testing the behavior of the RESTful Service Handler"
+
+                                      src="images/creating_REST_01_01_08.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_08.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>You are prompted to save the file which you
+                                    can then view using a CSV editor. </p>
+                                  <figure> <img alt="Saving the file" src="images/creating_REST_01_01_09.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_01_09.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>The CSV format result set is displayed.</p>
+                                  <figure> <img alt="The saved file in CSV format"
+
+                                      src="images/creating_REST_01_01_10.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_10.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Let us now create a Handler for the POST
+                                    method in the same Web Service. Click<strong>
+                                      Create Handler</strong> under employees/.</p>
+                                  <figure> <img alt=" creating a Handler for the POST method "
+
+                                      src="images/creating_REST_01_01_11.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_11.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select <strong>POST</strong> for Method
+                                    and<strong> PL/SQL</strong> for Source Type.
+                                    Enter <span style="font-style: italic;">application/json</span>
+                                    for MIME Types Allowed. Select <strong>No</strong>
+                                    for Requires Secure Access. Enter the
+                                    following PL/SQL code for Source, and click
+                                    <strong>Create</strong>.<br>
+                                    <br>
+                                    <code style="font-style: italic;">declare<br>
+                                      &nbsp; id employees.employee_id%TYPE; <br>
+                                      begin <br>
+                                      &nbsp; id := employees_seq.nextval; <br>
+                                      <br>
+                                      &nbsp; insert into employees <br>
+                                      &nbsp; (employee_id,first_name, last_name,
+                                      email, hire_date, job_id) <br>
+                                      &nbsp; values <br>
+                                      &nbsp; (id, :first_name, :last_name,
+                                      :email, to_date(:hire_date, 'DD-MM-YYYY'),
+                                      <br>
+                                      &nbsp; :job_id); <br>
+                                      <br>
+                                      &nbsp; :employee_id := id; <br>
+                                      end;</code><br>
+                                  </p>
+                                  <figure> <img alt="Entering parameters to the POST method"
+
+                                      src="images/creating_REST_01_01_12.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_12.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Scroll down the page, and click <strong>Create
+                                      Parameter</strong> to add an OUT parameter
+                                    to the handler that will return the newly
+                                    created employee’s ID.</p>
+                                  <figure> <img alt="Adding an OUT parameter" src="images/creating_REST_01_01_13.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_01_13.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">employee_id</span>
+                                    for Name and Bind Variable Name. Select <strong>OUT</strong>
+                                    for Access Method, <strong>HTTP Header</strong>
+                                    for Source Type, <strong>String</strong>
+                                    for Parameter Type, and click <strong>Create</strong>.</p>
+                                  <figure> <img alt="Entering parametes for the OUT parameter"
+
+                                      src="images/creating_REST_01_01_14.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_14.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>The OUT parameter is created. </p>
+                                  <figure> <img alt="The OUT parameter is created"
+
+                                      src="images/creating_REST_01_01_15.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_01_15.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Click <strong>Create Parameter</strong>
+                                    again to add the following IN parameters to
+                                    the handler.</p>
+                                  <table style="width: 599px; height: 84px;" border="1">
+                                    <tbody>
+                                      <tr>
+                                        <td>Name</td>
+                                        <td>Bind Variable Name</td>
+                                        <td>Access Method</td>
+                                        <td>Parameter Type</td>
+                                      </tr>
+                                      <tr>
+                                        <td><span style="font-style: italic;">first_name<br>
+                                          </span></td>
+                                        <td><span style="font-style: italic;">first_name</span></td>
+                                        <td><span style="font-style: italic;">IN<br>
+                                          </span></td>
+                                        <td><em><span style="font-weight: bold;">String<br>
+                                            </span></em></td>
+                                      </tr>
+                                      <tr>
+                                        <td><em>email<br>
+                                          </em></td>
+                                        <td><em>email<br>
+                                          </em></td>
+                                        <td><em>IN<br>
+                                          </em></td>
+                                        <td><em>String<br>
+                                          </em></td>
+                                      </tr>
+                                      <tr>
+                                        <td><span style="font-style: italic;">last_name</span></td>
+                                        <td><span style="font-style: italic;">last_name</span></td>
+                                        <td><span style="font-style: italic;">IN</span></td>
+                                        <td><em>String<br>
+                                          </em></td>
+                                      </tr>
+                                      <tr>
+                                        <td><span style="font-style: italic;">hire_date<br>
+                                          </span></td>
+                                        <td><span style="font-style: italic;">hire_date</span></td>
+                                        <td><span style="font-style: italic;">IN<br>
+                                          </span></td>
+                                        <td><em><span style="font-weight: bold;">String</span></em></td>
+                                      </tr>
+                                      <tr>
+                                        <td><span style="font-style: italic;">job_id<br>
+                                          </span></td>
+                                        <td><span style="font-style: italic;">job_id</span></td>
+                                        <td><span style="font-style: italic;">IN<br>
+                                          </span></td>
+                                        <td><em><span style="font-weight: bold;">String</span></em></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <figure> <img alt="Adding IN parameters" src="images/creating_REST_01_01_16.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_01_16.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                  <p>In the next section, you create a new
+                                    template to retrieve JSON result set based
+                                    on Query One Row with a bind variable.</p>
+                                </li>
+                              </ol>
+                            </div>
+                          </section>
+                          <section>
+                            <h3>Creating a Resource Handler with Query One Row</h3>
+                            <div>
+                              <p>In this section, you will create a RESTful
+                                Service that provides detailed information of an
+                                employee, given the employee id. The result is
+                                returned in JSON format. Perform the following
+                                steps:</p>
+                              <ol>
+                                <li>
+                                  <p>Click <strong>Create Template</strong>.</p>
+                                  <figure> <img alt="Clicking Create Template"
+
+                                      src="images/creating_REST_01_02_01.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_01.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">employees/{id}</span>
+                                    for URI Template, and click <strong>Create</strong>.</p>
+                                  <figure> <img alt="Entering employees/{id} for URI Template"
+
+                                      src="images/creating_REST_01_02_02.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_02.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Click <strong>Create Handler</strong>
+                                    under employees/{id}.</p>
+                                  <figure> <img alt="Selecting Create Handler"
+
+                                      src="images/creating_REST_01_02_03.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_03.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select <span style="font-weight: bold;">GET
+                                      </span>for Method, <span style="font-weight: bold;">Query
+                                      One Row</span> for Source Type, and <span
+
+                                      style="font-weight: bold;">No </span>for
+                                    Requires Secure Access.<br>
+                                    Enter the following SQL Query for Source,
+                                    and click <span style="font-weight: bold;">Create</span>.<br>
+                                    <br>
+                                    <code style="font-style: italic;">select *
+                                      from employees where employee_id = :id</code></p>
+                                  <figure> <img alt="Entering attributes of the GET handler"
+
+                                      src="images/creating_REST_01_02_04.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_04.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Scroll down and click <strong>Create
+                                      Parameter</strong>.</p>
+                                  <figure> <img alt="Clicking Create Parameter"
+
+                                      src="images/creating_REST_01_02_05.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_05.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">id</span>
+                                    for Name and Bind Variable Name. Select<strong>
+                                      IN</strong> for Access Method,<strong>
+                                      HTTP Header</strong> for Source Type, <strong>String</strong>
+                                    for Parameter Type, and click <strong>Create</strong>.</p>
+                                  <figure> <img alt="Creating the GET handler"
+
+                                      src="images/creating_REST_01_02_06.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_06.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>You want to change the Source Type. Under
+                                    Parameters, click the <span style="font-weight: bold;">id
+                                      </span>link under Name.</p>
+                                  <figure> <img alt="Changing source type" src="images/creating_REST_01_02_07.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_02_07.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select<strong> URI</strong> for Source
+                                    Type, and click <strong>Apply Changes</strong>.</p>
+                                  <figure> <img alt="Selecting URI for Source type"
+
+                                      src="images/creating_REST_01_02_08.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_08.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Before testing this handler, you have to
+                                    set a bind variable to pass a value for the
+                                    input parameter(id). Click <strong>Set Bind
+                                      Variables &gt;</strong>.</p>
+                                  <figure> <img alt="Setting a bind variable" src="images/creating_REST_01_02_09.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_02_09.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">103
+                                      </span>for :ID, and click <strong>Test</strong>.</p>
+                                  <figure> <img alt="ENtering 103 for ID" src="images/creating_REST_01_02_10.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_02_10.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Complete details of the employee with
+                                    employee_id = 103 is displayed.</p>
+                                  <figure> <img alt="Viweing details of employee 103"
+
+                                      src="images/creating_REST_01_02_11.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_02_11.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                              </ol>
+                            </div>
+                          </section>
+                          <section>
+                            <h3>Creating a Resource Handler with Employees Feed
+                            </h3>
+                            <div>
+                              <p>In this section, you will be creating a RESTful
+                                service of a feed source type. The feed results
+                                are rendered in JSON format. Each item in the
+                                feed contains a summary of a resource and a
+                                hyperlink to a full representation of the
+                                resource. Perform the below steps:</p>
+                              <ol>
+                                <li>
+                                  <p>Click <strong>Create Template</strong>.</p>
+                                  <figure> <img alt="Clicking Create Template"
+
+                                      src="images/creating_REST_01_03_01.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_03_01.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">employeesfeed/</span>
+                                    for URI Template, and click<strong> Create</strong>.</p>
+                                  <figure> <img alt="Entering employeesfeed/ for URI Template"
+
+                                      src="images/creating_REST_01_03_02.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_03_02.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Under employeesfeed/, click <strong>Create
+                                      Handler</strong>.</p>
+                                  <figure> <img alt="Clicking Create Handler" src="images/creating_REST_01_03_03.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_03_03.txt">Description
+                                        of this image<br>
+                                      </a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select <strong>GET</strong> for Method,<strong>
+                                      Feed</strong> for Source Type, and <strong>No</strong>
+                                    for Requires Secure Access. Under Source,
+                                    enter the following SQL query, and click <strong>Create</strong>.<br>
+                                    <span style="font-style: italic;"><br>
+                                      <code>select employee_id, first_name <br>
+                                        from employees <br>
+                                        order by employee_id, first_name</code></span></p>
+                                  <figure> <img alt="Entering attributes of the handler"
+
+                                      src="images/creating_REST_01_03_04.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_03_04.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Under <code>employeesfeed/</code>, click <strong>
+                                      GET</strong> to open the Resource Handler
+                                    Editor.</p>
+                                  <figure> <img alt="Opening resource handler editor"
+
+                                      src="images/creating_REST_01_03_05.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_03_05.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Scroll down the page, and click <strong>Test</strong>.</p>
+                                  <figure> <img alt="Clicking Test" src="images/creating_REST_01_03_06.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_03_06.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>The results are rendered in JSON format.
+                                    Each item consists of a URI which contains
+                                    the base URI from this RESTful Service, and
+                                    the value of employee_id used as the
+                                    parameter. For the Feed source type, the
+                                    first column must be a unique identifier. It
+                                    will be transformed into a hyperlink when
+                                    this RESTful Service is called. <br>
+                                    In this example, employee_id is the first
+                                    column and will turn into a hyperlink. <br>
+                                    <br>
+                                    For example, in the screenshot shown below,
+                                    the URI for an employee with <code>employee_id
+                                      = 100</code> is <code>https://:<code class="blurryText">&lt;hostname&gt;</code>:&lt;port&gt;/ords/hr/employeesfeed/100<br>
+                                      <br>
+                                    </code><strong>Note: </strong>The URI shown
+                                    in this example is specific to the database
+                                    On-Premise subscription used for executing
+                                    this tutorial, and it might be different for
+                                    you. The value of the URI also depends on
+                                    whether you are performing this tutorial
+                                    On-Premises or on a Cloud Service. In
+                                    general, the URI formats are as follows:</p>
+                                  <table style="width: 960px;" border="1">
+                                    <tbody>
+                                      <tr>
+                                        <td class="oll-only">On-Premises</td>
+                                        <td>http://localhost:<em>&lt;Port where
+                                            ords is set up&gt;</em>/ords/<em>&lt;schema
+                                            name&gt;</em>/<em>&lt;Resource
+                                            Template Name&gt;</em>/<em>&lt;employee_id&gt;</em><br>
+                                          <br>
+                                          For example: <code>http://localhost:9090/ords/hr/employeesfeed/100</code>
+                                          <br>
+                                          where ords is set up on port <em>9090
+                                          </em>during Oracle APEX installation,
+                                          <em>hr </em>is the schema name, <em>employeesfeed
+                                            </em>is the Resource Template name,
+                                          and <em>100 </em>is the employee_id.</td>
+                                      </tr>
+                                      <tr class="oll-only">
+                                        <td>On a Cloud Service</td>
+                                        <td><em>&lt;Service URL as received in
+                                            the Welcome email from Oracle
+                                            Cloud&gt;</em>/<em>&lt;Resource
+                                            Template Name&gt;</em>/<em>&lt;employee_id&gt;</em><br>
+                                          <br>
+                                          For example: <code>https://databasetrial:<code
+
+                                              class="blurryText">&lt;user&gt;</code>.db.us2.oraclecloudapps.com/hr/employeesfeed/100
+                                            <br></code>where <code>https://databasetrial:<code
+
+                                              class="blurryText">&lt;user&gt;</code>.db.us2.oraclecloudapps.com/hr/</code>
+                                          is the Service URL for the cloud
+                                          service subscription, <em>employeesfeed
+                                            </em>is the Resource Template name,
+                                          and <em>100 </em>is the employee_id.</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <figure> <img alt="Results rendered in JSON Format"
+
+                                      src="images/creating_REST_01_03_07.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_03_07.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select the URI for one of the employee_ids,
+                                    and copy it to clipboard.</p>
+                                  <figure> <img alt="Copying URI for one of the employee_ids"
+
+                                      src="images/creating_REST_01_03_08.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_03_08.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Open a browser, paste the copied URI, and
+                                    press Enter. Notice that the details of that
+                                    particular employee are returned as a JSON
+                                    result set.</p>
+                                  <figure> <img alt="Pasting the copied URI" src="images/creating_REST_01_03_09.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_03_09.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                              </ol>
+                            </div>
+                          </section>
+                          <section>
+                            <h3>Creating a Resource Handler with Employees Feed
+                              for a Given Department</h3>
+                            <div>
+                              <p>In this section, you will be creating a RESTful
+                                service of a feed source type given the
+                                Department ID. The feed results are rendered as
+                                JSON. Perform the below steps:</p>
+                              <ol>
+                                <li>
+                                  <p>Click <strong>Create Template</strong>.</p>
+                                  <figure> <img alt="Clicking Create Template"
+
+                                      src="images/creating_REST_01_04_01.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_04_01.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">employeesfeed/{id},
+                                      </span>and click <strong>Create</strong>.</p>
+                                  <figure> <img alt="Entering employeesfeed/{id for URI Template"
+
+                                      src="images/creating_REST_01_04_02.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_04_02.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Under employeesfeed/{id}, click <strong>Create
+                                      Handler</strong>.</p>
+                                  <figure> <img alt="Clicking Create Handler" src="images/creating_REST_01_04_03.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_04_03.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Select <strong>Get </strong>for Method, <strong>Feed
+                                      </strong>for Source Type, and <strong>No</strong>
+                                    for Requires Secure Access. Under Source,
+                                    enter the following SQL query, and click <strong>Create</strong>.<br>
+                                    <br>
+                                    <code style="font-style: italic;">select
+                                      employee_id, first_name <br>
+                                      from employees <br>
+                                      where department_id = :id</code></p>
+                                  <figure> <img alt="Selecting GET method" src="images/creating_REST_01_04_04.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_04_04.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Scroll down further, and click <strong>Create
+                                      Parameter &gt;</strong> to add an IN
+                                    parameter to the handler that will receive
+                                    the department_id.</p>
+                                  <figure> <img alt="Creating a parameter" src="images/creating_REST_01_04_05.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_04_05.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>Enter <span style="font-style: italic;">id
+                                    </span>for Name and Bind Variable Name.
+                                    Select <strong>IN</strong> for Access
+                                    Method,<strong> HTTP Header</strong> for
+                                    Source Type,&nbsp;<strong>String</strong>
+                                    for Parameter Type, and click <strong>Create</strong>.</p>
+                                  <figure> <img alt="Entering attributes of the parameter"
+
+                                      src="images/creating_REST_01_04_06.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_04_06.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p>You want to change the Source Type. Under
+                                    Parameters, click the <strong>id </strong>link
+                                    under Name.</p>
+                                  <figure> <img alt="Changing source type" src="images/creating_REST_01_04_07.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_04_07.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">Select<span
+
+                                        class="Apple-converted-space">&nbsp;</span></span><span
+
+                                      style="box-sizing: border-box; font-size: 14.0252px; font-weight: bold; color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">URI<span
+
+                                        class="Apple-converted-space">&nbsp;</span></span><span
+
+                                      style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">for
+                                      Source Type, and click<span class="Apple-converted-space">&nbsp;</span></span><span
+
+                                      style="box-sizing: border-box; font-size: 14.0252px; font-weight: bold; color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">Apply
+                                      Changes</span><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">.</span></p>
+                                  <figure> <img alt="Selecting URI for source type"
+
+                                      src="images/creating_REST_01_04_08.png" class="ScreenShot"
+
+                                      style="border:1px solid gray"> <figcaption><a
+
+                                        href="files/creating_REST_01_04_08.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">Before
+                                      testing this handler, you have to set bind
+                                      variable to pass a value for the input
+                                      parameter, id. Click<span class="Apple-converted-space">&nbsp;</span></span><span
+
+                                      style="box-sizing: border-box; font-size: 14.0252px; font-weight: bold; color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">Set
+                                      Bind Variables &gt;</span><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">.</span></p>
+                                  <figure> <img alt="Setting bind variable " src="images/creating_REST_01_04_09.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_04_09.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p><span style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">Enter<span
+
+                                        class="Apple-converted-space"> <em>60 </em></span></span><span
+
+                                      style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">for
+                                      :ID, and click<span class="Apple-converted-space">&nbsp;</span></span><span
+
+                                      style="box-sizing: border-box; font-size: 14.0252px; font-weight: bold; color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">Test</span><span
+
+                                      style="color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-size: 14.0238px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19.6334px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">.</span></p>
+                                  <figure> <img alt="ENtering 60 for ID" src="images/creating_REST_01_04_10.png"
+
+                                      class="ScreenShot" style="border:1px solid gray">
+                                    <figcaption><a href="files/creating_REST_01_04_10.txt">Description
+                                        of this image</a></figcaption> </figure>
+                                </li>
+                                <li>
+                                  <p style="box-sizing: border-box; font-size: 14.0238px; margin: 0.4em 0px; line-height: 1.4; padding-top: 0.4em; padding-bottom: 0.4em; color: rgb(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">The
+                                    results are rendered in JSON format. Each
+                                    item consists of a URI which contains the
+                                    base URI from this RESTful Service, and the
+                                    value of department_id used as the
+                                    parameter. For the Feed source type, the
+                                    first column must be unique identifier and
+                                    will be transformed into a hyperlink when
+                                    this RESTful Service is called.<span class="Apple-converted-space">&nbsp;</span><br
+
+                                      style="box-sizing: border-box; font-size: 14.0252px;">
+                                    In this example, <code>department_id</code>
+                                    is the first column and will turn into a
+                                    hyperlink.<span class="Apple-converted-space">&nbsp;</span><br
+
+                                      style="box-sizing: border-box; font-size: 14.0252px;">
+                                    <br style="box-sizing: border-box; font-size: 14.0252px;">
+                                    For example, in the screenshot shown below,
+                                    the URI for an employee with department_id =
+                                    60 is&nbsp;<code>http://<code class="blurryText">&lt;hostname&gt;</code>:&lt;port&gt;/ords/hr/employeesfeed/60?page=1</code>
+                                    where page=1 indicates that these results
+                                    are part of page 1. If there are many
+                                    records in the result set, the results can
+                                    span across page 2 and so on.<code><span style="box-sizing: border-box; font-size: 13px; font-family: menlo, monaco, 'Courier New', Courier, mono, serif; padding: 3px; color: rgb(0, 0, 0); border-radius: 4px; line-height: 1.615; background-color: transparent;"><br
+
+                                          style="box-sizing: border-box; font-size: 13.0013px;">
+                                      </span></code><br style="box-sizing: border-box; font-size: 13.0013px;">
+                                    <strong>Note:&nbsp;</strong>The URI shown in
+                                    this example is specific to the database
+                                    On-Premise service subscription used for
+                                    executing this tutorial, and it might be
+                                    different for you. The value of the URI also
+                                    depends on whether you are performing this
+                                    tutorial On-Premises or on a Cloud Service.
+                                    In general, the URI formats are as follows:</p>
+                                  <table style="box-sizing: border-box; font-size: 14.0238px; border-collapse: collapse; border-spacing: 0px; margin-bottom: b(0, 0, 0); font-family: 'Helvetica Neue', Helvetica, 'Open Sans', arial, sans-serif; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; width: 960px; background-color: rgb(255, 255, 215px; max-width: 100%; color: rg55);"
+
+                                    border="1">
+                                    <tbody style="box-sizing: border-box; font-size: 14.0252px;">
+                                      <tr style="box-sizing: border-box; font-size: 14.0266px; vertical-align: top; padding: 8px 6px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(63, 63, 63);">
+                                        <td style="box-sizing: border-box; font-size: 14.028px; padding: 5px 6px; text-align: left; word-wrap: break-word;" class="oll-only">On-Premises</td>
+                                        <td style="box-sizing: border-box; font-size: 14.028px; padding: 5px 6px; text-align: left; word-wrap: break-word;">http://localhost:<span
+
+                                            style="font-style: italic;">&lt;Port
+                                            where ords is set up&gt;</span>/ords/<span
+
+                                            style="font-style: italic;">&lt;schema
+                                            name&gt;</span>/<span style="font-style: italic;">&lt;Resource
+                                            Template Name&gt;</span>/<span style="font-style: italic;">&lt;department_id&gt;</span>?page=1<br
+
+                                            style="box-sizing: border-box; font-size: 14.0294px;">
+                                          <br style="box-sizing: border-box; font-size: 14.0294px;">
+                                          For example:&nbsp;<code>http://localhost:9090/ords/hr/employeesfeed/60?page=1</code><br
+
+                                            style="box-sizing: border-box; font-size: 14.0294px;">
+                                          where ords is set up on port&nbsp;<code>9090&nbsp;</code>during
+                                          Oracle APEX installation, <code>hr</code>
+                                          is the schema name,&nbsp;<code>employeesfeed</code>
+                                          is the Resource Template name and <code>
+                                            60 </code>is the department_id.</td>
+                                      </tr>
+                                      <tr class="oll-only" style="box-sizing: border-box; font-size: 14.0266px; vertical-align: top; padding: 8px 6px; border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: rgb(63, 63, 63);">
+                                        <td style="box-sizing: border-box; font-size: 14.028px; padding: 5px 6px; text-align: left; word-wrap: break-word;">On
+                                          a Cloud Service</td>
+                                        <td style="box-sizing: border-box; font-size: 14.028px; padding: 5px 6px; text-align: left; word-wrap: break-word;"><span
+
+                                            style="font-style: italic;">&lt;Service
+                                            URL as received in the Welcome email
+                                            from Oracle Cloud&gt;</span>/<span style="font-style: italic;">&lt;Resource
+                                            Template Name&gt;</span>/<span style="font-style: italic;">&lt;department_id&gt;</span>?page=1<br
+
+                                            style="box-sizing: border-box; font-size: 14.0294px;">
+                                          <br style="box-sizing: border-box; font-size: 14.0294px;">
+                                          For example:&nbsp;<code>https://databasetrial:&lt;user&gt;.db.us2.oraclecloudapps.com/hr/employeesfeed/60?page=1<br
+
+                                              style="box-sizing: border-box; font-size: 13.0013px;">
+                                            where&nbsp;<code>https://databasetrial:<code
+
+                                                class="blurryText">&lt;user&gt;</code>.db.us2.oraclecloudapps.com/hr</code>/</code>&nbsp;is
+                                          the Service URL for the cloud service
+                                          subscription,<code> <code>employeesfeed</code></code>
+                                          is the Resource Template name, and <code><code>60</code>
+                                          </code>is the department_id.</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <figure><img alt="The result in JSON format" src="images/creating_REST_01_04_11.png"
+
+                                      class="ScreenShot" style="border:1px solid gray"><figcaption>
+                                      <a href="files/creating_REST_01_04_11.txt">Description
+                                        of this image</a> </figcaption></figure>
+                                </li>
+                              </ol>
+                            </div>
+                          </section>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Creating a RESTful Web Service Reference in Oracle
+                          Application Express</h2>
+                        <div>
+                          <p>In this topic, you consume the RESTful Web Service
+                            in Oracle Application Express by creating a database
+                            application and by creating a Web Service Reference
+                            in the application. You create a form and report
+                            page that uses the web service.</p>
+                          <p class="oll-only"><strong>Note: </strong>If you are executing this
+                            tutorial On-Premises, make sure you have granted the
+                            connect privileges by executing the <strong>APEX_ACL.sql</strong>
+                            script from the <a target="_blank" href="files/files.zip">files.zip</a>
+                            folder that you had downloaded and unzipped in the
+                            Prerequisites section of this tutorial.<br>
+                          </p>
+                          <p class="vm-only"><strong>Note: </strong>Make sure you have granted the
+                            connect privileges by executing the <strong>APEX_ACL.sql</strong>
+                            script from the files
+                            folder.<br>
+                          </p>
+                          <ol>
+                            <li>
+                              <p>From the Oracle Application Express home page,
+                                click the down arrow next to App Builder, and
+                                select <strong>Database Applications</strong>.
+                              </p>
+                              <figure> <img alt="Selecting Databse Applications"
+
+                                  src="images/creating_REST_02_01.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Create icon</strong>.</p>
+                              <figure> <img alt="Clicking the Create icon" src="images/creating_REST_02_02.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img alt="Navigating to the next page" src="images/creating_REST_02_03.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <em>RESTful Web Services Demo </em>for
+                                Name, and click<strong> Next &gt;</strong>.</p>
+                              <figure> <img alt="Entering RESTful Web Services Demo for Name"
+
+                                  src="images/creating_REST_02_04.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="Clicking Next to navigate to the next screen"
+
+                                  src="images/creating_REST_02_05.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img src="images/creating_REST_02_06.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>Application Express Accounts</strong>
+                                for Authentication Scheme, and click <strong>Next
+                                  &gt;</strong>.</p>
+                              <figure> <img alt="Selecting Application Express Accounts for Authentication Scheme"
+
+                                  src="images/creating_REST_02_07.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create Application</strong>.</p>
+                              <figure> <img alt="Clicking Create Application" src="images/creating_REST_02_08.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The application is created. Click <strong>Shared
+                                  Components</strong>.</p>
+                              <figure> <img alt="Clicking Shared Components" src="images/creating_REST_02_09.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_09.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Data References, click <strong>Web
+                                  Service References</strong>.</p>
+                              <figure> <img alt="Clicking Web Service References."
+
+                                  src="images/creating_REST_02_10.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_10.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create &gt;</strong>.</p>
+                              <figure> <img alt="Clicking Create &gt;" src="images/creating_REST_02_11.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_11.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>REST</strong> for What type of
+                                Web reference would you like to create, and
+                                click<strong> Next &gt;</strong>.</p>
+                              <figure> <img alt="Selecting REST for the type of web reference"
+
+                                  src="images/creating_REST_02_12.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_12.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <em>employees</em> for Name. Select <strong>GET</strong>
+                                for HTTP Method and <em>No</em> for Basic
+                                Authentication. For the URL, enter the Web
+                                Reference URI for the GET Service Handler which
+                                was created in the first section of this
+                                tutorial.<br>
+                                <br>
+                                As explained in the below table, your URI
+                                depends on the location of your Oracle
+                                Application Express instance, whether
+                                On-Premises or on a Database Cloud Service.<span><code></code></span></p>
+                              <table style="width: 960px; height: 292px;" border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>On-Premises</td>
+                                    <td>http://localhost:<em>&lt;Port where ords
+                                        is set up&gt;</em>/ords/<em>&lt;schema
+                                        name&gt;</em>/<em>&lt;Resource Template
+                                        Name&gt;</em>/<br>
+                                      <br>
+                                      For example: <code>http://localhost:9090/ords/hr/employees/</code><br>
+                                      where ords is set up on port <em>9090 </em>during
+                                      Oracle APEX installation, <em>hr </em>is
+                                      the schema name, <em>employees </em>is
+                                      the Resource Template name.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>On a Cloud Service</td>
+                                    <td><em>&lt;Service URL as received in the
+                                        Welcome email from Oracle Cloud&gt;</em>/<em>&lt;Resource
+                                        Template Name&gt;</em>/<br>
+                                      <br>
+                                      For example: <code>https://databasetrial:<code
+
+                                          class="blurryText">&lt;user&gt;</code>.db.us2.oraclecloudapps.com/hr/employees/<br>
+                                      </code>where <code>https: databasetrial:<code=""
+
+                                          class="blurryText">&lt;user&gt;.db.us2.oraclecloudapps.com/hr/</code=""></code>
+                                      is the Service URL for the cloud service
+                                      subscription and <em>employees </em>is
+                                      the Resource Template name.</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              This RESTful Web Service does not require an HTTP
+                              Header parameter. So, scroll down and click the <strong>Delete
+                                Header</strong> icon. <br>
+                              <br>
+                              <figure><img alt="Clicking delete header" src="images/creating_REST_02_13.png"
+
+                                  class="ScreenShot" style="border:1px solid gray"><br>
+                                <figcaption><a href="files/creating_REST_02_13.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="navigating to the next screen"
+
+                                  src="images/creating_REST_02_14.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_14.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>There are no parameters defined for the GET
+                                Service Handier. So, click the <strong>Delete
+                                  Parameter</strong> icon for Input Parameters.</p>
+                              <figure> <img alt="Clicking the Delete Parameter icon for Input Parameters."
+
+                                  src="images/creating_REST_02_15.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_15.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="Navigating to hte next screen"
+
+                                  src="images/creating_REST_02_16.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_16.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Now, you have to define the REST Outputs.
+                                Select <strong>Text </strong>for Output Format<em>.
+                                </em>Enter<em> comma </em>for Parameter
+                                Delimiter, and <em>\n</em> for New Record
+                                Delimiter. <br>
+                                Under Output Parameters, enter <em>Employee ID</em>
+                                for Name<em> </em>and<em> 1</em> for Path.
+                                Select <strong>String</strong> for Type, and
+                                click <strong>Add Parameter</strong>.</p>
+                              <figure> <img alt="Clicking Add Parameter" src="images/creating_REST_02_17.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_17.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Similarly, add the following Output Parameters,
+                                and click <span style="font-weight: bold;">Create</span>.</p>
+                              <table style="width: 599px; height: 84px;" border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>Name</td>
+                                    <td>Path</td>
+                                    <td>Type</td>
+                                  </tr>
+                                  <tr>
+                                    <td><span style="font-style: italic;">Name<br>
+                                      </span></td>
+                                    <td><span style="font-style: italic;">2<br>
+                                      </span></td>
+                                    <td><span style="font-weight: bold;">String<br>
+                                      </span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><span style="font-style: italic;">Hire
+                                        Date<br>
+                                      </span></td>
+                                    <td><span style="font-style: italic;">6<br>
+                                      </span></td>
+                                    <td><span style="font-weight: bold;">String</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td><span style="font-style: italic;">Job Id<br>
+                                      </span></td>
+                                    <td><span style="font-style: italic;">7<br>
+                                      </span></td>
+                                    <td><span style="font-weight: bold;">String</span></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <figure> <img alt="Adding output parameters" src="images/creating_REST_02_18.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_18.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <span style="font-weight: bold;">View
+                                  Report</span> icon.</p>
+                              <figure> <img alt="Clicking the View Report icon"
+
+                                  src="images/creating_REST_02_19.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_19.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Test</strong> icon for
+                                employees.</p>
+                              <figure> <img alt="Clicking Test" src="images/creating_REST_02_20.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_20.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Employees' details is displayed in the Response
+                                section. Click <strong>Cancel</strong>.</p>
+                              <figure> <img alt="Employee details is displayed"
+
+                                  src="images/creating_REST_02_22.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_22.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Application&lt;n&gt; </strong>in
+                                the breadcrumb.</p>
+                              <figure> <img alt="Clicking Application&lt;n&gt; in the breadcrumb."
+
+                                  src="images/creating_REST_02_23.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_23.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create Page &gt;</strong>.</p>
+                              <figure> <img alt="Clicking Create Page &gt;." src="images/creating_REST_02_24.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_24.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Form</strong> icon.</p>
+                              <figure> <img alt="Clicking the Form icon" src="images/creating_REST_02_25.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_25.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click the <strong>Report and Form </strong>on
+                                Web Service icon.</p>
+                              <figure> <img alt="Clicking the Report and Form on Web Service icon"
+
+                                  src="images/creating_REST_02_26.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_26.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select <strong>employees</strong> for Web
+                                Service Reference, <strong>doREST</strong> for
+                                Operation, and click <strong>Next &gt;</strong>.<br>
+                                <br>
+                                <strong>Note: </strong>Employees appears in the
+                                select list for Web Service Reference because
+                                you added it under Web Service References in
+                                Shared Components.</p>
+                              <figure> <img alt="Selecting employees for Web Service Reference"
+
+                                  src="images/creating_REST_02_27.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_27.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="Navigating to the next screen"
+
+                                  src="images/creating_REST_02_28.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_28.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="Navigating to the next screen"
+
+                                  src="images/creating_REST_02_29.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_29.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select all four parameters, that is, <strong>employee
+                                  Id</strong>, <strong>Name</strong>, <strong>Hire
+                                  Date</strong>, and <strong>Job Id</strong>.
+                                Click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="Selecting  all four parameters and avigating to the next screen"
+
+                                  src="images/creating_REST_02_30.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_30.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Accept the default an click <strong>Next &gt;</strong>.</p>
+                              <figure> <img alt="Navigating to the next screen"
+
+                                  src="images/creating_REST_02_31.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_31.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click <strong>Create</strong>.</p>
+                              <figure> <img alt="Clicking Create" src="images/creating_REST_02_32.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_32.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The new page is created. Click <strong>Save
+                                  and Run Page</strong>.</p>
+                              <figure> <img alt="Clicking Save and Run Page." src="images/creating_REST_02_33.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_32.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter your Oracle Application Express
+                                credentials, and click<strong> Log In</strong>.</p>
+                              <figure> <img alt="Entering your Oracle Application Express credentials"
+
+                                  src="images/creating_REST_02_34.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_02_33.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Click<strong> Submit</strong>.</p>
+                              <figure> <img alt="Cliking Submit" src="images/creating_REST_02_35.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_34.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>The Web Service is executed, and the results
+                                displayed.</p>
+                              <figure> <img alt="Results displayed on screen" src="images/creating_REST_02_36.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_02_35.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Consuming the RESTful Web Service Created in Oracle
+                          Application Express Using a REST Client</h2>
+                        <div>
+                          <p>In this section, you consume the Web Service that
+                            you have created in Oracle Application Express,
+                            using a REST Client.</p>
+                          <p><strong>Note:</strong> For the purpose of this
+                            tutorial, we will be using the RESTClient add-on in
+                            Firefox to demonstrate how to consume the RESTful
+                            Web Service created in APEX. You can also use other
+                            REST Clients such as, REST Easy and RESTer to
+                            perform these steps in Firefox. If you are using
+                            Google Chrome, you can install add-ons such as
+                            Postman to perform the steps.</p>
+                          <ol>
+                            <li>
+                              <p>Open Firefox and install the <strong>RESTClient,
+                                  a debugger for RESTful web services</strong>
+                                add-on to your browser.</p>
+                              <figure> <img alt="Installing add-on" src="images/creating_REST_03_01.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_03_01.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Open the installed add-on in your browser.</p>
+                              <figure> <img alt="Opening the installed add-on"
+
+                                  src="images/creating_REST_03_02.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_03_02.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To fetch the details of an employee, select <strong>GET
+                                  </strong>as the Request Method. For the URL,
+                                enter the Web Reference URI for the GET Service
+                                Handler which was created in the first section
+                                of this tutorial.<br>
+                                <br>
+                                As explained in the below table, your URI
+                                depends on the location of your Oracle
+                                Application Express instance, whether
+                                On-Premises or on a Database Cloud Service. In
+                                this example, <span><code>https://:<code class="blurryText">&lt;hostname&gt;</code>:&lt;port&gt;/ords/hr/employees/employees
+                                    </code>is the URL used for the </span>On-Premise
+                                machine.</p>
+                              <table style="width: 960px; height: 292px;" border="1">
+                                <tbody>
+                                  <tr>
+                                    <td>On-Premises</td>
+                                    <td>http://localhost:<em>&lt;Port where ords
+                                        is set up&gt;</em>/ords/<em>&lt;schema
+                                        name&gt;</em>/<em>&lt;Resource Template
+                                        Name&gt;</em>/<span style="font-style: italic;">&lt;Resource
+                                        Handler&gt;</span><br>
+                                      <br>
+                                      For example: <code>http://localhost:9090/ords/hr/employees/employees</code><br>
+                                      where ords is set up on port <em>9090 </em>during
+                                      Oracle APEX installation, <em>hr </em>is
+                                      the schema name, <em>employees </em>is
+                                      the Resource Template name and <em>employees
+                                        </em>is the Resource Handler.</td>
+                                  </tr>
+                                  <tr>
+                                    <td>On a Cloud Service</td>
+                                    <td><em>&lt;Service URL as received in the
+                                        Welcome email from Oracle Cloud&gt;</em>/<em>&lt;Resource
+                                        Template Name&gt;</em>/<span style="font-style: italic;">&lt;Resource
+                                        Handler&gt;</span><br>
+                                      <br>
+                                      For example: <code>https://databasetrial:<code
+
+                                          class="blurryText">&lt;user&gt;</code>.db.us2.oraclecloudapps.com/hr/employees/</code><br>
+                                      <code>employees</code>where <code>https:
+                                        databasetrial:<code="" class="blurryText">&lt;user&gt;.db.us2.oraclecloudapps.com/hr/</code=""></code>
+                                      is the Service URL for the cloud service
+                                      subscription and <em>employees </em>is
+                                      the Resource Template name and <em>employees
+                                        </em>is the Resource Handler.</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <p>Click <strong>SEND.</strong></p>
+                              <figure> <img alt="Fetching employee details" src="images/creating_REST_03_03.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_03_03.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Select the <strong>Response Body (Preview)</strong>
+                                tab to view all the employee records.</p>
+                              <figure> <img alt="Viewing the employee records"
+
+                                  src="images/creating_REST_03_04.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_03_04.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>To insert new values into the employees table,
+                                under Headers, select <strong>Custom Header</strong>.</p>
+                              <figure> <img alt="Inserting a new record" src="images/creating_REST_03_05.png"
+
+                                  class="ScreenShot" style="border:1px solid gray">
+                                <figcaption><a href="files/creating_REST_03_05.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Enter <span style="font-style: italic;">Content-Type</span>
+                                as Name, <span style="font-style: italic;">application/json</span>
+                                as Value, and click <span style="font-weight: bold;">OK</span>.<br>
+                              </p>
+                              <figure> <img alt="Entering Request Header values"
+
+                                  src="images/creating_REST_03_06.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_03_06.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>In the RESTClient page, enter <strong>POST</strong>
+                                as the request method, enter the same URL as
+                                that of the GET method, enter the following code
+                                in the Request Body, and click <strong>SEND</strong>.
+                              </p>
+                              <code>{&nbsp;&nbsp; &nbsp;<br>
+                                &nbsp; "first_name":"Supriya",<br>
+                                &nbsp; "last_name":"Ananth",<br>
+                                &nbsp; "email":"SUPANANT",<br>
+                                &nbsp; "hire_date":"13-05-2001",<br>
+                                &nbsp; "job_id":"AD_PRES"<br>
+                                &nbsp;&nbsp; } </code>
+                              <figure> <img alt="entering parameters of POST request"
+
+                                  src="images/creating_REST_03_07.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_03_07.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                            <li>
+                              <p>Under Response, select <strong>Responses
+                                  Header</strong>. You see that the new
+                                employee's information is added into the
+                                Employees table. The newly created employee’s ID
+                                is returned back to the application.<br>
+                              </p>
+                              <figure> <img alt="Newly created employee's ID displayed on screen"
+
+                                  src="images/creating_REST_03_08.png" class="ScreenShot"
+
+                                  style="border:1px solid gray"> <figcaption><a
+
+                                    href="files/creating_REST_03_08.txt">Description
+                                    of this image</a></figcaption> </figure>
+                            </li>
+                          </ol>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Summary</h2>
+                        <div>
+                          <p><span style="font-weight: normal;">In this
+                              tutorial, you have learned how to: </span></p>
+                          <span style="font-weight: normal;"> </span>
+                          <ul>
+                            <span style="font-weight: normal;"> </span>
+                            <li><span style="font-weight: normal;">Create a
+                                RESTful Web Service&nbsp; with various Resource
+                                Handlers using Oracle Application Express.</span></li>
+                            <li><span style=" font-weight: normal;">Create a
+                                RESTful Web Service Reference in Application
+                                Express.</span></li>
+                            <li><span style="  font-weight: normal;">Consume the
+                                Web Service created in Application Express using
+                                a REST client.<br>
+                              </span></li>
+                          </ul>
+                        </div>
+                      </section>
+                      <section>
+                        <h2>Want to Learn More?</h2>
+                        <div>
+                          <ul>
+                            <li>
+                              <p><a target="_blank" href="http://www.oracle.com/pls/topic/lookup?ctx=E37546-01&amp;id=AEUTL445">Using
+                                  RESTful Services</a><span style="font-weight: normal;"></span><span
+
+                                  style="font-weight: normal;"></span></p>
+                            </li>
+                            <li>
+                              <p><span style="font-weight: normal;"><a target="_blank"
+
+                                    href="http://cloud.oracle.com">Oracle Cloud
+                                    Home Page</a></span></p>
+                              <span style="font-weight: normal;"> </span></li>
+                          </ul>
+                        </div>
+                      </section>
+                      <!-- END Article --> </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- footer of the page -->
+      <footer id="footer">
+        <div class="f1">
+          <div class="holder">
+            <div class="container-fluid">
+              <div class="pull-left footer-left">
+                <ul class="footer-nav list-inline">
+                  <li><a href="http://www.oracle.com/corporate/index.html">About
+                      Oracle</a></li>
+                  <li><a href="http://www.oracle.com/us/corporate/contact/index.html">Contact
+                      Us</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/index.html">Legal
+                      Notices</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/terms/index.html">Terms
+                      of Use</a></li>
+                  <li><a href="http://www.oracle.com/us/legal/privacy/index.html">Your
+                      Privacy Rights</a></li>
+                </ul>
+                <span class="copyright">Copyright © 2016, Oracle and/or its
+                  affiliates. All rights reserved.</span> </div>
+              <!-- insert lan options --> </div>
+          </div>
+        </div>
+      </footer>
+      <!-- allow a user to go to the top of the page --><strong> </strong><a class="accessibility"
+
+        href="#wrapper">Back to top</a><strong> </strong></div>
+    <!-- begin codemirror here -->
+    <script type="text/javascript" src="js/runmode-standalone.js"></script>
+    <script type="text/javascript" src="js/mode/clike/clike.js"></script>
+    <script type="text/javascript" src="js/mode/sql/sql.js"></script>
+    <script type="text/javascript" src="js/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/mode/css/css.js"></script>
+    <script type="text/javascript" src="js/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript">
+	var config;
+	
+	config = {
+		lineNumbers: true,
+		mode : "xml",
+	htmlMode: true,
+		indentWithTabs: false,
+		readOnly: true
+	};
+
+</script> <!-- end codemirror here -->
+    <script language="javascript">
+  var s_prefix="OBE";
+  if (typeof(document.title)!= "undefined") {var s_pageName=s_prefix + ":" + document.title};
+</script> <script type="text/javascript" src="https://www.oracleimg.com/us/assets/metrics/ora_docs.js"></script>
+  </body>
+</html>

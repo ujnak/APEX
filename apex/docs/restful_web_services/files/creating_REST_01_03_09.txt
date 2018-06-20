@@ -1,0 +1,1 @@
+This photograph shows pasting the copied URI in a browser, and pressing the Enter key. All information regarding that employee is displayed in the JSON format.

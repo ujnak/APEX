@@ -1,0 +1,3 @@
+This screenshot shows the Page Finder modal window dispalying the number of pages withing the Mobile App application.
+
+The mouse pointer is clicking the Page Number 2.

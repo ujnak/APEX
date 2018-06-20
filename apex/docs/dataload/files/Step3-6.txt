@@ -1,0 +1,13 @@
+This image shows the Table Lookups page of the wizard. 
+The following descriptive text appears at the top of the wizard dialog:
+"Table Lookups allow you to match an uploaded value against another table and use the associated  key value, instead of the uploaded value."
+
+The following fields are available in this page of the wizard:
+1. Add the new table lookup for Column with the value RELATIVE_ID (Number) selected. 
+2. Lookup Table Ownder with the value HR selected. 
+3. Lookup Table Name with the value EMP (table) selected. 
+4. Return Column with the value EMPNO (Number) selected.  
+5. Upload Column with the value ENAME (Varchar2) selected.  
+6. Upload Column 2 with no selection
+
+The pointer is on the Add Lookup button.

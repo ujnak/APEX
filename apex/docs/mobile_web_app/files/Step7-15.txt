@@ -1,0 +1,2 @@
+This screenshot shows the Property Editor - Column section of the Page Designer 
+The mouse pointer is clicking 1-Hide Last for the Priority from the select list.

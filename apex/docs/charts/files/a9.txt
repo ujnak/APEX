@@ -1,0 +1,1 @@
+In this image, you select LABEL for Label Column, VALUE for Value Column, and click Create.

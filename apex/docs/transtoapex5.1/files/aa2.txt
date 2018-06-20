@@ -1,0 +1,2 @@
+This screenshot shows the Installed Packaged Apps.
+It shows an entry for the Sample Database Application that was installed 2 months ago, the Manage icon, and the Run Application icon.

@@ -1,0 +1,1 @@
+In this image, you notice that the  footer displays information about the screen reader mode.

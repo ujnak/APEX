@@ -1,0 +1,1 @@
+This is the image of a terminal window that has the command ords.enable_schema; highlighted. It also shows the message that pl/sql procedure is successfully completed.  
