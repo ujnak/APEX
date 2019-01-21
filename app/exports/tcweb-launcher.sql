@@ -15,7 +15,7 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572068420053020
+,p_default_workspace_id=>2572003348014963
 ,p_default_application_id=>103
 ,p_default_owner=>'TCWEBADMIN'
 );
@@ -27,7 +27,7 @@ prompt APPLICATION 103 - TCWEB Launcher
 -- Application Export:
 --   Application:     103
 --   Name:            TCWEB Launcher
---   Date and Time:   11:59 火曜日 12月 18, 2018
+--   Date and Time:   17:43 月曜日 1月 21, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -114,7 +114,7 @@ wwv_flow_api.create_flow(
 ,p_csv_encoding=>'Y'
 ,p_auto_time_zone=>'N'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217141522'
+,p_last_upd_yyyymmddhh24miss=>'20190121174254'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 );
@@ -3861,6 +3861,7 @@ wwv_flow_api.create_row_template(
 '</a>'))
 ,p_theme_id=>42
 ,p_theme_class_id=>14
+,p_translate_this_template=>'N'
 );
 end;
 /
@@ -10079,7 +10080,7 @@ unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\3
 '2018/10/30 - ynakakos',
 unistr('Consulting Only\306E\8CC7\6599\304C\307F\3093\306A\306B\30EA\30B9\30C8\3055\308C\3066\3044\305F\306E\3067\3001\30EA\30B9\30C8\3055\308C\306A\3044\3088\3046\691C\7D22\6761\4EF6\3092\8FFD\52A0\3057\305F\3002')))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217141522'
+,p_last_upd_yyyymmddhh24miss=>'20190121174254'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(222177690165576318)
@@ -10218,10 +10219,18 @@ wwv_flow_api.create_report_region(
 ,p_source_type=>'NATIVE_SQL_REPORT'
 ,p_query_type=>'SQL'
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'with hashtags_v as (',
-'  select c001 as hashtag',
+unistr('/* Launcher - \30BB\30DF\30CA\30FC\767B\9332\6642\9593\30BD\30FC\30C8 */'),
+'with tags_wv as (',
+'  select c001 as tag',
 '  from apex_collections',
 '  where collection_name = ''SEARCH_HASHTAGS''',
+'), sem_tags_wv as (',
+'  select seminar_id from tcw_seminar_tags',
+'  where tag in (select tag from tags_wv)',
+'  group by seminar_id having count(*) >= (select count(*) from tags_wv)',
+'), sem_words_wv as (',
+'  select seminar_id from tcw_seminars ',
+unistr('\3000\3000\3000\3000where contains(title, :AI_CONTAINS) > 0 or contains(abstract,:AI_CONTAINS) > 0'),
 ')',
 'select s.seminar_id as SEMINAR_ID,',
 '       to_char(s.start_time,''MM/DD" ("Dy")"'') as SEMINAR_DAY,',
@@ -10237,34 +10246,38 @@ unistr('         when s.is_closed   = ''Y'' then ''\52DF\96C6\306F\7D42\4E86\305
 '       case',
 unistr('         when recording_url is not null then ''[\9332\753B\3042\308A]'''),
 '         else ''''',
-'       end RECSIGN,',
-'       date_util.get_since(s.last_update_date) as since',
+'       end RECSIGN',
 'from TCW_SEMINARS s',
 'where s.is_published = ''Y''',
 'and',
 '(',
 '  (',
-'     case when :AI_CONTAINS is not null then',
-'     (',
-'       select x.seminar_id from tcw_seminars x where contains(x.title, :AI_CONTAINS) > 0 ',
-'       or contains(x.abstract,:AI_CONTAINS) > 0',
+'    case when (select count(*) from apex_collections ',
+'               where collection_name in (''SEARCH_WORDS'',''SEARCH_HASHTAGS'')) = 0 then',
+'      (',
+'      select x.seminar_id from tcw_seminars x',
+'      where s.end_time > systimestamp and x.seminar_id = s.seminar_id',
 '      )',
+'    else',
+'      s.seminar_id',
+'    end',
+'  ) = s.seminar_id',
+'  and',
+'  (',
+'    case when :AI_CONTAINS is not null then',
+'      (select v.seminar_id from tcw_seminars v where v.seminar_id = s.seminar_id)',
 '    else',
 '      s.seminar_id',
 '    end',
 '  ) = s.seminar_id',
 ' and',
 ' (',
-'    case when (select count(*) from hashtags_v) > 0 then',
-'    (',
-'      select x.seminar_id from tcw_seminar_tags x',
-'      where x.tag in (select tag from hashtags_v) ',
-'      group by x.seminar_id having count(*) >= (select count(*) from hashtags_v)',
-'    )',
-'  else',
-'    s.seminar_id',
-'  end',
-'  ) = s.seminar_id',
+'    case when (select count(*) from tags_wv) > 0 then',
+'      (select v.seminar_id from sem_tags_wv v where v.seminar_id = s.seminar_id)',
+'    else',
+'      s.seminar_id',
+'    end',
+' ) = s.seminar_id',
 ')',
 'order by s.last_update_date desc'))
 ,p_display_when_condition=>'nvl(tcw_util.get_preference(''SHOW_SEMINARS''),''Y'') = ''Y'' and nvl(tcw_util.get_preference(''SEMINAR_CLONO''),''Y'') = ''N'''
@@ -10354,20 +10367,9 @@ wwv_flow_api.create_report_columns(
  p_id=>wwv_flow_api.id(227326670812481529)
 ,p_query_column_id=>8
 ,p_column_alias=>'RECSIGN'
-,p_column_display_sequence=>9
+,p_column_display_sequence=>8
 ,p_hidden_column=>'Y'
 ,p_derived_column=>'N'
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(227327508501481537)
-,p_query_column_id=>9
-,p_column_alias=>'SINCE'
-,p_column_display_sequence=>8
-,p_column_heading=>unistr('\66F4\65B0\65E5')
-,p_use_as_row_header=>'N'
-,p_report_column_width=>70
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
 );
 wwv_flow_api.create_report_region(
  p_id=>wwv_flow_api.id(311029574591742113)
@@ -10381,10 +10383,29 @@ wwv_flow_api.create_report_region(
 ,p_source_type=>'NATIVE_SQL_REPORT'
 ,p_query_type=>'SQL'
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'with hashtags_v as (',
-'  select c001 as hashtag',
+unistr('/* Launcher - \30C9\30AD\30E5\30E1\30F3\30C8 */'),
+'with tags_wv as (',
+'  select c001 as tag',
 '  from apex_collections',
 '  where collection_name = ''SEARCH_HASHTAGS''',
+'), doc_tags_wv as (',
+'  select link_num from tcw_hashtags',
+'  where hashtag in (select tag from tags_wv)',
+'  group by link_num having count(*) >= (select count(*) from tags_wv)',
+'), doc_words_wv as (',
+'  select l.link_num from tcw_documents l left outer join tcw_doc_data d',
+'    on l.link_num = d.link_num',
+'  where contains(d.link_object, :AI_CONTAINS) > 0',
+'    or contains(l.obj_name, :AI_CONTAINS) > 0',
+'    or contains(l.abstract, :AI_CONTAINS) > 0',
+'  group by l.link_num',
+'), doc_own_wv as (',
+'  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
+'    on d.link_num = a.link_num',
+'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  and',
+'    (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
+'  group by d.link_num    ',
 ')',
 'select case',
 '       when l.opl_code = 1 then',
@@ -10405,50 +10426,50 @@ unistr('         ''<div class="tcw-confsquare orange" title="\516C\958B\8CC7\659
 '       l.link_num,',
 '       case',
 '       when u.last_name is null then',
-'          tcw_util.get_name_part(u.user_name)',
+'          translate(regexp_replace(l.upd_username, ''(.*)@ORACLE.COM'',''\1''),''.'','' '')',
 '       else',
 '          u.last_name || '' '' || u.first_name',
 '       end owner,',
 '       date_util.get_since(l.upd_date) as updated,      ',
 '       t.content_type_alias type',
 'from tcw_documents l left outer join ',
-'  (tcw_doc_data d left outer join tcw_content_types t',
-'       on d.content_type = t.content_type)',
+'       (tcw_doc_data d left outer join tcw_content_types t',
+'        on d.content_type = t.content_type)',
 '       on l.link_num = d.link_num',
 '    left outer join tcw_user_names u on l.upd_username = u.user_name',
 '    left outer join tcw_doc_links_v k on l.link_num = k.link_num',
-'where l.opl_code > 0 and l.opl_code < 6 and l.in_consulting <= nvl(:IN_CONSULTING, 0)',
-'and',
+'where',
 '(',
 '  (',
-'    case when :AI_CONTAINS is not null then',
+'    case when (select count(*) from apex_collections ',
+'               where collection_name in (''SEARCH_WORDS'',''SEARCH_HASHTAGS'')) = 0 then',
 '      (',
-'      select x.link_num from tcw_doc_data x where contains(x.link_object,:AI_CONTAINS) > 0',
-'         and x.link_num = l.link_num',
-'      union ',
-'      select x.link_num from tcw_documents x where contains(x.obj_name,:AI_CONTAINS) > 0',
-'         and x.link_num = l.link_num',
-'      union ',
-'      select x.link_num from tcw_documents x where contains(x.abstract,:AI_CONTAINS) > 0',
-'         and x.link_num = l.link_num',
+'      select x.link_num from tcw_documents x',
+'      where x.upd_date > add_months(sysdate,-1) and x.announce_flag = 1',
+'          and  x.link_num = l.link_num',
 '      )',
+'    else',
+'      l.link_num',
+'    end',
+'  ) = l.link_num',
+'  and',
+'  (',
+'    case when :AI_CONTAINS is not null then',
+'      (select v.link_num from doc_words_wv v where v.link_num = l.link_num)',
 '    else',
 '      l.link_num',
 '    end',
 '  ) = l.link_num',
 '  and ',
 '  (',
-'    case when (select count(*) from hashtags_v) > 0 then',
-'      (',
-'      select x.link_num from tcw_hashtags x',
-'       where x.hashtag in (select hashtag from hashtags_v)',
-'         and x.link_num = l.link_num',
-'      group by x.link_num having count(*) >= (select count(*) from hashtags_v)',
-'      )',
+'    case when (select count(*) from tags_wv) > 0 then',
+'      (select v.link_num from doc_tags_wv v where v.link_num = l.link_num)',
 '    else',
 '      l.link_num',
 '    end',
 '  ) = l.link_num',
+'  and',
+'  (select v.link_num from doc_own_wv v where v.link_num = l.link_num) = l.link_num',
 ')',
 'order by l.upd_date desc'))
 ,p_display_when_condition=>'nvl(tcw_util.get_preference(''SHOW_DOCUMENTS''),''Y'') = ''Y'''
@@ -10542,10 +10563,18 @@ wwv_flow_api.create_report_region(
 ,p_source_type=>'NATIVE_SQL_REPORT'
 ,p_query_type=>'SQL'
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'with hashtags_v as (',
-'  select c001 as hashtag',
+unistr('/* Launcher - \30BB\30DF\30CA\30FC\958B\59CB\6642\9593\30BD\30FC\30C8 */'),
+'with tags_wv as (',
+'  select c001 as tag',
 '  from apex_collections',
 '  where collection_name = ''SEARCH_HASHTAGS''',
+'), sem_tags_wv as (',
+'  select seminar_id from tcw_seminar_tags',
+'  where tag in (select tag from tags_wv)',
+'  group by seminar_id having count(*) >= (select count(*) from tags_wv)',
+'), sem_words_wv as (',
+'  select seminar_id from tcw_seminars ',
+unistr('\3000\3000\3000\3000where contains(title, :AI_CONTAINS) > 0 or contains(abstract,:AI_CONTAINS) > 0'),
 ')',
 'select s.seminar_id as SEMINAR_ID,',
 '       to_char(s.start_time,''MM/DD" ("Dy")"'') as SEMINAR_DAY,',
@@ -10567,27 +10596,32 @@ unistr('         when recording_url is not null then ''[\9332\753B\3042\308A]'''
 'and',
 '(',
 '  (',
-'     case when :AI_CONTAINS is not null then',
-'     (',
-'       select x.seminar_id from tcw_seminars x where contains(x.title, :AI_CONTAINS) > 0 ',
-'       or contains(x.abstract,:AI_CONTAINS) > 0',
+'    case when (select count(*) from apex_collections ',
+'               where collection_name in (''SEARCH_WORDS'',''SEARCH_HASHTAGS'')) = 0 then',
+'      (',
+'      select x.seminar_id from tcw_seminars x',
+'      where s.end_time > systimestamp and x.seminar_id = s.seminar_id',
 '      )',
+'    else',
+'      s.seminar_id',
+'    end',
+'  ) = s.seminar_id',
+'  and',
+'  (',
+'    case when :AI_CONTAINS is not null then',
+'      (select v.seminar_id from tcw_seminars v where v.seminar_id = s.seminar_id)',
 '    else',
 '      s.seminar_id',
 '    end',
 '  ) = s.seminar_id',
 ' and',
 ' (',
-'    case when (select count(*) from hashtags_v) > 0 then',
-'    (',
-'      select x.seminar_id from tcw_seminar_tags x',
-'      where x.tag in (select tag from hashtags_v) ',
-'      group by x.seminar_id having count(*) >= (select count(*) from hashtags_v)',
-'    )',
-'  else',
-'    s.seminar_id',
-'  end',
-'  ) = s.seminar_id',
+'    case when (select count(*) from tags_wv) > 0 then',
+'      (select v.seminar_id from sem_tags_wv v where v.seminar_id = s.seminar_id)',
+'    else',
+'      s.seminar_id',
+'    end',
+' ) = s.seminar_id',
 ')',
 'order by s.start_time asc'))
 ,p_display_when_condition=>'nvl(tcw_util.get_preference(''SHOW_SEMINARS''),''Y'') = ''Y'' and nvl(tcw_util.get_preference(''SEMINAR_CLONO''),''Y'') = ''Y'''
@@ -10693,51 +10727,64 @@ wwv_flow_api.create_report_region(
 ,p_source_type=>'NATIVE_SQL_REPORT'
 ,p_query_type=>'SQL'
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'with hashtags_v as (',
-'  select c001 as hashtag',
+'/* Laucher - FAQ */',
+'with tags_wv as (',
+'  select c001 as tag',
 '  from apex_collections',
 '  where collection_name = ''SEARCH_HASHTAGS''',
+'), faq_tags_wv as (',
+'  select faq_id from tcw_faq_tags ',
+'  where tag in (select tag from tags_wv)',
+'  group by faq_id having count(*) >= (select count(*) from tags_wv)',
+'), faq_words_wv as (',
+'  select faq_id from tcw_faqs ',
+'  where contains(question, :AI_CONTAINS) > 0 or contains(answer,:AI_CONTAINS) > 0',
+'), faq_own_wv as (',
+'  select f.faq_id from tcw_faqs f left outer join tcw_faq_acls a ',
+'    on f.faq_id = a.faq_id ',
+'  where f.classification <> ''X'' and',
+'  (',
+'    f.classification <> ''W''',
+'    or f.last_updated_by = :APP_USER or a.user_name = :APP_USER',
+'  )',
+'  group by f.faq_id',
 ')',
 'select f.faq_id,',
 '       f.question,',
 '       date_util.get_since(f.last_update_date) as last_update_date,',
 '       case ',
-'         when u.last_name is null then tcw_util.get_name_part(last_updated_by)',
-'         else u.last_name || '' '' || u.first_name',
+'         when u.last_name is null then ',
+'            regexp_replace(last_updated_by, ''(.*)@ORACLE.COM'',''\1'')',
+'         else ',
+'            u.last_name || '' '' || u.first_name',
 '       end owner,',
 '       case',
 '       when classification = ''P'' then',
 unistr('         ''<div class="tcw-confsquare orange" title="\793E\5916\516C\958B\53EF"/>'''),
 '       when classification = ''C'' then',
 unistr('         ''<div class="tcw-confsquare green"  title="\793E\5185\306E\307F"/>'''),
-unistr('       else ''<div class="tcw-confsquare green"  title="\4F5C\696D\4E2D"/>'''),
+unistr('       else ''<div class="tcw-confsquare black"  title="\4F5C\696D\4E2D"/>'''),
 '       end classification',
 'from tcw_faqs f left outer join tcw_user_names u ',
 '      on f.last_updated_by = u.user_name',
-'where  classification not in (''W'')',
+'where',
+'(select v.faq_id from faq_own_wv v where v.faq_id = f.faq_id) = f.faq_id',
 'and',
 '(',
 '  (',
 '     case when :AI_CONTAINS is not null then',
-'     (',
-'       select x.faq_id from tcw_faqs x where contains(x.question, :AI_CONTAINS) > 0 ',
-'       or contains(x.answer,:AI_CONTAINS) > 0',
-'      )',
+'       (select v.faq_id from faq_words_wv v where v.faq_id = f.faq_id)',
 '    else',
 '      f.faq_id',
 '    end',
 '  ) = f.faq_id',
 ' and',
 ' (',
-'    case when (select count(*) from hashtags_v) > 0 then',
-'    (',
-'      select x.faq_id from tcw_faq_tags x ',
-'      where tag in (select tag from hashtags_v) ',
-'      group by x.faq_id having count(*) >= (select count(*) from hashtags_v)',
-'    )',
-'  else',
-'    f.faq_id',
-'  end',
+'    case when (select count(*) from tags_wv) > 0 then',
+'      (select v.faq_id from faq_tags_wv v where v.faq_id = f.faq_id)',
+'    else',
+'      f.faq_id',
+'    end',
 '  ) = f.faq_id',
 ')',
 'order by f.last_update_date desc'))
@@ -10845,7 +10892,7 @@ wwv_flow_api.create_report_columns(
 );
 wwv_flow_api.create_report_region(
  p_id=>wwv_flow_api.id(706448219586753239)
-,p_name=>unistr('\30BF\30B0')
+,p_name=>unistr('\30BF\30B0\4E00\89A7')
 ,p_template=>wwv_flow_api.id(195940019181503806)
 ,p_display_sequence=>40
 ,p_region_template_options=>'#DEFAULT#:t-Region--removeHeader:t-Region--scrollBody'
@@ -10854,16 +10901,43 @@ wwv_flow_api.create_report_region(
 ,p_source_type=>'NATIVE_SQL_REPORT'
 ,p_query_type=>'SQL'
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+unistr('/* Launcher - \30BF\30B0\4E00\89A7 */'),
+'with doc_own_wv as (',
+'  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
+'    on d.link_num = a.link_num',
+'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  and',
+'    (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
+'  group by d.link_num    ',
+'), faq_own_wv as (',
+'  select f.faq_id from tcw_faqs f left outer join tcw_faq_acls a ',
+'    on f.faq_id = a.faq_id ',
+'  where f.classification <> ''X'' and',
+'  (',
+'    f.classification <> ''W''',
+'    or f.last_updated_by = :APP_USER or a.user_name = :APP_USER',
+'  )',
+'  group by f.faq_id',
+')',
 'select hashtag,',
 '       count(*) as count,',
 '       ''P40_SEARCH'' as item_name',
 'from',
-'(select hashtag from tcw_hashtags where hashtag like ''%'' || :P40_TAG || ''%''',
-' union all',
-' select tag as hashtag from tcw_seminar_tags where tag like ''%'' || :P40_TAG || ''%''',
-' union all',
-' select tag as hashtag from tcw_faq_tags where tag like ''%'' || :P40_TAG || ''%''',
-')',
+'(',
+'  select hashtag as hashtag from tcw_hashtags',
+'  where hashtag like ''%'' || :P40_TAG || ''%''',
+'    and nvl(tcw_util.get_preference(''SHOW_DOCUMENTS''),''Y'') = ''Y''',
+'    and link_num in (select link_num from doc_own_wv)',
+'  union all',
+'  select tag as hashtag from tcw_seminar_tags',
+'  where tag like ''%'' || :P40_TAG || ''%''',
+'    and nvl(tcw_util.get_preference(''SHOW_SEMINARS''),''Y'') = ''Y''',
+'  union all',
+'  select tag as hashtag from tcw_faq_tags',
+'  where tag like ''%'' || :P40_TAG || ''%''',
+'    and nvl(tcw_util.get_preference(''SHOW_FAQS''),''Y'') = ''Y''',
+'    and faq_id in (select faq_id from faq_own_wv)',
+') u',
 'group by hashtag',
 'order by 1 asc'))
 ,p_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -10900,6 +10974,9 @@ wwv_flow_api.create_report_columns(
 ,p_derived_column=>'N'
 ,p_include_in_export=>'Y'
 );
+end;
+/
+begin
 wwv_flow_api.create_report_columns(
  p_id=>wwv_flow_api.id(52260589637426431)
 ,p_query_column_id=>3
@@ -10925,7 +11002,7 @@ wwv_flow_api.create_page_plug(
 );
 wwv_flow_api.create_report_region(
  p_id=>wwv_flow_api.id(706539386911725145)
-,p_name=>unistr('\30BF\30B0')
+,p_name=>unistr('\30BF\30B0\691C\7D22')
 ,p_template=>wwv_flow_api.id(195940019181503806)
 ,p_display_sequence=>20
 ,p_region_template_options=>'#DEFAULT#:t-Region--hideHeader:t-Region--scrollBody'
@@ -10934,10 +11011,52 @@ wwv_flow_api.create_report_region(
 ,p_source_type=>'NATIVE_SQL_REPORT'
 ,p_query_type=>'SQL'
 ,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'with hashtags_v as (',
-'  select c001 as hashtag',
+unistr('/* Launcher - \30BF\30B0\691C\7D22 */'),
+'with tags_wv as (',
+'  select c001 as tag',
 '  from apex_collections',
 '  where collection_name = ''SEARCH_HASHTAGS''',
+'), doc_tags_wv as (',
+'  select link_num from tcw_hashtags',
+'  where hashtag in (select tag from tags_wv)',
+'  group by link_num having count(*) >= (select count(*) from tags_wv)',
+'), doc_words_wv as (',
+'  select l.link_num from tcw_documents l left outer join tcw_doc_data d',
+'    on l.link_num = d.link_num',
+'  where contains(d.link_object, :AI_CONTAINS) > 0',
+'    or contains(l.obj_name, :AI_CONTAINS) > 0',
+'    or contains(l.abstract, :AI_CONTAINS) > 0',
+'  group by l.link_num',
+'), doc_own_wv as (',
+'  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
+'    on d.link_num = a.link_num',
+'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  and',
+'    (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
+'  group by d.link_num    ',
+'), sem_tags_wv as (',
+'  select seminar_id from tcw_seminar_tags',
+'  where tag in (select tag from tags_wv)',
+'  group by seminar_id having count(*) >= (select count(*) from tags_wv)',
+'), sem_words_wv as (',
+'  select seminar_id from tcw_seminars ',
+unistr('\3000\3000\3000\3000where contains(title, :AI_CONTAINS) > 0 or contains(abstract,:AI_CONTAINS) > 0'),
+'), faq_tags_wv as (',
+'  select faq_id from tcw_faq_tags ',
+'  where tag in (select tag from tags_wv)',
+'  group by faq_id having count(*) >= (select count(*) from tags_wv)',
+'), faq_words_wv as (',
+'  select faq_id from tcw_faqs ',
+'  where contains(question, :AI_CONTAINS) > 0 or contains(answer,:AI_CONTAINS) > 0',
+'), faq_own_wv as (',
+'  select f.faq_id from tcw_faqs f left outer join tcw_faq_acls a ',
+'    on f.faq_id = a.faq_id ',
+'  where f.classification <> ''X'' and',
+'  (',
+'    f.classification <> ''W''',
+'    or f.last_updated_by = :APP_USER or a.user_name = :APP_USER',
+'  )',
+'  group by f.faq_id',
 ')',
 'select ''P40_SEARCH'' as item_name,',
 '  hashtag,',
@@ -10945,45 +11064,37 @@ wwv_flow_api.create_report_region(
 'from',
 '(',
 '  select hashtag from tcw_hashtags',
-'  where link_num in',
+'  where nvl(tcw_util.get_preference(''SHOW_DOCUMENTS''),''Y'') = ''Y''',
+'  and link_num in',
 '  (',
 '    select l.link_num from tcw_documents l',
-'    where l.opl_code > 0 and l.in_consulting <= nvl(:IN_CONSULTING, 0)',
-'    and',
+'    where',
 '    (',
 '      (',
-'         case when :AI_CONTAINS is not null then',
-'           (',
-'           select x.link_num from tcw_doc_data x where contains(x.link_object,:AI_CONTAINS) > 0',
-'             and x.link_num = l.link_num',
-'           union ',
-'           select x.link_num from tcw_documents x where contains(x.obj_name,:AI_CONTAINS) > 0',
-'             and x.link_num = l.link_num',
-'           union ',
-'           select x.link_num from tcw_documents x where contains(x.abstract,:AI_CONTAINS) > 0',
-'             and x.link_num = l.link_num',
-'           )',
-'         else',
-'           l.link_num',
+'        case when :AI_CONTAINS is not null then',
+'          (select v.link_num from doc_words_wv v where v.link_num = l.link_num)',
+'        else',
+'          l.link_num',
 '         end',
 '      ) = l.link_num',
 '      and ',
 '      (',
-'        case when (select count(*) from hashtags_v) > 0 then',
-'          (',
-'          select x.link_num from tcw_hashtags x',
-'           where x.hashtag in (select hashtag from hashtags_v)',
-'             and x.link_num = l.link_num',
-'          group by x.link_num having count(*) >= (select count(*) from hashtags_v)',
-'          )',
+'        case when (select count(*) from tags_wv) > 0 then',
+'          (select v.link_num from doc_tags_wv v where v.link_num = l.link_num)',
 '        else',
 '          l.link_num',
 '        end',
 '      ) = l.link_num',
+'      and',
+'      (',
+'        select v.link_num from doc_own_wv v where v.link_num = l.link_num',
+'      ) = l.link_num',
 '    )',
 '  )',
 '  union',
-'  select tag as hashtag from tcw_seminar_tags where seminar_id in ',
+'  select tag as hashtag from tcw_seminar_tags ',
+'  where nvl(tcw_util.get_preference(''SHOW_SEMINARS''),''Y'') = ''Y''',
+'  and seminar_id in ',
 '  (',
 '    select s.seminar_id from TCW_SEMINARS s',
 '    where s.is_published = ''Y''',
@@ -10991,22 +11102,15 @@ wwv_flow_api.create_report_region(
 '    (',
 '      (',
 '        case when :AI_CONTAINS is not null then',
-'        (',
-'          select x.seminar_id from tcw_seminars x where contains(x.title, :AI_CONTAINS) > 0 ',
-'          or contains(x.abstract,:AI_CONTAINS) > 0',
-'         )',
+'          (select v.seminar_id from sem_words_wv v where v.seminar_id = s.seminar_id)',
 '        else',
 '          s.seminar_id',
 '        end',
 '      ) = s.seminar_id',
 '      and',
 '      (',
-'        case when (select count(*) from hashtags_v) > 0 then',
-'        (',
-'          select x.seminar_id from tcw_seminar_tags x',
-'          where x.tag in (select tag from hashtags_v) ',
-'          group by x.seminar_id having count(*) >= (select count(*) from hashtags_v)',
-'        )',
+'        case when (select count(*) from tags_wv) > 0 then',
+'          (select v.seminar_id from sem_tags_wv v where v.seminar_id = s.seminar_id)',
 '        else',
 '          s.seminar_id',
 '        end',
@@ -11014,40 +11118,36 @@ wwv_flow_api.create_report_region(
 '    )',
 '  )',
 '  union',
-'  select tag as hashtag from tcw_faq_tags where faq_id in ',
+'  select tag as hashtag from tcw_faq_tags ',
+'  where nvl(tcw_util.get_preference(''SHOW_FAQS''),''Y'') = ''Y''',
+'  and faq_id in ',
 '  (',
-'    select f.faq_id',
-'    from tcw_faqs f left outer join tcw_user_names u ',
-'      on f.last_updated_by = u.user_name',
-'    where  classification not in (''W'')',
-'    and',
+'    select f.faq_id from tcw_faqs f',
+'    where',
 '    (',
 '      (',
 '        case when :AI_CONTAINS is not null then',
-'        (',
-'          select x.faq_id from tcw_faqs x where contains(x.question, :AI_CONTAINS) > 0 ',
-'          or contains(x.answer,:AI_CONTAINS) > 0',
-'        )',
+'          (select v.faq_id from faq_words_wv v where v.faq_id = f.faq_id)',
 '        else',
 '          f.faq_id',
 '        end',
 '      ) = f.faq_id',
 '      and',
 '      (',
-'        case when (select count(*) from hashtags_v) > 0 then',
-'        (',
-'          select x.faq_id from tcw_faq_tags x ',
-'          where tag in (select tag from hashtags_v) ',
-'          group by x.faq_id having count(*) >= (select count(*) from hashtags_v)',
-'        )',
+'        case when (select count(*) from tags_wv) > 0 then',
+'          (select v.faq_id from faq_tags_wv v where v.faq_id = f.faq_id)',
 '        else',
 '          f.faq_id',
 '        end',
 '      ) = f.faq_id',
+'      and',
+'      (',
+'        select v.faq_id from faq_own_wv v where v.faq_id = f.faq_id',
+'      ) = f.faq_id',
 '    )',
 '  )',
 ') tg',
-'where hashtag not in (select hashtag from hashtags_v)',
+'where hashtag not in (select hashtag from tags_wv)',
 'group by hashtag order by 3 desc'))
 ,p_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'select 1 from apex_collections where ',
@@ -11063,9 +11163,6 @@ wwv_flow_api.create_report_region(
 ,p_sort_null=>'L'
 ,p_plug_query_strip_html=>'N'
 );
-end;
-/
-begin
 wwv_flow_api.create_report_columns(
  p_id=>wwv_flow_api.id(52260658618426432)
 ,p_query_column_id=>1
@@ -11169,6 +11266,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'REGION_TEMPLATE_EDIT'
 ,p_button_redirect_url=>'f?p=TCWEB:5:&SESSION.::&DEBUG.:RP::'
 ,p_icon_css_classes=>'fa-angle-right'
+,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(223413482742630455)
@@ -11182,6 +11280,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'REGION_TEMPLATE_EDIT'
 ,p_button_redirect_url=>'f?p=SEMINAR:1:&SESSION.::&DEBUG.:RP::'
 ,p_icon_css_classes=>'fa-angle-right'
+,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(223416834897630464)
@@ -11195,6 +11294,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'REGION_TEMPLATE_EDIT'
 ,p_button_redirect_url=>'f?p=FAQ:1:&SESSION.:B_INIT:&DEBUG.:RP::'
 ,p_icon_css_classes=>'fa-angle-right'
+,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(227326591474481528)
@@ -11208,6 +11308,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'REGION_TEMPLATE_EDIT'
 ,p_button_redirect_url=>'f?p=SEMINAR:1:&SESSION.::&DEBUG.:RP::'
 ,p_icon_css_classes=>'fa-angle-right'
+,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(2637464025627740)
@@ -11352,16 +11453,8 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>40
 ,p_process_point=>'BEFORE_BOX_BODY'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Initialize Conditions'
-,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'begin',
-'  apex_collection.create_or_truncate_collection(',
-'    p_collection_name => ''SEARCH_WORDS'');',
-'  apex_collection.create_or_truncate_collection(',
-'    p_collection_name => ''SEARCH_HASHTAGS'');',
-'  apex_collection.create_or_truncate_collection(',
-'    p_collection_name => ''SEARCH_OWNERS'');',
-'end;'))
+,p_process_name=>unistr('GET\6642\691C\7D22\6761\4EF6\521D\671F\5316')
+,p_process_sql_clob=>'tcw_util.initialize_search_items;'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_process_when=>'B_INIT'
 ,p_process_when_type=>'REQUEST_IN_CONDITION'
@@ -11371,51 +11464,11 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>50
 ,p_process_point=>'BEFORE_BOX_BODY'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>unistr('\76F4\63A5\691C\7D22')
+,p_process_name=>unistr('GET\306B\3088\308B\691C\7D22\6761\4EF6\8A2D\5B9A')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'declare',
-'  l_words      APEX_APPLICATION_GLOBAL.VC_ARR2;',
-'  l_hashtags   APEX_APPLICATION_GLOBAL.VC_ARR2;',
-'  l_owners     APEX_APPLICATION_GLOBAL.VC_ARR2;',
-'  l_querytime  timestamp with local time zone := systimestamp;',
-'  i integer := 0;',
-'  j integer := 0;',
-'begin',
-'  :P0_KEYWORD := utl_url.unescape(url => :P0_KEYWORD, url_charset => ''UTF-8'');',
-'  tcw_util.extract_search_items (',
-'      p_string => :P0_KEYWORD,',
-'      p_item_words    => l_words,',
-'      p_item_hashtags => l_hashtags,',
-'      p_item_owners   => l_owners,',
-'      p_hashtag => ''#''); -- %23',
-'  if l_words.count > 0 then',
-'    for i in 1..l_words.count',
-'    loop',
-'      j := j + 1;',
-'      tcw_util.log_query_history(l_words(i), :APP_USER, l_querytime, ''K'', j);',
-'    end loop;',
-'    apex_collection.add_members(p_collection_name => ''SEARCH_WORDS'', ',
-'                                p_c001 => l_words);',
-'  end if;',
-'  if l_hashtags.count > 0 then',
-'    for i in 1..l_hashtags.count',
-'    loop',
-'      j := j + 1;',
-'      tcw_util.log_query_history(l_hashtags(i), :APP_USER, l_querytime, ''H'', j);',
-'    end loop;',
-'    apex_collection.add_members(p_collection_name => ''SEARCH_HASHTAGS'',',
-'                                p_c001 => l_hashtags);',
-'  end if;',
-'  if l_owners.count > 0 then',
-'    for i in 1..l_owners.count',
-'    loop',
-'      j := j + 1;',
-'      tcw_util.log_query_history(l_owners(i), :APP_USER, l_querytime, ''P'', j);',
-'    end loop;',
-'    apex_collection.add_members(p_collection_name => ''SEARCH_OWNERS'',',
-'                                p_c001 => l_owners);',
-'  end if;',
-'end;'))
+'tcw_util.add_search_items(p_search_items => :P0_KEYWORD,',
+'                          p_username => :APP_USER,',
+'                          p_need_unescape => ''Y'');'))
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_process_when=>'5'
 ,p_process_when_type=>'REQUEST_EQUALS_CONDITION'
@@ -11425,7 +11478,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>60
 ,p_process_point=>'BEFORE_BOX_BODY'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Build Search Conditions'
+,p_process_name=>unistr('GET\6642\5168\6587\691C\7D22\8A2D\5B9A')
 ,p_process_sql_clob=>':AI_CONTAINS := tcw_util.get_contains;'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
