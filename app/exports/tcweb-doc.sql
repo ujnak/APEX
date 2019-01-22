@@ -15,9 +15,9 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572090316058688
+,p_default_workspace_id=>2572034785011149
 ,p_default_application_id=>100
-,p_default_owner=>'TCWEBADMIN'
+,p_default_owner=>'TCWEB'
 );
 end;
 /
@@ -27,7 +27,7 @@ prompt APPLICATION 100 - TCWEB Documents
 -- Application Export:
 --   Application:     100
 --   Name:            TCWEB Documents
---   Date and Time:   14:07 火曜日 1月 22, 2019
+--   Date and Time:   16:01 火曜日 1月 22, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -37,7 +37,7 @@ prompt APPLICATION 100 - TCWEB Documents
 
 -- Application Statistics:
 --   Pages:                     40
---     Items:                  104
+--     Items:                  105
 --     Validations:              3
 --     Processes:               67
 --     Regions:                110
@@ -49,7 +49,7 @@ prompt APPLICATION 100 - TCWEB Documents
 --       Processes:              1
 --       Computations:           5
 --       App Settings:           2
---       Build Options:          6
+--       Build Options:          7
 --     Navigation:
 --       Lists:                  7
 --       Breadcrumbs:            1
@@ -89,7 +89,7 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,100)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEBADMIN')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'TCWEB Documents')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'TCWEB')
 ,p_page_view_logging=>'YES'
@@ -124,7 +124,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'TCWEB Documents'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122140727'
+,p_last_upd_yyyymmddhh24miss=>'20190122160012'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
 ,p_ui_type_name => null
@@ -288,6 +288,15 @@ wwv_flow_api.create_list_item(
 ,p_list_item_link_target=>'#'
 ,p_list_item_icon=>'fa-user'
 ,p_list_text_02=>'has-username'
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(2593808662040875)
+,p_list_item_display_sequence=>65
+,p_list_item_link_text=>unistr('\30D7\30ED\30D5\30A1\30A4\30EB')
+,p_list_item_link_target=>'f?p=&APP_ID.:4:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-user-circle-o'
+,p_parent_list_item_id=>wwv_flow_api.id(16594544510689155)
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(
@@ -10477,6 +10486,11 @@ end;
 prompt --application/shared_components/logic/build_options
 begin
 wwv_flow_api.create_build_option(
+ p_id=>wwv_flow_api.id(2595232420049451)
+,p_build_option_name=>'Field Alert'
+,p_build_option_status=>'EXCLUDE'
+);
+wwv_flow_api.create_build_option(
  p_id=>wwv_flow_api.id(16444197258688795)
 ,p_build_option_name=>unistr('\6A5F\80FD: \30A2\30AF\30BB\30B9\5236\5FA1')
 ,p_build_option_status=>'INCLUDE'
@@ -13051,6 +13065,7 @@ wwv_flow_api.create_page_button(
 ,p_button_condition_type=>'EXISTS'
 ,p_icon_css_classes=>'fa-clipboard'
 ,p_button_cattributes=>'data-clipboard-source=&P3_DETAIL_URL.'
+,p_grid_new_grid=>false
 ,p_grid_new_row=>'N'
 ,p_grid_column=>10
 );
@@ -13084,6 +13099,7 @@ wwv_flow_api.create_page_button(
 ,p_button_condition_type=>'EXISTS'
 ,p_icon_css_classes=>'fa-clipboard'
 ,p_button_cattributes=>'data-clipboard-source=&P3_DOWNLOAD_URL.'
+,p_grid_new_grid=>false
 ,p_grid_new_row=>'N'
 ,p_grid_column=>10
 );
@@ -13798,7 +13814,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181129145459'
+,p_last_upd_yyyymmddhh24miss=>'20190122155731'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(194819800561317046)
@@ -14415,6 +14431,25 @@ wwv_flow_api.create_page_button(
 ,p_grid_new_column=>'Y'
 );
 wwv_flow_api.create_page_item(
+ p_id=>wwv_flow_api.id(2637912091627745)
+,p_name=>'P4_CARE_NEWARRAIVAL'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_api.id(194860988267515926)
+,p_item_default=>'Y'
+,p_prompt=>unistr('\65B0\7740\30D5\30E9\30B0\306E\6271\3044')
+,p_source=>'tcw_util.get_preference(''CARE_NEWARRAIVAL'');'
+,p_source_type=>'FUNCTION'
+,p_display_as=>'NATIVE_YES_NO'
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_api.id(16419965378688702)
+,p_item_template_options=>'#DEFAULT#'
+,p_attribute_01=>'CUSTOM'
+,p_attribute_02=>'Y'
+,p_attribute_03=>unistr('\8003\616E')
+,p_attribute_04=>'N'
+,p_attribute_05=>unistr('\7121\8996')
+);
+wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(16763772200091618)
 ,p_name=>'P4_LAST_NAME'
 ,p_item_sequence=>10
@@ -14469,7 +14504,7 @@ wwv_flow_api.create_page_item(
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(16765022775091622)
 ,p_name=>'P4_SHOW_SEMINARS'
-,p_item_sequence=>50
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_api.id(194860988267515926)
 ,p_item_default=>'Y'
 ,p_prompt=>unistr('\30BB\30DF\30CA\30FC\306E\8868\793A')
@@ -14487,7 +14522,7 @@ wwv_flow_api.create_page_item(
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(16765379627091622)
 ,p_name=>'P4_SEMINAR_CLONO'
-,p_item_sequence=>60
+,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_api.id(194860988267515926)
 ,p_item_default=>'Y'
 ,p_prompt=>unistr('\8868\793A\9806\5E8F')
@@ -14506,7 +14541,7 @@ wwv_flow_api.create_page_item(
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(16765821073091622)
 ,p_name=>'P4_SHOW_FAQS'
-,p_item_sequence=>70
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_api.id(194860988267515926)
 ,p_item_default=>'Y'
 ,p_prompt=>unistr('FAQ\306E\8868\793A')
@@ -14524,7 +14559,7 @@ wwv_flow_api.create_page_item(
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(16766170429091623)
 ,p_name=>'P4_SHOW_FIELDALERTS'
-,p_item_sequence=>80
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_api.id(194860988267515926)
 ,p_item_default=>'Y'
 ,p_prompt=>unistr('Field Alert\306E\8868\793A')
@@ -14533,6 +14568,7 @@ wwv_flow_api.create_page_item(
 ,p_display_as=>'NATIVE_YES_NO'
 ,p_field_template=>wwv_flow_api.id(16419965378688702)
 ,p_item_template_options=>'#DEFAULT#'
+,p_required_patch=>wwv_flow_api.id(2595232420049451)
 ,p_attribute_01=>'CUSTOM'
 ,p_attribute_02=>'Y'
 ,p_attribute_03=>unistr('\3059\308B')
@@ -14652,7 +14688,7 @@ unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\3
 '2018/10/30 - ynakakos',
 unistr('Consulting Only\306E\8CC7\6599\304C\307F\3093\306A\306B\30EA\30B9\30C8\3055\308C\3066\3044\305F\306E\3067\3001\30EA\30B9\30C8\3055\308C\306A\3044\3088\3046\691C\7D22\6761\4EF6\3092\8FFD\52A0\3057\305F\3002')))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122140633'
+,p_last_upd_yyyymmddhh24miss=>'20190122160012'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(16280514363282323)
@@ -15339,15 +15375,16 @@ wwv_flow_api.create_worksheet_column(
 ,p_db_column_name=>'OPL_CODE_TEXT'
 ,p_display_order=>90
 ,p_column_identifier=>'S'
-,p_column_label=>'Opl Code Text'
+,p_column_label=>'P'
 ,p_column_type=>'STRING'
+,p_display_text_as=>'WITHOUT_MODIFICATION'
 );
 wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(5210654811720035)
 ,p_db_column_name=>'R_LAST_UPDATED_BY'
 ,p_display_order=>100
 ,p_column_identifier=>'T'
-,p_column_label=>'R Last Updated By'
+,p_column_label=>unistr('\6700\7D42\66F4\65B0\8005')
 ,p_column_type=>'STRING'
 );
 wwv_flow_api.create_worksheet_column(
@@ -15355,7 +15392,7 @@ wwv_flow_api.create_worksheet_column(
 ,p_db_column_name=>'R_CLASSIFICATION'
 ,p_display_order=>110
 ,p_column_identifier=>'U'
-,p_column_label=>'R Classification'
+,p_column_label=>unistr('\516C\958B\30EC\30D9\30EB')
 ,p_column_type=>'NUMBER'
 ,p_column_alignment=>'RIGHT'
 );
@@ -15364,7 +15401,7 @@ wwv_flow_api.create_worksheet_column(
 ,p_db_column_name=>'R_TITLE'
 ,p_display_order=>120
 ,p_column_identifier=>'V'
-,p_column_label=>'R Title'
+,p_column_label=>unistr('\30BF\30A4\30C8\30EB')
 ,p_column_type=>'STRING'
 );
 wwv_flow_api.create_worksheet_rpt(
@@ -15375,7 +15412,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>25
-,p_report_columns=>'ROWOP:TITLE:OWNER:UPDATED:LINK_NUM:TYPE:RELATED_URL:'
+,p_report_columns=>'ROWOP:OPL_CODE_TEXT:TITLE:OWNER:UPDATED:LINK_NUM:TYPE:RELATED_URL:'
 ,p_sort_column_1=>'UPDATED'
 ,p_sort_direction_1=>'DESC'
 );
