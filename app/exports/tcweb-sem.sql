@@ -15,7 +15,7 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572068420053020
+,p_default_workspace_id=>2572090316058688
 ,p_default_application_id=>101
 ,p_default_owner=>'TCWEBADMIN'
 );
@@ -27,7 +27,7 @@ prompt APPLICATION 101 - TCWEB Seminars
 -- Application Export:
 --   Application:     101
 --   Name:            TCWEB Seminars
---   Date and Time:   10:29 火曜日 1月 22, 2019
+--   Date and Time:   12:04 火曜日 1月 22, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -47,7 +47,6 @@ prompt APPLICATION 101 - TCWEB Seminars
 --     Logic:
 --       Items:                  1
 --       Computations:           1
---       Web Services:           1
 --     Navigation:
 --       Lists:                  2
 --       Breadcrumbs:            1
@@ -113,7 +112,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122102934'
+,p_last_upd_yyyymmddhh24miss=>'20190122120356'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_ui_type_name => null
@@ -11191,7 +11190,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217140544'
+,p_last_upd_yyyymmddhh24miss=>'20190122120356'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(88503538716026258)
@@ -11726,7 +11725,7 @@ wwv_flow_api.create_page_item(
 ,p_item_sequence=>20
 ,p_item_plug_id=>wwv_flow_api.id(88503538716026258)
 ,p_prompt=>unistr('\6848\5185\7528URL')
-,p_source_post_computation=>'''https://tcweb.jp.oracle.com/TCWEB/seminar?id='' || :P2_SEMINAR_ID'
+,p_source_post_computation=>'apex_util.host_url(''SCRIPT'') || ''f?p='' || :APP_ID || '':DETAIL:::::P3_SEMINAR_ID:'' || :P2_SEMINAR_ID'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_tag_attributes=>'readonly="readonly"'
@@ -11782,7 +11781,6 @@ wwv_flow_api.create_page_item(
 ,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_api.id(88503538716026258)
 ,p_use_cache_before_default=>'NO'
-,p_item_default=>'Sales-EMEA-JAPAC'
 ,p_prompt=>unistr('Slack\30EF\30FC\30AF\30B9\30DA\30FC\30B9')
 ,p_source=>'SLACK_WORKSPACE'
 ,p_source_type=>'DB_COLUMN'
@@ -11974,7 +11972,7 @@ wwv_flow_api.create_page_process(
 ' ''DTSTAMP:'' || l_now        || CHR(13) || CHR(10) ||',
 ' ''DTSTART:'' || l_start_time || CHR(13) || CHR(10) ||',
 ' ''DTEND:''   || l_end_time   || CHR(13) || CHR(10) ||',
-' ''URL:https://tcweb.jp.oracle.com/TCWEB/seminar?id='' || :P2_SEMINAR_ID || CHR(13) || CHR(10) ||',
+' apex_util.host_url(''SCRIPT'') || :APP_ID || '':DETAIL:::::P3_SEMINAR_ID:'' || :P2_SEMINAR_ID || CHR(13) || CHR(10) ||',
 ' ''UID:'' || SYS_GUID() || CHR(13) || CHR(10) ||',
 ' ''STATUS:CONFIRMED''   || CHR(13) || CHR(10) ||',
 ' ''BEGIN:VALARM''       || CHR(13) || CHR(10) ||',
@@ -12046,7 +12044,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_deep_linking=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217140601'
+,p_last_upd_yyyymmddhh24miss=>'20190122114133'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(172405640056174036)
@@ -12367,7 +12365,7 @@ wwv_flow_api.create_page_item(
 ,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_api.id(172405640056174036)
 ,p_prompt=>unistr('\6848\5185\7528URL')
-,p_source_post_computation=>'''https://tcweb.jp.oracle.com/TCWEB/seminar?id='' || :P3_SEMINAR_ID'
+,p_source_post_computation=>'apex_util.host_url(''SCRIPT'') || ''f?p='' || :APP_ID || '':DETAIL:::::P3_SEMINAR_ID:'' || :P3_SEMINAR_ID'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_tag_attributes=>'readonly="readonly"'
@@ -12676,7 +12674,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217140617'
+,p_last_upd_yyyymmddhh24miss=>'20190122120014'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(88516706257087283)
@@ -13308,7 +13306,7 @@ wwv_flow_api.create_page_plug(
 '       USER_NAME,',
 '       IS_APPROVED,',
 '       ENTRY_DATE,',
-'       ''<a href="https://people.oracle.com/@'' || user_name || ''" target="_blank">Aria</a>'' as PEOPLE_LINK',
+'       user_name as PEOPLE_LINK',
 '  from TCW_SEMINAR_ENTRIES'))
 ,p_plug_source_type=>'NATIVE_IG'
 ,p_master_region_id=>wwv_flow_api.id(88516706257087283)
@@ -13408,7 +13406,7 @@ wwv_flow_api.create_region_column(
 ,p_attribute_04=>'button'
 ,p_attribute_05=>'N'
 ,p_attribute_07=>'NONE'
-,p_is_required=>false
+,p_is_required=>true
 ,p_enable_filter=>true
 ,p_filter_is_required=>false
 ,p_filter_date_ranges=>'ALL'
@@ -13479,7 +13477,6 @@ wwv_flow_api.create_interactive_grid(
 ,p_submit_checked_rows=>false
 ,p_lazy_loading=>false
 ,p_requires_filter=>false
-,p_max_row_count=>100000
 ,p_show_nulls_as=>'-'
 ,p_fixed_row_height=>true
 ,p_pagination_type=>'SCROLL'
@@ -16144,27 +16141,6 @@ wwv_flow_api.create_page_process(
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 ':P10071_USERNAME := apex_authentication.get_login_username_cookie;',
 ':P10071_REMEMBER := case when :P10071_USERNAME is not null then ''Y'' end;'))
-);
-end;
-/
-prompt --application/shared_components/logic/webservices/test
-begin
-wwv_flow_api.create_web_service(
- p_id=>wwv_flow_api.id(107199206552051764)
-,p_name=>'Test'
-,p_url=>'http://google.com'
-,p_action=>'REST'
-,p_proxy_override=>'www-proxy.us.oracle.com'
-,p_static_parm_04=>'GET'
-,p_static_parm_05=>'text'
-,p_static_parm_07=>'\n'
-,p_static_parm_08=>','
-,p_static_parm_10=>'nvp'
-);
-wwv_flow_api.create_ws_operations(
- p_id=>wwv_flow_api.id(107199492485051845)
-,p_ws_id=>wwv_flow_api.id(107199206552051764)
-,p_name=>'doREST'
 );
 end;
 /
