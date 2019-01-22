@@ -27,7 +27,7 @@ prompt APPLICATION 101 - TCWEB Seminars
 -- Application Export:
 --   Application:     101
 --   Name:            TCWEB Seminars
---   Date and Time:   12:04 火曜日 1月 22, 2019
+--   Date and Time:   14:08 火曜日 1月 22, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -67,7 +67,6 @@ prompt APPLICATION 101 - TCWEB Seminars
 --         Report:              11
 --       LOVs:                   5
 --       Shortcuts:              1
---       Plug-ins:               1
 --     Globalization:
 --     Reports:
 --     E-Mail:
@@ -112,7 +111,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122120356'
+,p_last_upd_yyyymmddhh24miss=>'20190122140030'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_ui_type_name => null
@@ -9971,87 +9970,6 @@ wwv_flow_api.create_authentication(
 );
 end;
 /
-prompt --application/shared_components/plugins/dynamic_action/nl_detora_apex_copytoclipboard
-begin
-wwv_flow_api.create_plugin(
- p_id=>wwv_flow_api.id(92228865995958965)
-,p_plugin_type=>'DYNAMIC ACTION'
-,p_name=>'NL.DETORA.APEX.COPYTOCLIPBOARD'
-,p_display_name=>'Copy to clipboard'
-,p_category=>'EFFECT'
-,p_supported_ui_types=>'DESKTOP'
-,p_image_prefix => nvl(wwv_flow_application_install.get_static_plugin_file_prefix('DYNAMIC ACTION','NL.DETORA.APEX.COPYTOCLIPBOARD'),'')
-,p_javascript_file_urls=>'#PLUGIN_FILES#apexcopytoclipboard.js'
-,p_plsql_code=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'/*-------------------------------------',
-' * APEX Resize Dialog',
-' * Version: 1.0 (05-01-2016)',
-' * Author:  Dick Dral',
-' *-------------------------------------',
-'*/',
-'FUNCTION render_copy_to_clipboard(p_dynamic_action IN apex_plugin.t_dynamic_action,',
-'                               p_plugin         IN apex_plugin.t_plugin)',
-'  RETURN apex_plugin.t_dynamic_action_render_result IS',
-'  --',
-'  -- plugin attributes',
-'  l_result       apex_plugin.t_dynamic_action_render_result;',
-'  --',
-'BEGIN',
-'  --',
-'  l_result.javascript_function := ''apexcopytoclipboard.doIt'';',
-'  --',
-'  RETURN l_result;',
-'  --',
-'END render_copy_to_clipboard;'))
-,p_api_version=>1
-,p_render_function=>'render_copy_to_clipboard'
-,p_standard_attributes=>'ITEM:REQUIRED'
-,p_substitute_attributes=>true
-,p_subscribe_plugin_settings=>true
-,p_version_identifier=>'1.0'
-,p_files_version=>5
-);
-end;
-/
-begin
-wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
-wwv_flow_api.g_varchar2_table(1) := '2F2F204150455820436F707920746F20436C6970626F6172640A2F2F20417574686F723A204469636B204472616C20284465746F7261290A2F2F2056657273696F6E3A20312E300A0A2F2F20676C6F62616C206E616D6573706163650A76617220617065';
-wwv_flow_api.g_varchar2_table(2) := '78636F7079746F636C6970626F617264203D207B0A0A636F70795F746F5F636C6970626F6172643A2066756E6374696F6E202820656C656D20290A7B0A0920202F2F206372656174652068696464656E207465787420656C656D656E742C206966206974';
-wwv_flow_api.g_varchar2_table(3) := '20646F65736E277420616C72656164792065786973740A20202020766172207461726765744964203D20225F68696464656E436F7079546578745F223B0A20202020766172206973496E707574203D20656C656D2E7461674E616D65203D3D3D2022494E';
-wwv_flow_api.g_varchar2_table(4) := '50555422207C7C20656C656D2E7461674E616D65203D3D3D20225445585441524541223B0A20202020766172206F72696753656C656374696F6E53746172742C206F72696753656C656374696F6E456E643B0A20202020696620286973496E7075742920';
-wwv_flow_api.g_varchar2_table(5) := '7B0A20202020202020202F2F2063616E206A7573742075736520746865206F726967696E616C20736F7572636520656C656D656E7420666F72207468652073656C656374696F6E20616E6420636F70790A2020202020202020746172676574203D20656C';
-wwv_flow_api.g_varchar2_table(6) := '656D3B0A20202020202020206F72696753656C656374696F6E5374617274203D20656C656D2E73656C656374696F6E53746172743B0A20202020202020206F72696753656C656374696F6E456E64203D20656C656D2E73656C656374696F6E456E643B0A';
-wwv_flow_api.g_varchar2_table(7) := '202020207D20656C7365207B0A20202020202020202F2F206D7573742075736520612074656D706F7261727920666F726D20656C656D656E7420666F72207468652073656C656374696F6E20616E6420636F70790A202020202020202074617267657420';
-wwv_flow_api.g_varchar2_table(8) := '3D20646F63756D656E742E676574456C656D656E7442794964287461726765744964293B0A2020202020202020696620282174617267657429207B0A20202020202020202020202076617220746172676574203D20646F63756D656E742E637265617465';
-wwv_flow_api.g_varchar2_table(9) := '456C656D656E742822746578746172656122293B0A2020202020202020202020207461726765742E7374796C652E706F736974696F6E203D20226162736F6C757465223B0A2020202020202020202020207461726765742E7374796C652E6C656674203D';
-wwv_flow_api.g_varchar2_table(10) := '20222D393939397078223B0A2020202020202020202020207461726765742E7374796C652E746F70203D202230223B0A2020202020202020202020207461726765742E6964203D2074617267657449643B0A202020202020202020202020646F63756D65';
-wwv_flow_api.g_varchar2_table(11) := '6E742E626F64792E617070656E644368696C6428746172676574293B0A20202020202020207D0A20202020202020207461726765742E74657874436F6E74656E74203D20656C656D2E74657874436F6E74656E743B0A202020207D0A202020202F2F2073';
-wwv_flow_api.g_varchar2_table(12) := '656C6563742074686520636F6E74656E740A202020207661722063757272656E74466F637573203D20646F63756D656E742E616374697665456C656D656E743B0A202020207461726765742E666F63757328293B0A202020207461726765742E73657453';
-wwv_flow_api.g_varchar2_table(13) := '656C656374696F6E52616E676528302C207461726765742E76616C75652E6C656E677468293B0A202020200A202020202F2F20636F7079207468652073656C656374696F6E0A2020202076617220737563636565643B0A20202020747279207B0A202020';
-wwv_flow_api.g_varchar2_table(14) := '2009202073756363656564203D20646F63756D656E742E65786563436F6D6D616E642822636F707922293B0A202020207D206361746368286529207B0A202020202020202073756363656564203D2066616C73653B0A202020207D0A202020202F2F2072';
-wwv_flow_api.g_varchar2_table(15) := '6573746F7265206F726967696E616C20666F6375730A202020206966202863757272656E74466F63757320262620747970656F662063757272656E74466F6375732E666F637573203D3D3D202266756E6374696F6E2229207B0A20202020202020206375';
-wwv_flow_api.g_varchar2_table(16) := '7272656E74466F6375732E666F63757328293B0A202020207D0A202020200A20202020696620286973496E70757429207B0A20202020202020202F2F20726573746F7265207072696F722073656C656374696F6E0A2020202020202020656C656D2E7365';
-wwv_flow_api.g_varchar2_table(17) := '7453656C656374696F6E52616E6765286F72696753656C656374696F6E53746172742C206F72696753656C656374696F6E456E64293B0A202020207D20656C7365207B0A20202020202020202F2F20636C6561722074656D706F7261727920636F6E7465';
-wwv_flow_api.g_varchar2_table(18) := '6E740A20202020202020207461726765742E74657874436F6E74656E74203D2022223B0A202020207D0A2020202072657475726E20737563636565643B0A7D2C0A0A202020202F2F2066756E6374696F6E207468617420676574732063616C6C65642066';
-wwv_flow_api.g_varchar2_table(19) := '726F6D20706C7567696E0A20202020646F49743A2066756E6374696F6E2829207B0A20202020202020202F2F20706C7567696E20617474726962757465730A202020202020202076617220646154686973203D20746869733B0A20202020202020207661';
-wwv_flow_api.g_varchar2_table(20) := '722076456C656D656E74734172726179203D206461546869732E6166666563746564456C656D656E74733B0A202020202020202076617220656C656D203D2076456C656D656E747341727261795B305D3B0A0909747279207B20766172206C6F63616C5F';
-wwv_flow_api.g_varchar2_table(21) := '6C6F6767696E67203D202820706167655F6C6F6767696E672029203F2074727565203A2066616C73653B0A09097D206361746368286529207B206C6F63616C5F6C6F6767696E67203D2066616C73653B7D0A090969662028206C6F63616C5F6C6F676769';
-wwv_flow_api.g_varchar2_table(22) := '6E67290A09097B20636F6E736F6C652E6C6F672827456C656D656E74207769746820636F6E74656E7420746F20626520636F706965643A272C656C656D293B207D0A202020202020202061706578636F7079746F636C6970626F6172642E636F70795F74';
-wwv_flow_api.g_varchar2_table(23) := '6F5F636C6970626F61726428656C656D293B0A202020207D0A7D3B';
-null;
-end;
-/
-begin
-wwv_flow_api.create_plugin_file(
- p_id=>wwv_flow_api.id(92229024435959003)
-,p_plugin_id=>wwv_flow_api.id(92228865995958965)
-,p_file_name=>'apexcopytoclipboard.js'
-,p_mime_type=>'application/javascript'
-,p_file_charset=>'utf-8'
-,p_file_content=>wwv_flow_api.varchar2_to_blob(wwv_flow_api.g_varchar2_table)
-);
-end;
-/
 prompt --application/user_interfaces
 begin
 wwv_flow_api.create_user_interface(
@@ -11190,7 +11108,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122120356'
+,p_last_upd_yyyymmddhh24miss=>'20190122135723'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(88503538716026258)
@@ -11216,7 +11134,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'BODY'
 ,p_warn_on_unsaved_changes=>null
 ,p_icon_css_classes=>'fa-clipboard'
-,p_grid_new_grid=>false
+,p_button_cattributes=>'data-clipboard-source=&P2_DETAIL_LINK.'
 ,p_grid_new_row=>'N'
 ,p_grid_new_column=>'Y'
 );
@@ -11865,17 +11783,6 @@ wwv_flow_api.create_page_da_event(
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'click'
 );
-wwv_flow_api.create_page_da_action(
- p_id=>wwv_flow_api.id(91746579104399473)
-,p_event_id=>wwv_flow_api.id(91746432276399472)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'PLUGIN_NL.DETORA.APEX.COPYTOCLIPBOARD'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P2_DETAIL_LINK'
-,p_stop_execution_on_error=>'Y'
-);
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(88511096239026287)
 ,p_process_sequence=>10
@@ -12013,9 +11920,6 @@ wwv_flow_api.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_process_when_button_id=>wwv_flow_api.id(88786730672334254)
 );
-end;
-/
-begin
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(88511886073026289)
 ,p_process_sequence=>70
@@ -12026,7 +11930,6 @@ wwv_flow_api.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_process_when_button_id=>wwv_flow_api.id(88504159213026259)
 );
-null;
 end;
 /
 prompt --application/pages/page_00003
@@ -12044,7 +11947,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_deep_linking=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122114133'
+,p_last_upd_yyyymmddhh24miss=>'20190122135942'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(172405640056174036)
@@ -12192,7 +12095,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'BODY'
 ,p_warn_on_unsaved_changes=>null
 ,p_icon_css_classes=>'fa-clipboard'
-,p_grid_new_grid=>false
+,p_button_cattributes=>'data-clipboard-source=&P3_DETAIL_URL.'
 ,p_grid_new_row=>'N'
 ,p_grid_new_column=>'Y'
 );
@@ -12533,17 +12436,6 @@ wwv_flow_api.create_page_da_event(
 ,p_triggering_button_id=>wwv_flow_api.id(91733369592399441)
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'click'
-);
-wwv_flow_api.create_page_da_action(
- p_id=>wwv_flow_api.id(91733592516399443)
-,p_event_id=>wwv_flow_api.id(91733465702399442)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'PLUGIN_NL.DETORA.APEX.COPYTOCLIPBOARD'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P3_DETAIL_URL'
-,p_stop_execution_on_error=>'Y'
 );
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(90198960412423040)

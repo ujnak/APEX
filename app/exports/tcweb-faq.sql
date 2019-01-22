@@ -27,7 +27,7 @@ prompt APPLICATION 102 - TCWEB FAQ
 -- Application Export:
 --   Application:     102
 --   Name:            TCWEB FAQ
---   Date and Time:   12:02 火曜日 1月 22, 2019
+--   Date and Time:   14:09 火曜日 1月 22, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -111,7 +111,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122113409'
+,p_last_upd_yyyymmddhh24miss=>'20190122140220'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 );
@@ -14378,7 +14378,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_deep_linking=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122112759'
+,p_last_upd_yyyymmddhh24miss=>'20190122140220'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(184479635041556993)
@@ -14443,7 +14443,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'BODY'
 ,p_warn_on_unsaved_changes=>null
 ,p_icon_css_classes=>'fa-clipboard'
-,p_grid_new_grid=>false
+,p_button_cattributes=>'data-clipboard-source=&P4_FAQ_URL.'
 ,p_grid_new_row=>'N'
 ,p_grid_new_column=>'Y'
 );
@@ -14649,17 +14649,6 @@ wwv_flow_api.create_page_da_event(
 ,p_triggering_button_id=>wwv_flow_api.id(94872144366452197)
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'click'
-);
-wwv_flow_api.create_page_da_action(
- p_id=>wwv_flow_api.id(94872346034452199)
-,p_event_id=>wwv_flow_api.id(94872218181452198)
-,p_event_result=>'TRUE'
-,p_action_sequence=>10
-,p_execute_on_page_init=>'N'
-,p_action=>'PLUGIN_NL.DETORA.APEX.COPYTOCLIPBOARD'
-,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P4_FAQ_URL'
-,p_stop_execution_on_error=>'Y'
 );
 wwv_flow_api.create_page_da_event(
  p_id=>wwv_flow_api.id(129536770016004356)
