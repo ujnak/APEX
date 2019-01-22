@@ -27,7 +27,7 @@ prompt APPLICATION 102 - TCWEB Documents
 -- Application Export:
 --   Application:     102
 --   Name:            TCWEB Documents
---   Date and Time:   10:59 月曜日 1月 21, 2019
+--   Date and Time:   10:25 火曜日 1月 22, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -78,7 +78,7 @@ prompt APPLICATION 102 - TCWEB Documents
 --     E-Mail:
 --       Templates:              2
 --   Supporting Objects:  Included
---     Install scripts:          3
+--     Install scripts:          4
 
 prompt --application/delete_application
 begin
@@ -125,7 +125,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'TCWEB Documents'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190121104430'
+,p_last_upd_yyyymmddhh24miss=>'20190122102456'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
 ,p_ui_type_name => null
@@ -142,9 +142,9 @@ wwv_flow_api.create_list(
 wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(13882597798596558)
 ,p_list_item_display_sequence=>10
-,p_list_item_link_text=>unistr('\65B0\7740\60C5\5831')
+,p_list_item_link_text=>unistr('\767B\9332\6587\66F8\4E00\89A7')
 ,p_list_item_link_target=>'f?p=&APP_ID.:5:&SESSION.:B_INIT:&DEBUG.:5,RIR:::'
-,p_list_item_icon=>'fa-bolt'
+,p_list_item_icon=>'fa-list-alt'
 ,p_list_item_current_type=>'NEVER'
 );
 wwv_flow_api.create_list_item(
@@ -22861,13 +22861,91 @@ wwv_flow_api.create_install_script(
 );
 end;
 /
+prompt --application/deployment/install/install_sequences
+begin
+wwv_flow_api.create_install_script(
+ p_id=>wwv_flow_api.id(4732761880054704)
+,p_install_id=>wwv_flow_api.id(14311387770630337)
+,p_name=>'sequences'
+,p_sequence=>20
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+' CREATE SEQUENCE  "TCW_DOCUMENTS_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 1 NOCACHE  NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
+'',
+' CREATE SEQUENCE  "TCW_DOC_REMARKS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
+'',
+' CREATE SEQUENCE  "TCW_FOLLOWERS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
+'',
+' CREATE SEQUENCE  "TCW_LINK_TYPES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
+'',
+' CREATE SEQUENCE  "TCW_USER_PREFERENCES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
+'',
+''))
+);
+wwv_flow_api.create_install_object(
+ p_id=>wwv_flow_api.id(4732841455054706)
+,p_script_id=>wwv_flow_api.id(4732761880054704)
+,p_object_owner=>'#OWNER#'
+,p_object_type=>'SEQUENCE'
+,p_object_name=>'TCW_DOCUMENTS_SEQ'
+,p_last_updated_by=>'ADMIN'
+,p_last_updated_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+,p_created_by=>'ADMIN'
+,p_created_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+);
+wwv_flow_api.create_install_object(
+ p_id=>wwv_flow_api.id(4733025671054708)
+,p_script_id=>wwv_flow_api.id(4732761880054704)
+,p_object_owner=>'#OWNER#'
+,p_object_type=>'SEQUENCE'
+,p_object_name=>'TCW_DOC_REMARKS_SEQ'
+,p_last_updated_by=>'ADMIN'
+,p_last_updated_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+,p_created_by=>'ADMIN'
+,p_created_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+);
+wwv_flow_api.create_install_object(
+ p_id=>wwv_flow_api.id(4733282518054709)
+,p_script_id=>wwv_flow_api.id(4732761880054704)
+,p_object_owner=>'#OWNER#'
+,p_object_type=>'SEQUENCE'
+,p_object_name=>'TCW_FOLLOWERS_SEQ'
+,p_last_updated_by=>'ADMIN'
+,p_last_updated_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+,p_created_by=>'ADMIN'
+,p_created_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+);
+wwv_flow_api.create_install_object(
+ p_id=>wwv_flow_api.id(4733698232054709)
+,p_script_id=>wwv_flow_api.id(4732761880054704)
+,p_object_owner=>'#OWNER#'
+,p_object_type=>'SEQUENCE'
+,p_object_name=>'TCW_LINK_TYPES_SEQ'
+,p_last_updated_by=>'ADMIN'
+,p_last_updated_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+,p_created_by=>'ADMIN'
+,p_created_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+);
+wwv_flow_api.create_install_object(
+ p_id=>wwv_flow_api.id(4733481414054709)
+,p_script_id=>wwv_flow_api.id(4732761880054704)
+,p_object_owner=>'#OWNER#'
+,p_object_type=>'SEQUENCE'
+,p_object_name=>'TCW_USER_PREFERENCES_SEQ'
+,p_last_updated_by=>'ADMIN'
+,p_last_updated_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+,p_created_by=>'ADMIN'
+,p_created_on=>to_date('20190122102106','YYYYMMDDHH24MISS')
+);
+end;
+/
 prompt --application/deployment/install/install_tcw_schema
 begin
 wwv_flow_api.create_install_script(
  p_id=>wwv_flow_api.id(5313561512456829)
 ,p_install_id=>wwv_flow_api.id(14311387770630337)
 ,p_name=>'tcw_schema'
-,p_sequence=>20
+,p_sequence=>30
 ,p_script_type=>'INSTALL'
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'CREATE TABLE "TCW_DOCUMENTS" ',
@@ -23331,9 +23409,10 @@ wwv_flow_api.create_install_script(
 'procedure remove_search_items( ',
 '  p_search_items in varchar2); ',
 ' ',
-'procedure add_search_items( ',
-'  p_search_items in varchar2, ',
-'  p_username     in varchar2 default null); ',
+'procedure add_search_items(',
+'  p_search_items in varchar2,',
+'  p_username     in varchar2 default null,',
+'  p_need_unescape in varchar2 default ''N'');',
 ' ',
 'function get_contains return varchar2; ',
 ' ',
@@ -23633,43 +23712,50 @@ wwv_flow_api.create_install_script(
 '  end loop; ',
 'end; ',
 ' ',
-'procedure add_search_items( ',
-'  p_search_items in varchar2, ',
-'  p_username     in varchar2 default null) ',
-'as ',
-'  l_words      APEX_APPLICATION_GLOBAL.VC_ARR2; ',
-'  l_hashtags   APEX_APPLICATION_GLOBAL.VC_ARR2; ',
-'  l_owners     APEX_APPLICATION_GLOBAL.VC_ARR2; ',
-'  l_querytime  timestamp with local time zone := systimestamp; ',
-'begin ',
-'  tcw_util.extract_search_items ( ',
-'      p_string        => p_search_items, ',
-'      p_item_words    => l_words, ',
-'      p_item_hashtags => l_hashtags, ',
-'      p_item_owners   => l_owners); ',
-'  if l_words.count > 0 then ',
-'    if p_username is not null then ',
-'      tcw_util.log_query_history(l_words, p_username, l_querytime, ''K''); ',
-'    end if; ',
-'    apex_collection.add_members(p_collection_name => ''SEARCH_WORDS'',  ',
-'                                p_c001 => l_words); ',
-'  end if; ',
-'  if l_hashtags.count > 0 then ',
-'    if p_username is not null then ',
-'      tcw_util.log_query_history(l_hashtags, p_username, l_querytime, ''H''); ',
-'    end if; ',
-'    apex_collection.add_members(p_collection_name => ''SEARCH_HASHTAGS'', ',
-'                                p_c001 => l_hashtags); ',
-'  end if; ',
-'  if l_owners.count > 0 then ',
-'    if p_username is not null then ',
-'      tcw_util.log_query_history(l_owners, p_username, l_querytime, ''P''); ',
-'    end if; ',
-'    apex_collection.add_members(p_collection_name => ''SEARCH_OWNERS'', ',
-'                                p_c001 => l_owners); ',
-'  end if; ',
-'end; ',
-' ',
+'procedure add_search_items(',
+'  p_search_items  in varchar2,',
+'  p_username      in varchar2 default null,',
+'  p_need_unescape in varchar2 default ''N'')',
+'as',
+'  l_search_items varchar2(4000);',
+'  l_words      APEX_APPLICATION_GLOBAL.VC_ARR2;',
+'  l_hashtags   APEX_APPLICATION_GLOBAL.VC_ARR2;',
+'  l_owners     APEX_APPLICATION_GLOBAL.VC_ARR2;',
+'  l_querytime  timestamp with local time zone := systimestamp;',
+'begin',
+'  if p_need_unescape <> ''N'' then',
+'    l_search_items := utl_url.unescape(url => p_search_items, url_charset => ''UTF-8'');',
+'  else',
+'    l_search_items := p_search_items;',
+'  end if;',
+'  tcw_util.extract_search_items (',
+'      p_string        => l_search_items,',
+'      p_item_words    => l_words,',
+'      p_item_hashtags => l_hashtags,',
+'      p_item_owners   => l_owners);',
+'  if l_words.count > 0 then',
+'    if p_username is not null then',
+'      tcw_util.log_query_history(l_words, p_username, l_querytime, ''K'');',
+'    end if;',
+'    apex_collection.add_members(p_collection_name => ''SEARCH_WORDS'', ',
+'                                p_c001 => l_words);',
+'  end if;',
+'  if l_hashtags.count > 0 then',
+'    if p_username is not null then',
+'      tcw_util.log_query_history(l_hashtags, p_username, l_querytime, ''H'');',
+'    end if;',
+'    apex_collection.add_members(p_collection_name => ''SEARCH_HASHTAGS'',',
+'                                p_c001 => l_hashtags);',
+'  end if;',
+'  if l_owners.count > 0 then',
+'    if p_username is not null then',
+'      tcw_util.log_query_history(l_owners, p_username, l_querytime, ''P'');',
+'    end if;',
+'    apex_collection.add_members(p_collection_name => ''SEARCH_OWNERS'',',
+'                                p_c001 => l_owners);',
+'  end if;',
+'end;',
+'',
 'function get_contains return varchar2 ',
 'as ',
 '  l_token        apex_collections.c001%type; ',
@@ -23766,16 +23852,6 @@ wwv_flow_api.create_install_script(
 'end "TCW_UTIL"; ',
 '/',
 '',
-' CREATE SEQUENCE  "TCW_DOC_REMARKS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 122 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
-'',
-' CREATE SEQUENCE  "TCW_FOLLOWERS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 204 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
-'',
-' CREATE SEQUENCE  "TCW_USER_PREFERENCES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
-'',
-' CREATE SEQUENCE  "TCW_DOCUMENTS_SEQ"  MINVALUE 1 MAXVALUE 999999999999999999999999999 INCREMENT BY 1 START WITH 25405 NOCACHE  NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
-'',
-' CREATE SEQUENCE  "TCW_LINK_TYPES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 61 CACHE 20 NOORDER  NOCYCLE  NOKEEP  GLOBAL ;',
-'',
 'CREATE OR REPLACE FORCE VIEW "TCW_DOC_LINKS_V" ("LINK_NUM", "LINK_NAMES") AS ',
 '  select l.doc_id as link_num, listagg(''<a href="'' || l.link_url || ''">'' || t.link_type_name || ''</a>'',''</br>'') within group (order by t.link_type_name nulls last) as link_names from tcw_doc_links l join tcw_link_types t on l.link_type = t.link_type_'
 ||'id group by doc_id',
@@ -23811,9 +23887,6 @@ wwv_flow_api.create_install_object(
 ,p_created_by=>'ADMIN'
 ,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
 );
-end;
-/
-begin
 wwv_flow_api.create_install_object(
  p_id=>wwv_flow_api.id(5314056965456857)
 ,p_script_id=>wwv_flow_api.id(5313561512456829)
@@ -23825,6 +23898,9 @@ wwv_flow_api.create_install_object(
 ,p_created_by=>'ADMIN'
 ,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
 );
+end;
+/
+begin
 wwv_flow_api.create_install_object(
  p_id=>wwv_flow_api.id(5314291440456857)
 ,p_script_id=>wwv_flow_api.id(5313561512456829)
@@ -23952,61 +24028,6 @@ wwv_flow_api.create_install_object(
 ,p_object_owner=>'#OWNER#'
 ,p_object_type=>'PACKAGE'
 ,p_object_name=>'TCW_UTIL'
-,p_last_updated_by=>'ADMIN'
-,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-,p_created_by=>'ADMIN'
-,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-);
-wwv_flow_api.create_install_object(
- p_id=>wwv_flow_api.id(5316640780456859)
-,p_script_id=>wwv_flow_api.id(5313561512456829)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'SEQUENCE'
-,p_object_name=>'TCW_DOCUMENTS_SEQ'
-,p_last_updated_by=>'ADMIN'
-,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-,p_created_by=>'ADMIN'
-,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-);
-wwv_flow_api.create_install_object(
- p_id=>wwv_flow_api.id(5316849457456859)
-,p_script_id=>wwv_flow_api.id(5313561512456829)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'SEQUENCE'
-,p_object_name=>'TCW_DOC_REMARKS_SEQ'
-,p_last_updated_by=>'ADMIN'
-,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-,p_created_by=>'ADMIN'
-,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-);
-wwv_flow_api.create_install_object(
- p_id=>wwv_flow_api.id(5317065513456859)
-,p_script_id=>wwv_flow_api.id(5313561512456829)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'SEQUENCE'
-,p_object_name=>'TCW_FOLLOWERS_SEQ'
-,p_last_updated_by=>'ADMIN'
-,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-,p_created_by=>'ADMIN'
-,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-);
-wwv_flow_api.create_install_object(
- p_id=>wwv_flow_api.id(5317315325456860)
-,p_script_id=>wwv_flow_api.id(5313561512456829)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'SEQUENCE'
-,p_object_name=>'TCW_LINK_TYPES_SEQ'
-,p_last_updated_by=>'ADMIN'
-,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-,p_created_by=>'ADMIN'
-,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-);
-wwv_flow_api.create_install_object(
- p_id=>wwv_flow_api.id(5317482582456860)
-,p_script_id=>wwv_flow_api.id(5313561512456829)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'SEQUENCE'
-,p_object_name=>'TCW_USER_PREFERENCES_SEQ'
 ,p_last_updated_by=>'ADMIN'
 ,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
 ,p_created_by=>'ADMIN'
@@ -24372,7 +24393,7 @@ wwv_flow_api.create_install_script(
  p_id=>wwv_flow_api.id(14328208308664644)
 ,p_install_id=>wwv_flow_api.id(14311387770630337)
 ,p_name=>'content_types'
-,p_sequence=>30
+,p_sequence=>50
 ,p_script_type=>'INSTALL'
 ,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 unistr('insert into tcw_content_types(content_type,content_type_alias,description) values(''application/x-msexcel'',''XLS'',''MS Excel \30D5\30A1\30A4\30EB'');'),
