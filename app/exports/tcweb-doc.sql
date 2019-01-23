@@ -15,7 +15,7 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572034785011149
+,p_default_workspace_id=>2591850376018325
 ,p_default_application_id=>100
 ,p_default_owner=>'TCWEB'
 );
@@ -27,7 +27,7 @@ prompt APPLICATION 100 - TCWEB Documents
 -- Application Export:
 --   Application:     100
 --   Name:            TCWEB Documents
---   Date and Time:   16:01 火曜日 1月 22, 2019
+--   Date and Time:   11:29 水曜日 1月 23, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -42,7 +42,7 @@ prompt APPLICATION 100 - TCWEB Documents
 --     Processes:               67
 --     Regions:                110
 --     Buttons:                 72
---     Dynamic Actions:         43
+--     Dynamic Actions:         41
 --   Shared Components:
 --     Logic:
 --       Items:                  7
@@ -124,7 +124,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'TCWEB Documents'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122160012'
+,p_last_upd_yyyymmddhh24miss=>'20190123110421'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
 ,p_ui_type_name => null
@@ -12818,7 +12818,7 @@ wwv_flow_api.create_page(
 ,p_deep_linking=>'Y'
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122135436'
+,p_last_upd_yyyymmddhh24miss=>'20190123110421'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(191689245485862391)
@@ -13298,7 +13298,7 @@ wwv_flow_api.create_page_item(
 ,p_source_post_computation=>'apex_util.host_url(''SCRIPT'') || ''f?p='' || :APP_ID || '':DETAIL:::NO::P3_LINK_NUM:'' || :P3_LINK_NUM '
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>52
-,p_tag_attributes=>'readonly="readonly"'
+,p_tag_attributes=>'readonly'
 ,p_display_when=>'select 1 from tcw_doc_data where link_num = :P3_LINK_NUM'
 ,p_display_when_type=>'EXISTS'
 ,p_field_template=>wwv_flow_api.id(16419965378688702)
@@ -13318,7 +13318,7 @@ wwv_flow_api.create_page_item(
 ,p_source_post_computation=>'apex_util.host_url(''SCRIPT'') || ''f?p='' || :APP_ID || '':DOWNLOAD:::NO::DOWNLOAD_LINK_NUM:'' || :P3_LINK_NUM'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>52
-,p_tag_attributes=>'readonly="readonly"'
+,p_tag_attributes=>'readonly'
 ,p_display_when=>'select 1 from tcw_doc_data where link_num = :P3_LINK_NUM'
 ,p_display_when_type=>'EXISTS'
 ,p_field_template=>wwv_flow_api.id(16419965378688702)
@@ -13631,24 +13631,6 @@ wwv_flow_api.create_page_item(
 ,p_attribute_04=>'BOTH'
 );
 wwv_flow_api.create_page_da_event(
- p_id=>wwv_flow_api.id(16735617807082688)
-,p_name=>'Clip Download URL'
-,p_event_sequence=>10
-,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_api.id(16717249651082641)
-,p_bind_type=>'bind'
-,p_bind_event_type=>'click'
-);
-wwv_flow_api.create_page_da_event(
- p_id=>wwv_flow_api.id(16736472193082693)
-,p_name=>'Clip Detail URL'
-,p_event_sequence=>20
-,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_api.id(16716913689082640)
-,p_bind_type=>'bind'
-,p_bind_event_type=>'click'
-);
-wwv_flow_api.create_page_da_event(
  p_id=>wwv_flow_api.id(16737377349082695)
 ,p_name=>'Change'
 ,p_event_sequence=>30
@@ -13726,9 +13708,6 @@ wwv_flow_api.create_page_da_event(
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'apexafterclosedialog'
 );
-end;
-/
-begin
 wwv_flow_api.create_page_da_action(
  p_id=>wwv_flow_api.id(16740159389082698)
 ,p_event_id=>wwv_flow_api.id(16739625620082697)
@@ -13749,6 +13728,9 @@ wwv_flow_api.create_page_da_event(
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'change'
 );
+end;
+/
+begin
 wwv_flow_api.create_page_da_action(
  p_id=>wwv_flow_api.id(16741078471082700)
 ,p_event_id=>wwv_flow_api.id(16740558645082700)

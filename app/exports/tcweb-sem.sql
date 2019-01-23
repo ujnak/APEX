@@ -15,9 +15,9 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572090316058688
+,p_default_workspace_id=>2591850376018325
 ,p_default_application_id=>101
-,p_default_owner=>'TCWEBADMIN'
+,p_default_owner=>'TCWEB'
 );
 end;
 /
@@ -27,7 +27,7 @@ prompt APPLICATION 101 - TCWEB Seminars
 -- Application Export:
 --   Application:     101
 --   Name:            TCWEB Seminars
---   Date and Time:   14:08 火曜日 1月 22, 2019
+--   Date and Time:   11:30 水曜日 1月 23, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -42,7 +42,7 @@ prompt APPLICATION 101 - TCWEB Seminars
 --     Processes:               37
 --     Regions:                 26
 --     Buttons:                 38
---     Dynamic Actions:          6
+--     Dynamic Actions:          4
 --   Shared Components:
 --     Logic:
 --       Items:                  1
@@ -83,7 +83,7 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,101)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEBADMIN')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'TCWEB Seminars')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'SEMINAR')
 ,p_page_view_logging=>'YES'
@@ -111,7 +111,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122140030'
+,p_last_upd_yyyymmddhh24miss=>'20190123112216'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_ui_type_name => null
@@ -11108,7 +11108,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122135723'
+,p_last_upd_yyyymmddhh24miss=>'20190123112216'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(88503538716026258)
@@ -11135,6 +11135,7 @@ wwv_flow_api.create_page_button(
 ,p_warn_on_unsaved_changes=>null
 ,p_icon_css_classes=>'fa-clipboard'
 ,p_button_cattributes=>'data-clipboard-source=&P2_DETAIL_LINK.'
+,p_grid_new_grid=>false
 ,p_grid_new_row=>'N'
 ,p_grid_new_column=>'Y'
 );
@@ -11646,7 +11647,7 @@ wwv_flow_api.create_page_item(
 ,p_source_post_computation=>'apex_util.host_url(''SCRIPT'') || ''f?p='' || :APP_ID || '':DETAIL:::::P3_SEMINAR_ID:'' || :P2_SEMINAR_ID'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
-,p_tag_attributes=>'readonly="readonly"'
+,p_tag_attributes=>'readonly'
 ,p_field_template=>wwv_flow_api.id(88357795005376101)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_inline_help_text=>unistr('\30BB\30DF\30CA\30FC\306E\51FA\5E2D\767B\9332\3092\3059\308B\30DA\30FC\30B8\3078\306E\76F4\30EA\30F3\30AF\306B\306A\308A\307E\3059\3002id=\4EE5\964D\306F\65B0\898F\4F5C\6210\5F8C\306B\8FFD\52A0\3055\308C\307E\3059\3002')
@@ -11773,15 +11774,6 @@ wwv_flow_api.create_page_validation(
 ,p_validation_condition2=>'Y'
 ,p_validation_condition_type=>'VAL_OF_ITEM_IN_COND_EQ_COND2'
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
-);
-wwv_flow_api.create_page_da_event(
- p_id=>wwv_flow_api.id(91746432276399472)
-,p_name=>'Clip Detail URL'
-,p_event_sequence=>10
-,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_api.id(94888379572287094)
-,p_bind_type=>'bind'
-,p_bind_event_type=>'click'
 );
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(88511096239026287)
@@ -11947,7 +11939,7 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_deep_linking=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122135942'
+,p_last_upd_yyyymmddhh24miss=>'20190123112149'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(172405640056174036)
@@ -12096,6 +12088,7 @@ wwv_flow_api.create_page_button(
 ,p_warn_on_unsaved_changes=>null
 ,p_icon_css_classes=>'fa-clipboard'
 ,p_button_cattributes=>'data-clipboard-source=&P3_DETAIL_URL.'
+,p_grid_new_grid=>false
 ,p_grid_new_row=>'N'
 ,p_grid_new_column=>'Y'
 );
@@ -12271,7 +12264,7 @@ wwv_flow_api.create_page_item(
 ,p_source_post_computation=>'apex_util.host_url(''SCRIPT'') || ''f?p='' || :APP_ID || '':DETAIL:::::P3_SEMINAR_ID:'' || :P3_SEMINAR_ID'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
-,p_tag_attributes=>'readonly="readonly"'
+,p_tag_attributes=>'readonly'
 ,p_field_template=>wwv_flow_api.id(88357795005376101)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_attribute_01=>'N'
@@ -12427,15 +12420,6 @@ wwv_flow_api.create_page_validation(
 ,p_error_message=>unistr('#LABEL#\306F\6709\52B9\306A\30BF\30A4\30E0\30B9\30BF\30F3\30D7\3067\3042\308B\5FC5\8981\304C\3042\308A\307E\3059\3002')
 ,p_associated_item=>wwv_flow_api.id(90184853247423010)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
-);
-wwv_flow_api.create_page_da_event(
- p_id=>wwv_flow_api.id(91733465702399442)
-,p_name=>'Click '
-,p_event_sequence=>10
-,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_api.id(91733369592399441)
-,p_bind_type=>'bind'
-,p_bind_event_type=>'click'
 );
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(90198960412423040)
@@ -13369,6 +13353,7 @@ wwv_flow_api.create_interactive_grid(
 ,p_submit_checked_rows=>false
 ,p_lazy_loading=>false
 ,p_requires_filter=>false
+,p_max_row_count=>100000
 ,p_show_nulls_as=>'-'
 ,p_fixed_row_height=>true
 ,p_pagination_type=>'SCROLL'
