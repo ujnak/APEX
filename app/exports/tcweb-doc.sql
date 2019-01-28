@@ -27,7 +27,7 @@ prompt APPLICATION 100 - TCWEB Documents
 -- Application Export:
 --   Application:     100
 --   Name:            TCWEB Documents
---   Date and Time:   11:29 水曜日 1月 23, 2019
+--   Date and Time:   15:36 月曜日 1月 28, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -124,7 +124,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'TCWEB Documents'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190123110421'
+,p_last_upd_yyyymmddhh24miss=>'20190128153454'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
 ,p_ui_type_name => null
@@ -16788,7 +16788,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122120729'
+,p_last_upd_yyyymmddhh24miss=>'20190128153453'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(191805847973960735)
@@ -16813,15 +16813,13 @@ wwv_flow_api.create_page_plug(
 ,p_plug_display_point=>'BODY'
 ,p_query_type=>'SQL'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'select h.link_num, h.username, h.date_download, d.obj_name, ',
+'select h.link_num, h.username, h.date_download, l.obj_name, ',
 '  case',
-'  when h.last_updated_by is null then d.upd_username',
+'  when h.last_updated_by is null then l.upd_username',
 '  else h.last_updated_by',
 '  end last_updated_by',
-'from tcw_documents d join tcw_download_history h on d.link_num = h.link_num',
-'                ',
-'',
-''))
+'from tcw_documents l join tcw_download_history h on l.link_num = h.link_num',
+' and l.in_consulting <= nvl(:IN_CONSULTING, 0)'))
 ,p_plug_source_type=>'NATIVE_IR'
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 );
