@@ -15,19 +15,19 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2591850376018325
+,p_default_workspace_id=>2572007049043414
 ,p_default_application_id=>102
 ,p_default_owner=>'TCWEB'
 );
 end;
 /
  
-prompt APPLICATION 102 - TCWEB FAQ
+prompt APPLICATION 102 - FAQ
 --
 -- Application Export:
 --   Application:     102
---   Name:            TCWEB FAQ
---   Date and Time:   11:34 水曜日 1月 23, 2019
+--   Name:            FAQ
+--   Date and Time:   10:52 火曜日 2月 12, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -51,7 +51,7 @@ prompt APPLICATION 102 - TCWEB FAQ
 --       Lists:                  2
 --       Breadcrumbs:            1
 --     Security:
---       Authentication:         3
+--       Authentication:         1
 --     User Interface:
 --       Themes:                 1
 --       Templates:
@@ -84,8 +84,8 @@ wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,102)
 ,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
-,p_name=>nvl(wwv_flow_application_install.get_application_name,'TCWEB FAQ')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'FAQ100')
+,p_name=>nvl(wwv_flow_application_install.get_application_name,'FAQ')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'FAQ')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
 ,p_checksum_salt=>'80CAFB3E558BCEF73685DE8E220E0539C5682D2EEFAA8386313299477921F383'
@@ -95,6 +95,16 @@ wwv_flow_api.create_flow(
 ,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
 ,p_direction_right_to_left=>'N'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
+,p_documentation_banner=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Copyright 2019, Yuji Nakakoshi',
+'',
+'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modi'
+||'fy, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:',
+'',
+'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.',
+'',
+'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDE'
+||'RS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'))
 ,p_authentication=>'PLUGIN'
 ,p_authentication_id=>wwv_flow_api.id(7252816797345442)
 ,p_populate_roles=>'A'
@@ -102,7 +112,7 @@ wwv_flow_api.create_flow(
 ,p_logo_image=>'TEXT:TCWEB FAQ'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
-,p_flow_version=>unistr('\30EA\30EA\30FC\30B91.0')
+,p_flow_version=>'20190207'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
 ,p_flow_unavailable_text=>unistr('\3053\306E\30A2\30D7\30EA\30B1\30FC\30B7\30E7\30F3\306F\3001\73FE\6642\70B9\3067\306F\4F7F\7528\3067\304D\307E\305B\3093\3002')
 ,p_exact_substitutions_only=>'Y'
@@ -110,8 +120,12 @@ wwv_flow_api.create_flow(
 ,p_browser_frame=>'D'
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
+,p_substitution_string_01=>'APP_NAME'
+,p_substitution_value_01=>'UCSAMPLE FAQ'
+,p_substitution_string_02=>'APP_CAT_NAME'
+,p_substitution_value_02=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190123113157'
+,p_last_upd_yyyymmddhh24miss=>'20190207112256'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 );
@@ -184,7 +198,7 @@ wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(95729126796606924)
 ,p_list_item_display_sequence=>100
 ,p_list_item_link_text=>'Home'
-,p_list_item_link_target=>'f?p=TCWEB::&SESSION.::&DEBUG.::::'
+,p_list_item_link_target=>'f?p=LAUNCHER::&SESSION.::&DEBUG.::::'
 ,p_list_item_icon=>'fa-home'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
@@ -9139,31 +9153,8 @@ wwv_flow_api.create_authentication(
  p_id=>wwv_flow_api.id(7252816797345442)
 ,p_name=>'Application Express Account'
 ,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
-,p_use_secure_cookie_yn=>'N'
-,p_ras_mode=>0
-);
-end;
-/
-prompt --application/shared_components/security/authentications/シングル・サインオン_sso
-begin
-wwv_flow_api.create_authentication(
- p_id=>wwv_flow_api.id(95729215214606941)
-,p_name=>unistr('\30B7\30F3\30B0\30EB\30FB\30B5\30A4\30F3\30AA\30F3(SSO)')
-,p_scheme_type=>'NATIVE_IAS_SSO'
-,p_use_secure_cookie_yn=>'N'
-,p_ras_mode=>0
-);
-end;
-/
-prompt --application/shared_components/security/authentications/validate_by_remote_user_header
-begin
-wwv_flow_api.create_authentication(
- p_id=>wwv_flow_api.id(121656406398540688)
-,p_name=>'Validate by REMOTE_USER header'
-,p_scheme_type=>'NATIVE_HTTP_HEADER_VARIABLE'
-,p_attribute_01=>'REMOTE_USER'
-,p_attribute_02=>'BUILTIN_URL'
-,p_attribute_06=>'ALWAYS'
+,p_invalid_session_type=>'LOGIN'
+,p_cookie_name=>'&WORKSPACE_COOKIE.'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
 );
@@ -15481,16 +15472,17 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190121105045'
+,p_last_upd_yyyymmddhh24miss=>'20190207111037'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(7253563713345456)
-,p_plug_name=>'TCWEB FAQ'
+,p_plug_name=>'&APP_NAME.'
 ,p_icon_css_classes=>'fa-sign-in'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(95695228810606673)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'

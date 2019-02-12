@@ -15,19 +15,19 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2591850376018325
+,p_default_workspace_id=>2572007049043414
 ,p_default_application_id=>100
 ,p_default_owner=>'TCWEB'
 );
 end;
 /
  
-prompt APPLICATION 100 - TCWEB Documents
+prompt APPLICATION 100 - Documents
 --
 -- Application Export:
 --   Application:     100
---   Name:            TCWEB Documents
---   Date and Time:   15:36 月曜日 1月 28, 2019
+--   Name:            Documents
+--   Date and Time:   10:51 火曜日 2月 12, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -39,7 +39,7 @@ prompt APPLICATION 100 - TCWEB Documents
 --   Pages:                     40
 --     Items:                  105
 --     Validations:              3
---     Processes:               67
+--     Processes:               68
 --     Regions:                110
 --     Buttons:                 72
 --     Dynamic Actions:         41
@@ -90,7 +90,7 @@ wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,100)
 ,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
-,p_name=>nvl(wwv_flow_application_install.get_application_name,'TCWEB Documents')
+,p_name=>nvl(wwv_flow_application_install.get_application_name,'Documents')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'TCWEB')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
@@ -102,15 +102,24 @@ wwv_flow_api.create_flow(
 ,p_allow_feedback_yn=>'Y'
 ,p_direction_right_to_left=>'N'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
-,p_documentation_banner=>unistr('\30A2\30D7\30EA\30B1\30FC\30B7\30E7\30F3\306E\4F5C\6210\30A6\30A3\30B6\30FC\30C92018.11.29\304B\3089\4F5C\6210\3055\308C\305F\30A2\30D7\30EA\30B1\30FC\30B7\30E7\30F3\3002')
+,p_documentation_banner=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Copyright 2019, Yuji Nakakoshi',
+'',
+'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modi'
+||'fy, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:',
+'',
+'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.',
+'',
+'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDE'
+||'RS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'))
 ,p_authentication=>'PLUGIN'
 ,p_authentication_id=>wwv_flow_api.id(16321500417688590)
 ,p_application_tab_set=>1
-,p_logo_image=>'TEXT:TCWEB Documents'
+,p_logo_image=>'TEXT:&APP_CAT_NAME. Documents'
 ,p_app_builder_icon_name=>'app-icon.svg'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
-,p_flow_version=>'20181206'
+,p_flow_version=>'20190207'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
 ,p_flow_unavailable_text=>unistr('\3053\306E\30A2\30D7\30EA\30B1\30FC\30B7\30E7\30F3\306F\3001\73FE\6642\70B9\3067\306F\4F7F\7528\3067\304D\307E\305B\3093\3002')
 ,p_exact_substitutions_only=>'Y'
@@ -122,9 +131,11 @@ wwv_flow_api.create_flow(
 ,p_csv_encoding=>'Y'
 ,p_auto_time_zone=>'N'
 ,p_substitution_string_01=>'APP_NAME'
-,p_substitution_value_01=>'TCWEB Documents'
+,p_substitution_value_01=>'UCSAMPLE Documents'
+,p_substitution_string_02=>'APP_CAT_NAME'
+,p_substitution_value_02=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190128153454'
+,p_last_upd_yyyymmddhh24miss=>'20190208162910'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
 ,p_ui_type_name => null
@@ -314,6 +325,14 @@ wwv_flow_api.create_list_item(
 ,p_list_item_link_target=>'&LOGOUT_URL.'
 ,p_list_item_icon=>'fa-sign-out'
 ,p_parent_list_item_id=>wwv_flow_api.id(16594544510689155)
+,p_list_item_current_type=>'TARGET_PAGE'
+);
+wwv_flow_api.create_list_item(
+ p_id=>wwv_flow_api.id(2712562816886555)
+,p_list_item_display_sequence=>90
+,p_list_item_link_text=>'Home'
+,p_list_item_link_target=>'f?p=LAUNCHER::&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-home'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 end;
@@ -10599,6 +10618,7 @@ wwv_flow_api.create_authentication(
 ,p_name=>unistr('Application Express\8A8D\8A3C')
 ,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
 ,p_invalid_session_type=>'LOGIN'
+,p_cookie_name=>'&WORKSPACE_COOKIE.'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
 );
@@ -11930,7 +11950,7 @@ wwv_flow_api.create_page(
 ,p_protection_level=>'C'
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181206160729'
+,p_last_upd_yyyymmddhh24miss=>'20190208162910'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(149606109433524990)
@@ -12540,7 +12560,7 @@ wwv_flow_api.create_page_item(
 );
 wwv_flow_api.create_page_validation(
  p_id=>wwv_flow_api.id(16703043293073511)
-,p_validation_name=>'Verify Version'
+,p_validation_name=>unistr('\4F7F\7528\6E08\307F\30D0\30FC\30B8\30E7\30F3\304B\78BA\8A8D')
 ,p_validation_sequence=>20
 ,p_validation=>'select 1 from tcw_doc_archives where link_num = :P2_LINK_NUM and obj_version = :P2_OBJ_VERSION'
 ,p_validation_type=>'NOT_EXISTS'
@@ -12586,7 +12606,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Archive Previous Version'
+,p_process_name=>unistr('\73FE\5728\306E\30D0\30FC\30B8\30E7\30F3\3092\9000\907F')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '-- Archive previous version.',
 'begin',
@@ -12606,7 +12626,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>20
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Get PK'
+,p_process_name=>unistr('\4E3B\30AD\30FC\306E\53D6\5F97')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin ',
 '    if :P2_LINK_NUM is null then',
@@ -12623,7 +12643,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>30
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'New Document'
+,p_process_name=>unistr('\8CC7\6599\3092\65B0\898F\767B\9332')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
 '  insert into tcw_documents(link_num, reg_date, upd_date,',
@@ -12644,7 +12664,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>40
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Update Document'
+,p_process_name=>unistr('\8CC7\6599\3092\66F4\65B0')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'declare',
 '  l_checksum varchar2(200);',
@@ -12673,7 +12693,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>50
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Update Notification'
+,p_process_name=>unistr('\8CC7\6599\306E\66F4\65B0\3092\901A\77E5')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
 '    -- send notification.',
@@ -12693,7 +12713,7 @@ wwv_flow_api.create_page_process(
 ,p_process_sequence=>60
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Create Notification'
+,p_process_name=>unistr('\8CC7\6599\306E\65B0\898F\4F5C\6210\3092\901A\77E5')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
 '    -- send notification.',
@@ -12724,8 +12744,30 @@ wwv_flow_api.create_page_process(
 ,p_process_success_message=>'Action Processed.'
 );
 wwv_flow_api.create_page_process(
- p_id=>wwv_flow_api.id(16704943644073514)
+ p_id=>wwv_flow_api.id(2638009965627746)
 ,p_process_sequence=>80
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>unistr('\767B\9332\30D5\30A1\30A4\30EB\7121\3057\30A8\30E9\30FC\56DE\907F')
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'declare',
+'  l_link_num tcw_doc_data.link_num%type;',
+'begin',
+'  select link_num into l_link_num from tcw_doc_data',
+'  where link_num = :P2_LINK_NUM;',
+'  /* do nothing */',
+'exception',
+'  when no_data_found then',
+'    insert into tcw_doc_data(link_num) values(:P2_LINK_NUM);',
+'end;'))
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when_button_id=>wwv_flow_api.id(16694432627073486)
+,p_process_when=>'P2_LINK_OBJECT'
+,p_process_when_type=>'ITEM_IS_NOT_NULL'
+);
+wwv_flow_api.create_page_process(
+ p_id=>wwv_flow_api.id(16704943644073514)
+,p_process_sequence=>90
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_FORM_PROCESS'
 ,p_process_name=>'Process Row of TCW_DOC_DATA - SAVE'
@@ -12742,10 +12784,10 @@ wwv_flow_api.create_page_process(
 );
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(16704567518073513)
-,p_process_sequence=>90
+,p_process_sequence=>100
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
-,p_process_name=>'Delete Document'
+,p_process_name=>unistr('\8CC7\6599\3092\524A\9664')
 ,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
 '  update tcw_documents set opl_code = 0, upd_date = sysdate, upd_username = :APP_USER',
@@ -12760,7 +12802,7 @@ wwv_flow_api.create_page_process(
 );
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(16692798712073480)
-,p_process_sequence=>100
+,p_process_sequence=>110
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_region_id=>wwv_flow_api.id(149606109433524990)
 ,p_process_type=>'NATIVE_IG_DML'
@@ -12771,6 +12813,9 @@ wwv_flow_api.create_page_process(
 ,p_attribute_08=>'Y'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
+end;
+/
+begin
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(16706620676073515)
 ,p_process_sequence=>10
@@ -12818,7 +12863,7 @@ wwv_flow_api.create_page(
 ,p_deep_linking=>'Y'
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190123110421'
+,p_last_upd_yyyymmddhh24miss=>'20190208160247'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(191689245485862391)
@@ -13391,7 +13436,9 @@ wwv_flow_api.create_page_item(
 ,p_prompt=>unistr('\516C\958B\30EC\30D9\30EB')
 ,p_source=>'OPL_CODE'
 ,p_source_type=>'DB_COLUMN'
-,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'LIST_OF_CONF_NAME_DISP'
+,p_lov=>'.'||wwv_flow_api.id(16625173425980873)||'.'
 ,p_lov_display_null=>'YES'
 ,p_cHeight=>1
 ,p_read_only_when_type=>'ALWAYS'
@@ -13400,8 +13447,6 @@ wwv_flow_api.create_page_item(
 ,p_lov_display_extra=>'YES'
 ,p_attribute_01=>'NONE'
 ,p_attribute_02=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'NONE'
 );
 wwv_flow_api.create_page_item(
  p_id=>wwv_flow_api.id(16723320661082657)
@@ -13719,6 +13764,9 @@ wwv_flow_api.create_page_da_action(
 ,p_affected_region_id=>wwv_flow_api.id(254158296489347112)
 ,p_stop_execution_on_error=>'Y'
 );
+end;
+/
+begin
 wwv_flow_api.create_page_da_event(
  p_id=>wwv_flow_api.id(16740558645082700)
 ,p_name=>'Follow'
@@ -13728,9 +13776,6 @@ wwv_flow_api.create_page_da_event(
 ,p_bind_type=>'bind'
 ,p_bind_event_type=>'change'
 );
-end;
-/
-begin
 wwv_flow_api.create_page_da_action(
  p_id=>wwv_flow_api.id(16741078471082700)
 ,p_event_id=>wwv_flow_api.id(16740558645082700)
@@ -17843,11 +17888,11 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181206123217'
+,p_last_upd_yyyymmddhh24miss=>'20190207111100'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(16449672191688828)
-,p_plug_name=>'TCWEB'
+,p_plug_name=>'&APP_NAME.'
 ,p_icon_css_classes=>'app-icon'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(16367909848688651)

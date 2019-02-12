@@ -15,19 +15,19 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572003348014963
+,p_default_workspace_id=>2572007049043414
 ,p_default_application_id=>103
-,p_default_owner=>'TCWEBADMIN'
+,p_default_owner=>'TCWEB'
 );
 end;
 /
  
-prompt APPLICATION 103 - TCWEB Launcher
+prompt APPLICATION 103 - Launcher
 --
 -- Application Export:
 --   Application:     103
---   Name:            TCWEB Launcher
---   Date and Time:   17:43 月曜日 1月 21, 2019
+--   Name:            Launcher
+--   Date and Time:   10:53 火曜日 2月 12, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -82,9 +82,9 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,103)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEBADMIN')
-,p_name=>nvl(wwv_flow_application_install.get_application_name,'TCWEB Launcher')
-,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'TCWEB102')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
+,p_name=>nvl(wwv_flow_application_install.get_application_name,'Launcher')
+,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'LAUNCHER')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
 ,p_checksum_salt=>'C3FEB8DA5552032547D583C736CA934492C8AE9B4D1E3160E8D0478CBD45C93A'
@@ -96,15 +96,25 @@ wwv_flow_api.create_flow(
 ,p_date_time_format=>'YYYY/MM/DD HH24:MI:SS'
 ,p_direction_right_to_left=>'N'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
+,p_documentation_banner=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Copyright 2019, Yuji Nakakoshi',
+'',
+'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modi'
+||'fy, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:',
+'',
+'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.',
+'',
+'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDE'
+||'RS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'))
 ,p_authentication=>'PLUGIN'
 ,p_authentication_id=>wwv_flow_api.id(3163693271029081)
 ,p_populate_roles=>'A'
 ,p_application_tab_set=>0
-,p_logo_image=>'TEXT:TCWEB'
+,p_logo_image=>'TEXT:&APP_NAME.'
 ,p_public_user=>'APEX_PUBLIC_USER'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
-,p_flow_version=>'18.2.1'
+,p_flow_version=>'20190207'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
 ,p_flow_unavailable_text=>'This application is currently unavailable at this time.'
 ,p_exact_substitutions_only=>'Y'
@@ -113,8 +123,10 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_auto_time_zone=>'N'
+,p_substitution_string_01=>'APP_NAME'
+,p_substitution_value_01=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190121174254'
+,p_last_upd_yyyymmddhh24miss=>'20190207182614'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 );
@@ -147,9 +159,9 @@ wwv_flow_api.create_list_item(
 wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(226426365009964929)
 ,p_list_item_display_sequence=>120
-,p_list_item_link_text=>'Home'
-,p_list_item_link_target=>'f?p=TCWEB::&SESSION.::&DEBUG.::::'
-,p_list_item_icon=>'fa-home'
+,p_list_item_link_text=>unistr('\30B5\30A4\30F3\30A2\30A6\30C8')
+,p_list_item_link_target=>'&LOGOUT_URL.'
+,p_list_item_icon=>'fa-sign-out'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 end;
@@ -9904,6 +9916,8 @@ wwv_flow_api.create_authentication(
  p_id=>wwv_flow_api.id(3163693271029081)
 ,p_name=>'Application Express Account'
 ,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
+,p_invalid_session_type=>'LOGIN'
+,p_cookie_name=>'&WORKSPACE_COOKIE.'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
 );
@@ -10080,7 +10094,7 @@ unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\3
 '2018/10/30 - ynakakos',
 unistr('Consulting Only\306E\8CC7\6599\304C\307F\3093\306A\306B\30EA\30B9\30C8\3055\308C\3066\3044\305F\306E\3067\3001\30EA\30B9\30C8\3055\308C\306A\3044\3088\3046\691C\7D22\6761\4EF6\3092\8FFD\52A0\3057\305F\3002')))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190121174254'
+,p_last_upd_yyyymmddhh24miss=>'20190207182614'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(222177690165576318)
@@ -11147,7 +11161,7 @@ unistr('\3000\3000\3000\3000where contains(title, :AI_CONTAINS) > 0 or contains(
 '    )',
 '  )',
 ') tg',
-'where hashtag not in (select hashtag from tags_wv)',
+'where hashtag not in (select tag from tags_wv)',
 'group by hashtag order by 3 desc'))
 ,p_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'select 1 from apex_collections where ',
@@ -11266,7 +11280,6 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'REGION_TEMPLATE_EDIT'
 ,p_button_redirect_url=>'f?p=TCWEB:5:&SESSION.::&DEBUG.:RP::'
 ,p_icon_css_classes=>'fa-angle-right'
-,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(223413482742630455)
@@ -11500,16 +11513,17 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181212104059'
+,p_last_upd_yyyymmddhh24miss=>'20190207111314'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(3164497401029103)
-,p_plug_name=>'TCWEB Launcher'
+,p_plug_name=>'&APP_NAME.'
 ,p_icon_css_classes=>'fa-sign-in'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(195939756941503806)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'

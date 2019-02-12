@@ -15,19 +15,19 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2591850376018325
+,p_default_workspace_id=>2572007049043414
 ,p_default_application_id=>101
 ,p_default_owner=>'TCWEB'
 );
 end;
 /
  
-prompt APPLICATION 101 - TCWEB Seminars
+prompt APPLICATION 101 - Seminars
 --
 -- Application Export:
 --   Application:     101
---   Name:            TCWEB Seminars
---   Date and Time:   11:30 水曜日 1月 23, 2019
+--   Name:            Seminars
+--   Date and Time:   10:52 火曜日 2月 12, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -84,7 +84,7 @@ wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,101)
 ,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
-,p_name=>nvl(wwv_flow_application_install.get_application_name,'TCWEB Seminars')
+,p_name=>nvl(wwv_flow_application_install.get_application_name,'Seminars')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'SEMINAR')
 ,p_page_view_logging=>'YES'
 ,p_page_protection_enabled_y_n=>'Y'
@@ -95,14 +95,24 @@ wwv_flow_api.create_flow(
 ,p_flow_language_derived_from=>'FLOW_PRIMARY_LANGUAGE'
 ,p_direction_right_to_left=>'N'
 ,p_flow_image_prefix => nvl(wwv_flow_application_install.get_image_prefix,'')
+,p_documentation_banner=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Copyright 2019, Yuji Nakakoshi',
+'',
+'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modi'
+||'fy, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:',
+'',
+'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.',
+'',
+'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDE'
+||'RS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'))
 ,p_authentication=>'PLUGIN'
 ,p_authentication_id=>wwv_flow_api.id(7939284250574582)
 ,p_populate_roles=>'A'
 ,p_application_tab_set=>0
-,p_logo_image=>'TEXT:TCWEB Seminars'
+,p_logo_image=>'TEXT:&APP_CAT_NAME. Seminars'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
-,p_flow_version=>'2018.07.05'
+,p_flow_version=>'20190207'
 ,p_flow_status=>'AVAILABLE_W_EDIT_LINK'
 ,p_flow_unavailable_text=>unistr('\3053\306E\30A2\30D7\30EA\30B1\30FC\30B7\30E7\30F3\306F\3001\73FE\6642\70B9\3067\306F\4F7F\7528\3067\304D\307E\305B\3093\3002')
 ,p_exact_substitutions_only=>'Y'
@@ -110,8 +120,12 @@ wwv_flow_api.create_flow(
 ,p_browser_frame=>'D'
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
+,p_substitution_string_01=>'APP_NAME'
+,p_substitution_value_01=>'UCSAMPLE Seminars'
+,p_substitution_string_02=>'APP_CAT_NAME'
+,p_substitution_value_02=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190123112216'
+,p_last_upd_yyyymmddhh24miss=>'20190208173738'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_ui_type_name => null
@@ -196,7 +210,7 @@ wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(88369193835376333)
 ,p_list_item_display_sequence=>100
 ,p_list_item_link_text=>'Home'
-,p_list_item_link_target=>'f?p=TCWEB::&SESSION.::&DEBUG.::::'
+,p_list_item_link_target=>'f?p=LAUNCHER::&SESSION.::&DEBUG.::::'
 ,p_list_item_icon=>'fa-home'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
@@ -9965,6 +9979,8 @@ wwv_flow_api.create_authentication(
  p_id=>wwv_flow_api.id(7939284250574582)
 ,p_name=>'APEX Account'
 ,p_scheme_type=>'NATIVE_APEX_ACCOUNTS'
+,p_invalid_session_type=>'LOGIN'
+,p_cookie_name=>'&WORKSPACE_COOKIE.'
 ,p_use_secure_cookie_yn=>'N'
 ,p_ras_mode=>0
 );
@@ -13713,13 +13729,13 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\51FA\5E2D\8005\4E00\89A7')
 ,p_page_mode=>'MODAL'
-,p_step_title=>unistr('TCWEB: \51FA\5E2D\8005\4E00\89A7')
+,p_step_title=>unistr('\51FA\5E2D\8005\4E00\89A7')
 ,p_step_sub_title=>unistr('\51FA\5E2D\8005\4E00\89A7')
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#:ui-dialog--stretch'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217140713'
+,p_last_upd_yyyymmddhh24miss=>'20190208173738'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(88944923305567502)
@@ -15883,16 +15899,17 @@ wwv_flow_api.create_page(
 ,p_page_template_options=>'#DEFAULT#'
 ,p_page_is_public_y_n=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181206175635'
+,p_last_upd_yyyymmddhh24miss=>'20190207111124'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(7940051805574631)
-,p_plug_name=>'TCWEB Seminars'
+,p_plug_name=>'&APP_NAME.'
 ,p_icon_css_classes=>'fa-sign-in'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_api.id(88335272468376000)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'BODY'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'TEXT'
 ,p_attribute_03=>'Y'
