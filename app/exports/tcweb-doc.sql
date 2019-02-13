@@ -15,9 +15,9 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572007049043414
+,p_default_workspace_id=>2572072612020613
 ,p_default_application_id=>100
-,p_default_owner=>'TCWEB'
+,p_default_owner=>'UCSAMPLE'
 );
 end;
 /
@@ -27,7 +27,7 @@ prompt APPLICATION 100 - Documents
 -- Application Export:
 --   Application:     100
 --   Name:            Documents
---   Date and Time:   10:51 火曜日 2月 12, 2019
+--   Date and Time:   15:37 水曜日 2月 13, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -45,9 +45,9 @@ prompt APPLICATION 100 - Documents
 --     Dynamic Actions:         41
 --   Shared Components:
 --     Logic:
---       Items:                  7
+--       Items:                  6
 --       Processes:              1
---       Computations:           5
+--       Computations:           3
 --       App Settings:           2
 --       Build Options:          7
 --     Navigation:
@@ -77,7 +77,7 @@ prompt APPLICATION 100 - Documents
 --     E-Mail:
 --       Templates:              2
 --   Supporting Objects:  Included
---     Install scripts:          4
+--     Install scripts:          5
 
 prompt --application/delete_application
 begin
@@ -89,7 +89,7 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,100)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'UCSAMPLE')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'Documents')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'TCWEB')
 ,p_page_view_logging=>'YES'
@@ -135,7 +135,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_02=>'APP_CAT_NAME'
 ,p_substitution_value_02=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190208162910'
+,p_last_upd_yyyymmddhh24miss=>'20190213150911'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>6
 ,p_ui_type_name => null
@@ -684,12 +684,6 @@ wwv_flow_api.create_flow_item(
 ,p_protection_level=>'I'
 );
 wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(16615747388709011)
-,p_name=>'IN_CONSULTING'
-,p_protection_level=>'I'
-,p_item_comment=>unistr('TCW_CONSUL_USER\306B\30A8\30F3\30C8\30EA\304C\3042\308B\3001\3064\307E\308A\30B3\30F3\30B5\30EB\30C6\30A3\30F3\30B0\90E8\9580\3067\3042\308C\3070\3001\FF11\3001\305D\308C\4EE5\5916\306F\FF10\3068\3059\308B\3002')
-);
-wwv_flow_api.create_flow_item(
  p_id=>wwv_flow_api.id(16616122367716628)
 ,p_name=>'MY_OPEN_REMARKS'
 ,p_protection_level=>'I'
@@ -713,16 +707,6 @@ end;
 /
 prompt --application/shared_components/logic/application_computations
 begin
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(16617864181782485)
-,p_computation_sequence=>10
-,p_computation_item=>'IN_CONSULTING'
-,p_computation_point=>'AFTER_LOGIN'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from tcw_consul_user where upper(u_email) = :APP_USER'
-,p_computation_comment=>unistr('\30B3\30F3\30B5\30EB\30C6\30A3\30F3\30B0\6240\5C5E\304B\3069\3046\304B\3001\78BA\8A8D\3057\3066\30D5\30E9\30B0\3092\7ACB\3066\308B\30020\3088\308A\5927\304D\3051\308C\3070\3001\30B3\30F3\30B5\30EB\30C6\30A3\30F3\30B0\6240\5C5E\3068\3044\3046\610F\5473\306B\306A\308B\3002')
-);
 wwv_flow_api.create_flow_computation(
  p_id=>wwv_flow_api.id(16618103430821599)
 ,p_computation_sequence=>10
@@ -750,16 +734,6 @@ wwv_flow_api.create_flow_computation(
 unistr('\3000\3000or link_num in '),
 '(select link_num from tcw_doc_acls where user_name = :APP_USER);'))
 ,p_computation_comment=>unistr('\81EA\5206\304C\6700\7D42\66F4\65B0\8005\304B\7DE8\96C6\6A29\9650\3092\6301\3063\3066\3044\308B\8CC7\6599\306E\6570\3002')
-);
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(16617682976772619)
-,p_computation_sequence=>10
-,p_computation_item=>'IN_CONSULTING'
-,p_computation_point=>'ON_NEW_INSTANCE'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from tcw_consul_user where upper(u_email) = :APP_USER'
-,p_computation_comment=>unistr('\30B3\30F3\30B5\30EB\30C6\30A3\30F3\30B0\6240\5C5E\304B\3069\3046\304B\78BA\8A8D\3057\3066\3001\30D5\30E9\30B0\3092\7ACB\3066\308B\3002')
 );
 wwv_flow_api.create_flow_computation(
  p_id=>wwv_flow_api.id(16618494215858563)
@@ -967,30 +941,10 @@ wwv_flow_api.create_static_lov_data(
 ,p_lov_return_value=>'1'
 );
 wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(16623245294980871)
-,p_lov_disp_sequence=>2
-,p_lov_disp_value=>'Company Confidential'
-,p_lov_return_value=>'2'
-);
-wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(16623708957980871)
 ,p_lov_disp_sequence=>3
-,p_lov_disp_value=>'Internal Use Only'
+,p_lov_disp_value=>unistr('\975E\516C\958B\8CC7\6599')
 ,p_lov_return_value=>'3'
-);
-wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(16624036165980871)
-,p_lov_disp_sequence=>4
-,p_lov_disp_value=>'Strictly Confidential'
-,p_lov_return_value=>'4'
-);
-wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(16624512072980872)
-,p_lov_disp_sequence=>5
-,p_lov_disp_value=>'Consulting Only'
-,p_lov_return_value=>'5'
-,p_lov_disp_cond_type=>'EXISTS'
-,p_lov_disp_cond=>'select 1 from tcw_consul_user where u_email = lower(:APP_USER)'
 );
 wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(16624904706980872)
@@ -1014,28 +968,10 @@ wwv_flow_api.create_static_lov_data(
 ,p_lov_return_value=>'1'
 );
 wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(16625970129980873)
-,p_lov_disp_sequence=>2
-,p_lov_disp_value=>'Company Confidential'
-,p_lov_return_value=>'2'
-);
-wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(16626354780980874)
 ,p_lov_disp_sequence=>3
-,p_lov_disp_value=>'Internal Use Only'
+,p_lov_disp_value=>unistr('\975E\516C\958B\8CC7\6599')
 ,p_lov_return_value=>'3'
-);
-wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(16626725927980874)
-,p_lov_disp_sequence=>4
-,p_lov_disp_value=>'Strictly Confidential'
-,p_lov_return_value=>'4'
-);
-wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(16627196840980875)
-,p_lov_disp_sequence=>5
-,p_lov_disp_value=>'Consulting Only'
-,p_lov_return_value=>'5'
 );
 wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(16627588419980875)
@@ -1220,7 +1156,7 @@ wwv_flow_api.create_menu_option(
 );
 wwv_flow_api.create_menu_option(
  p_id=>wwv_flow_api.id(16769932612091650)
-,p_short_name=>unistr('TCWEB: \30D7\30ED\30D5\30A1\30A4\30EB')
+,p_short_name=>unistr('&APP_CAT_NAME.: \30D7\30ED\30D5\30A1\30A4\30EB')
 ,p_link=>'f?p=&APP_ID.:4:&SESSION.'
 ,p_page_id=>4
 );
@@ -10589,7 +10525,7 @@ wwv_flow_api.create_email_template(
  p_id=>wwv_flow_api.id(7988033044810120)
 ,p_name=>'TCWEBEMAILCREATE'
 ,p_static_id=>'TCWEBEMAILCREATE'
-,p_subject=>unistr('[TCWEB \65B0\898F\4F5C\6210\901A\77E5] #TITLE#')
+,p_subject=>unistr('[&APP_CAT_NAME. \65B0\898F\4F5C\6210\901A\77E5] #TITLE#')
 ,p_html_body=>wwv_flow_string.join(wwv_flow_t_varchar2(
 unistr('#USER#\3055\3093\304C\3001\4EE5\4E0B\306E\6587\66F8\3092\65B0\898F\767B\9332\3057\307E\3057\305F\3002<br/>'),
 '#TITLE#<br/>',
@@ -10603,7 +10539,7 @@ wwv_flow_api.create_email_template(
  p_id=>wwv_flow_api.id(7988325065814298)
 ,p_name=>'TCWEBEMAILUPDATE'
 ,p_static_id=>'TCWEBEMAILUPDATE'
-,p_subject=>unistr('[TCWEB\66F4\65B0\901A\77E5] #TITLE#')
+,p_subject=>unistr('[&APP_CAT_NAME.\66F4\65B0\901A\77E5] #TITLE#')
 ,p_html_body=>wwv_flow_string.join(wwv_flow_t_varchar2(
 unistr('#USER#\3055\3093\304C\3001\4EE5\4E0B\306E\30C9\30AD\30E5\30E1\30F3\30C8\3092\66F4\65B0\3057\307E\3057\305F\3002<br/>'),
 '#TITLE#<br/>',
@@ -11950,7 +11886,7 @@ wwv_flow_api.create_page(
 ,p_protection_level=>'C'
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190208162910'
+,p_last_upd_yyyymmddhh24miss=>'20190213145245'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(149606109433524990)
@@ -11993,12 +11929,16 @@ wwv_flow_api.create_region_column(
 ,p_source_expression=>'LINK_TYPE'
 ,p_data_type=>'NUMBER'
 ,p_is_query_only=>false
-,p_item_type=>'NATIVE_TEXT_FIELD'
+,p_item_type=>'NATIVE_SELECT_LIST'
 ,p_heading=>unistr('\30EA\30F3\30AF\5148')
-,p_heading_alignment=>'RIGHT'
+,p_heading_alignment=>'LEFT'
 ,p_display_sequence=>50
-,p_value_alignment=>'RIGHT'
+,p_value_alignment=>'LEFT'
 ,p_is_required=>true
+,p_lov_type=>'SHARED'
+,p_lov_id=>wwv_flow_api.id(16628434918980876)
+,p_lov_display_extra=>false
+,p_lov_display_null=>false
 ,p_enable_filter=>true
 ,p_filter_operators=>'C:S:CASE_INSENSITIVE:REGEXP'
 ,p_filter_is_required=>false
@@ -12800,6 +12740,9 @@ wwv_flow_api.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 ,p_process_when_button_id=>wwv_flow_api.id(16695630460073489)
 );
+end;
+/
+begin
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(16692798712073480)
 ,p_process_sequence=>110
@@ -12813,9 +12756,6 @@ wwv_flow_api.create_page_process(
 ,p_attribute_08=>'Y'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
-end;
-/
-begin
 wwv_flow_api.create_page_process(
  p_id=>wwv_flow_api.id(16706620676073515)
 ,p_process_sequence=>10
@@ -12863,7 +12803,7 @@ wwv_flow_api.create_page(
 ,p_deep_linking=>'Y'
 ,p_help_text=>'No help is available for this page.'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190208160247'
+,p_last_upd_yyyymmddhh24miss=>'20190213144105'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(191689245485862391)
@@ -14314,7 +14254,7 @@ wwv_flow_api.create_worksheet(
 ,p_show_detail_link=>'N'
 ,p_show_notify=>'Y'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>209067423032877921
 );
 wwv_flow_api.create_worksheet_column(
@@ -14391,7 +14331,7 @@ wwv_flow_api.create_worksheet(
 ,p_show_detail_link=>'N'
 ,p_show_notify=>'Y'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>209067786323877924
 );
 wwv_flow_api.create_worksheet_column(
@@ -14707,7 +14647,7 @@ wwv_flow_api.create_page(
 unistr('\76F4\63A5\30EA\30F3\30AF\304B\3089\691C\7D22\7D50\679C\3092\8868\793A\3059\308B\3002<br/>'),
 '',
 '<p>',
-'  https://tcweb.jp.xxxxxx.com/TCWEB/search?q=%23CLOUD+FastConnect  ',
+'  https://tcweb.jp.xxxxxx.com/&APP_CAT_NAME./search?q=%23CLOUD+FastConnect  ',
 '</p>',
 '',
 unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\308D\3001#\305D\306E\307E\307E\3060\3068\30DA\30FC\30B8\5185\306E\30A2\30F3\30AB\30FC\3068\8A8D\8B58\3055\308C\3066\3057\307E\3046\306E\3067\3001%23\306B\7F6E\304D\63DB\3048\3066\6307\5B9A\3059\308B\3002')))
@@ -14715,7 +14655,7 @@ unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\3
 '2018/10/30 - ynakakos',
 unistr('Consulting Only\306E\8CC7\6599\304C\307F\3093\306A\306B\30EA\30B9\30C8\3055\308C\3066\3044\305F\306E\3067\3001\30EA\30B9\30C8\3055\308C\306A\3044\3088\3046\691C\7D22\6761\4EF6\3092\8FFD\52A0\3057\305F\3002')))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190122160012'
+,p_last_upd_yyyymmddhh24miss=>'20190213150818'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(16280514363282323)
@@ -14747,7 +14687,7 @@ unistr('/* Document - \30BF\30B0\4E00\89A7 */'),
 'with doc_own_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
 '    on d.link_num = a.link_num',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
 '  group by d.link_num    ',
 ')',
@@ -14836,13 +14776,13 @@ unistr('/* Document - \30BF\30B0\691C\7D22 */'),
 '), doc_own_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
 '    on d.link_num = a.link_num',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
 '  group by d.link_num    ',
 '), doc_acls_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a ',
 '    on d.link_num = a.link_num ',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and',
 '  (',
 '    (',
@@ -14878,7 +14818,7 @@ unistr('/* Document - \30BF\30B0\691C\7D22 */'),
 'and s.link_num in',
 '(',
 '  select l.link_num from tcw_documents l',
-'  where l.opl_code > 0 and l.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where l.opl_code > 0',
 '  and',
 '  (',
 '    (',
@@ -15101,13 +15041,13 @@ unistr('/* Document - \691C\7D22\7D50\679C\4E00\89A7 */'),
 '), doc_own_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
 '    on d.link_num = a.link_num',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
 '  group by d.link_num    ',
 '), doc_acls_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a ',
 '    on d.link_num = a.link_num ',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and',
 '  (',
 '    (',
@@ -15145,15 +15085,9 @@ unistr('/* Document - \691C\7D22\7D50\679C\4E00\89A7 */'),
 '  l.link_num as link_num,',
 '  case',
 '  when l.opl_code = 1 then',
-unistr('    ''<div class="tcw-confsquare orange" title="\516C\958B\8CC7\6599"/>'''),
-'  when l.opl_code = 2 then',
-'    ''<div class="tcw-confsquare blue"   title="Company Confidential"/>''',
+unistr('    ''<div class="tcw-confsquare orange" title="\516C\958B"/>'''),
 '  when l.opl_code = 3 then',
-'    ''<div class="tcw-confsquare green"  title="Internal Use Only"/>''',
-'  when l.opl_code = 4 then',
-'    ''<div class="tcw-confsquare red"    title="Strictly Confidential"/>''',
-'  when l.opl_code = 5 then',
-'    ''<div class="tcw-confsquare black"  title="Consulting Only"/>''',
+unistr('    ''<div class="tcw-confsquare green"  title="\975E\516C\958B"/>'''),
 '  when l.opl_code = 6 then',
 '    ''<div class="tcw-confsquare black"  title="Private"/>''',
 '  else to_char(l.opl_code)',
@@ -15183,7 +15117,7 @@ unistr('    ''<div class="tcw-confsquare orange" title="\516C\958B\8CC7\6599"/>'
 '       on l.link_num = d.link_num',
 '    left outer join tcw_user_names u on l.upd_username = u.user_name',
 '    left outer join tcw_doc_links_v k on l.link_num = k.link_num',
-'where l.opl_code > 0 and l.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'where l.opl_code > 0',
 'and',
 '(',
 '  (',
@@ -15273,7 +15207,7 @@ wwv_flow_api.create_worksheet(
 ,p_show_pivot=>'N'
 ,p_show_flashback=>'N'
 ,p_download_formats=>'CSV:HTML:XLS'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>342551469278080141
 );
 wwv_flow_api.create_worksheet_column(
@@ -16737,7 +16671,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>198884990539300133
 );
 wwv_flow_api.create_worksheet_column(
@@ -16833,7 +16767,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190128153453'
+,p_last_upd_yyyymmddhh24miss=>'20190213150911'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(191805847973960735)
@@ -16863,8 +16797,7 @@ wwv_flow_api.create_page_plug(
 '  when h.last_updated_by is null then l.upd_username',
 '  else h.last_updated_by',
 '  end last_updated_by',
-'from tcw_documents l join tcw_download_history h on l.link_num = h.link_num',
-' and l.in_consulting <= nvl(:IN_CONSULTING, 0)'))
+'from tcw_documents l join tcw_download_history h on l.link_num = h.link_num'))
 ,p_plug_source_type=>'NATIVE_IR'
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 );
@@ -16880,7 +16813,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>208069353249394060
 );
 wwv_flow_api.create_worksheet_column(
@@ -17277,7 +17210,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>208563160376370051
 );
 wwv_flow_api.create_worksheet_column(
@@ -17784,7 +17717,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>179279886735019338
 );
 wwv_flow_api.create_worksheet_column(
@@ -17879,7 +17812,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(16442535747688750)
 ,p_name=>unistr('\30ED\30B0\30A4\30F3\30FB\30DA\30FC\30B8')
 ,p_alias=>'LOGIN_DESKTOP'
-,p_step_title=>unistr('TCWEB for All - \30B5\30A4\30F3\30A4\30F3')
+,p_step_title=>unistr('&APP_CAT_NAME. - \30B5\30A4\30F3\30A4\30F3')
 ,p_warn_on_unsaved_changes=>'N'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_first_item=>'AUTO_FIRST_ITEM'
@@ -22909,7 +22842,6 @@ wwv_flow_api.create_install_script(
 '	"OBJ_VERSION" VARCHAR2(250) NOT NULL ENABLE, ',
 '	"LINK_URL" VARCHAR2(250), ',
 '	"ANNOUNCE_FLAG" NUMBER, ',
-'	"IN_CONSULTING" NUMBER GENERATED ALWAYS AS (CASE "OPL_CODE" WHEN 5 THEN 1 ELSE 0 END) VIRTUAL , ',
 '	"UPD_USERNAME" VARCHAR2(80) NOT NULL ENABLE, ',
 '	"REG_USERNAME" VARCHAR2(80) NOT NULL ENABLE, ',
 '	"ABSTRACT" VARCHAR2(4000), ',
@@ -22976,10 +22908,6 @@ wwv_flow_api.create_install_script(
 '	"USERNAME" VARCHAR2(80) NOT NULL ENABLE, ',
 '	"LAST_UPDATE_DATE" TIMESTAMP (6) WITH TIME ZONE NOT NULL ENABLE, ',
 '	"NOTIFY_UPDATE" VARCHAR2(1)',
-'   ) ;',
-'',
-'CREATE TABLE "TCW_CONSUL_USER" ',
-'   (	"U_EMAIL" VARCHAR2(80) NOT NULL ENABLE',
 '   ) ;',
 '',
 'CREATE TABLE "TCW_DOC_ARCHIVES" ',
@@ -23707,7 +23635,6 @@ wwv_flow_api.create_install_script(
 '                                p_c001 => l_owners);',
 '  end if;',
 'end;',
-'',
 'function get_contains return varchar2 ',
 'as ',
 '  l_token        apex_collections.c001%type; ',
@@ -23777,10 +23704,10 @@ wwv_flow_api.create_install_script(
 '  l_placeholders varchar2(4000);',
 '  l_title      tcw_documents.obj_name%type; ',
 '  l_link       varchar2(200); ',
-'  l_from       varchar2(80) := ''TCWEB Updates <noreply@xxxxxx.com>''; ',
+'  l_from       varchar2(80) := ''&APP_CAT_NAME. Updates <noreply@xxxxxx.com>''; ',
 'begin ',
 '  select obj_name into l_title from tcw_documents where link_num = p_doc_id; ',
-'  l_link := ''https://tcweb.jp.xxxxx.com/TCWEB/detail?id='' || p_doc_id; ',
+'  l_link := ''https://tcweb.jp.xxxxx.com/&APP_CAT_NAME./detail?id='' || p_doc_id; ',
 '  for c in (select lower(username) as email from tcw_doc_notifications  ',
 '            where link_num = p_doc_id and notify_update = ''Y'' ',
 '            union ',
@@ -23850,9 +23777,6 @@ wwv_flow_api.create_install_object(
 ,p_created_by=>'ADMIN'
 ,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
 );
-end;
-/
-begin
 wwv_flow_api.create_install_object(
  p_id=>wwv_flow_api.id(7887302651549150)
 ,p_script_id=>wwv_flow_api.id(7886572723549122)
@@ -23864,6 +23788,9 @@ wwv_flow_api.create_install_object(
 ,p_created_by=>'ADMIN'
 ,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
 );
+end;
+/
+begin
 wwv_flow_api.create_install_object(
  p_id=>wwv_flow_api.id(7887441119549150)
 ,p_script_id=>wwv_flow_api.id(7886572723549122)
@@ -23980,17 +23907,6 @@ wwv_flow_api.create_install_object(
 ,p_object_owner=>'#OWNER#'
 ,p_object_type=>'PACKAGE'
 ,p_object_name=>'TCW_UTIL'
-,p_last_updated_by=>'ADMIN'
-,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-,p_created_by=>'ADMIN'
-,p_created_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
-);
-wwv_flow_api.create_install_object(
- p_id=>wwv_flow_api.id(7890650530549153)
-,p_script_id=>wwv_flow_api.id(7886572723549122)
-,p_object_owner=>'#OWNER#'
-,p_object_type=>'TABLE'
-,p_object_name=>'TCW_CONSUL_USER'
 ,p_last_updated_by=>'ADMIN'
 ,p_last_updated_on=>to_date('20181206171813','YYYYMMDDHH24MISS')
 ,p_created_by=>'ADMIN'
@@ -24435,6 +24351,20 @@ unistr('insert into tcw_content_types(content_type,content_type_alias,descriptio
 unistr('insert into tcw_content_types(content_type,content_type_alias,description) values(''application/acrobat'',''PDF'',''Adobe Acrobat \30D5\30A1\30A4\30EB'');'),
 unistr('insert into tcw_content_types(content_type,content_type_alias,description) values(''image/jpeg'',''JPEG'',''JPEG\753B\50CF\30D5\30A1\30A4\30EB'');'),
 'commit;'))
+);
+end;
+/
+prompt --application/deployment/install/install_tcw_link_types
+begin
+wwv_flow_api.create_install_script(
+ p_id=>wwv_flow_api.id(2632086351101665)
+,p_install_id=>wwv_flow_api.id(16884398981722630)
+,p_name=>'tcw_link_types'
+,p_sequence=>60
+,p_script_type=>'INSTALL'
+,p_script_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'insert into tcw_link_types(link_type_id, link_type_name, created_by, creation_date, last_updated_by, last_update_date) ',
+'values(10, ''Link'', ''ADMIN'', systimestamp, ''ADMIN'', systimestamp);'))
 );
 end;
 /

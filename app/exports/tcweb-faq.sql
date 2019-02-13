@@ -15,9 +15,9 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572007049043414
+,p_default_workspace_id=>2572072612020613
 ,p_default_application_id=>102
-,p_default_owner=>'TCWEB'
+,p_default_owner=>'UCSAMPLE'
 );
 end;
 /
@@ -27,7 +27,7 @@ prompt APPLICATION 102 - FAQ
 -- Application Export:
 --   Application:     102
 --   Name:            FAQ
---   Date and Time:   10:52 火曜日 2月 12, 2019
+--   Date and Time:   15:38 水曜日 2月 13, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -83,7 +83,7 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,102)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'UCSAMPLE')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'FAQ')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'FAQ')
 ,p_page_view_logging=>'YES'
@@ -109,7 +109,7 @@ wwv_flow_api.create_flow(
 ,p_authentication_id=>wwv_flow_api.id(7252816797345442)
 ,p_populate_roles=>'A'
 ,p_application_tab_set=>0
-,p_logo_image=>'TEXT:TCWEB FAQ'
+,p_logo_image=>'TEXT:&APP_CAT_NAME. FAQ'
 ,p_proxy_server=>nvl(wwv_flow_application_install.get_proxy,'')
 ,p_no_proxy_domains=>nvl(wwv_flow_application_install.get_no_proxy_domains,'')
 ,p_flow_version=>'20190207'
@@ -13044,7 +13044,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'D'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20190111174216'
 );
 end;
@@ -13063,7 +13063,7 @@ wwv_flow_api.create_page(
 ,p_step_template=>wwv_flow_api.id(95681474753606579)
 ,p_page_template_options=>'#DEFAULT#'
 ,p_deep_linking=>'Y'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20190118121919'
 );
 wwv_flow_api.create_report_region(
@@ -13713,7 +13713,7 @@ wwv_flow_api.create_page(
 ,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20190116173936'
 );
 wwv_flow_api.create_page_plug(
@@ -14130,7 +14130,7 @@ wwv_flow_api.create_page(
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20181221135107'
 );
 wwv_flow_api.create_page_plug(
@@ -14175,7 +14175,7 @@ wwv_flow_api.create_worksheet(
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
 ,p_detail_link=>'f?p=&APP_ID.:2:&SESSION.:MANAGE:&DEBUG.:RP,2:P2_FAQ_ID:#FAQ_ID#'
 ,p_detail_link_text=>'<img src="#IMAGE_PREFIX#app_ui/img/icons/apex-edit-pencil.png" class="apex-edit-pencil" alt="">'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>88659435063905841
 );
 wwv_flow_api.create_worksheet_column(
@@ -14653,7 +14653,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_dialog_width=>'800'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20181220181721'
 );
 wwv_flow_api.create_page_plug(
@@ -15153,7 +15153,7 @@ wwv_flow_api.create_page(
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20190111132156'
 );
 wwv_flow_api.create_page_plug(
@@ -15179,7 +15179,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>125458086151933993
 );
 wwv_flow_api.create_worksheet_column(
@@ -15252,7 +15252,7 @@ wwv_flow_api.create_page(
 ,p_dialog_width=>'480'
 ,p_dialog_chained=>'N'
 ,p_page_is_public_y_n=>'Y'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20190110114309'
 );
 wwv_flow_api.create_page_plug(
@@ -15409,7 +15409,7 @@ wwv_flow_api.create_page(
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20190110114331'
 );
 wwv_flow_api.create_page_plug(
@@ -15463,7 +15463,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(95729011956606868)
 ,p_name=>unistr('\30ED\30B0\30A4\30F3\30FB\30DA\30FC\30B8')
 ,p_alias=>'LOGIN_DESKTOP'
-,p_step_title=>unistr('TCWEB FAQ - \30ED\30B0\30A4\30F3')
+,p_step_title=>unistr('&APP_CAT_NAME. FAQ - \30ED\30B0\30A4\30F3')
 ,p_warn_on_unsaved_changes=>'N'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_first_item=>'AUTO_FIRST_ITEM'

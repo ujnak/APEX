@@ -15,9 +15,9 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572007049043414
+,p_default_workspace_id=>2572072612020613
 ,p_default_application_id=>101
-,p_default_owner=>'TCWEB'
+,p_default_owner=>'UCSAMPLE'
 );
 end;
 /
@@ -27,7 +27,7 @@ prompt APPLICATION 101 - Seminars
 -- Application Export:
 --   Application:     101
 --   Name:            Seminars
---   Date and Time:   10:52 火曜日 2月 12, 2019
+--   Date and Time:   15:38 水曜日 2月 13, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -83,7 +83,7 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,101)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'UCSAMPLE')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'Seminars')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'SEMINAR')
 ,p_page_view_logging=>'YES'
@@ -125,7 +125,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_02=>'APP_CAT_NAME'
 ,p_substitution_value_02=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190208173738'
+,p_last_upd_yyyymmddhh24miss=>'20190213152846'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_ui_type_name => null
@@ -10024,7 +10024,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\30BB\30DF\30CA\30FC\4E00\89A7')
 ,p_alias=>'LIST'
-,p_step_title=>unistr('TCWEB: \30BB\30DF\30CA\30FC\4E00\89A7')
+,p_step_title=>unistr('&APP_CAT_NAME.: \30BB\30DF\30CA\30FC\4E00\89A7')
 ,p_step_sub_title=>unistr('\30DB\30FC\30E0')
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
@@ -10123,9 +10123,9 @@ wwv_flow_api.create_page(
 '',
 '/* === calendar-block-date from doorkeeper ==== */',
 '.calendar-block { padding: 2px 2px; width: 10%; }',
-'.calendar-block-date{display:flex;flex-direction:column;flex:0 0 68px;width:68px;height:68px;border-radius:16px;border:1px solid rgba(0,0,0,0.1);line-height:1}',
-'.calendar-block-date .weekday-wrap{display:flex;align-items:center;justify-content:center;flex:0 0 18px;background-color:#34bde9;border-radius:16px 16px 0 0;box-shadow:0 -1px 0 rgba(52,189,233,0.5);border-bottom:1px solid rgba(52,189,233,0.5)}',
-'.calendar-block-date .weekday-wrap-past{display:flex;align-items:center;justify-content:center;flex:0 0 18px;background-color:#71797d;border-radius:16px 16px 0 0;box-shadow:0 -1px 0 rgba(113,121,125,0.5);border-bottom:1px solid rgba(113,121,125,0.5)}',
+'.calendar-block-date{display:flex;flex-direction:column;flex:0 0 68px;width:68px;height:68px;border-radius:0px;border:1px solid rgba(0,0,0,0.1);line-height:1}',
+'.calendar-block-date .weekday-wrap{display:flex;align-items:center;justify-content:center;flex:0 0 18px;background-color:#0404B4;border-radius:0px 0px 0 0;box-shadow:0 -1px 0 rgba(52,189,233,0.5);border-bottom:1px solid rgba(52,189,233,0.5)}',
+'.calendar-block-date .weekday-wrap-past{display:flex;align-items:center;justify-content:center;flex:0 0 18px;background-color:#000000;border-radius:0px 0px 0 0;box-shadow:0 -1px 0 rgba(113,121,125,0.5);border-bottom:1px solid rgba(113,121,125,0.5)}',
 '.calendar-block-date .day-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1}',
 '.calendar-block-date .month{display:block;margin-bottom:2px;font-size:12px;color:#71797d}',
 '.calendar-block-date .day{font-size:24px}',
@@ -10133,7 +10133,7 @@ wwv_flow_api.create_page(
 ''))
 ,p_page_template_options=>'#DEFAULT#'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20181217140456'
+,p_last_upd_yyyymmddhh24miss=>'20190213152846'
 );
 wwv_flow_api.create_report_region(
  p_id=>wwv_flow_api.id(80447560647302050)
@@ -10829,7 +10829,7 @@ wwv_flow_api.create_worksheet(
 ,p_show_detail_link=>'N'
 ,p_show_notify=>'Y'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>87064869331144841
 );
 wwv_flow_api.create_worksheet_column(
@@ -11117,14 +11117,14 @@ wwv_flow_api.create_page(
  p_id=>2
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\30BB\30DF\30CA\30FC\767B\9332')
-,p_step_title=>unistr('TCWEB: \30BB\30DF\30CA\30FC\767B\9332')
+,p_step_title=>unistr('&APP_CAT_NAME.: \30BB\30DF\30CA\30FC\767B\9332')
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190123112216'
+,p_last_upd_yyyymmddhh24miss=>'20190213151236'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(88503538716026258)
@@ -11543,7 +11543,7 @@ wwv_flow_api.create_page_item(
 ,p_cMaxlength=>240
 ,p_field_template=>wwv_flow_api.id(88357795005376101)
 ,p_item_template_options=>'#DEFAULT#'
-,p_inline_help_text=>unistr('\534A\89D2\30B9\30DA\30FC\30B9\533A\5207\308A\3002TCWEB\306E\30E1\30A4\30F3\30DA\30FC\30B8\3067\306E\30BF\30B0\691C\7D22\306B\4F7F\7528\3055\308C\307E\3059\3002')
+,p_inline_help_text=>unistr('\534A\89D2\30B9\30DA\30FC\30B9\533A\5207\308A\3002\30BF\30B0\691C\7D22\306B\4F7F\7528\3055\308C\307E\3059\3002')
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
@@ -11947,7 +11947,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\30BB\30DF\30CA\30FC\8A73\7D30')
 ,p_alias=>'DETAIL'
-,p_step_title=>unistr('TCWEB: \30BB\30DF\30CA\30FC\8A73\7D30')
+,p_step_title=>unistr('&APP_CAT_NAME.: \30BB\30DF\30CA\30FC\8A73\7D30')
 ,p_step_sub_title=>'Seminar Detail'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
@@ -12560,7 +12560,7 @@ wwv_flow_api.create_page(
  p_id=>4
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\30BB\30DF\30CA\30FC\7DE8\96C6')
-,p_step_title=>unistr('TCWEB: \30BB\30DF\30CA\30FC\7DE8\96C6')
+,p_step_title=>unistr('&APP_CAT_NAME.: \30BB\30DF\30CA\30FC\7DE8\96C6')
 ,p_step_sub_title=>'List Entries'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
@@ -13516,7 +13516,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\7DE8\96C6\6A29\9650\306E\5272\5F53')
 ,p_page_mode=>'MODAL'
-,p_step_title=>unistr('TCWEB: \7DE8\96C6\6A29\9650\306E\5272\5F53')
+,p_step_title=>unistr('&APP_CAT_NAME.: \7DE8\96C6\6A29\9650\306E\5272\5F53')
 ,p_step_sub_title=>'Edit Owners'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
@@ -13804,7 +13804,7 @@ wwv_flow_api.create_worksheet(
 ,p_show_detail_link=>'N'
 ,p_show_notify=>'Y'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>93173187322433225
 );
 wwv_flow_api.create_worksheet_column(
@@ -13866,7 +13866,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\30E1\30FC\30EB\9001\4FE1')
 ,p_page_mode=>'MODAL'
-,p_step_title=>unistr('TCWEB: \30E1\30FC\30EB\9001\4FE1')
+,p_step_title=>unistr('&APP_CAT_NAME.: \30E1\30FC\30EB\9001\4FE1')
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#:ui-dialog--stretch'
@@ -14229,7 +14229,7 @@ wwv_flow_api.create_page(
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#:ui-dialog--stretch'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20180721002125'
 );
 wwv_flow_api.create_page_plug(
@@ -14255,7 +14255,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>91861461835182333
 );
 wwv_flow_api.create_worksheet_column(
@@ -14313,7 +14313,7 @@ wwv_flow_api.create_page(
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20180920175209'
 );
 wwv_flow_api.create_page_plug(
@@ -14368,7 +14368,7 @@ wwv_flow_api.create_worksheet(
 ,p_show_detail_link=>'N'
 ,p_show_notify=>'Y'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>101555345797648704
 );
 wwv_flow_api.create_worksheet_column(
@@ -14582,7 +14582,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>103717509469665334
 );
 wwv_flow_api.create_worksheet_column(
@@ -14808,7 +14808,7 @@ wwv_flow_api.create_page(
 ,p_autocomplete_on_off=>'OFF'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_deep_linking=>'Y'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20181011151421'
 );
 wwv_flow_api.create_page_plug(
@@ -14870,7 +14870,7 @@ wwv_flow_api.create_worksheet(
 ,p_report_list_mode=>'TABS'
 ,p_show_detail_link=>'N'
 ,p_download_formats=>'CSV:HTML:EMAIL:XLS:PDF:RTF'
-,p_owner=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_owner=>'ADMIN'
 ,p_internal_uid=>107310966943689635
 );
 wwv_flow_api.create_worksheet_column(
@@ -15125,7 +15125,7 @@ wwv_flow_api.create_page(
 ,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
 ,p_page_template_options=>'#DEFAULT#'
 ,p_protection_level=>'C'
-,p_last_updated_by=>'YUJI.NAKAKOSHI@ORACLE.COM'
+,p_last_updated_by=>'ADMIN'
 ,p_last_upd_yyyymmddhh24miss=>'20181012183356'
 );
 wwv_flow_api.create_page_plug(
@@ -15890,7 +15890,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(88369080520376263)
 ,p_name=>unistr('\30ED\30B0\30A4\30F3\30FB\30DA\30FC\30B8')
 ,p_alias=>'LOGIN_DESKTOP'
-,p_step_title=>unistr('TCWEB Seminars - \30ED\30B0\30A4\30F3')
+,p_step_title=>unistr('&APP_CAT_NAME. Seminars - \30ED\30B0\30A4\30F3')
 ,p_warn_on_unsaved_changes=>'N'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_first_item=>'AUTO_FIRST_ITEM'

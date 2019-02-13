@@ -15,9 +15,9 @@ begin
 wwv_flow_api.import_begin (
  p_version_yyyy_mm_dd=>'2018.05.24'
 ,p_release=>'18.2.0.00.12'
-,p_default_workspace_id=>2572007049043414
+,p_default_workspace_id=>2572072612020613
 ,p_default_application_id=>103
-,p_default_owner=>'TCWEB'
+,p_default_owner=>'UCSAMPLE'
 );
 end;
 /
@@ -27,7 +27,7 @@ prompt APPLICATION 103 - Launcher
 -- Application Export:
 --   Application:     103
 --   Name:            Launcher
---   Date and Time:   10:53 火曜日 2月 12, 2019
+--   Date and Time:   15:39 水曜日 2月 13, 2019
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -39,14 +39,13 @@ prompt APPLICATION 103 - Launcher
 --   Pages:                      2
 --     Items:                    5
 --     Processes:               10
---     Regions:                 13
---     Buttons:                  7
+--     Regions:                 12
+--     Buttons:                  6
 --   Shared Components:
 --     Logic:
---       Items:                  6
+--       Items:                  2
 --       Processes:              1
---       Computations:           5
---       Build Options:          2
+--       Build Options:          1
 --     Navigation:
 --       Lists:                  2
 --       Breadcrumbs:            1
@@ -82,7 +81,7 @@ begin
 wwv_flow_api.create_flow(
  p_id=>wwv_flow.g_flow_id
 ,p_display_id=>nvl(wwv_flow_application_install.get_application_id,103)
-,p_owner=>nvl(wwv_flow_application_install.get_schema,'TCWEB')
+,p_owner=>nvl(wwv_flow_application_install.get_schema,'UCSAMPLE')
 ,p_name=>nvl(wwv_flow_application_install.get_application_name,'Launcher')
 ,p_alias=>nvl(wwv_flow_application_install.get_application_alias,'LAUNCHER')
 ,p_page_view_logging=>'YES'
@@ -126,7 +125,7 @@ wwv_flow_api.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'UCSAMPLE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190207182614'
+,p_last_upd_yyyymmddhh24miss=>'20190213153703'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_ui_type_name => null
 );
@@ -147,14 +146,6 @@ wwv_flow_api.create_list(
  p_id=>wwv_flow_api.id(195973484654504076)
 ,p_name=>'Desktop Navigation Bar'
 ,p_list_status=>'PUBLIC'
-);
-wwv_flow_api.create_list_item(
- p_id=>wwv_flow_api.id(226691864548547946)
-,p_list_item_display_sequence=>50
-,p_list_item_link_text=>'Open Feedbacks(&OPEN_FEEDBACK_COUNT.)'
-,p_list_item_disp_cond_type=>'PLSQL_EXPRESSION'
-,p_list_item_disp_condition=>'apex_util.current_user_in_group(''DBSOL'')'
-,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_api.create_list_item(
  p_id=>wwv_flow_api.id(226426365009964929)
@@ -247,86 +238,15 @@ wwv_flow_api.create_flow_item(
 ,p_item_comment=>unistr('Oracle Text\3067\306Econtains\306B\6307\5B9A\3059\308B\6761\4EF6\3092\4FDD\5B58\3059\308B\3002')
 );
 wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(140554733987174349)
-,p_name=>'IN_CONSULTING'
-,p_protection_level=>'I'
-,p_item_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
-unistr('2018/10/30 - ynakakos\3000\65B0\898F\4F5C\6210'),
-unistr('TCW_CONSUL_USER\306B\30A8\30F3\30C8\30EA\304C\3042\308B\3001\3064\307E\308A\30B3\30F3\30B5\30EB\30C6\30A3\30F3\30B0\90E8\9580\3067\3042\308C\3070\3001\FF11\3001\305D\308C\4EE5\5916\306F\FF10\3068\3059\308B\3002')))
-);
-wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(226683380153133366)
-,p_name=>'OPEN_FEEDBACK_COUNT'
-,p_protection_level=>'I'
-);
-wwv_flow_api.create_flow_item(
  p_id=>wwv_flow_api.id(150598750646340612)
 ,p_name=>'P0_KEYWORD'
 ,p_protection_level=>'N'
-);
-wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(197197413235196320)
-,p_name=>'TOTAL_FAS'
-,p_protection_level=>'I'
-,p_required_patch=>wwv_flow_api.id(3169605828039986)
-);
-wwv_flow_api.create_flow_item(
- p_id=>wwv_flow_api.id(197197608989197965)
-,p_name=>'WEEK_FAS'
-,p_protection_level=>'I'
-,p_required_patch=>wwv_flow_api.id(3169605828039986)
 );
 end;
 /
 prompt --application/shared_components/logic/application_computations
 begin
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(140533630715194289)
-,p_computation_sequence=>10
-,p_computation_item=>'IN_CONSULTING'
-,p_computation_point=>'AFTER_LOGIN'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from tcw_consul_user where upper(u_email) = :APP_USER'
-);
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(197208309378213507)
-,p_computation_sequence=>10
-,p_computation_item=>'TOTAL_FAS'
-,p_computation_point=>'BEFORE_HEADER'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from fal_alerts'
-,p_required_patch=>wwv_flow_api.id(3169605828039986)
-);
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(197208432511217783)
-,p_computation_sequence=>10
-,p_computation_item=>'WEEK_FAS'
-,p_computation_point=>'BEFORE_HEADER'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from fal_alerts where updatedate between sysdate - interval ''7'' day and sysdate;'
-,p_required_patch=>wwv_flow_api.id(3169605828039986)
-);
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(140533390154191842)
-,p_computation_sequence=>10
-,p_computation_item=>'IN_CONSULTING'
-,p_computation_point=>'ON_NEW_INSTANCE'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from tcw_consul_user where upper(u_email) = :APP_USER'
-);
-wwv_flow_api.create_flow_computation(
- p_id=>wwv_flow_api.id(226683687989136961)
-,p_computation_sequence=>10
-,p_computation_item=>'OPEN_FEEDBACK_COUNT'
-,p_computation_point=>'ON_NEW_INSTANCE'
-,p_computation_type=>'QUERY'
-,p_computation_processed=>'REPLACE_EXISTING'
-,p_computation=>'select count(*) from apex_team_feedback where feedback_status <> 4;'
-);
+null;
 end;
 /
 prompt --application/shared_components/logic/application_settings
@@ -9869,11 +9789,6 @@ end;
 prompt --application/shared_components/logic/build_options
 begin
 wwv_flow_api.create_build_option(
- p_id=>wwv_flow_api.id(3169605828039986)
-,p_build_option_name=>unistr('\6A5F\80FD: Field Alert')
-,p_build_option_status=>'EXCLUDE'
-);
-wwv_flow_api.create_build_option(
  p_id=>wwv_flow_api.id(3172217634297493)
 ,p_build_option_name=>unistr('\6A5F\80FD: FAQ')
 ,p_build_option_status=>'INCLUDE'
@@ -10043,7 +9958,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(195973547878504079)
 ,p_name=>unistr('\30DD\30FC\30BF\30EB')
 ,p_alias=>'LAUNCHER'
-,p_step_title=>unistr('TCWEB: \30DB\30FC\30E0')
+,p_step_title=>unistr('&APP_CAT_NAME.: \30DB\30FC\30E0')
 ,p_step_sub_title=>'Launcher'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_autocomplete_on_off=>'OFF'
@@ -10085,7 +10000,7 @@ wwv_flow_api.create_page(
 unistr('\76F4\63A5\30EA\30F3\30AF\304B\3089\691C\7D22\7D50\679C\3092\8868\793A\3059\308B\3002<br/>'),
 '',
 '<p>',
-'  https://tcweb.jp.oracle.com/TCWEB/home?q=%23CLOUD+FastConnect  ',
+'  https://hostname/&APP_CAT_NAME./home?q=%23CLOUD+FastConnect  ',
 '</p>',
 '',
 unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\308D\3001#\305D\306E\307E\307E\3060\3068\30DA\30FC\30B8\5185\306E\30A2\30F3\30AB\30FC\3068\8A8D\8B58\3055\308C\3066\3057\307E\3046\306E\3067\3001%23\306B\7F6E\304D\63DB\3048\3066\6307\5B9A\3059\308B\3002'),
@@ -10094,7 +10009,7 @@ unistr('\30BF\30B0\306B\306F\672C\6765''#''\3092\6307\5B9A\3059\308B\3068\3053\3
 '2018/10/30 - ynakakos',
 unistr('Consulting Only\306E\8CC7\6599\304C\307F\3093\306A\306B\30EA\30B9\30C8\3055\308C\3066\3044\305F\306E\3067\3001\30EA\30B9\30C8\3055\308C\306A\3044\3088\3046\691C\7D22\6761\4EF6\3092\8FFD\52A0\3057\305F\3002')))
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20190207182614'
+,p_last_upd_yyyymmddhh24miss=>'20190213153437'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(222177690165576318)
@@ -10108,104 +10023,6 @@ wwv_flow_api.create_page_plug(
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
 ,p_menu_template_id=>wwv_flow_api.id(195963320814503942)
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
-);
-wwv_flow_api.create_report_region(
- p_id=>wwv_flow_api.id(222177813463576319)
-,p_name=>'Field Alert [1W/T:&WEEK_FAS./&TOTAL_FAS.]'
-,p_template=>wwv_flow_api.id(195940019181503806)
-,p_display_sequence=>80
-,p_include_in_reg_disp_sel_yn=>'Y'
-,p_region_template_options=>'#DEFAULT#:t-Region--noPadding:t-Region--scrollBody'
-,p_component_template_options=>'#DEFAULT#:t-Report--stretch:t-Report--altRowsDefault:t-Report--rowHighlight'
-,p_display_point=>'BODY'
-,p_source_type=>'NATIVE_SQL_REPORT'
-,p_query_type=>'SQL'
-,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'select ',
-'a."ALERTID",',
-unistr('a.TYPE || a.NO\3000as NO,'),
-'a."TITLE",',
-'a."CATEGORY",',
-'date_util.get_since(a."UPDATEDATE") as updatedate',
-' from   "FAL_ALERTS"  a',
-'order by a.updatedate desc nulls last'))
-,p_display_when_condition=>wwv_flow_string.join(wwv_flow_t_varchar2(
-'declare',
-'   c number;',
-'begin',
-'  if nvl(tcw_util.get_preference(''SHOW_FIELDALERTS''),''Y'') = ''N'' then',
-'    return false;',
-'  end if;',
-'  select 1 into c from apex_collections where ',
-'  collection_name in (''SEARCH_WORDS'',''SEARCH_HASHTAGS'')',
-'  fetch first 1 rows only;',
-'  return false;',
-'exception',
-'  when no_data_found then',
-'    return true;',
-'end;'))
-,p_display_condition_type=>'FUNCTION_BODY'
-,p_ajax_enabled=>'Y'
-,p_query_row_template=>wwv_flow_api.id(195949926057503850)
-,p_query_num_rows=>10
-,p_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_query_show_nulls_as=>'-'
-,p_csv_output=>'N'
-,p_prn_output=>'N'
-,p_sort_null=>'L'
-,p_plug_query_strip_html=>'N'
-,p_required_patch=>wwv_flow_api.id(3169605828039986)
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(222178678283576328)
-,p_query_column_id=>1
-,p_column_alias=>'ALERTID'
-,p_column_display_sequence=>1
-,p_hidden_column=>'Y'
-,p_derived_column=>'N'
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(222179562791576337)
-,p_query_column_id=>2
-,p_column_alias=>'NO'
-,p_column_display_sequence=>2
-,p_column_heading=>'No'
-,p_column_link=>'f?p=FIELDALERT:2:&SESSION.::&DEBUG.:RP,2:P2_ALERTID:#ALERTID#'
-,p_column_linktext=>'#NO#'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(222178841838576330)
-,p_query_column_id=>3
-,p_column_alias=>'TITLE'
-,p_column_display_sequence=>3
-,p_column_heading=>unistr('\30BF\30A4\30C8\30EB')
-,p_use_as_row_header=>'N'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(222178983507576331)
-,p_query_column_id=>4
-,p_column_alias=>'CATEGORY'
-,p_column_display_sequence=>4
-,p_column_heading=>unistr('\30AB\30C6\30B4\30EA')
-,p_use_as_row_header=>'N'
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
-);
-wwv_flow_api.create_report_columns(
- p_id=>wwv_flow_api.id(222179461548576336)
-,p_query_column_id=>5
-,p_column_alias=>'UPDATEDATE'
-,p_column_display_sequence=>5
-,p_column_heading=>unistr('\66F4\65B0\65E5')
-,p_use_as_row_header=>'N'
-,p_column_format=>'YYYY/MM/DD'
-,p_report_column_width=>80
-,p_derived_column=>'N'
-,p_include_in_export=>'Y'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(222179635543576338)
@@ -10416,31 +10233,25 @@ unistr('/* Launcher - \30C9\30AD\30E5\30E1\30F3\30C8 */'),
 '), doc_own_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
 '    on d.link_num = a.link_num',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0 ',
 '  and',
 '    (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
 '  group by d.link_num    ',
 ')',
 'select case',
 '       when l.opl_code = 1 then',
-unistr('         ''<div class="tcw-confsquare orange" title="\516C\958B\8CC7\6599"/>'''),
-'       when l.opl_code = 2 then',
-'         ''<div class="tcw-confsquare blue"   title="Oracle Confidential"/>''',
+unistr('         ''<div class="tcw-confsquare orange" title="\516C\958B"/>'''),
 '       when l.opl_code = 3 then',
-'         ''<div class="tcw-confsquare green"  title="Internal Use Only"/>''',
-'       when l.opl_code = 4 then',
-'         ''<div class="tcw-confsquare red"    title="Strictly Confidential"/>''',
-'       when l.opl_code = 5 then',
-'         ''<div class="tcw-confsquare black"  title="Consulting Only"/>''',
+unistr('         ''<div class="tcw-confsquare green"  title="\975E\516C\958B"/>'''),
 '       when l.opl_code = 6 then',
-'         ''<div class="tcw-confsquare black"  title="Private"/>''',
+unistr('         ''<div class="tcw-confsquare black"  title="\30D7\30E9\30A4\30D9\30FC\30C8"/>'''),
 '       else to_char(l.opl_code)',
 '       end opl_code,',
 '       l.obj_name as title,',
 '       l.link_num,',
 '       case',
 '       when u.last_name is null then',
-'          translate(regexp_replace(l.upd_username, ''(.*)@ORACLE.COM'',''\1''),''.'','' '')',
+'          translate(regexp_replace(l.upd_username, ''(.*)@XXXXXX.COM'',''\1''),''.'','' '')',
 '       else',
 '          u.last_name || '' '' || u.first_name',
 '       end owner,',
@@ -10768,7 +10579,7 @@ wwv_flow_api.create_report_region(
 '       date_util.get_since(f.last_update_date) as last_update_date,',
 '       case ',
 '         when u.last_name is null then ',
-'            regexp_replace(last_updated_by, ''(.*)@ORACLE.COM'',''\1'')',
+'            regexp_replace(last_updated_by, ''(.*)@XXXXXX.COM'',''\1'')',
 '         else ',
 '            u.last_name || '' '' || u.first_name',
 '       end owner,',
@@ -10919,7 +10730,7 @@ unistr('/* Launcher - \30BF\30B0\4E00\89A7 */'),
 'with doc_own_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
 '    on d.link_num = a.link_num',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and',
 '    (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
 '  group by d.link_num    ',
@@ -10988,9 +10799,6 @@ wwv_flow_api.create_report_columns(
 ,p_derived_column=>'N'
 ,p_include_in_export=>'Y'
 );
-end;
-/
-begin
 wwv_flow_api.create_report_columns(
  p_id=>wwv_flow_api.id(52260589637426431)
 ,p_query_column_id=>3
@@ -11044,7 +10852,7 @@ unistr('/* Launcher - \30BF\30B0\691C\7D22 */'),
 '), doc_own_wv as (',
 '  select d.link_num from tcw_documents d left outer join tcw_doc_acls a',
 '    on d.link_num = a.link_num',
-'  where d.opl_code > 0 and d.in_consulting <= nvl(:IN_CONSULTING, 0)',
+'  where d.opl_code > 0',
 '  and',
 '    (d.opl_code < 6 or d.upd_username = :APP_USER or a.user_name = :APP_USER)',
 '  group by d.link_num    ',
@@ -11177,6 +10985,9 @@ unistr('\3000\3000\3000\3000where contains(title, :AI_CONTAINS) > 0 or contains(
 ,p_sort_null=>'L'
 ,p_plug_query_strip_html=>'N'
 );
+end;
+/
+begin
 wwv_flow_api.create_report_columns(
  p_id=>wwv_flow_api.id(52260658618426432)
 ,p_query_column_id=>1
@@ -11255,20 +11066,6 @@ wwv_flow_api.create_page_button(
 ,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_button(
- p_id=>wwv_flow_api.id(222178037031576322)
-,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_api.id(222177813463576319)
-,p_button_name=>'TO_FIELDALERT'
-,p_button_action=>'REDIRECT_APP'
-,p_button_template_options=>'#DEFAULT#:t-Button--iconRight'
-,p_button_template_id=>wwv_flow_api.id(195962914539503940)
-,p_button_image_alt=>unistr('Field Alert\3078')
-,p_button_position=>'REGION_TEMPLATE_EDIT'
-,p_button_redirect_url=>'f?p=FIELDALERT:1:&SESSION.::&DEBUG.:RP::'
-,p_icon_css_classes=>'fa-angle-right'
-,p_grid_new_grid=>false
-);
-wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(223409145987630417)
 ,p_button_sequence=>10
 ,p_button_plug_id=>wwv_flow_api.id(311029574591742113)
@@ -11280,6 +11077,7 @@ wwv_flow_api.create_page_button(
 ,p_button_position=>'REGION_TEMPLATE_EDIT'
 ,p_button_redirect_url=>'f?p=TCWEB:5:&SESSION.::&DEBUG.:RP::'
 ,p_icon_css_classes=>'fa-angle-right'
+,p_grid_new_grid=>false
 );
 wwv_flow_api.create_page_button(
  p_id=>wwv_flow_api.id(223413482742630455)
@@ -11504,7 +11302,7 @@ wwv_flow_api.create_page(
 ,p_user_interface_id=>wwv_flow_api.id(195973547878504079)
 ,p_name=>unistr('\30ED\30B0\30A4\30F3\30FB\30DA\30FC\30B8')
 ,p_alias=>'LOGIN_DESKTOP'
-,p_step_title=>unistr('TCWEB Launcher - \30ED\30B0\30A4\30F3')
+,p_step_title=>unistr('&APP_CAT_NAME. Launcher - \30ED\30B0\30A4\30F3')
 ,p_warn_on_unsaved_changes=>'N'
 ,p_step_sub_title_type=>'TEXT_WITH_SUBSTITUTIONS'
 ,p_first_item=>'AUTO_FIRST_ITEM'
