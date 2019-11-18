@@ -24,7 +24,7 @@ https://blogs.oracle.com/apex/apex-181-early-adopter-2-rest-services-and-plsql
 7. Web Source Typeとして、**ORACLE REST Data Services**を選択します。
 8. Nameとして、**REST DEPT Source**を入力します。
 9. URL Endpointとして、dept.restハンドラのREST URIを入力したのち、**Next**をクリックします。
-*次のようなURLです。https://<< your service >>/dpeake_rest/**dept**/hol/*
+*次のようなURLです。https://<< your service >>/demo/**dept**/hol/*
 
     ![](images/5/web-source-type.png)
      

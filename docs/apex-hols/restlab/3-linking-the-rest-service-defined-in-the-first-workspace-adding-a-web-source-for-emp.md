@@ -12,7 +12,7 @@
 5. Web Source Typeとして、**ORACLE REST Data Services**を選択します。
 6. Nameとして、**REST EMP Source**を選択します。
 7. URL Endpointとして、先ほどテストしたREST URIを入力します。その後、**Next**をクリックします。
-    *次のようなURLです。https://<< your service >>/dpeake_rest/emp/hol/*
+    *次のようなURLです。https://<< your service >>/demo/emp/hol/*
 
     ![](images/3/web-source-type.png)
 
@@ -52,7 +52,7 @@
     | URL Pattern | 入力 | **:empno** |
     | HTTP Method | 選択 | **PUT** |
     | Database Operation | 選択 | **Update row** |
-    - Click **Create**
+    - **Create**をクリックします。
 
 5. **Add Operation**をクリックして、以下を入力します:
 
@@ -68,4 +68,4 @@
 ## まとめ
 
 これで演習３は完了です。この演習では、演習１で定義したRESTエンドポイントを、Webソースを作成して紐付けることを学びました。
-[ここをクリックして、演習４へ進みます](4-defining-the-report-and-form-on-emp-creating-pages.md)
+[ここをクリックして、演習４へ進みます。](4-defining-the-report-and-form-on-emp-creating-pages.md)

@@ -1,6 +1,6 @@
-# 演習１: RESTエンドポイントの構築 - サンプル表の作成し、RESTを有効化します。
+# 演習１: RESTエンドポイントの構築 - サンプル表を作成し、RESTを有効化します。
 
-この演習では、最初に使用するサンプル・データセットを作成し、データをインポートした後、RESTエンドポイントを作成します。作成したRESTエンドポイントを検証します。作成されたRESTエンドポイントのURLは、その後のWebソース・モジュールの作成に使用されます。
+この演習では、最初に使用するサンプル・データセットを作成し、データをインポートした後、RESTエンドポイントを作成します。その後、作成したRESTエンドポイントを検証します。作成されたRESTエンドポイントのURLは、その後のWebソース・モジュールの作成に使用されます。
 ### **パート１**: 1番目のワークスペースにEMP表とDEPT表を作成します。
 
 1. 1番目のワークスペースにログインします。
@@ -19,7 +19,7 @@
     ![](images/1/select-sql-script.png)
 2. **Create**をクリックします。  
     ![](images/1/click-create.png)
-3. 新しくブラウザのウィンドウにて、以下のURLを開きます:
+3. 新しいブラウザのウィンドウにて、以下のURLを開きます:
 http://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-hol-rest-enable-5478504.txt
 
 4. スクリプト・エディタにて:
@@ -29,7 +29,7 @@ http://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-
 
     ![](images/1/script-name.png)
     - **Run Now**をクリックします。
-    *４行に実行が成功したというメッセージが結果として表示されます。*
+    *４行の実行が成功したというメッセージが結果として表示されます。*
 
     ![](images/1/scripts-created.png)
 
@@ -45,11 +45,11 @@ http://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-
 
 ## 参考情報
 
-パート２にて実行しているSQLスクリプトは、スキーマのREST対応を有効化と、EMP表とDEPT表それとEMP_DEPT_VビューのRESTモジュールと必要なハンドラの作成を行います。
+パート２にて実行しているSQLスクリプトは、スキーマのREST対応の有効化と、EMP表とDEPT表およびEMP_DEPT_VビューのRESTモジュールと必要なハンドラの作成を行います。
 
-これら処理が画面からも実施することができます。最初にSQL Workshop > RESTful Servicesを開いて、スキーマのRESTサービスを有効化します。その後、SQL Workshop > Object Browserを開いて、それぞれの表、ビューをクリックして、RESTタブを開き、RESTサービスを有効化します。この方法で作成されたRESTハンドラは、サービスが呼び出される度に、毎回データ・ディクショナリを参照します。そのため、パート２で個別に作成したハンドラより効率が落ちることになります。特にapex.oracle.comのように、20,000以上のスキーマがあり、データ・ディクショナリが非常に大きい場合は、それが顕著に現れます。
+これら処理は画面からも実施することができます。最初にSQL Workshop > RESTful Servicesを開いて、スキーマのRESTサービスを有効化します。その後、SQL Workshop > Object Browserを開いて、それぞれの表、ビューをクリックして、RESTタブを開き、RESTサービスを有効化します。この方法で作成されたRESTハンドラは、サービスが呼び出される度に、毎回データ・ディクショナリを参照します。そのため、パート２で個別に作成したハンドラより効率が落ちることになります。特にapex.oracle.comのように、20,000以上のスキーマがあり、データ・ディクショナリが非常に大きい場合は、それが顕著に現れます。
 
 ## まとめ
 
-これで演習１は完了です。この演習では、１番目のワークスペースに、EMPとDEPT表を作成し、この後の演習にてデータを表示するために使用するRESTエンドポイントを作成しました。
-[ここをクリックして演習２へ進みます](2-building-your-app-which-will-be-based-on-the-rest-endpoints-creating-the-app.md)
+これで演習１は完了です。この演習では、１番目のワークスペースに、EMPとDEPT表を作成し、この後の演習にてデータを操作するために使用するRESTエンドポイントを作成しました。
+[ここをクリックして、演習２へ進みます。](2-building-your-app-which-will-be-based-on-the-rest-endpoints-creating-the-app.md)

@@ -53,4 +53,4 @@
 
 ## まとめ
 
-これで演習２は完了です。これまでに、EMP表とDEPT表を作成した１番目のワークスペースからログオフし、作成たRESTエンドポイントの検証を終えています。この演習では、２番目のワークスペースを作成し、そこにアプリケーションを新規に作成しました。次の演習では、RESTサービスを呼び出すように、このアプリケーションを拡張します。[ここをクリックして、演習３へ進みます](3-linking-the-rest-service-defined-in-the-first-workspace-adding-a-web-source-for-emp.md)
+これで演習２は完了です。これまでに、EMP表とDEPT表を作成した１番目のワークスペースからログオフし、作成たRESTエンドポイントの検証を終えています。この演習では、２番目のワークスペースを作成し、そこにアプリケーションを新規に作成しました。次の演習では、RESTサービスを呼び出すように、このアプリケーションを拡張します。[ここをクリックして、演習３へ進みます。](3-linking-the-rest-service-defined-in-the-first-workspace-adding-a-web-source-for-emp.md)

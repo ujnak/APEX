@@ -16,12 +16,12 @@
 
 4. Navigation Preferenceとして**Create a new navigation menu entry**をクリックし、**Next**をクリックします。 
     ![](images/3/create-a-new-navigation-menu.png) 
-5. Table / View Nameとして、**SPREADSHEET (table)**を選択して、**Next**をクリックします。  
+5. Table / View Nameとして、**DEMO_PROJECT (table)**を選択して、**Next**をクリックします。  
     ![](images/3/new-calendar-page.png)
 6. Display Columnとして、**TASK_NAME**を選択します; End Date Columnとして、**END_DATE**を選択肢、**Create**をクリックします。  
     ![](images/3/click-create.png)
 
-### **パート２** – カレンダをクリックいして、フォームを呼び出せるようにします。
+### **パート２** – カレンダをクリックして、フォームを呼び出せるようにします。
 
 1. レンダリング・タブのカレンダの下にある**Attributes**をクリックします。
 2. プロパティ・エディタ（右のペイン）の、**View / Edit Link**をクリックします。
