@@ -1,0 +1,23 @@
+{
+  "lab": {
+    "title": "Building an App from a Spreadsheet with Oracle APEX",
+    "modules": [
+      {
+        "filename": "README.md",
+        "title": "Lab Introduction"
+      },
+      {
+        "filename": "1-building-your-first-app-creating-an-app-from-a-spreadsheet.md",
+        "title": "Module 1: Building your first app - Creating an App from a Spreadsheet"
+      },
+      {
+          "filename": "2-using-the-runtime-environment-improving-the-report-and-form.md",
+          "title": "Module 2: Using the Runtime Environment - Improving the Report and Form"
+      },
+      {
+        "filename": "3-using-the-runtime-environment-adding-a-calendar.md",
+        "title": "Module 3: Using the Runtime Environment - Adding a Calendar"
+      }
+    ]
+  }
+}

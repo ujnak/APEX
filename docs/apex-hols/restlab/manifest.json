@@ -1,0 +1,31 @@
+{
+  "lab": {
+    "title": "Building an App based on RESTful Services for Oracle Autonomous Cloud Service",
+    "modules": [
+      {
+        "filename": "README.md",
+        "title": "Lab Introduction"
+      },
+      {
+        "filename": "1-building-your-rest-end-points-creating-a-sample-tables-and-rest-enabling.md",
+        "title": "Module 1: Building your Rest End Points- Creating a Sample Tables and Rest Enabling"
+      },
+      {
+          "filename": "2-building-your-app-which-will-be-based-on-the-rest-endpoints-creating-the-app.md",
+          "title": "Module 2: Building your app which will be based on the rest endpoints - Creating the App"
+      },
+      {
+        "filename": "3-linking-the-rest-service-defined-in-the-first-workspace-adding-a-web-source-for-emp.md",
+        "title": "Module 3: Linking the Rest Service defined in the First Workspace- Adding a Web Source for EMP"
+      },
+      {
+        "filename": "4-defining-the-report-and-form-on-emp-creating-pages.md",
+        "title": "Module 4: Defining the Report and Form on EMP - Creating Pages"
+      },
+      {
+        "filename": "5-using-the-rest-service-on-dept-defining-list-of-values.md",
+        "title": "Module 5: Using the Rest Service on DEPT - Defining list of Values"
+      }
+    ]
+  }
+}
